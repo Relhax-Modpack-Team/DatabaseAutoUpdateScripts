@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<GlobalMacros documentVersion="1.0">
+  <Macro name="my_global_macro_name" value="my_global_macro_value" />
+</GlobalMacros>

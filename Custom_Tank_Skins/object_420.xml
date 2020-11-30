@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<AutomationSequence documentVersion="1.0">
+  <!-- Specify macros here -->
+  <Macros>
+    <Macro name="my_macro_name" value="my_macro_value" />
+  </Macros>
+  
+  <!-- Specify the tasks to run -->
+  <TaskDefinitions>
+    <Task name="the_task_name" arg1="arg1_value" />
+  </TaskDefinitions>
+</AutomationSequence>

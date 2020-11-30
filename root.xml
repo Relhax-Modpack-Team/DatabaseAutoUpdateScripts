@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<root.xml documentVersion="1.0">
+  <!-- The global macros definition file -->
+  <GlobalMacros path="global_macros.xml" />
+
+  <!-- Categories specifeid here for each "group" of package automation scripts -->
+  <!-- Category Custom Tank Skins START -->
+  <AutomationSequence UID="123456789ABCD" packageName="Some_rofl_op_russian_medium" path="Custom_Tank_Skins/object_420.xml" />
+  <!-- Category Custom Tank Skins END   -->
+</root.xml>
