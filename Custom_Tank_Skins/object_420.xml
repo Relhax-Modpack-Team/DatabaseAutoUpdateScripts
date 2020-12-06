@@ -2,11 +2,11 @@
 <AutomationSequence documentVersion="1.0">
   <!-- Specify macros here -->
   <Macros>
-    <Macro name="my_macro_name" value="my_macro_value" />
+    <Macro Name="my_macro_name" Value="my_macro_value" />
   </Macros>
   
   <!-- Specify the tasks to run -->
   <TaskDefinitions>
-    <Task name="the_task_name" arg1="arg1_value" />
+    <Task ID="the_task_name_1" Name="the_task_name" Arg1="arg1_value" />
   </TaskDefinitions>
 </AutomationSequence>
