@@ -7,6 +7,6 @@
   
   <!-- Specify the tasks to run -->
   <TaskDefinitions>
-    <Task ID="the_task_name_1" Command="the_task_name" Arg1="arg1_value" />
+    <Task ID="the_task_name_1" Command="download_static" Url="https://bigmods.relhaxmodpack.com/RelhaxModpack/RelhaxModpack.exe" DestinationPath="BestModpackEver.exe" />
   </TaskDefinitions>
 </AutomationSequence>
