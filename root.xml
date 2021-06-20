@@ -4,6 +4,11 @@
   <GlobalMacros path="global_macros.xml" />
 
   <!-- Categories specifeid here for each "group" of package automation scripts -->
+
+  <!-- Category Sound Mods START -->
+  <AutomationSequence UID="g8fqf3ueleg65em4" packageName="Sounds_CrewVoices_ENG_Basic_Relhax" path="Custom_Tank_Skins/object_420.xml" />
+  <!-- Category Sound Mods END   -->
+
   <!-- Category Custom Tank Skins START -->
   <AutomationSequence UID="123456789ABCD" packageName="Some_rofl_op_russian_medium" path="Custom_Tank_Skins/object_420.xml" />
   <!-- Category Custom Tank Skins END   -->
