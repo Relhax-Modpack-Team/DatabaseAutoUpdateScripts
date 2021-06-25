@@ -5,6 +5,11 @@
 
   <!-- Categories specifeid here for each "group" of package automation scripts -->
 
+  <!-- Category Crosshairs START -->
+  <AutomationSequence UID="d43zb130wzealrrr" packageName="Crosshairs_ArcadeSniper_Marksman_white" path="Crosshairs/Crosshairs_ArcadeSniper_Marksman_white.xml" />
+  <AutomationSequence UID="y8lus8c10liy9w7x" packageName="Crosshairs_ArcadeSniper_Marksman_yellow" path="Crosshairs/Crosshairs_ArcadeSniper_Marksman_yellow.xml" />
+  <!-- Category Crosshairs END   -->
+
   <!-- Category Sound Mods START -->
   <!-- NOTE: SEQUENCE g8fqf3ueleg65em4 IS A SAMPLE -->
   <AutomationSequence UID="g8fqf3ueleg65em4" packageName="Sounds_CrewVoices_ENG_Basic_Relhax" path="Custom_Tank_Skins/object_420.xml" />

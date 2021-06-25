@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<AutomationSequence documentVersion="1.0">
+  <!-- Specify macros here -->
+  <Macros>
+    <Macro Name="wgmods_url" Value="https://wgmods.net/4354"/>
+  </Macros>
+  
+  <!-- Specify the tasks to run -->
+  <TaskDefinitions>
+    <Task ID="download_mod_source" Command="download_browser" Url="{wgmods_url}" DestinationPath="{workDirectory}\{packageName}_source.zip" HtmlPath="{wgmods_xpath}" WaitTimeMs="500" WaitCounts="6"/>
+  </TaskDefinitions>
+
+  
+</AutomationSequence>
