@@ -2,7 +2,6 @@
 <AutomationSequence documentVersion="1.0">
   <!-- Specify macros here -->
   <Macros>
-    <Macro Name="wgmods_xpath" Value="//a[contains(@class, 'ModDetails_hidden')]//@href"/>
     <Macro Name="wgmods_url" Value="https://wgmods.net/2030/"/>
   </Macros>
   

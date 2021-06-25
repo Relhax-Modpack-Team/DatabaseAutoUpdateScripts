@@ -1,4 +1,4 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <GlobalMacros documentVersion="1.0">
-  <Macro Name="my_global_macro_name" Value="my_global_macro_value" />
+  <Macro Name="wgmods_xpath" Value="//a[contains(@class, 'ModDetails_hidden')]//@href"/>
 </GlobalMacros>
