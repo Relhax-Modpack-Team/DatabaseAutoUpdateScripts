@@ -7,11 +7,12 @@
   
   <!-- Specify the tasks to run -->
   <TaskDefinitions>
+    <!-- download the source and the modpack current zip file-->
     <Task ID="download_mod_source" Command="download_browser" Url="{wgmods_url}" DestinationPath="{workDirectory}\{packageName}_source.zip" HtmlPath="{wgmods_xpath}" WaitTimeMs="500" WaitCounts="6"/>
+    <Task ID="download_modpack" Command="package_download" FilePath="{workDirectory}\{packageName}_ftp.zip"/>
 
+    <!-- extract the source and modpack wotmod files-->
     <Task ID="extract_source_wotmod" Filename="7z.exe" Command="shell_exec" Wd="{workDirectory}" Cmd="e Crosshairs_ArcadeSniper_Marksman_white_source.zip Marksman_white.wotmod"/>
-
-    <Task ID="download_FTP" Command="package_download" FilePath="{workDirectory}\{packageName}_ftp.zip"/>
   </TaskDefinitions>
 
 </AutomationSequence>
