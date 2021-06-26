@@ -7,7 +7,7 @@
 
   <!-- Category Crosshairs START -->
   <AutomationSequence UID="d43zb130wzealrrr" packageName="Crosshairs_ArcadeSniper_Marksman_white" path="Crosshairs/Crosshairs_ArcadeSniper_Marksman_white.xml" />
-  <AutomationSequence UID="y8lus8c10liy9w7x" packageName="Crosshairs_ArcadeSniper_Marksman_yellow" path="Crosshairs/Crosshairs_ArcadeSniper_Marksman_yellow.xml" />
+  <AutomationSequence UID="y8lus8c10liy9w7x" packageName="Crosshairs_ArcadeSniper_Marksman_green" path="Crosshairs/Crosshairs_ArcadeSniper_Marksman_green.xml" />
   <!-- Category Crosshairs END   -->
 
   <!-- Category Sound Mods START -->
