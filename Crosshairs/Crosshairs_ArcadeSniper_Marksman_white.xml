@@ -33,7 +33,8 @@
     <Task ID="rename_modpack_swfs_1" Command="file_move" SourceFilePath="{workDirectory}\arcadeCrosshair.swf" DestinationFilePath="{workDirectory}\arcadeCrosshair_modpack.swf"/>
     <Task ID="rename_modpack_swfs_2" Command="file_move" SourceFilePath="{workDirectory}\sniperCrosshair.swf" DestinationFilePath="{workDirectory}\sniperCrosshair_modpack.swf"/>
 
-    <!-- TESTING: compare the hashes (disable this after initial run, this is just testing. the whole comparison system needs work) -->
+    <!-- compare the hashes (this is just testing. the whole comparison system needs work)
+    THE COMMAND CURRENTLY DOES NOT WORK (2021-06-25) -->
     <Task ID="compare_arcade" Command="file_compare" FileA="{workDirectory}\arcadeCrosshair_source.swf" FileB="{workDirectory}\arcadeCrosshair_modpack.swf"/>
     <Task ID="compare_sniper" Command="file_compare" FileA="{workDirectory}\sniperCrosshair_source.swf" FileB="{workDirectory}\sniperCrosshair_modpack.swf"/>
 
