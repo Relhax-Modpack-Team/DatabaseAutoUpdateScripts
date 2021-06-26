@@ -34,8 +34,8 @@
     <Task ID="rename_modpack_swfs_2" Command="file_move" SourceFilePath="{workDirectory}\sniperCrosshair.swf" DestinationFilePath="{workDirectory}\sniperCrosshair_modpack.swf"/>
 
     <!-- TESTING: compare the hashes (disable this after initial run, this is just testing. the whole comparison system needs work) -->
-    <Task ID="compare_arcade" Command="file_compare" FileA="arcadeCrosshair_source.swf" FileB="arcadeCrosshair_modpack.swf"/>
-    <Task ID="compare_sniper" Command="file_compare" FileA="sniperCrosshair_source.swf" FileB="sniperCrosshair_modpack.swf"/>
+    <Task ID="compare_arcade" Command="file_compare" FileA="{workDirectory}\arcadeCrosshair_source.swf" FileB="{workDirectory}\arcadeCrosshair_modpack.swf"/>
+    <Task ID="compare_sniper" Command="file_compare" FileA="{workDirectory}\sniperCrosshair_source.swf" FileB="{workDirectory}\sniperCrosshair_modpack.swf"/>
 
     <Task ID="move_arcade" Command="file_copy" SourceFilePath="{workDirectory}\arcadeCrosshair_source.swf" DestinationFilePath="{workDirectory}\arcade\res\gui\flash\arcadeCrosshair.swf"/>
     <Task ID="move_sniper" Command="file_copy" SourceFilePath="{workDirectory}\sniperCrosshair_source.swf" DestinationFilePath="{workDirectory}\sniper\res\gui\flash\sniperCrosshair.swf"/>
