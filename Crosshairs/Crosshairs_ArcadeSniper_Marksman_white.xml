@@ -52,7 +52,7 @@
     <Task ID="create_zip" Command="shell_exec" Filename="7z.exe" Wd="{workDirectory}\zip" Cmd="a -tzip -mx=9 -r final.zip mods"/>
 
     <!-- upload to the server -->
-    <Task ID="upload_zip" Command="package_upload" FilePath="final.zip" ZipFileName="{packageName}_{clientVersion}_{date}.zip"/>
+    <Task ID="upload_zip" Command="package_upload" FilePath="{workDirectory}\zip\final.zip" ZipFileName="{packageName}_{clientVersion}_{date}.zip"/>
   </TaskDefinitions>
 
 </AutomationSequence>
