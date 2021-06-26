@@ -4,7 +4,7 @@
   <Macros>
     <Macro Name="wgmods_url" Value="https://wgmods.net/4354"/>
   </Macros>
-  
+
   <!-- Specify the tasks to run -->
   <TaskDefinitions>
     <!-- download the source and the modpack current zip file-->
