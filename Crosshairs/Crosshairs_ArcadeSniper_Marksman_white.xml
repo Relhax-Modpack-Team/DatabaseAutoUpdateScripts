@@ -13,6 +13,7 @@
 
     <!-- extract the source and modpack wotmod files-->
     <Task ID="extract_source_wotmod" Filename="7z.exe" Command="shell_exec" Wd="{workDirectory}" Cmd="e Crosshairs_ArcadeSniper_Marksman_white_source.zip Marksman_white.wotmod"/>
+    <Task ID="extract_modpack_wotmods" Filename="7z.exe" Command="shell_exec" Wd="{workDirectory}" Cmd="e {packageName}_ftp.zip crosshair_arcade.wotmod crosshair_sniper.wotmod"/>
   </TaskDefinitions>
 
 </AutomationSequence>
