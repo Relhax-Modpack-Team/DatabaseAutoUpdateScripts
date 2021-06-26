@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<TaskDefinitions documentVersion="1.0">
-  <!-- Tasks will go here. The reccomendation is to template them with macros so that can be reused -->
-  <!-- <Task name="the_task_name" arg1="arg1_value" /> -->
-</TaskDefinitions>
+<AutomationSequence documentVersion="1.0">
+  <TaskDefinitions>
+    <!-- Tasks will go here. The reccomendation is to template them with macros so that can be reused -->
+    <!-- <Task name="the_task_name" arg1="arg1_value" /> -->
+  </TaskDefinitions>
+</AutomationSequence>
