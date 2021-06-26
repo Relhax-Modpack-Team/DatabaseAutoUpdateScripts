@@ -5,11 +5,6 @@
     <Macro Name="wgmods_url" Value="https://wgmods.net/4354"/>
   </Macros>
 
-  <!--
-    TEMPLATE TASKS FOR COPY PASTA
-    <Task ID="" Command="shell_exec" Filename="7z.exe" Wd="{workDirectory}" Cmd=""/>
-   -->
-
   <!-- Specify the tasks to run -->
   <TaskDefinitions>
     <!-- download the source and the modpack current zip file-->
