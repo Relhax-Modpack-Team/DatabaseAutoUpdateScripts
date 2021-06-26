@@ -45,11 +45,11 @@
     <Task ID="create_new_sniper_wotmod" Command="shell_exec" Filename="7z.exe" Wd="{workDirectory}\sniper" Cmd="a -tzip -mx=0 -r crosshair_sniper_new.wotmod res"/>
 
     <!-- move new wotmods to paths for 7zip to create a new zip file -->
-    <Task ID="move_wotmod_1" Command="file_copy" SourceFilePath="{workDirectory}\crosshair_arcade_new.wotmod" DestinationFilePath="{workDirectory}\zip\mods\versiondir\crosshair_arcade.wotmod"/>
-    <Task ID="move_wotmod_2" Command="file_copy" SourceFilePath="{workDirectory}\crosshair_sniper_new.wotmod" DestinationFilePath="{workDirectory}\zip\mods\versiondir\crosshair_sniper.wotmod"/>
+    <Task ID="move_wotmod_1" Command="file_copy" SourceFilePath="{workDirectory}\arcade\crosshair_arcade_new.wotmod" DestinationFilePath="{workDirectory}\zip\mods\versiondir\crosshair_arcade.wotmod"/>
+    <Task ID="move_wotmod_2" Command="file_copy" SourceFilePath="{workDirectory}\sniper\crosshair_sniper_new.wotmod" DestinationFilePath="{workDirectory}\zip\mods\versiondir\crosshair_sniper.wotmod"/>
 
     <!-- create the new zip -->
-    <Task ID="create_zip" Command="shell_exec" Filename="7z.exe" Wd="{workDirectory}\zip" Cmd="a -tzip -mx=9 -r final.zip res"/>
+    <Task ID="create_zip" Command="shell_exec" Filename="7z.exe" Wd="{workDirectory}\zip" Cmd="a -tzip -mx=9 -r final.zip mods"/>
 
     <!-- upload to the server -->
     <Task ID="upload_zip" Command="package_upload" FilePath="final.zip" ZipFileName="{packageName}_{clientVersion}_{date}.zip"/>
