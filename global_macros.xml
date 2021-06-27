@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <GlobalMacros documentVersion="1.0">
   <Macro Name="wgmods_xpath" Value="//a[contains(@class, 'ModDetails_hidden')]//@href"/>
+  <Macro Name="wotsite_xpath" Value="//a[contains(@class, 'btn-download')]//@href"/>
 </GlobalMacros>
