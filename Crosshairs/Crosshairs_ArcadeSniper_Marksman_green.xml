@@ -2,13 +2,15 @@
 <AutomationSequence documentVersion="1.0">
   <!-- Specify macros here -->
   <Macros>
-    <Macro Name="wgmods_url" Value="https://wgmods.net/4354"/>
   </Macros>
   
   <!-- Specify the tasks to run -->
   <TaskDefinitions>
+    <!-- Dynamically get the package dev url -->
+    <Task ID="get_download_url" Command="retrieve_package_property" PropertyName="DevURLList" TargetPackageUID="this" MacroSaveName="download_url" PropertyIndex="0"/>
+
     <!-- download the source and the modpack current zip file-->
-    <Task ID="download_mod_source" Command="download_browser" Url="{wgmods_url}" DestinationPath="{workDirectory}\{packageName}_source.zip" HtmlPath="{wgmods_xpath}" WaitTimeMs="500" WaitCounts="6"/>
+    <Task ID="download_mod_source" Command="download_browser" Url="{download_url}" DestinationPath="{workDirectory}\{packageName}_source.zip" HtmlPath="{wgmods_xpath}" WaitTimeMs="500" WaitCounts="6"/>
     <Task ID="download_modpack" Command="package_download" FilePath="{workDirectory}\{packageName}_ftp.zip"/>
 
     <!-- extract the source and modpack wotmod files-->

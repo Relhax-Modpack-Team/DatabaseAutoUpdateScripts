@@ -2,13 +2,12 @@
 <AutomationSequence documentVersion="1.0">
   <!-- Specify macros here -->
   <Macros>
-    <Macro Name="wgmods_url" Value="https://wgmods.net/4354"/>
   </Macros>
 
   <!-- Specify the tasks to run -->
   <TaskDefinitions>
-    <Task ID="update_package_property" Command="update_package_property" PropertyName="Version" TargetPackageUID="jqlsjxdh1gdlay9e" PropertyValue="420.69"/>
-    <Task ID="retrieve_package_property" Command="retrieve_package_property" PropertyName="DevURLList" TargetPackageUID="this" MacroSaveName="download_url" PropertyIndex="0"/>
+    <!-- Dynamically get the package dev url -->
+    <Task ID="get_download_url" Command="retrieve_package_property" PropertyName="DevURLList" TargetPackageUID="this" MacroSaveName="download_url" PropertyIndex="0"/>
 
     <!-- download the source and the modpack current zip file-->
     <Task ID="download_mod_source" Command="download_browser" Url="{download_url}" DestinationPath="{workDirectory}\{packageName}_source.zip" HtmlPath="{wgmods_xpath}" WaitTimeMs="500" WaitCounts="6"/>
