@@ -21,7 +21,5 @@
   <!-- Category Task SKins Misc END   -->
 
   <!-- Category Custom Tank Skins START -->
-  <!-- NOTE: SEQUENCE 123456789ABCD IS A SAMPLE -->
-  <AutomationSequence UID="123456789ABCD" packageName="Some_rofl_op_russian_medium" path="Custom_Tank_Skins/object_420.xml" />
   <!-- Category Custom Tank Skins END   -->
 </root.xml>
