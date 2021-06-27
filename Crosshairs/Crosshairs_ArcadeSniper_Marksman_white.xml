@@ -28,8 +28,6 @@
     <Task ID="rename_modpack_swfs_1" Command="file_move" SourceFilePath="{workDirectory}\arcadeCrosshair.swf" DestinationFilePath="{workDirectory}\arcadeCrosshair_modpack.swf"/>
     <Task ID="rename_modpack_swfs_2" Command="file_move" SourceFilePath="{workDirectory}\sniperCrosshair.swf" DestinationFilePath="{workDirectory}\sniperCrosshair_modpack.swf"/>
 
-    <Task ID="update_package_property" Command="update_package_property" PropertyName="Version" PropertyValue="420.69" TargetPackageUID="jqlsjxdh1gdlay9e"/>
-
     <!-- compare the hashes. this is done in 3 steps:
       1. write the compare_start task (resets the internal counters for matches and differences)
       2. use compare tasks to compare files on disk or an entry in a zip file
