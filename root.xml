@@ -5,6 +5,10 @@
 
   <!-- Categories specifeid here for each "group" of package automation scripts -->
 
+  <!-- Category Dependencies START -->
+  <AutomationSequence UID="a6y6dhrkqvba4d0k" packageName="LogicalDependency_MVI_BATTLE_CLEAR_noXVM" path="Dependencies/LogicalDependency_MVI_BATTLE_CLEAR_noXVM.xml" />
+  <!-- Category Dependencies END  -->
+
   <!-- Category Crosshairs START -->
   <AutomationSequence UID="d43zb130wzealrrr" packageName="Crosshairs_ArcadeSniper_Marksman_white" path="Crosshairs/Crosshairs_ArcadeSniper_Marksman_white.xml" />
   <AutomationSequence UID="y8lus8c10liy9w7x" packageName="Crosshairs_ArcadeSniper_Marksman_green" path="Crosshairs/Crosshairs_ArcadeSniper_Marksman_green.xml" />
