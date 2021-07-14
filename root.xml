@@ -25,6 +25,10 @@
   <AutomationSequence UID="y8lus8c10liy9w7x" packageName="Crosshairs_ArcadeSniper_Marksman_green" path="Crosshairs/Crosshairs_ArcadeSniper_Marksman_green.xml" />
   <!-- Category Crosshairs END   -->
 
+  <!-- Category Garage Mods START -->
+  <AutomationSequence UID="ksbf9er3h535v1vd" packageName="GarageMods_LittleHelperCollection" path="Garage_mods/GarageMods_LittleHelperCollection.xml" />
+  <!-- Category Garage Mods END   -->
+
   <!-- Category Sound Mods START -->
   <!-- NOTE: SEQUENCE g8fqf3ueleg65em4 IS A SAMPLE -->
   <AutomationSequence UID="g8fqf3ueleg65em4" packageName="Sounds_CrewVoices_ENG_Basic_Relhax" path="Custom_Tank_Skins/object_420.xml" />
