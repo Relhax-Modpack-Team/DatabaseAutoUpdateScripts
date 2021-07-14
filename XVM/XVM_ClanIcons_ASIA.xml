@@ -2,18 +2,26 @@
 <AutomationSequence documentVersion="1.0">
     <Macros>
         <Macro Name="github_direct_url" Value="https://github.com/Relhax-Modpack-Team/WGClanIconDownload/releases/download/1.0.0.0/WoTClanIconDownloadConsole.exe"/>
+        <Macro Name="icon_download_debug_flag" Value=""/> <!-- /debug -->
+        <Macro Name="icon_download_quiet_flag" Value="/quiet"/> <!-- /quiet -->
+        <Macro Name="apiLoadLimit_arg" Value="100"/>
+        <Macro Name="concurrentConnectionsPerRegion_arg" Value="10"/>
+        <Macro Name="concurrentApiRequestsPerRegion_arg" Value="2"/>
+        <Macro Name="regionToDownload" Value="asia"/>
+        <Macro Name="regionCaps" Value="ASIA"/>
     </Macros>
     <TaskDefinitions>
+        <!-- Create target zipfile name -->
+        <Task ID="create_target_zipfile_name_macro" Command="macro_create" MacroName="target_zipfile_name" MacroValue="XVMConfigBuilder_ClanIcons_{regionCaps}_{clientVersion}_{date}.zip"/>
         <!--  Fetch source and ftp  -->
-        <Task ID="create_workdir_source_macro" Command="macro_create" MacroName="working_folder_source" MacroValue="{workDirectory}"/>
         <Task ID="download_mod_source" Command="download_static" Url="{github_direct_url}" DestinationPath="{workDirectory}\WoTClanIconDownloadConsole.exe"/>
         <!-- Tasks to create icons -->
-        <Task ID="run_clanicons_program" Command="shell_exec" Filename="{workDirectory}\WoTClanIconDownloadConsole.exe" Wd="{workDirectory}" Cmd="/debug /apiLoadLimit 80 /concurrentConnectionsPerRegion 35 /concurrentApiRequestsPerRegion 3 /regionsToDownload asia" />
+        <Task ID="run_clanicons_program" Command="shell_exec" Filename="{workDirectory}\WoTClanIconDownloadConsole.exe" Wd="{workDirectory}" Cmd="{icon_download_debug_flag} {icon_download_quiet_flag} /apiLoadLimit {apiLoadLimit_arg} /concurrentConnectionsPerRegion {concurrentConnectionsPerRegion_arg} /concurrentApiRequestsPerRegion {concurrentApiRequestsPerRegion_arg} /regionsToDownload {regionToDownload}" />
         <!-- Tasks to create zips -->
-        <Task ID="create_zip" Command="shell_exec" Filename="7z.exe" Wd="{workDirectory}\download\ASIA" Cmd="a -tzip -mx9 -r XVMConfigBuilder_ClanIcons_ASIA_{clientVersion}_{date}.zip res_mods" />
+        <Task ID="create_zip" Command="shell_exec" Filename="7z.exe" Wd="{workDirectory}\download\EU" Cmd="a -tzip -mx9 -r {target_zipfile_name} res_mods" />
         <!-- upload to the server -->
         <Task ID="loadDB" Command="load_database" />
-        <Task ID="upload_zip" Command="package_upload" FilePath="{workDirectory}\ASIA\XVMConfigBuilder_ClanIcons_ASIA_{clientVersion}_{date}.zip" ZipFileName="{packageName}_{clientVersion}_{date}.zip"/>
+        <Task ID="upload_zip" Command="package_upload" FilePath="{workDirectory}\download\EU\{target_zipfile_name}" ZipFileName="{packageName}_{clientVersion}_{date}.zip"/>
         <!-- tasks to update packageValues -->
         <Task ID="updatePackageDate" Command="update_package_property" PropertyName="Version" PropertyValue="{date}" /> 
     </TaskDefinitions>
