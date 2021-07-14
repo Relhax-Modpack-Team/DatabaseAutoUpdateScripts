@@ -18,7 +18,7 @@
         <!-- Tasks to create icons -->
         <Task ID="run_clanicons_program" Command="shell_exec" Filename="{workDirectory}\WoTClanIconDownloadConsole.exe" Wd="{workDirectory}" Cmd="{icon_download_debug_flag} {icon_download_quiet_flag} /apiLoadLimit {apiLoadLimit_arg} /concurrentConnectionsPerRegion {concurrentConnectionsPerRegion_arg} /concurrentApiRequestsPerRegion {concurrentApiRequestsPerRegion_arg} /regionsToDownload {regionToDownload}" />
         <!-- Tasks to create zips -->
-        <Task ID="create_zip" Command="shell_exec" Filename="7z.exe" Wd="{workDirectory}\download\EU" Cmd="a -tzip -mx9 -r {target_zipfile_name} res_mods" />
+        <Task ID="create_zip" Command="shell_exec" Filename="7z.exe" Wd="{workDirectory}\download\{regionCaps}" Cmd="a -tzip -mx9 -r {target_zipfile_name} res_mods" />
         <!-- upload to the server -->
         <Task ID="loadDB" Command="load_database" />
         <Task ID="upload_zip" Command="package_upload" FilePath="{workDirectory}\download\{regionCaps}\{target_zipfile_name}" ZipFileName="{packageName}_{clientVersion}_{date}.zip"/>
