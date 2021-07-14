@@ -21,7 +21,7 @@
         <Task ID="create_zip" Command="shell_exec" Filename="7z.exe" Wd="{workDirectory}\download\EU" Cmd="a -tzip -mx9 -r {target_zipfile_name} res_mods" />
         <!-- upload to the server -->
         <Task ID="loadDB" Command="load_database" />
-        <Task ID="upload_zip" Command="package_upload" FilePath="{workDirectory}\download\EU\{target_zipfile_name}" ZipFileName="{packageName}_{clientVersion}_{date}.zip"/>
+        <Task ID="upload_zip" Command="package_upload" FilePath="{workDirectory}\download\{regionCaps}\{target_zipfile_name}" ZipFileName="{packageName}_{clientVersion}_{date}.zip"/>
         <!-- tasks to update packageValues -->
         <Task ID="updatePackageDate" Command="update_package_property" PropertyName="Version" PropertyValue="{date}" /> 
     </TaskDefinitions>
