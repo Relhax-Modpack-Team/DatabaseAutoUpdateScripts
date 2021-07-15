@@ -2,4 +2,5 @@
 <GlobalMacros documentVersion="1.0">
   <Macro Name="wgmods_xpath" Value="//a[contains(@class, 'ModDetails_hidden')]//@href"/>
   <Macro Name="wotsite_xpath" Value="//a[contains(@class, 'btn-download')]//@href"/>
+  <Macro Name="clanIcon_downloader_github_exe" Value="https://github.com/Relhax-Modpack-Team/WGClanIconDownload/releases/download/1.0.0.0/WoTClanIconDownloadConsole.exe"/>
 </GlobalMacros>

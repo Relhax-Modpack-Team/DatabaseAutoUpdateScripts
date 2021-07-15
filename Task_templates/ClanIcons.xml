@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<AutomationSequence documentVersion="1.0">
+  <TaskDefinitions>
+    <!-- Create target zipfile name -->
+    <Task ID="create_target_zipfile_name_macro" Command="macro_create" MacroName="target_zipfile_name" MacroValue="XVMConfigBuilder_ClanIcons_{regionCaps}_{clientVersion}_{date}.zip"/>
+    <!--  Fetch source and ftp  -->
+    <Task ID="download_mod_source" Command="download_static" Url="{clanIcon_downloader_github_exe}" DestinationPath="{workDirectory}\WoTClanIconDownloadConsole.exe"/>
+    <!-- Tasks to create icons -->
+    <Task ID="run_clanicons_program" Command="shell_exec" Filename="{workDirectory}\WoTClanIconDownloadConsole.exe" Wd="{workDirectory}" Cmd="{icon_download_debug_flag} {icon_download_quiet_flag} /apiLoadLimit {apiLoadLimit_arg} /concurrentConnectionsPerRegion {concurrentConnectionsPerRegion_arg} /concurrentApiRequestsPerRegion {concurrentApiRequestsPerRegion_arg} /regionsToDownload {regionToDownload}" />
+    <!-- Tasks to create zips -->
+    <Task ID="create_zip" Command="shell_exec" Filename="7z.exe" Wd="{workDirectory}\download\{regionCaps}" Cmd="a -tzip -mx9 -r {target_zipfile_name} res_mods" />
+    <!-- upload to the server -->
+    <Task ID="loadDB" Command="load_database" />
+    <Task ID="upload_zip" Command="package_upload" FilePath="{workDirectory}\download\{regionCaps}\{target_zipfile_name}" ZipFileName="{packageName}_{clientVersion}_{date}.zip"/>
+    <!-- tasks to update packageValues -->
+    <Task ID="updatePackageDate" Command="update_package_property" PropertyName="Version" PropertyValue="{date}" />
+  </TaskDefinitions>
+</AutomationSequence>
