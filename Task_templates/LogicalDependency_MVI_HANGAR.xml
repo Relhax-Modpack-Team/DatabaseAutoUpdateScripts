@@ -20,7 +20,7 @@
           if compare_end finds 0 differences, then the automation process will end early (nothing to update)
     -->
     <Task ID="compare_start" Command="compare_start"/>
-    <Task ID="compare_mvi_battle" Command="file_compare" FileA="{working_folder_source}\mvi_hangar.wotmod" FileB="{working_folder_modpack}\mvi_hangar.wotmod"/>
+    <Task ID="compare_mvi_hangar" Command="file_compare" FileA="{working_folder_source}\mvi_hangar.wotmod" FileB="{working_folder_modpack}\mvi_hangar.wotmod"/>
     <Task ID="compare_end" Command="compare_end"/>
 
     <!-- move new source wotmod to path for 7zip to create a new zip file -->
