@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<AutomationSequence documentVersion="1.0">
+  <!-- Specify macros here -->
+  <Macros>
+    <Macro Name="github_direct_url" Value="https://github.com/AstaRom/wot_mods/raw/master/mvi/mvi_hangar_clear.zip"/>
+  </Macros>
+
+  <!-- Specify the tasks to run -->
+  <TaskDefinitions>
+    <!-- import tasks -->
+    <Task ID="import_tasks" Command="import_task" RepoUrlPath="Task_templates/LogicalDependency_MVI_HANGAR.xml"/>
+  </TaskDefinitions>
+
+</AutomationSequence>

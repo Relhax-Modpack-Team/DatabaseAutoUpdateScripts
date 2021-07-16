@@ -8,6 +8,9 @@
   <!-- Category Dependencies START -->
   <AutomationSequence UID="a6y6dhrkqvba4d0k" packageName="LogicalDependency_MVI_BATTLE_CLEAR_noXVM" path="Dependencies/LogicalDependency_MVI_BATTLE_CLEAR_noXVM.xml" />
   <AutomationSequence UID="xhss5hljrzit42tk" packageName="LogicalDependency_MVI_BATTLE_noXVM" path="Dependencies/LogicalDependency_MVI_BATTLE_noXVM.xml" />
+  <AutomationSequence UID="6a6ydhrkqvba4d0k" packageName="LogicalDependency_MVI_HANGAR_showAll_noXVM" path="Dependencies/LogicalDependency_MVI_HANGAR_showAll_noXVM.xml" />
+  <AutomationSequence UID="5ssxhhlrjizt42kt" packageName="LogicalDependency_MVI_HANGAR_CLEAR_tier_noXVM" path="Dependencies/LogicalDependency_MVI_HANGAR_CLEAR_tier_noXVM.xml" />
+  <AutomationSequence UID="406a6ydhrkqvbadk" packageName="LogicalDependency_MVI_HANGAR_CLEAR_ALL_noXVM" path="Dependencies/LogicalDependency_MVI_HANGAR_CLEAR_ALL_noXVM.xml" />
   <!-- Category Dependencies END  -->
 
   <!-- Category XVM START -->
