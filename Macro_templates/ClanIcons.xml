@@ -3,6 +3,7 @@
   <Macros>
     <Macro Name="icon_download_debug_flag" Value=""/> <!-- /debug -->
     <Macro Name="icon_download_quiet_flag" Value="/quiet"/> <!-- /quiet -->
+    <Macro Name="icon_download_continueIfErrors_flag" Value="/continueOnError"/> <!-- /continueOnError -->
     <Macro Name="apiLoadLimit_arg" Value="100"/>
     <Macro Name="concurrentConnectionsPerRegion_arg" Value="10"/>
     <Macro Name="concurrentApiRequestsPerRegion_arg" Value="2"/>

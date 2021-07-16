@@ -6,7 +6,7 @@
     <!--  Fetch source and ftp  -->
     <Task ID="download_mod_source" Command="download_static" Url="{clanIcon_downloader_github_exe}" DestinationPath="{workDirectory}\WoTClanIconDownloadConsole.exe"/>
     <!-- Tasks to create icons -->
-    <Task ID="run_clanicons_program" Command="shell_exec" Filename="{workDirectory}\WoTClanIconDownloadConsole.exe" Wd="{workDirectory}" Cmd="{icon_download_debug_flag} {icon_download_quiet_flag} /apiLoadLimit {apiLoadLimit_arg} /concurrentConnectionsPerRegion {concurrentConnectionsPerRegion_arg} /concurrentApiRequestsPerRegion {concurrentApiRequestsPerRegion_arg} /regionsToDownload {regionToDownload}" />
+    <Task ID="run_clanicons_program" Command="shell_exec" Filename="{workDirectory}\WoTClanIconDownloadConsole.exe" Wd="{workDirectory}" Cmd="{icon_download_debug_flag} {icon_download_quiet_flag} {icon_download_continueIfErrors_flag} /apiLoadLimit {apiLoadLimit_arg} /concurrentConnectionsPerRegion {concurrentConnectionsPerRegion_arg} /concurrentApiRequestsPerRegion {concurrentApiRequestsPerRegion_arg} /regionsToDownload {regionToDownload}" />
     <!-- Tasks to create zips -->
     <Task ID="create_zip" Command="shell_exec" Filename="7z.exe" Wd="{workDirectory}\download\{regionCaps}" Cmd="a -tzip -mx9 -r {target_zipfile_name} res_mods" />
     <!-- upload to the server -->
