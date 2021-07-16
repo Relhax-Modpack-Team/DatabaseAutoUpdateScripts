@@ -2,7 +2,7 @@
 <AutomationSequence documentVersion="1.0">
   <!-- Specify macros here -->
   <Macros>
-    <Macro Name="github_direct_url" Value="https://github.com/AstaRom/wot_mods/raw/master/mvi/mvi_battle_clear.zip"/>
+    <Macro Name="github_direct_url" Value="https://github.com/AstaRom/wot_mods/raw/master/mvi/mvi_battle.zip"/>
   </Macros>
 
   <!-- Specify the tasks to run -->

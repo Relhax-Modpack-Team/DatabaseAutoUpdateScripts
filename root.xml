@@ -7,6 +7,7 @@
 
   <!-- Category Dependencies START -->
   <AutomationSequence UID="a6y6dhrkqvba4d0k" packageName="LogicalDependency_MVI_BATTLE_CLEAR_noXVM" path="Dependencies/LogicalDependency_MVI_BATTLE_CLEAR_noXVM.xml" />
+  <AutomationSequence UID="xhss5hljrzit42tk" packageName="LogicalDependency_MVI_BATTLE_noXVM" path="Dependencies/LogicalDependency_MVI_BATTLE_noXVM.xml" />
   <!-- Category Dependencies END  -->
 
   <!-- Category XVM START -->
