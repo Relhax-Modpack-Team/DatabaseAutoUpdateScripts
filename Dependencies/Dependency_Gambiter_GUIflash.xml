@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<AutomationSequence documentVersion="1.0">
+  <!-- Specify macros here -->
+  <Macros>
+    <!-- for inside macro of the global_macro 'champi_xpath' -->
+    <Macro Name="champi_xpath_mod_name" Value="Expected Vehicle Values"/>
+    <!-- for inside macro of the global_macro '7z_create_package_zipfile' -->
+    <Macro Name="mods_resMods_folders" Value="mods"/>
+    <Macro Name="wotmod_name" Value="gambiter.guiflash"/>
+  </Macros>
+
+  <!-- Specify the tasks to run -->
+  <TaskDefinitions>
+    <!-- import tasks -->
+    <Task ID="import_tasks" Command="import_task" RepoUrlPath="Task_templates/Champi_settingsGUI_GUIflash.xml"/>
+  </TaskDefinitions>
+
+</AutomationSequence>

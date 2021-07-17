@@ -3,4 +3,11 @@
   <Macro Name="wgmods_xpath" Value="//a[contains(@class, 'ModDetails_hidden')]//@href"/>
   <Macro Name="wotsite_xpath" Value="//a[contains(@class, 'btn-download')]//@href"/>
   <Macro Name="clanIcon_downloader_github_exe" Value="https://github.com/Relhax-Modpack-Team/WGClanIconDownload/releases/download/1.0.1.1/WoTClanIconDownloadConsole.exe"/>
+  <!-- <Macro Name="champi_xpath" Value="//div[div = &quot;Expected Vehicle Values&quot;]/a/@href"/> -->
+  <Macro Name="champi_xpath" Value="//div[div = &quot;{champi_xpath_mod_name}&quot;]/a/@href"/>
+  <!--
+    based on a combination of the xpaths above and from the relhax gui patch:
+    <path>/audio_mods.xml/events/event[name = &quot;enemy_sighted_for_team&quot;]</path>
+  -->
+  <Macro Name="7z_create_package_zipfile" Value="a -tzip -mx=9 -r final.zip {mods_resMods_folders}"/>
 </GlobalMacros>
