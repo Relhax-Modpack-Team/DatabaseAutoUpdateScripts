@@ -1,4 +1,4 @@
 # DatabaseAutoUpdateScripts
 Repository to contain all of our scripts for database update automation
 
-TODO: Add documentation of all different task types
+For more information, see the [Wiki](https://github.com/Relhax-Modpack-Team/DatabaseAutoUpdateScripts/wiki)
