@@ -13,10 +13,16 @@
   <AutomationSequence UID="h9mtckn4ka5ifipx" packageName="LogicalDependency_MVI_HANGAR_CLEAR_tier_noXVM" path="Dependencies/LogicalDependency_MVI_HANGAR_CLEAR_tier_noXVM.xml" />
   <AutomationSequence UID="uyt8ljt5j7xzfuwx" packageName="LogicalDependency_MVI_HANGAR_CLEAR_ALL_noXVM" path="Dependencies/LogicalDependency_MVI_HANGAR_CLEAR_ALL_noXVM.xml" />
   <!-- Category Icon Mirror Files END -->
+
   <!-- Category GUI API START -->
   <AutomationSequence UID="8bhv4wcpn1quvd5v" packageName="Dependency_CHAMPi_settingsGUI" path="Dependencies/Dependency_CHAMPi_settingsGUI.xml" />
   <AutomationSequence UID="ypupkvormubtv1ju" packageName="Dependency_Gambiter_GUIflash" path="Dependencies/Dependency_Gambiter_GUIflash.xml" />
   <!-- Category GUI API END -->
+
+  <!-- Category Standard START -->
+  <AutomationSequence UID="n1h14mo15q78x01s" packageName="Dependency_MLG_bnk" path="Dependencies/Dependency_MLG_bnk.xml" />
+  <!-- Category Standard END -->
+
   <!-- Category Dependencies END  -->
 
   <!-- Category XVM START -->
