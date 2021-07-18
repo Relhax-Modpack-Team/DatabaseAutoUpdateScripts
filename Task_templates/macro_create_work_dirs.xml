@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<AutomationSequence documentVersion="1.0">
+  <TaskDefinitions>
+    <Task ID="create_workdir_source_macro" Command="macro_create" MacroName="working_folder_source" MacroValue="{workDirectory}\source"/>
+    <Task ID="create_workdir_modpack_macro" Command="macro_create" MacroName="working_folder_modpack" MacroValue="{workDirectory}\modpack"/>
+  </TaskDefinitions>
+</AutomationSequence>
