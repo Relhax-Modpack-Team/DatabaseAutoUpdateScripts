@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<AutomationSequence documentVersion="1.0">
+  <TaskDefinitions>
+    <Task ID="create_devurl_macro" Command="macro_create" MacroName="package_url" MacroValue="{devurl_IngameMisc_UnderwaterTimer}"/>
+    <Task ID="create_devurl_macro" Command="macro_create" MacroName="file_name" MacroValue="{wotmod_name_IngameMisc_UnderwaterTimer}"/>
+  </TaskDefinitions>
+</AutomationSequence>

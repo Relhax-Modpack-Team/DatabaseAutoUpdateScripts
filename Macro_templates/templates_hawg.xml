@@ -1,0 +1,6 @@
+<AutomationSequence documentVersion="1.0">
+  <Macros>
+    <Macro Name="devurl_IngameMisc_UnderwaterTimer" Value="https://wgmods.net/2865/"/>
+    <Macro Name="wotmod_name_IngameMisc_UnderwaterTimer" Value="Hawg_timersPanel.wotmod"/>
+  </Macros>
+</AutomationSequence>
