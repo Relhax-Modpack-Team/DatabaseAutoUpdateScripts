@@ -2,16 +2,16 @@
 <AutomationSequence documentVersion="1.0">
   <Macros>
     <Macro Name="file_path" Value="&quot;UnderWater_\Mod Files\7\&quot;"/>
-    <Macro Name="mods_or_res_mods" Value="mods"/>
   </Macros>
   <TaskDefinitions>
     <!-- import hawg macro lib -->
     <Task ID="import_macros" Command="import_macro" RepoUrlPath="Macro_templates/templates_hawg.xml"/>
 
     <!-- import task list specific to IngameMisc_UnderwaterTimer -->
-    <Task ID="import_tasks_IngameMisc_UnderwaterTimer" Command="import_task" RepoUrlPath="Task_templates/IngameMisc_UnderwaterTimer.xml"/>
+    <Task ID="import_tasks_IngameMisc_UnderwaterTimer" Command="import_task" RepoUrlPath="Task_templates/Ingame_Misc/IngameMisc_UnderwaterTimer.xml"/>
 
     <!-- import tasks -->
     <Task ID="import_tasks" Command="import_task" RepoUrlPath="Task_templates/single_wotmod_from_wgmods.xml"/>
+    <Task ID="import_tasks" Command="import_task" RepoUrlPath="Task_templates/update_package_version_from_wgmods.xml"/>
   </TaskDefinitions>
 </AutomationSequence>

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<AutomationSequence documentVersion="1.0">
+  <!-- update_package_version_from_wgmods.xml
+    Author:  Willster419
+    Created: 2021-07-19
+    This sequence template gets the version value from a wgmods dev url and updates the given version property of the given package
+    Required macros:
+    {package_url}        - dev url to use sfor the macro_substring_browser task
+    {target_package_uid} - the target package to update the Version property
+   -->
+  <TaskDefinitions>
+    <!-- get the package ID. Note we can set the length and startIndex to -1 and 0 respectivly to effectivly get the entire string -->
+    <Task ID="get_version_macro_from_wgmods" Command="macro_substring_browser" Length="-1" StartIndex="0" Url="{package_url}" HtmlPath="{wgmods_xpath_version}" WaitTimeMs="500" WaitCounts="6"/>
+    <!-- update version field in database -->
+    <Task ID="update_package_version" Command="update_package_property" PropertyName="Version" PropertyValue="{mod_version_2}" TargetPackageUID="{target_package_uid}"/>
+  </TaskDefinitions>
+</AutomationSequence>

@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <GlobalMacros documentVersion="1.0">
   <Macro Name="wgmods_xpath" Value="//a[contains(@class, 'ModDetails_hidden')]//@href"/>
+  <Macro Name="wgmods_xpath_version" Value="//div[contains(@class, 'ModDetails_labels')]/div/@title"/>
   <Macro Name="wotsite_xpath" Value="//a[contains(@class, 'btn-download')]//@href"/>
   <Macro Name="clanIcon_downloader_github_exe" Value="https://github.com/Relhax-Modpack-Team/WGClanIconDownload/releases/download/1.0.1.1/WoTClanIconDownloadConsole.exe"/>
   <!-- <Macro Name="champi_xpath" Value="//div[div = &quot;Expected Vehicle Values&quot;]/a/@href"/> -->
