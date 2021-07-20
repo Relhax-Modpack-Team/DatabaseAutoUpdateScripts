@@ -42,6 +42,12 @@
   <!-- Category Crosshairs END   -->
 
   <!-- Category Ingame Misc START -->
+  <AutomationSequence UID="paxp2g7wycyybnvy" packageName="IngameMisc_PreBattleTimer_Aqua" path="Ingame_Misc/Prebattle_Timer/IngameMisc_PreBattleTimer_Aqua.xml"/>
+  <AutomationSequence UID="welc2j3gsss5mskb" packageName="IngameMisc_PreBattleTimer_Blue" path="Ingame_Misc/Prebattle_Timer/IngameMisc_PreBattleTimer_Blue.xml"/>
+  <AutomationSequence UID="93rraj9hroknm4ra" packageName="IngameMisc_PreBattleTimer_Green" path="Ingame_Misc/Prebattle_Timer/IngameMisc_PreBattleTimer_Green.xml"/>
+  <AutomationSequence UID="3h9y2nz0m7mcyx9o" packageName="IngameMisc_PreBattleTimer_Orange" path="Ingame_Misc/Prebattle_Timer/IngameMisc_PreBattleTimer_Orange.xml"/>
+  <AutomationSequence UID="0zaeip7meg1j9pd0" packageName="IngameMisc_PreBattleTimer_Yellow" path="Ingame_Misc/Prebattle_Timer/IngameMisc_PreBattleTimer_Yellow.xml"/>
+
   <AutomationSequence UID="aiallqkdn4oj75zx" packageName="IngameMisc_UnderwaterTimer_V1" path="Ingame_Misc/Underwater_Timer/IngameMisc_UnderwaterTimer_V1.xml"/>
   <AutomationSequence UID="imj4hav99un0mj7a" packageName="IngameMisc_UnderwaterTimer_V2" path="Ingame_Misc/Underwater_Timer/IngameMisc_UnderwaterTimer_V2.xml"/>
   <AutomationSequence UID="5w86s2tcah0vz5yd" packageName="IngameMisc_UnderwaterTimer_V3" path="Ingame_Misc/Underwater_Timer/IngameMisc_UnderwaterTimer_V3.xml"/>
