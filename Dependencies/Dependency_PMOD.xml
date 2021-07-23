@@ -3,11 +3,13 @@
   <!-- Specify macros here -->
   <Macros>
     <Macro Name="wotmod_name" Value="poliroid.pmod"/>
+    <Macro Name="package_url" Value="https://wgmods.net/50/details/"/>
+    <Macro Name="target_package_uid" Value="ex0ocsm6tio4kknh"/>
   </Macros>
   <TaskDefinitions>
   
   
-    <Task ID="import_tasks" Command="import_task" RepoUrlPath="Task_templates/macro_create_work_dirs.xml"/>
+    <Task ID="import_createWorkDirs" Command="import_task" RepoUrlPath="Task_templates/macro_create_work_dirs.xml"/>    
       
   
      <!-- download the source and the modpack current zip file, which implicitly creates the directories  -->
@@ -15,14 +17,15 @@
     <Task ID="download_mod_source" Command="download_browser" Url="{download_url}" DestinationPath="{working_folder_source}\{last_download_filename}.zip" HtmlPath="{wgmods_xpath}" WaitTimeMs="500" WaitCounts="6"/>
     <Task ID="download_modpack" Command="package_download" FilePath="{working_folder_modpack}\{packageName}.zip"/>
     
-    <Task ID="import_tasks_2" Command="import_task" RepoUrlPath="Task_templates/update_package_version_from_wgmods.xml"/>
+    
+    <!-- <Task ID="import_versionWGmods" Command="import_task" RepoUrlPath="Task_templates/update_package_version_from_wgmods.xml"/> -->
     
     <!-- extract the source and modpack wotmod files-->
-    <Task ID="extract_source" Command="shell_exec" Filename="7z.exe" Wd="{working_folder_source}" Cmd="x {last_download_filename} {wotmod_name}*.wotmod -r"/>
-    <Task ID="extract_source" Command="shell_exec" Filename="7z.exe" Wd="{working_folder_source}" Cmd="x {last_download_filename} \mods\configs\pmod -r"/>
-    <Task ID="extract_modpack" Command="shell_exec" Filename="7z.exe" Wd="{working_folder_modpack}" Cmd="x {packageName}.zip {wotmod_name}*.wotmod -r"/>
-    <Task ID="extract_modpack" Command="shell_exec" Filename="7z.exe" Wd="{working_folder_modpack}" Cmd="x {last_download_filename} \mods\configs\pmod -r"/>
-    <Task ID="extract_modpack" Command="shell_exec" Filename="7z.exe" Wd="{working_folder_modpack}" Cmd="x {last_download_filename} \_patch\pmod_disable_all_patch.xml -r"/>
+    <Task ID="extract_source_1" Command="shell_exec" Filename="7z.exe" Wd="{working_folder_source}" Cmd="x {last_download_filename} {wotmod_name}*.wotmod -r"/>
+    <Task ID="extract_source_2" Command="shell_exec" Filename="7z.exe" Wd="{working_folder_source}" Cmd="x {last_download_filename} \mods\configs\pmod"/>
+    <Task ID="extract_modpack_1" Command="shell_exec" Filename="7z.exe" Wd="{working_folder_modpack}" Cmd="x {packageName}.zip {wotmod_name}*.wotmod -r"/>
+    <Task ID="extract_modpack_2" Command="shell_exec" Filename="7z.exe" Wd="{working_folder_modpack}" Cmd="x {last_download_filename} \mods\configs\pmod -r"/>
+    <Task ID="extract_modpack_3" Command="shell_exec" Filename="7z.exe" Wd="{working_folder_modpack}" Cmd="x {last_download_filename} pmod_disable_all_patch.xml -r"/>
 
     <!-- get the current version of the mod by string split and file search -->
     <!-- <Task ID="get_wotmod_filename" Command="directory_search" DirectoryPath="{working_folder_source}\mods\{clientVersion}" SearchPath="{wotmod_name}*.wotmod" Recursive="False" MacroPrefix="get_wotmod_filename_results"/> -->
