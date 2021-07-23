@@ -14,6 +14,10 @@
   <AutomationSequence UID="uyt8ljt5j7xzfuwx" packageName="LogicalDependency_MVI_HANGAR_CLEAR_ALL_noXVM" path="Dependencies/LogicalDependency_MVI_HANGAR_CLEAR_ALL_noXVM.xml" />
   <!-- Category Icon Mirror Files END -->
 
+  <!-- Category XVM START -->
+  <AutomationSequence UID="vxb6fqgbg3p0hfv9" packageName="LogicalDependency_XVM_Main_Nightly" path="Dependencies/LogicalDependency_XVM_Main_Nightly.xml" />
+  <!-- Category XVM END -->
+  
   <!-- Category GUI API START -->
   <AutomationSequence UID="8bhv4wcpn1quvd5v" packageName="Dependency_CHAMPi_settingsGUI" path="Dependencies/Dependency_CHAMPi_settingsGUI.xml" />
   <AutomationSequence UID="ypupkvormubtv1ju" packageName="Dependency_Gambiter_GUIflash" path="Dependencies/Dependency_Gambiter_GUIflash.xml" />
@@ -21,20 +25,20 @@
 
   <!-- Category Standard START -->
   <AutomationSequence UID="n1h14mo15q78x01s" packageName="Dependency_MLG_bnk" path="Dependencies/Dependency_MLG_bnk.xml" />
+  <AutomationSequence UID="ex0ocsm6tio4kknh" packageName="Dependency_PMOD" path="Dependencies/Dependency_PMOD.xml" />
   <!-- Category Standard END -->
 
   <!-- Category Dependencies END  -->
 
-  <!-- Category XVM START -->
   <!-- Category IN-BATTLE Start -->
+  <!-- Category IN-BATTLE END -->
+
   <!-- Category Clan Icons Start -->
   <AutomationSequence UID="3b12zp4f5odkrogc" packageName="XVMConfigBuilder_ClanIcons_fullASIA" path="XVM/XVM_ClanIcons_ASIA.xml" />
   <AutomationSequence UID="w8dgzl8vb9idgjrz" packageName="XVMConfigBuilder_ClanIcons_fullNA" path="XVM/XVM_ClanIcons_NA.xml" />
   <AutomationSequence UID="jj61rm2uccqvg8k0" packageName="XVMConfigBuilder_ClanIcons_fullEU" path="XVM/XVM_ClanIcons_EU.xml" />
   <AutomationSequence UID="qmunrpye6sk3rc9d" packageName="XVMConfigBuilder_ClanIcons_fullRU" path="XVM/XVM_ClanIcons_RU.xml" />
   <!-- Category Clan Icons END -->
-  <!-- Category IN-BATTLE END -->
-  <!-- Category XVM END -->
 
   <!-- Category Crosshairs START -->
   <AutomationSequence UID="d43zb130wzealrrr" packageName="Crosshairs_ArcadeSniper_Marksman_white" path="Crosshairs/Crosshairs_ArcadeSniper_Marksman_white.xml" />
