@@ -15,7 +15,7 @@
     <Task ID="download_mod_source" Command="download_browser" Url="{download_url}" DestinationPath="{working_folder_source}\{last_download_filename}.zip" HtmlPath="{wgmods_xpath}" WaitTimeMs="500" WaitCounts="6"/>
     <Task ID="download_modpack" Command="package_download" FilePath="{working_folder_modpack}\{packageName}.zip"/>
     
-    <Task ID="import_tasks" Command="import_task" RepoUrlPath="Task_templates/update_package_version_from_wgmods.xml"/>
+    <Task ID="import_tasks_2" Command="import_task" RepoUrlPath="Task_templates/update_package_version_from_wgmods.xml"/>
     
     <!-- extract the source and modpack wotmod files-->
     <Task ID="extract_source" Command="shell_exec" Filename="7z.exe" Wd="{working_folder_source}" Cmd="x {last_download_filename} {wotmod_name}*.wotmod -r"/>
