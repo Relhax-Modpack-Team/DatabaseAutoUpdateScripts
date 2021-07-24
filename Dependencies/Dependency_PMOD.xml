@@ -5,6 +5,7 @@
     <Macro Name="wotmod_name" Value="poliroid.pmod"/>
     <Macro Name="package_url" Value="https://wgmods.net/50/details/"/>
     <Macro Name="target_package_uid" Value="ex0ocsm6tio4kknh"/>
+    <Macro Name="clientVersionManual" Value="1.13.0.0"/>
   </Macros>
   <TaskDefinitions>
   
@@ -12,20 +13,23 @@
     <Task ID="import_createWorkDirs" Command="import_task" RepoUrlPath="Task_templates/macro_create_work_dirs.xml"/>    
       
   
-     <!-- download the source and the modpack current zip file, which implicitly creates the directories  -->
+     <!-- download the source zip file, which implicitly creates the directories  -->
     <Task ID="get_download_url" Command="retrieve_package_property" PropertyName="DevURLList" TargetPackageUID="this" MacroSaveName="download_url" PropertyIndex="0"/>
-    <Task ID="download_mod_source" Command="download_browser" Url="{download_url}" DestinationPath="{working_folder_source}\{last_download_filename}.zip" HtmlPath="{wgmods_xpath}" WaitTimeMs="500" WaitCounts="6"/>
-    <Task ID="download_modpack" Command="package_download" FilePath="{working_folder_modpack}\{packageName}.zip"/>
+    <Task ID="download_mod_source" Command="download_browser" Url="{download_url}" DestinationPath="{working_folder_source}\{last_download_filename}" HtmlPath="{wgmods_xpath}" WaitTimeMs="500" WaitCounts="6"/>
+    <!-- extract the source wotmod files-->
+    <Task ID="extract_source_1" Command="shell_exec" Filename="7z.exe" Wd="{working_folder_source}" Cmd="x {last_download_filename} {wotmod_name}_*.wotmod -r"/>
+    <Task ID="extract_source_2" Command="shell_exec" Filename="7z.exe" Wd="{working_folder_source}" Cmd="x {last_download_filename} \mods\configs\pmod\*"/>
     
     
     <!-- <Task ID="import_versionWGmods" Command="import_task" RepoUrlPath="Task_templates/update_package_version_from_wgmods.xml"/> -->
     
-    <!-- extract the source and modpack wotmod files-->
-    <Task ID="extract_source_1" Command="shell_exec" Filename="7z.exe" Wd="{working_folder_source}" Cmd="x {last_download_filename} {wotmod_name}*.wotmod -r"/>
-    <Task ID="extract_source_2" Command="shell_exec" Filename="7z.exe" Wd="{working_folder_source}" Cmd="x {last_download_filename} \mods\configs\pmod"/>
+    
+    <!-- download the modpack current zip file, which implicitly creates the directories  -->
+    <Task ID="download_modpack" Command="package_download" FilePath="{working_folder_modpack}\{packageName}.zip"/>
+    <!-- extract the modpack wotmod files-->
     <Task ID="extract_modpack_1" Command="shell_exec" Filename="7z.exe" Wd="{working_folder_modpack}" Cmd="x {packageName}.zip {wotmod_name}*.wotmod -r"/>
-    <Task ID="extract_modpack_2" Command="shell_exec" Filename="7z.exe" Wd="{working_folder_modpack}" Cmd="x {last_download_filename} \mods\configs\pmod -r"/>
-    <Task ID="extract_modpack_3" Command="shell_exec" Filename="7z.exe" Wd="{working_folder_modpack}" Cmd="x {last_download_filename} pmod_disable_all_patch.xml -r"/>
+    <Task ID="extract_modpack_2" Command="shell_exec" Filename="7z.exe" Wd="{working_folder_modpack}" Cmd="x {packageName}.zip \mods\configs\pmod\*"/>
+    <Task ID="extract_modpack_3" Command="shell_exec" Filename="7z.exe" Wd="{working_folder_modpack}" Cmd="x {packageName}.zip pmod_disable_all_patch.xml -r"/>
 
     <!-- get the current version of the mod by string split and file search -->
     <!-- <Task ID="get_wotmod_filename" Command="directory_search" DirectoryPath="{working_folder_source}\mods\{clientVersion}" SearchPath="{wotmod_name}*.wotmod" Recursive="False" MacroPrefix="get_wotmod_filename_results"/> -->
@@ -37,27 +41,17 @@
     <Task ID="create_wotmod_modpack_macro" Command="macro_create" MacroName="wotmod_modpack" MacroValue="{wotmod_name}_{version}.wotmod"/>
     
 
-    <!-- compare the hashes. this is done in 3 steps:
-      1. write the compare_start task (resets the internal counters for matches and differences)
-      2. use compare tasks to compare files on disk or an entry in a zip file
-      3. write the compare_end task (evaluates the counts from the compare tasks)
-          if compare_end finds 0 differences, then the automation process will end early (nothing to update)
-    -->
+    <!-- compare the hashes  -->
     <Task ID="compare_start" Command="compare_start"/>
-    <!-- Compare wotmod and config file -->
+    <!-- Compare wotmod -->
     <Task ID="compare_wotmod" Command="file_compare"
-      FileA="{working_folder_source}\mods\{clientVersion}\{wotmod_source}"
+      FileA="{working_folder_source}\mods\{clientVersionManual}\{wotmod_source}"
       FileB="{working_folder_modpack}\mods\versiondir\{wotmod_modpack}"/>
-      <!-- is there something like a folder-compare? -->
-    <!-- <Task ID="compare_config" Command="file_compare" -->
-      <!-- FileA="{working_folder_source}\mods\configs\pmod" -->
-      <!-- FileB="{working_folder_modpack}\mods\configs\pmod"/> -->
-      <!-- Compare end -->
     <Task ID="compare_end" Command="compare_end"/>
 
     <!-- if the comparison is good, meaning there is an update, then we want to copy the source into a new 'final' folder and upload -->
     <Task ID="create_source_dir_post_compare" Command="create_directory" DirectoryPath="{workDirectory}\package\mods\versiondir"/>
-    <Task ID="move_source_post_compare" Command="file_copy" SourceFilePath="{working_folder_source}\mods\{clientVersion}\{wotmod_source}" DestinationFilePath="{workDirectory}\package\mods\versiondir\{wotmod_source}"/>
+    <Task ID="move_source_post_compare" Command="file_copy" SourceFilePath="{working_folder_source}\mods\{clientVersionManual}\{wotmod_source}" DestinationFilePath="{workDirectory}\package\mods\versiondir\{wotmod_source}"/>
     <!-- copy the config folder -->
     <Task ID="move_source_post_compare_2" Command="file_copy" SourceFilePath="{working_folder_source}\mods\configs\pmod" DestinationFilePath="{workDirectory}\package\mods\configs\pmod"/>
     <!-- copy the patchfile from modpack file to final folder -->
