@@ -26,6 +26,7 @@
   <!-- Category Standard START -->
   <AutomationSequence UID="n1h14mo15q78x01s" packageName="Dependency_MLG_bnk" path="Dependencies/Dependency_MLG_bnk.xml" />
   <AutomationSequence UID="ex0ocsm6tio4kknh" packageName="Dependency_PMOD" path="Dependencies/Dependency_PMOD.xml" />
+  <AutomationSequence UID="pldcs1mv9lrphm5k" packageName="Dependency_PY_PYmodsCore" path="Dependencies/Dependency_PY_PYmodsCore.xml" />
   <!-- Category Standard END -->
 
   <!-- Category Dependencies END  -->
