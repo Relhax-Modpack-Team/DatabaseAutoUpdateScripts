@@ -21,8 +21,8 @@
     <Task ID="delete_files_source_5" Command="delete_file" DirectoryPath="{working_folder_source}\readme-ru.txt"/>
     <Task ID="delete_files_source_6" Command="delete_file" DirectoryPath="{working_folder_source}\res_mods\configs\xvm\configs.url"/>
     <Task ID="delete_files_source_7" Command="delete_file" DirectoryPath="{working_folder_source}\res_mods\configs\xvm\xvm.xc.sample"/>
-    <Task ID="delete_files_source_8" Command="delete_directory" DirectoryPath="{working_folder_source}\res_mods\{clientVersion}"/>
-    <Task ID="delete_files_source_9" Command="delete_directory" DirectoryPath="{working_folder_source}\res_mods\configs\xvm\sirmax"/>
+    <Task ID="delete_files_source_8" Command="delete_file" DirectoryPath="{working_folder_source}\res_mods\{clientVersion}"/>
+    <Task ID="delete_files_source_9" Command="delete_file" DirectoryPath="{working_folder_source}\res_mods\configs\xvm\sirmax"/>
     
     <!-- IN SOURCE-PKG: RENAME FOLDER {clientVersion} TO versiondir --> 
     
@@ -30,17 +30,11 @@
     <!-- Update modpack files -->
     <Task ID="update_modpack" Command="file_copy" SourceFilePath="{working_folder_source}" DestinationFilePath="{working_folder_modpack}"/>
     <!-- DUPLICATE FOLDER *\res_mods\configs\xvm\default TO *\res_mods\configs\xvm\default_backup -->
-    <Task ID="update_modpack" Command="file_copy" SourceFilePath="{working_folder_source}\res_mods\configs\xvm\default" DestinationFilePath="{working_folder_modpack}\res_mods\configs\xvm\default_backup"/>
+    <Task ID="update_modpack" Command="file_copy" SourceFilePath="{working_folder_source}\res_mods\configs\xvm\default\*" DestinationFilePath="{working_folder_modpack}\res_mods\configs\xvm\default_backup"/>
     <Task ID="extract_modpack" Command="shell_exec" Filename="7z.exe" Wd="{working_folder_modpack}" Cmd="{7z_create_package_zipfile}"/>
 
     <!-- upload to the server -->
     <Task ID="upload_zip" Command="package_upload" FilePath="{working_folder_modpack}\final.zip" ZipFileName="{packageName}_v{version}_{clientVersion}_{date}.zip"/>
     
-    <!-- yes, i still miss infos - but i hope this is a good start -->
-    
-    <!-- Questions: -->
-    <!-- DOES THE UPLOAD FUNCTION ALSO UPDATES THE ACTUAL DATABASEENTRIES? LIKE THE VERSION-FIELD? -->
-    <!-- FOR THE v{version} IN THE FINAL FILENAME:
-    <!-- is this the version number from the database? from before starting the autoupdate process or already the one that was extracted from the new source? -->  
   </TaskDefinitions>
 </AutomationSequence>
