@@ -31,7 +31,7 @@
     <Task ID="rename_clientVersionFolder_source" Command="file_move" SourceFilePath="{working_folder_source}\mods\{clientVersion}" DestinationFilePath="{working_folder_modpack}\mods\versiondir"/>
     
     <!-- DELETE UNUSED FOLDER res_mods\{clientVersion} --> 
-    <Task ID="delete_resModsClientVersionFolder_source" Command="file_delete" SourceFilePath="{working_folder_source}\mods\{clientVersion}" DestinationFilePath="{working_folder_modpack}\mods\versiondir"/>
+    <Task ID="delete_resModsClientVersionFolder_source" Command="file_delete" SourceFilePath="{working_folder_source}\res_mods\{clientVersion}"/>
     
     
     
@@ -68,7 +68,7 @@
     
     <!-- COPY ALL FILES FROM SOURCE TO MODPACK WORKING FOLDER -->   
     <!-- delete all files from modpack first     -->
-    <Task ID="clear_modpack" Command="file_delete" DirectoryPath="{working_folder_modpack}\*.*"/>
+    <Task ID="clear_modpack" Command="file_delete" SourceFilePath="{working_folder_modpack}\*.*"/>
     <!-- Update modpack files -->
     <Task ID="update_modpack" Command="file_copy" SourceFilePath="{working_folder_source}\*.*" DestinationFilePath="{working_folder_modpack}"/>
     <!-- DUPLICATE FOLDER *\res_mods\configs\xvm\default TO *\res_mods\configs\xvm\default_backup -->
