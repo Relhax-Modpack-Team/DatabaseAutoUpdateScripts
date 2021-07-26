@@ -1,38 +1,42 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <AutomationSequence documentVersion="1.0">
+  <!-- Specify macros here -->
+  <Macros>
+  </Macros>
   <TaskDefinitions>
     <!-- import tasks / retrieve devurl -->
     <Task ID="import_macro_create_tasks" Command="import_task" RepoUrlPath="Task_templates/macro_create_work_dirs.xml"/>
+    
     <Task ID="get_download_url" Command="retrieve_package_property" PropertyName="DevURLList" TargetPackageUID="this" MacroSaveName="download_url" PropertyIndex="0"/>
 
     <!-- download the source -->
     <Task ID="download_xvmLatestZip" Command="download_static" Url="{download_url}" DestinationPath="{working_folder_source}\{packageName}.zip"/>
       <!-- extract the source files -->
-    <Task ID="extract_source" Command="shell_exec" Filename="7z.exe" Wd="{working_folder_source}" Cmd="x {last_download_filename}.zip"/>
+    <Task ID="extract_source" Command="shell_exec" Filename="7z.exe" Wd="{working_folder_source}" Cmd="x {packageName}.zip"/>
     
     
     <!-- EDIT SOURCE -->
+        <!-- DELETE UNECESSARY FILES AND FOLDERS  -->
+    <Task ID="delete_files_source_1" Command="file_delete" SourceFilePath="{working_folder_source}\readme-cz.txt"/>
+    <Task ID="delete_files_source_2" Command="file_delete" SourceFilePath="{working_folder_source}\readme-en.txt"/>
+    <Task ID="delete_files_source_3" Command="file_delete" SourceFilePath="{working_folder_source}\readme-fr.txt"/>
+    <Task ID="delete_files_source_4" Command="file_delete" SourceFilePath="{working_folder_source}\readme-pl.txt"/>
+    <Task ID="delete_files_source_5" Command="file_delete" SourceFilePath="{working_folder_source}\readme-ru.txt"/>
+    <Task ID="delete_files_source_6" Command="file_delete" SourceFilePath="{working_folder_source}\res_mods\configs\xvm\configs.url"/>
+    <Task ID="delete_files_source_7" Command="file_delete" SourceFilePath="{working_folder_source}\res_mods\configs\xvm\xvm.xc.sample"/>
+    <Task ID="delete_files_source_8" Command="file_delete" SourceFilePath="{working_folder_source}\res_mods\{clientVersion}"/>
+    <Task ID="delete_files_source_9" Command="file_delete" SourceFilePath="{working_folder_source}\res_mods\configs\xvm\sirmax"/>
     
-    <!-- IN SOURCE-PKG: DELETE UNECESSARY FILES AND FOLDERS  -->
-    <Task ID="delete_files_source_1" Command="file_delete" DirectoryPath="{working_folder_source}\readme-cz.txt"/>
-    <Task ID="delete_files_source_2" Command="file_delete" DirectoryPath="{working_folder_source}\readme-en.txt"/>
-    <Task ID="delete_files_source_3" Command="file_delete" DirectoryPath="{working_folder_source}\readme-fr.txt"/>
-    <Task ID="delete_files_source_4" Command="file_delete" DirectoryPath="{working_folder_source}\readme-pl.txt"/>
-    <Task ID="delete_files_source_5" Command="file_delete" DirectoryPath="{working_folder_source}\readme-ru.txt"/>
-    <Task ID="delete_files_source_6" Command="file_delete" DirectoryPath="{working_folder_source}\res_mods\configs\xvm\configs.url"/>
-    <Task ID="delete_files_source_7" Command="file_delete" DirectoryPath="{working_folder_source}\res_mods\configs\xvm\xvm.xc.sample"/>
-    <Task ID="delete_files_source_8" Command="file_delete" DirectoryPath="{working_folder_source}\res_mods\{clientVersion}"/>
-    <Task ID="delete_files_source_9" Command="file_delete" DirectoryPath="{working_folder_source}\res_mods\configs\xvm\sirmax"/>
-    
-    <!-- IN SOURCE-PKG: RENAME FOLDER {clientVersion} TO versiondir --> 
+    <!-- RENAME FOLDER {clientVersion} TO versiondir --> 
     <Task ID="rename_clientVersionFolder_source" Command="file_move" SourceFilePath="{working_folder_source}\mods\{clientVersion}" DestinationFilePath="{working_folder_modpack}\mods\versiondir"/>
     
-    <!-- IN SOURCE-PKG: DELETE UNUSED FOLDER res_mods\{clientVersion} --> 
+    <!-- DELETE UNUSED FOLDER res_mods\{clientVersion} --> 
     <Task ID="delete_resModsClientVersionFolder_source" Command="file_delete" SourceFilePath="{working_folder_source}\mods\{clientVersion}" DestinationFilePath="{working_folder_modpack}\mods\versiondir"/>
     
     
     
     
-    
+    <!-- EDIT MODPACK -->
     <!-- download the modpack current zip file, which implicitly creates the directories  -->
     <Task ID="download_modpack" Command="package_download" FilePath="{working_folder_modpack}\{packageName}.zip"/>
     <!-- extract the modpack wotmod files-->
@@ -47,7 +51,7 @@
         
     <!-- IN SOURCE-PKG: get version of the mod from filename -->
     <!-- get the current version of the mod by string split and file search -->
-    <Task ID="get_wotmod_filename" Command="directory_search" DirectoryPath="{working_folder_source}" SearchPath="*.*.*_****" Recursive="False" MacroPrefix="get_filename_results"/>
+    <Task ID="get_wotmod_filename" Command="directory_search" DirectoryPath="{working_folder_source}" SearchPath="*.*" Recursive="False" MacroPrefix="get_filename_results"/>
     <Task ID="get_mod_version_1" Command="macro_create" MacroName="mod_version_1" MacroValue="{get_filename_results_0}" />
     <Task ID="get_mod_version_2" Command="macro_create" MacroName="mod_version_2" MacroValue="{mod_version_1}" />
     <!-- <Task ID="get_mod_version_1" Command="macro_string_split_filename" MacroName="mod_version_1" Index="1" SplitCharacters="_" FilePath="{get_filename_results_0}"/> -->
@@ -77,7 +81,7 @@
 
     <!-- upload to the server -->
     <Task ID="upload_zip" Command="package_upload" FilePath="{working_folder_modpack}\final.zip" ZipFileName="{packageName}_v{version}_{clientVersion}_{date}.zip"/>
-    
-    
+
+
   </TaskDefinitions>
 </AutomationSequence>
