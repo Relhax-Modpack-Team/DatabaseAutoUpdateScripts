@@ -2,19 +2,18 @@
 <AutomationSequence documentVersion="1.0">
   <!-- Specify macros here -->
   <Macros>
+    <Macro Name="mods_resMods_folders" Value="res_mods"/>
   </Macros>
   <TaskDefinitions>
     <!-- import tasks / retrieve devurl -->
     <Task ID="import_macro_create_tasks" Command="import_task" RepoUrlPath="Task_templates/macro_create_work_dirs.xml"/>
     
     <Task ID="get_download_url" Command="retrieve_package_property" PropertyName="DevURLList" TargetPackageUID="this" MacroSaveName="download_url" PropertyIndex="0"/>
-
     <!-- download the source -->
     <Task ID="download_xvmLatestZip" Command="download_static" Url="{download_url}" DestinationPath="{working_folder_source}\{packageName}.zip"/>
       <!-- extract the source files -->
     <Task ID="extract_source" Command="shell_exec" Filename="7z.exe" Wd="{working_folder_source}" Cmd="x {packageName}.zip"/>
-    
-    
+        
     <!-- EDIT SOURCE -->
         <!-- DELETE UNECESSARY FILES AND FOLDERS  -->
     <Task ID="delete_files_source_1" Command="file_delete" SourceFilePath="{working_folder_source}\readme-cz.txt"/>
@@ -24,26 +23,13 @@
     <Task ID="delete_files_source_5" Command="file_delete" SourceFilePath="{working_folder_source}\readme-ru.txt"/>
     <Task ID="delete_files_source_6" Command="file_delete" SourceFilePath="{working_folder_source}\res_mods\configs\xvm\configs.url"/>
     <Task ID="delete_files_source_7" Command="file_delete" SourceFilePath="{working_folder_source}\res_mods\configs\xvm\xvm.xc.sample"/>
-    <Task ID="delete_files_source_8" Command="file_delete" SourceFilePath="{working_folder_source}\res_mods\{clientVersion}"/>
-    <Task ID="delete_files_source_9" Command="file_delete" SourceFilePath="{working_folder_source}\res_mods\configs\xvm\sirmax"/>
+    <Task ID="delete_resModsClientVersionFolder_source" Command="directory_delete" DirectoryPath="{working_folder_source}\res_mods\{clientVersion}"/>
+    <Task ID="delete_SirmaxCfgFolder_source" Command="directory_delete" DirectoryPath="{working_folder_source}\res_mods\configs\xvm\sirmax"/>
     
     <!-- RENAME FOLDER {clientVersion} TO versiondir --> 
-    <Task ID="rename_clientVersionFolder_source" Command="file_move" SourceFilePath="{working_folder_source}\mods\{clientVersion}" DestinationFilePath="{working_folder_modpack}\mods\versiondir"/>
-    
-    <!-- DELETE UNUSED FOLDER res_mods\{clientVersion} --> 
-    <Task ID="delete_resModsClientVersionFolder_source" Command="file_delete" SourceFilePath="{working_folder_source}\res_mods\{clientVersion}"/>
-    
-    
-    
-    
-    <!-- EDIT MODPACK -->
-    <!-- download the modpack current zip file, which implicitly creates the directories  -->
-    <Task ID="download_modpack" Command="package_download" FilePath="{working_folder_modpack}\{packageName}.zip"/>
-    <!-- extract the modpack wotmod files-->
-    <Task ID="extract_modpack" Command="shell_exec" Filename="7z.exe" Wd="{working_folder_modpack}" Cmd="x {packageName}.zip *.* -r"/>
-    <!-- or extract only the file with the version number / it is in that format: "8.8.1_0044" and i want to get the whole filename as versionnumber to compare -->
-    <!-- <Task ID="extract_modpack" Command="shell_exec" Filename="7z.exe" Wd="{working_folder_modpack}" Cmd="x {packageName}.zip $.$.$_$$$$ -r"/> -->
-    
+    <Task ID="rename_clientVersionFolder_source" Command="directory_copy" DirectoryPath="{working_folder_source}\mods\{clientVersion}" DestinationFilePath="{working_folder_modpack}\mods\versiondir"/>
+    <!-- DELETE UNUSED FOLDER SOURCE  mods\{clientVersion} --> 
+    <Task ID="delete_ModsClientVersionFolder_source" Command="directory_delete" DirectoryPath="{working_folder_source}\mods\{clientVersion}"/>
     
     
     
@@ -51,7 +37,7 @@
         
     <!-- IN SOURCE-PKG: get version of the mod from filename -->
     <!-- get the current version of the mod by string split and file search -->
-    <Task ID="get_wotmod_filename" Command="directory_search" DirectoryPath="{working_folder_source}" SearchPath="*.*" Recursive="False" MacroPrefix="get_filename_results"/>
+    <Task ID="get_filename" Command="directory_search" DirectoryPath="{working_folder_source}" SearchPath="*.*" Recursive="False" MacroPrefix="get_filename_results"/>
     <Task ID="get_mod_version_1" Command="macro_create" MacroName="mod_version_1" MacroValue="{get_filename_results_0}" />
     <Task ID="get_mod_version_2" Command="macro_create" MacroName="mod_version_2" MacroValue="{mod_version_1}" />
     <!-- <Task ID="get_mod_version_1" Command="macro_string_split_filename" MacroName="mod_version_1" Index="1" SplitCharacters="_" FilePath="{get_filename_results_0}"/> -->
@@ -59,20 +45,38 @@
     
     <!-- not sure -->
     <!-- IN MODPACK-PKG: get version of the mod from filename -->
+    <!-- <Task ID="get_mod_version_modpack" Command="retrieve_package_property" PropertyName="Version" TargetPackageUID="8rzkblqj805kg3lj" MacroName="version_modpack" /> -->
+    
+    
+    <!-- EDIT MODPACK -->
+    <!-- download the modpack current zip file, which implicitly creates the directories  -->
+    <Task ID="download_modpack" Command="package_download" FilePath="{working_folder_modpack}\{packageName}.zip"/>
+    <!-- extract the modpack files-->
+    <Task ID="extract_modpack" Command="shell_exec" Filename="7z.exe" Wd="{working_folder_modpack}" Cmd="x {packageName}.zip -r"/>
+    <!-- or extract only the file with the version number / it is in that format: "8.8.1_0044" and i want to get the whole filename as versionnumber to compare -->
+    <!-- <Task ID="extract_modpack" Command="shell_exec" Filename="7z.exe" Wd="{working_folder_modpack}" Cmd="x {packageName}.zip $.$.$_$$$$ -r"/> -->
+    
     
     <!-- xvm_latest.zip\8.8.1_0043 -->
-    <!-- compare with {version} from database / if same stop process -->
+    <!-- compare with {version} from database / if same stop process -->    <!-- compare the hashes  -->
+    <!-- <Task ID="compare_start" Command="compare_start"/> -->
+    <!-- Compare wotmod -->
+    <!-- <Task ID="compare_wotmod" Command="file_compare" -->
+      <!-- FileA="{working_folder_source}\mods\{clientVersion}\{wotmod_source}" -->
+      <!-- FileB="{working_folder_modpack}\mods\versiondir\{wotmod_modpack}"/> -->
+    <!-- <Task ID="compare_end" Command="compare_end"/> -->
     
     
     
     
     <!-- COPY ALL FILES FROM SOURCE TO MODPACK WORKING FOLDER -->   
     <!-- delete all files from modpack first     -->
-    <Task ID="clear_modpack" Command="file_delete" SourceFilePath="{working_folder_modpack}\*.*"/>
+    <Task ID="clear_modpack" Command="file_delete" SourceFilePath="{working_folder_modpack}\*"/>
     <!-- Update modpack files -->
-    <Task ID="update_modpack" Command="file_copy" SourceFilePath="{working_folder_source}\*.*" DestinationFilePath="{working_folder_modpack}"/>
+    <Task ID="update_modpack" Command="directory_copy" DirectoryPath="{working_folder_source}\mods" DestinationFilePath="{working_folder_modpack}"/>
+    <Task ID="update_modpack2" Command="directory_copy" DirectoryPath="{working_folder_source}\res_mods" DestinationFilePath="{working_folder_modpack}"/>
     <!-- DUPLICATE FOLDER *\res_mods\configs\xvm\default TO *\res_mods\configs\xvm\default_backup -->
-    <Task ID="update_modpack" Command="file_copy" SourceFilePath="{working_folder_source}\res_mods\configs\xvm\default\*" DestinationFilePath="{working_folder_modpack}\res_mods\configs\xvm\default_backup"/>
+    <Task ID="update_modpack3" Command="directory_copy" DirectoryPath="{working_folder_source}\res_mods\configs\xvm\default" DestinationFilePath="{working_folder_modpack}\res_mods\configs\xvm\default_backup"/>
     <Task ID="extract_modpack" Command="shell_exec" Filename="7z.exe" Wd="{working_folder_modpack}" Cmd="{7z_create_package_zipfile}"/>
 
 
