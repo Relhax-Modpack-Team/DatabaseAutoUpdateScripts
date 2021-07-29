@@ -43,18 +43,18 @@
     
 
     <!-- compare the hashes  -->
-    <Task ID="compare_start" Command="compare_start"/>
+    <!-- <Task ID="compare_start" Command="compare_start"/> -->
     <!-- Compare wotmod -->
-    <Task ID="compare_wotmod" Command="file_compare"
-      FileA="{working_folder_source}\mods\{clientVersionManual}\{wotmod_source}"
-      FileB="{working_folder_modpack}\mods\versiondir\{wotmod_modpack}"/>
-    <Task ID="compare_end" Command="compare_end"/>
+    <!-- <Task ID="compare_wotmod" Command="file_compare" -->
+      <!-- FileA="{working_folder_source}\mods\{clientVersionManual}\{wotmod_source}" -->
+      <!-- FileB="{working_folder_modpack}\mods\versiondir\{wotmod_modpack}"/> -->
+    <!-- <Task ID="compare_end" Command="compare_end"/> -->
 
     <!-- if the comparison is good, meaning there is an update, then we want to copy the source into a new 'final' folder and upload -->
     <Task ID="create_source_dir_post_compare" Command="create_directory" DirectoryPath="{workDirectory}\package\mods\versiondir"/>
     <Task ID="move_source_post_compare" Command="file_copy" SourceFilePath="{working_folder_source}\mods\{clientVersionManual}\{wotmod_source}" DestinationFilePath="{workDirectory}\package\mods\versiondir\{wotmod_source}"/>
     <!-- copy the config folder -->
-    <Task ID="move_source_post_compare_2" Command="file_copy" SourceFilePath="{working_folder_source}\mods\configs\pmod\*" DestinationFilePath="{workDirectory}\package\mods\configs\pmod"/>
+    <Task ID="move_source_post_compare_2" Command="directory_copy" SourceFilePath="{working_folder_source}\mods\configs\pmod" SearchPattern="*" Recursive="true" DestinationFilePath="{workDirectory}\package\mods\configs\pmod"/>
     <!-- copy the patchfile from modpack file to final folder -->
     <Task ID="move_modpack_post_compare" Command="file_copy" SourceFilePath="{working_folder_modpack}\_patch\pmod_disable_all_patch.xml" DestinationFilePath="{workDirectory}\package\_patch\pmod_disable_all_patch.xml"/>
 
@@ -70,7 +70,7 @@
     <Task ID="update_package_version" Command="update_package_property" PropertyName="Version" PropertyValue="{mod_version_2}" />
 
     <!-- upload to the server -->
-    <Task ID="upload_zip" Command="package_upload" FilePath="{workDirectory}\package\final.zip" ZipFileName="{packageName}_v{mod_version_2}_{clientVersion}_{date}.zip"/>
+    <!-- <Task ID="upload_zip" Command="package_upload" FilePath="{workDirectory}\package\final.zip" ZipFileName="{packageName}_v{mod_version_2}_{clientVersion}_{date}.zip"/> -->
 
 
   </TaskDefinitions>
