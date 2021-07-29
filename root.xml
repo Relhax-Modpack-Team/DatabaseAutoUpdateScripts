@@ -62,7 +62,7 @@
 
   <!-- Category Garage Mods START -->
   <AutomationSequence UID="ksbf9er3h535v1vd" packageName="GarageMods_LittleHelperCollection" path="Garage_mods/GarageMods_LittleHelperCollection.xml" />
-  <AutomationSequence UID="w0ffte8rsqbb1su7" packageName="GarageMods_AnnoyingFeaturesRemover" path="Garage_mods/GarageMods_LittleHelperCollection.xml" />
+  <AutomationSequence UID="w0ffte8rsqbb1su7" packageName="GarageMods_AnnoyingFeaturesRemover" path="Garage_mods/GarageMods_AnnoyingFeaturesRemover.xml" />
   <!-- Category Garage Mods END   -->
 
   <!-- Category Sound Mods START -->
