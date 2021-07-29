@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<AutomationSequence documentVersion="1.0">
+  <!-- Specify macros here -->
+  <Macros>
+    <Macro Name="wotmod_name" Value="coreMods"/>
+    <Macro Name="wotmod2_name" Value="hideHangarElements"/>    
+    <Macro Name="download_url" Value="https://github.com/AstaRom/wot_mods/raw/master/hangarAddons.zip"/>
+  </Macros>
+  <TaskDefinitions>
+  
+  
+    <Task ID="import_createWorkDirs" Command="import_task" RepoUrlPath="Task_templates/macro_create_work_dirs.xml"/>    
+      
+     <!-- download the source zip file, which implicitly creates the directories  -->
+    <Task ID="download_source" Command="download_static" Url="{download_url}" DestinationPath="{working_folder_source}\{last_download_filename}" WaitTimeMs="500" WaitCounts="6"/>
+    <!-- extract the source wotmod files-->
+    <Task ID="extract_source_1" Command="shell_exec" Filename="7z.exe" Wd="{working_folder_source}" Cmd="x {last_download_filename} {wotmod_name}.wotmod -r"/>
+    <Task ID="extract_source_2" Command="shell_exec" Filename="7z.exe" Wd="{working_folder_source}" Cmd="x {last_download_filename} {wotmod2_name}.wotmod -r"/>
+    <Task ID="extract_source_3" Command="shell_exec" Filename="7z.exe" Wd="{working_folder_source}" Cmd="x {last_download_filename} hideHangarElements.json -r"/>
+    
+    
+    <!-- <Task ID="import_versionWGmods" Command="import_task" RepoUrlPath="Task_templates/update_package_version_from_wgmods.xml"/> -->
+    
+    
+    <!-- download the modpack current zip file, which implicitly creates the directories  -->
+    <Task ID="download_modpack" Command="package_download" FilePath="{working_folder_modpack}\{packageName}.zip"/>
+    <!-- extract the modpack wotmod files-->
+    <Task ID="extract_modpack_1" Command="shell_exec" Filename="7z.exe" Wd="{working_folder_modpack}" Cmd="x {packageName}.zip {wotmod_name}.wotmod -r"/>
+    <Task ID="extract_modpack_1" Command="shell_exec" Filename="7z.exe" Wd="{working_folder_modpack}" Cmd="x {packageName}.zip hideHangarElements.json -r"/>
+
+    <!-- Create the wotmod names -->
+    <Task ID="create_wotmod_source_macro" Command="macro_create" MacroName="wotmod_source" MacroValue="{wotmod2_name}.wotmod"/>
+    <Task ID="create_wotmod_modpack_macro" Command="macro_create" MacroName="wotmod_modpack" MacroValue="{wotmod2_name}.wotmod"/>
+    
+
+    <!-- compare the hashes  -->
+    <Task ID="compare_start" Command="compare_start"/>
+    <!-- Compare wotmod -->
+    <Task ID="compare_wotmod" Command="file_compare"
+      FileA="{working_folder_source}\hideHangarElements\mods\{clientVersion}\hangarAddons\{wotmod_source}"
+      FileB="{working_folder_modpack}\mods\versiondir\hangarAddons\{wotmod_modpack}"/>
+    <!-- Compare config / inverse -->
+    <Task ID="compare_cfg" Command="file_compare_inverse"
+      FileA="{working_folder_source}\hideHangarElements\mods\configs\hangarAddons\hideHangarElements.json"
+      FileB="{working_folder_modpack}\mods\configs\hangarAddons\hideHangarElements.json"/>
+    <Task ID="compare_end" Command="compare_end"/>
+
+    <!-- if the comparison is good, meaning there is an update, then we want to copy the source into a new 'final' folder and upload -->
+    <Task ID="create_source_dir_post_compare" Command="create_directory" DirectoryPath="{workDirectory}\package\mods\versiondir"/>
+    <Task ID="move_source_post_compare" Command="file_copy" SourceFilePath="{working_folder_source}\hideHangarElements\mods\{clientVersion}\hangarAddons\" DestinationFilePath="{workDirectory}\package\mods\versiondir\{wotmod_source}"/>
+    <Task ID="move_source_post_compare2" Command="file_copy" SourceFilePath="{working_folder_source}\hideHangarElements\mods\{clientVersion}\hangarAddons\" DestinationFilePath="{workDirectory}\package\mods\versiondir\{wotmod2_source}"/>
+    <Task ID="move_source_post_compare3" Command="file_copy" SourceFilePath="{working_folder_source}\hideHangarElements\mods\configs\hangarAddons\hideHangarElements.json" DestinationFilePath="{workDirectory}\package\mods\configs\hangarAddons\hideHangarElements.json"/>
+
+    <!-- create the new zip
+      "a" is to add to an archive. In this case because it's the first file, the archive is created for the first time.
+      -tzip is to create a zip format archive
+      -mx=9 is setting the level of compression to 9 (scale goes from 0 [store] to 9[ultra])
+      -r recurse subdirectories
+    -->
+    <Task ID="create_zip" Command="shell_exec" Filename="7z.exe" Wd="{workDirectory}\package" Cmd="{7z_create_package_zipfile}"/>
+
+    <!-- update version field in database -->
+    <!-- <Task ID="update_package_version" Command="update_package_property" PropertyName="Version" PropertyValue="{mod_version_2}" /> -->
+
+    <!-- upload to the server -->
+    <Task ID="upload_zip" Command="package_upload" FilePath="{workDirectory}\package\final.zip" ZipFileName="{packageName}_{clientVersion}_{date}.zip"/>
+
+
+  </TaskDefinitions>
+</AutomationSequence>
