@@ -22,6 +22,10 @@
   <!-- Category Standard START -->
   <AutomationSequence UID="n1h14mo15q78x01s" packageName="Dependency_MLG_bnk" path="Dependencies/Dependency_MLG_bnk.xml" />
   <!-- Category Standard END -->
+  
+  <!-- Category Crosshairs START -->
+  <AutomationSequence UID="7uc2cpqmy2ux8gy4" packageName="Dependency_Crosshairs_Protanki" path="Dependencies/Dependency_Crosshairs_Protanki.xml" />
+  <!-- Category Crosshairs END -->
 
   <!-- Category Dependencies END  -->
 
