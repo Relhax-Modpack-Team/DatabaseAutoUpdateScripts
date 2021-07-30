@@ -28,6 +28,10 @@
   <AutomationSequence UID="ex0ocsm6tio4kknh" packageName="Dependency_PMOD" path="Dependencies/Dependency_PMOD.xml" />
   <AutomationSequence UID="pldcs1mv9lrphm5k" packageName="Dependency_PY_PYmodsCore" path="Dependencies/Dependency_PY_PYmodsCore.xml" />
   <!-- Category Standard END -->
+  
+  <!-- Category Crosshairs START -->
+  <AutomationSequence UID="7uc2cpqmy2ux8gy4" packageName="Dependency_Crosshairs_Protanki" path="Dependencies/Dependency_Crosshairs_Protanki.xml" />
+  <!-- Category Crosshairs END -->
 
   <!-- Category Dependencies END  -->
 
