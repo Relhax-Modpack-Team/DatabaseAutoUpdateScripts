@@ -2,12 +2,8 @@
 <AutomationSequence documentVersion="1.0">
   <!-- Specify macros here -->
   <Macros>
-    <Macro Name="wotmod_name" Value="PYmodsCore"/>
-    <Macro Name="package_url" Value="https://wgmods.net/50/details/"/>
-    <Macro Name="target_package_uid" Value="ex0ocsm6tio4kknh"/>
-    <Macro Name="clientVersionManual" Value="1.13.0.0"/>
-    
-    <Macro Name="download_url" Value="https://disk.yandex.com/d/b-fqQA923Mqvwk/SoundEventInjector.zip"/>
+    <Macro Name="wotmod_name" Value="PYmodsCore"/>    
+    <Macro Name="download_url" Value="https://disk.yandex.com/d/b-fqQA923Mqvwk"/>
   </Macros>
   <TaskDefinitions>
   
@@ -15,7 +11,7 @@
     <Task ID="import_createWorkDirs" Command="import_task" RepoUrlPath="Task_templates/macro_create_work_dirs.xml"/>    
       
      <!-- download the source zip file, which implicitly creates the directories  -->
-    <Task ID="download_mod_source" Command="download_browser" Url="{download_url}" DestinationPath="{working_folder_source}\{last_download_filename}" WaitTimeMs="500" WaitCounts="6"/>
+    <Task ID="download_mod_source" Command="download_html" Url="{download_url}" DestinationPath="{working_folder_source}\{last_download_filename}" HtmlPath="{yadisk_xpath}"/>
     <!-- extract the source wotmod files-->
     <Task ID="extract_source_1" Command="shell_exec" Filename="7z.exe" Wd="{working_folder_source}" Cmd="x {last_download_filename} {wotmod_name}.wotmod -r"/>
     
@@ -58,7 +54,7 @@
     <!-- <Task ID="update_package_version" Command="update_package_property" PropertyName="Version" PropertyValue="{mod_version_2}" /> -->
 
     <!-- upload to the server -->
-    <Task ID="upload_zip" Command="package_upload" FilePath="{workDirectory}\package\final.zip" ZipFileName="{packageName}_{clientVersion}_{date}.zip"/>
+    <!-- <Task ID="upload_zip" Command="package_upload" FilePath="{workDirectory}\package\final.zip" ZipFileName="{packageName}_{clientVersion}_{date}.zip"/> -->
 
 
   </TaskDefinitions>
