@@ -58,6 +58,11 @@
   <AutomationSequence UID="yg5kyxsh4ibkbxuy" packageName="IngameMisc_UnderwaterTimer_V7" path="Ingame_Misc/Underwater_Timer/IngameMisc_UnderwaterTimer_V7.xml"/>
   <AutomationSequence UID="46d63yjqneao8y39" packageName="IngameMisc_UnderwaterTimer_V10" path="Ingame_Misc/Underwater_Timer/IngameMisc_UnderwaterTimer_V10.xml"/>
   <!-- Category Ingame Misc END -->
+  
+  
+  <!-- Category Ingame Info START -->
+  <AutomationSequence UID="3r6bdbph41vrjucw" packageName="IngameInfo_ExpectedVehicleValues" path="IngameInfo/IngameInfo_ExpectedVehicleValues.xml"/>
+  <!-- Category Ingame Info END -->
 
   <!-- Category Garage Mods START -->
   <AutomationSequence UID="ksbf9er3h535v1vd" packageName="GarageMods_LittleHelperCollection" path="Garage_mods/GarageMods_LittleHelperCollection.xml" />
