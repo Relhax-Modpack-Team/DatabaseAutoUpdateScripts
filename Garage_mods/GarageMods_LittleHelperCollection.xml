@@ -40,5 +40,36 @@
     <Task ID="compare_localization_6" Command="file_compare" FileA="{working_folder_source}\mods\configs\CHAMPi\littleHelperCollection\i18n\zh_sg.json" FileB="{working_folder_modpack}\mods\configs\CHAMPi\littleHelperCollection\i18n\zh_sg.json"/>
     <Task ID="compare_end" Command="compare_end"/>
 
+
+
+    <!-- if the comparison is good, meaning there is an update, then we want to copy the source into a new 'final' folder and upload -->
+    <Task ID="create_source_dir_post_compare" Command="create_directory" DirectoryPath="{workDirectory}\package\mods\versiondir"/>
+    <Task ID="move_source_post_compare" Command="file_copy" SourceFilePath="{working_folder_source}\mods\{clientVersion}\{wotmod_source}" DestinationFilePath="{workDirectory}\package\mods\versiondir\{wotmod_source}"/>
+    <Task ID="move_source_post_compare2" Command="file_copy" SourceFilePath="{working_folder_source}\mods\configs\CHAMPi\littleHelperCollection\littleHelperCollection.json" DestinationFilePath="{workDirectory}\package\mods\configs\CHAMPi\littleHelperCollection\littleHelperCollection.json"/>
+    <Task ID="move_source_post_compare4" Command="file_copy" SourceFilePath="{working_folder_source}\mods\configs\CHAMPi\littleHelperCollection\i18n\de.json" DestinationFilePath="{workDirectory}\package\mods\configs\CHAMPi\littleHelperCollection\i18n\de.json"/>
+    <Task ID="move_source_post_compare5" Command="file_copy" SourceFilePath="{working_folder_source}\mods\configs\CHAMPi\littleHelperCollection\i18n\en.json" DestinationFilePath="{workDirectory}\package\mods\configs\CHAMPi\littleHelperCollection\i18n\en.json"/>
+    <Task ID="move_source_post_compare7" Command="file_copy" SourceFilePath="{working_folder_source}\mods\configs\CHAMPi\littleHelperCollection\i18n\pl.json" DestinationFilePath="{workDirectory}\package\mods\configs\CHAMPi\littleHelperCollection\i18n\pl.json"/>
+    <Task ID="move_source_post_compare8" Command="file_copy" SourceFilePath="{working_folder_source}\mods\configs\CHAMPi\littleHelperCollection\i18n\ru.json" DestinationFilePath="{workDirectory}\package\mods\configs\CHAMPi\littleHelperCollection\i18n\ru.json"/>
+    <Task ID="move_source_post_compare9" Command="file_copy" SourceFilePath="{working_folder_source}\mods\configs\CHAMPi\littleHelperCollection\i18n\zh_cnjson" DestinationFilePath="{workDirectory}\package\mods\configs\CHAMPi\littleHelperCollection\i18n\zh_cn.json"/>
+    <Task ID="move_source_post_compare10" Command="file_copy" SourceFilePath="{working_folder_source}\mods\configs\CHAMPi\littleHelperCollection\i18n\zh_sg.json" DestinationFilePath="{workDirectory}\package\mods\configs\CHAMPi\littleHelperCollection\i18n\zh_sg.json"/>
+    <!-- copy patchfile from source -->
+    <Task ID="move_source_post_compare11" Command="file_copy" SourceFilePath="{working_folder_modpack}\_readme\expectedVehicleValues_prePatch_disableOptionsFirst.xml" DestinationFilePath="{workDirectory}\package\_readme\oldPatch_butKeep_disAll_littleHelperColl.xml"/>
+
+    <!-- create the new zip
+      "a" is to add to an archive. In this case because it's the first file, the archive is created for the first time.
+      -tzip is to create a zip format archive
+      -mx=9 is setting the level of compression to 9 (scale goes from 0 [store] to 9[ultra])
+      -r recurse subdirectories
+    -->
+    <Task ID="create_zip" Command="shell_exec" Filename="7z.exe" Wd="{workDirectory}\package" Cmd="{7z_create_package_zipfile}"/>
+
+    <!-- update version field in database -->
+    <Task ID="update_package_version" Command="update_package_property" PropertyName="Version" PropertyValue="{mod_version}" />
+
+    <!-- upload to the server -->
+    <Task ID="upload_zip" Command="package_upload" FilePath="{workDirectory}\package\final.zip" ZipFileName="{packageName}_v{mod_version}_{clientVersion}_{date}.zip"/>
+  
+  
+
   </TaskDefinitions>
 </AutomationSequence>
