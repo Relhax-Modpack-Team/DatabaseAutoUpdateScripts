@@ -77,7 +77,7 @@
     <Task ID="update_modpack2" Command="directory_copy" DirectoryPath="{working_folder_source}\res_mods" DestinationFilePath="{working_folder_modpack}"/>
     <!-- DUPLICATE FOLDER *\res_mods\configs\xvm\default TO *\res_mods\configs\xvm\default_backup -->
     <Task ID="update_modpack3" Command="directory_copy" DirectoryPath="{working_folder_source}\res_mods\configs\xvm\default" DestinationFilePath="{working_folder_modpack}\res_mods\configs\xvm\default_backup"/>
-    <Task ID="extract_modpack" Command="shell_exec" Filename="7z.exe" Wd="{working_folder_modpack}" Cmd="{7z_create_package_zipfile}"/>
+    <Task ID="extract_modpack" Command="shell_exec" Filename="7z.exe" Wd="{working_folder_modpack}" Cmd="a -tzip -mx=9 -r final.zip"/>
 
 
     <!-- update version field in database - [XVMconfigBuilder_BuildSelector_Nightly] -->
