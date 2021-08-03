@@ -3,10 +3,10 @@
   <!-- Specify macros here -->
   <Macros>
     <!-- for inside macro of the global_macro 'champi_xpath' -->
-    <Macro Name="champi_xpath_mod_name" Value="Players Panel Pro"/>
+    <Macro Name="champi_xpath_mod_name" Value="Player Panel Pro"/>
     <!-- for inside macro of the global_macro '7z_create_package_zipfile' -->
     <Macro Name="mods_resMods_folders" Value="mods"/>
-    <Macro Name="wotmod_name" Value="de.champi.wot.expectedVehicleValues"/>
+    <Macro Name="wotmod_name" Value="de.champi.wot.playerPanelPro"/>
   </Macros>
 
   <!-- Specify the tasks to run -->
