@@ -39,8 +39,8 @@
 
     <!-- if the comparison is good, meaning there is an update, then we want to copy the source into a new 'final' folder and upload -->
     <Task ID="create_source_dir_post_compare" Command="create_directory" DirectoryPath="{workDirectory}\package\mods\versiondir"/>
-    <Task ID="move_source_post_compare" Command="file_copy" SourceFilePath="{working_folder_source}\hideHangarElements\mods\{clientVersion}\hangarAddons\hideHangarElements.wotmod" DestinationFilePath="{workDirectory}\package\mods\versiondir\hideHangarElements.wotmod"/>
-    <Task ID="move_source_post_compare2" Command="file_copy" SourceFilePath="{working_folder_source}\hideHangarElements\mods\{clientVersion}\hangarAddons\coreMods.wotmod" DestinationFilePath="{workDirectory}\package\mods\versiondir\coreMods.wotmod"/>
+    <Task ID="move_source_post_compare" Command="file_copy" SourceFilePath="{working_folder_source}\hideHangarElements\mods\{clientVersion}\hangarAddons\hideHangarElements.wotmod" DestinationFilePath="{workDirectory}\package\mods\versiondir\hangarAddons\hideHangarElements.wotmod"/>
+    <Task ID="move_source_post_compare2" Command="file_copy" SourceFilePath="{working_folder_source}\hideHangarElements\mods\{clientVersion}\hangarAddons\coreMods.wotmod" DestinationFilePath="{workDirectory}\package\mods\versiondir\hangarAddons\coreMods.wotmod"/>
     <Task ID="move_source_post_compare3" Command="file_copy" SourceFilePath="{working_folder_source}\hideHangarElements\mods\configs\hangarAddons\hideHangarElements.json" DestinationFilePath="{workDirectory}\package\mods\configs\hangarAddons\hideHangarElements.json"/>
 
     <!-- create the new zip
