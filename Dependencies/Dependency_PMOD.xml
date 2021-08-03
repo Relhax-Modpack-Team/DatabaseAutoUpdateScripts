@@ -2,6 +2,7 @@
 <AutomationSequence documentVersion="1.0">
   <!-- Specify macros here -->
   <Macros>
+    <Macro Name="mods_resMods_folders" Value="mods"/>
     <Macro Name="wotmod_name" Value="poliroid.pmod"/>
     <!-- needed macros for importing modversion from wgmods -->
     <Macro Name="package_url" Value="https://wgmods.net/50/details/"/>
@@ -64,7 +65,7 @@
       -mx=9 is setting the level of compression to 9 (scale goes from 0 [store] to 9[ultra])
       -r recurse subdirectories
     -->
-    <Task ID="create_zip" Command="shell_exec" Filename="7z.exe" Wd="{workDirectory}\package" Cmd="{7z_create_package_zipfile}"/>
+    <Task ID="create_zip" Command="shell_exec" Filename="7z.exe" Wd="{workDirectory}\package" Cmd="a -tzip -mx=9 -r final.zip"/>
 
     <!-- update version field in database -->
     <Task ID="update_package_version" Command="update_package_property" PropertyName="Version" PropertyValue="{mod_version_2}" />
