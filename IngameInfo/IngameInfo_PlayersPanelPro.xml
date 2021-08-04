@@ -4,8 +4,6 @@
   <Macros>
     <!-- for inside macro of the global_macro 'champi_xpath' -->
     <Macro Name="champi_xpath_mod_name" Value="Player Panel Pro"/>
-    <!-- for inside macro of the global_macro '7z_create_package_zipfile' -->
-    <Macro Name="mods_resMods_folders" Value="mods"/>
     <Macro Name="wotmod_name" Value="de.champi.wot.playerPanelPro"/>
   </Macros>
 
@@ -36,10 +34,10 @@
     <Task ID="extract_source6" Command="shell_exec" Filename="7z.exe" Wd="{working_folder_source}" Cmd="x {last_download_filename} en.json -r"/>
     <Task ID="extract_source7" Command="shell_exec" Filename="7z.exe" Wd="{working_folder_source}" Cmd="x {last_download_filename} pl.json -r"/>
     <Task ID="extract_source8" Command="shell_exec" Filename="7z.exe" Wd="{working_folder_source}" Cmd="x {last_download_filename} ru.json -r"/>
-    <Task ID="extract_source9" Command="shell_exec" Filename="7z.exe" Wd="{working_folder_source}" Cmd="x {last_download_filename}\mods\configs\CHAMPi\playerPanelPro\customcfg\* -r"/>
-    <Task ID="extract_source10" Command="shell_exec" Filename="7z.exe" Wd="{working_folder_source}" Cmd="x {last_download_filename}\mods\configs\CHAMPi\playerPanelPro\customcfg\green\* -r"/>
-    <Task ID="extract_source11" Command="shell_exec" Filename="7z.exe" Wd="{working_folder_source}" Cmd="x {last_download_filename}\mods\configs\CHAMPi\playerPanelPro\customcfg\red\* -r"/>
-    <Task ID="extract_source12" Command="shell_exec" Filename="7z.exe" Wd="{working_folder_source}" Cmd="x {last_download_filename}\mods\configs\CHAMPi\playerPanelPro\customcfg\spotted\* -r"/>
+    <Task ID="extract_source9" Command="shell_exec" Filename="7z.exe" Wd="{working_folder_source}" Cmd="x {last_download_filename} \mods\configs\CHAMPi\playerPanelPro\customcfg\* -r"/>
+    <Task ID="extract_source10" Command="shell_exec" Filename="7z.exe" Wd="{working_folder_source}" Cmd="x {last_download_filename} \mods\configs\CHAMPi\playerPanelPro\customcfg\green\* -r"/>
+    <Task ID="extract_source11" Command="shell_exec" Filename="7z.exe" Wd="{working_folder_source}" Cmd="x {last_download_filename} \mods\configs\CHAMPi\playerPanelPro\customcfg\red\* -r"/>
+    <Task ID="extract_source12" Command="shell_exec" Filename="7z.exe" Wd="{working_folder_source}" Cmd="x {last_download_filename} \mods\configs\CHAMPi\playerPanelPro\customcfg\spotted\* -r"/>
 
 
     <!-- 'e' means to extract (to the work direcotry, without using the zip file's paths), and -r means to recurse into the zip folder's directories -->
@@ -90,7 +88,7 @@
       -mx=9 is setting the level of compression to 9 (scale goes from 0 [store] to 9[ultra])
       -r recurse subdirectories
     -->
-    <Task ID="create_zip" Command="shell_exec" Filename="7z.exe" Wd="{workDirectory}\package" Cmd="a -tzip -mx=9 -r final.zip"/>
+    <Task ID="create_zip" Command="shell_exec" Filename="7z.exe" Wd="{workDirectory}\package" Cmd="{7z_createFinalZip}"/>
 
     <!-- update version field in database -->
     <Task ID="update_package_version" Command="update_package_property" PropertyName="Version" PropertyValue="{mod_version_2}" />
