@@ -88,6 +88,16 @@
   <AutomationSequence UID="ds7mntuerrvuiuco" packageName="TankSkinsMisc_ColoredPenetration" path="Tank_Skins_Misc/TankSkinsMisc_ColoredPenetration.xml" />
   <!-- Category Task SKins Misc END   -->
 
+  <!-- Category 6thSense START -->
+  <AutomationSequence UID="x1y2084gz1mybzu6" packageName="6thSense_Timer" path="6thSense/6thSense_Timer.xml" />
+  <!-- Category 6thSense END   -->
+  
+  <!-- Category Custom Tank Skins START -->
+  <!-- Category Custom Tank Skins END   -->
+  
+  <!-- Category Custom Tank Skins START -->
+  <!-- Category Custom Tank Skins END   -->
+  
   <!-- Category Custom Tank Skins START -->
   <!-- Category Custom Tank Skins END   -->
 </root.xml>
