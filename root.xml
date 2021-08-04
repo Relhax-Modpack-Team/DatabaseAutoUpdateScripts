@@ -49,6 +49,10 @@
   <AutomationSequence UID="d43zb130wzealrrr" packageName="Crosshairs_ArcadeSniper_Marksman_white" path="Crosshairs/Crosshairs_ArcadeSniper_Marksman_white.xml" />
   <AutomationSequence UID="y8lus8c10liy9w7x" packageName="Crosshairs_ArcadeSniper_Marksman_green" path="Crosshairs/Crosshairs_ArcadeSniper_Marksman_green.xml" />
   <!-- Category Crosshairs END   -->
+   
+  <!-- Category Ingame Aim START -->
+  <AutomationSequence UID="au1did8dq1mvem8q" packageName="IngameAim_SafeShot_Champi" path="IngameAim/IngameAim_SafeShot_Champi.xml"/>
+  <!-- Category Ingame Aim END   -->
 
   <!-- Category Ingame Misc START -->
   <AutomationSequence UID="paxp2g7wycyybnvy" packageName="IngameMisc_PreBattleTimer_Aqua" path="Ingame_Misc/Prebattle_Timer/IngameMisc_PreBattleTimer_Aqua.xml"/>
