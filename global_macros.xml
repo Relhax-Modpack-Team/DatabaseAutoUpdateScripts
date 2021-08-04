@@ -11,5 +11,8 @@
     based on a combination of the xpaths above and from the relhax gui patch:
     <path>/audio_mods.xml/events/event[name = &quot;enemy_sighted_for_team&quot;]</path>
   -->
+  <!-- this will create the final.zip with only using the mods or res_mods folder from work directory {mods_resMods_folders} -->
   <Macro Name="7z_create_package_zipfile" Value="a -tzip -mx=9 -r final.zip {mods_resMods_folders}"/>
+  <!-- this will create the final.zip with all files from work directory -->
+  <Macro Name="7z_createFinalZip" Value="a -tzip -mx=9 -r final.zip"/>
 </GlobalMacros>
