@@ -15,7 +15,7 @@
   <!-- Category Icon Mirror Files END -->
 
   <!-- Category XVM START -->
-  <AutomationSequence UID="vxb6fqgbg3p0hfv9" packageName="LogicalDependency_XVM_Main_Nightly" path="Dependencies/LogicalDependency_XVM_Main_Nightly.xml" />
+  <AutomationSequence UID="vxb6fqgbg3p0hfv9" packageName="LogicalDependency_XVM_Main_Nightly" path="workDir/LogicalDependency_XVM_Main_Nightly.xml" />
   <!-- Category XVM END -->
   
   <!-- Category GUI API START -->
