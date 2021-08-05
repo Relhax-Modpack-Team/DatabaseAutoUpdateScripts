@@ -9,15 +9,9 @@
 
   <!-- Specify the tasks to run -->
   <TaskDefinitions>
-    
-  
-    <!-- Create macros. Working folders for source and modpack versions, and get the 0th index devUrl -->
-    <Task ID="create_workdir_source_macro" Command="macro_create" MacroName="working_folder_source" MacroValue="{workDirectory}\source"/>
-    <Task ID="create_workdir_modpack_macro" Command="macro_create" MacroName="working_folder_modpack" MacroValue="{workDirectory}\modpack"/>
 
-    <!-- Create the working directories -->
-    <Task ID="create_directory_source" Command="create_directory" DirectoryPath="{working_folder_source}"/>
-    <Task ID="create_directory_modpack" Command="create_directory" DirectoryPath="{working_folder_modpack}"/>
+    <!-- import tasks -->
+    <Task ID="import_macro_create_tasks" Command="import_task" RepoUrlPath="Task_templates/create_workDirs_macros.xml"/>
 
     <!-- download the source and the modpack current zip file, which *could* implicitly creates the directories, if we didn't define them first -->
     <Task ID="get_download_url" Command="retrieve_package_property" PropertyName="DevURLList" TargetPackageUID="this" MacroSaveName="download_url" PropertyIndex="0"/>

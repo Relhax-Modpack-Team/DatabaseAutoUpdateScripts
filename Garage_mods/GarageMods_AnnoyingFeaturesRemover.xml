@@ -2,13 +2,12 @@
 <AutomationSequence documentVersion="1.0">
   <!-- Specify macros here -->
   <Macros>
-    <Macro Name="mods_resMods_folders" Value="mods"/>
     <Macro Name="download_url" Value="https://github.com/AstaRom/wot_mods/raw/master/hangarAddons.zip"/>
   </Macros>
   <TaskDefinitions>
   
-  
-    <Task ID="import_createWorkDirs" Command="import_task" RepoUrlPath="Task_templates/macro_create_work_dirs.xml"/>    
+    <!-- import tasks -->
+    <Task ID="import_macro_create_tasks" Command="import_task" RepoUrlPath="Task_templates/create_workDirs_macros.xml"/>
       
      <!-- download the source zip file, which implicitly creates the directories  -->
     <Task ID="download_source" Command="download_static" Url="{download_url}" DestinationPath="{working_folder_source}\{last_download_filename}"/>
@@ -49,7 +48,7 @@
       -mx=9 is setting the level of compression to 9 (scale goes from 0 [store] to 9[ultra])
       -r recurse subdirectories
     -->
-    <Task ID="create_zip" Command="shell_exec" Filename="7z.exe" Wd="{workDirectory}\package" Cmd="{7z_create_package_zipfile}"/>
+    <Task ID="create_zip" Command="shell_exec" Filename="7z.exe" Wd="{workDirectory}\package" Cmd="{7z_createFinalZip}"/>
 
     <!-- update version field in database (using clientVersion for this mod) -->
     <Task ID="update_package_version" Command="update_package_property" PropertyName="Version" PropertyValue="{clientVersion}" />
