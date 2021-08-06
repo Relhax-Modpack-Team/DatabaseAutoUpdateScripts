@@ -15,7 +15,7 @@
   <!-- Category Icon Mirror Files END -->
 
   <!-- Category XVM START -->
-  <AutomationSequence UID="vxb6fqgbg3p0hfv9" packageName="LogicalDependency_XVM_Main_Nightly" path="workDir/LogicalDependency_XVM_Main_Nightly.xml" />
+  <AutomationSequence UID="vxb6fqgbg3p0hfv9" packageName="LogicalDependency_XVM_Main_Nightly" path="Dependencies/LogicalDependency_XVM_Main_Nightly.xml" />
   <AutomationSequence UID="fv2w9cfqwfpgp6gd" packageName="Dependency_XVM_XC_vehiclenames" path="Dependencies/Dependency_XVM_XC_vehiclenames.xml" />
   <AutomationSequence UID="rt6o27llclgwgd8d" packageName="Dependency_XVM_XC_turret" path="Dependencies/Dependency_XVM_XC_turret.xml" />
   <AutomationSequence UID="v38v19d5333rdqk0" packageName="Dependency_XVM_XC_years" path="Dependencies/Dependency_XVM_XC_years.xml" />
