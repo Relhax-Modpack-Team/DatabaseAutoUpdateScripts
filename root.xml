@@ -91,13 +91,9 @@
   <!-- Category Garage Mods END   -->
 
   <!-- Category Sound Mods START -->
-  <!-- NOTE: SEQUENCE g8fqf3ueleg65em4 IS A SAMPLE -->
-  <AutomationSequence UID="g8fqf3ueleg65em4" packageName="Sounds_CrewVoices_ENG_Basic_Relhax" path="Custom_Tank_Skins/object_420.xml" />
   <!-- Category Sound Mods END   -->
 
   <!-- Category Tank Skins Misc START -->
-  <!-- NOTE: SEQUENCE ds7mntuerrvuiuco IS A SAMPLE -->
-  <AutomationSequence UID="ds7mntuerrvuiuco" packageName="TankSkinsMisc_ColoredPenetration" path="Tank_Skins_Misc/TankSkinsMisc_ColoredPenetration.xml" />
   <!-- Category Task SKins Misc END   -->
 
   <!-- Category 6thSense START -->
