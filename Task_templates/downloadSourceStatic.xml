@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<AutomationSequence documentVersion="1.0">
+  <TaskDefinitions>
+    <!-- download the source zip file, which *could* implicitly creates the directories, if we didn't define them first -->
+    <Task ID="download_mod_source" Command="download_static" Url="{download_url}" DestinationPath="{working_folder_source}\{last_download_filename}"/>
+  </TaskDefinitions>
+</AutomationSequence>
