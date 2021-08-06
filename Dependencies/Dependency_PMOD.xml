@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<AutomationSequence documentVersion="1.0">
+  <!-- Specify macros here -->
+  <Macros>
+    <Macro Name="wotmod_name" Value="poliroid.pmod"/>
+  </Macros>
+  <TaskDefinitions>
+  
+    <!-- create work dirs and macros -->
+    <Task ID="import_createWD" Command="import_task" RepoUrlPath="Task_templates/create_workDirs_macros.xml"/>
+    
+    <!-- get dl-url -->
+    <Task ID="import_getDLUrl" Command="import_task" RepoUrlPath="Task_templates/getDownloadUrl_THISindex0.xml"/>
+
+    <!-- download the source zip file, which *could* implicitly creates the directories, if we didn't define them first -->
+    <Task ID="import_downloadSource" Command="import_task" RepoUrlPath="Task_templates/downloadSourceBrowser_WGMods.xml"/>
+    
+    <!-- download current modpack zip file -->
+    <Task ID="import_downloadModpack" Command="import_task" RepoUrlPath="Task_templates/downloadModpack_PackageNameZip.xml"/>
+
+    <!-- extract source -->
+    <Task ID="extract_source_wotmod" Command="shell_exec" Filename="7z.exe" Wd="{working_folder_source}" Cmd="e {last_download_filename}  -o{working_folder_source}\mods\versiondir {wotmod_name}_*.wotmod -r"/>
+    <Task ID="extract_source_cfg" Command="shell_exec" Filename="7z.exe" Wd="{working_folder_source}" Cmd="x {last_download_filename} -o{working_folder_package} -r configs"/>
+
+
+    
+    <!-- extract modpack -->
+    <Task ID="extract_modpack_wotmod" Command="shell_exec" Filename="7z.exe" Wd="{working_folder_modpack}" Cmd="x {packageName}.zip {wotmod_name}_*.wotmod -r"/>
+    <Task ID="extract_modpack_patch" Command="shell_exec" Filename="7z.exe" Wd="{working_folder_modpack}" Cmd="x {packageName}.zip -o{working_folder_package} pmod_disable_all_patch.xml -r"/>
+    
+    
+    
+    <!-- get the current version of the mod by string split and file search -->
+    <Task ID="get_wotmod_filename" Command="directory_search" DirectoryPath="{working_folder_source}\mods\versiondir" SearchPath="{wotmod_name}*.wotmod" Recursive="False" MacroPrefix="get_wotmod_filename_results"/>
+    <Task ID="get_mod_version_1" Command="macro_string_split_filename" MacroName="mod_version_1" Index="1" SplitCharacters="_" FilePath="{get_wotmod_filename_results_0}"/>
+    <Task ID="get_mod_version_2" Command="macro_string_split_macro" MacroName="mod_version_2" Index="0" SplitCharacters=".wotmod" InputText="{mod_version_1}"/>
+    
+    <!-- Create the wotmod names -->
+    <Task ID="create_wotmod_source_macro" Command="macro_create" MacroName="wotmod_source" MacroValue="{wotmod_name}_{mod_version_2}.wotmod"/>
+    <Task ID="create_wotmod_modpack_macro" Command="macro_create" MacroName="wotmod_modpack" MacroValue="{wotmod_name}_{version}.wotmod"/>
+    
+    <!-- Compare wotmod file -->
+    <Task ID="compare_start" Command="compare_start"/>
+    <Task ID="compare_wotmod" Command="file_compare"
+      FileA="{working_folder_source}\mods\versiondir\{wotmod_source}"
+      FileB="{working_folder_modpack}\mods\versiondir\{wotmod_modpack}"/>
+    <Task ID="compare_end" Command="compare_end"/>
+
+
+    <!-- Update modpack files -->
+    <Task ID="update_modpack" Command="file_copy" SourceFilePath="{working_folder_source}\mods\versiondir\{wotmod_source}" DestinationFilePath="{working_folder_package}\mods\versiondir\{wotmod_source}"/>
+
+
+    <!-- create the new zip -->
+    <Task ID="create_zip" Command="shell_exec" Filename="7z.exe" Wd="{workDirectory}\package" Cmd="{7z_createFinalZip}"/>
+    
+    <!-- upload to the server -->
+    <Task ID="upload_zip" Command="package_upload" FilePath="{workDirectory}\package\final.zip" ZipFileName="{packageName}_{clientVersion}_{date}.zip"/>
+
+
+  </TaskDefinitions>
+</AutomationSequence>
