@@ -12,7 +12,7 @@
     <Task ID="import_getDLUrl" Command="import_task" RepoUrlPath="Task_templates/getDownloadUrl_THISindex0.xml"/>
     
     <!-- download the source zip file, which *could* implicitly creates the directories, if we didn't define them first -->
-    <Task ID="import_getDLUrl" Command="import_task" RepoUrlPath="Task_templates/downloadSourceStatic.xml"/>
+    <Task ID="import_dowloadSource" Command="import_task" RepoUrlPath="Task_templates/downloadSourceStatic.xml"/>
     
     
     

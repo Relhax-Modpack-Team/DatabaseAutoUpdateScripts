@@ -34,6 +34,7 @@
   <!-- Category Standard START -->
   <AutomationSequence UID="n1h14mo15q78x01s" packageName="Dependency_MLG_bnk" path="Dependencies/Dependency_MLG_bnk.xml" />
   <AutomationSequence UID="ex0ocsm6tio4kknh" packageName="Dependency_PMOD" path="Dependencies/Dependency_PMOD.xml" />
+  <AutomationSequence UID="5tjbkykag9506587" packageName="Dependency_P0LIR0ID_modsListApi" path="workDir/Dependency_P0LIR0ID_modsListApi.xml" />
   <AutomationSequence UID="pldcs1mv9lrphm5k" packageName="Dependency_PY_PYmodsCore" path="workDir/Dependency_PY_PYmodsCore.xml" />
   <!-- Category Standard END -->
   

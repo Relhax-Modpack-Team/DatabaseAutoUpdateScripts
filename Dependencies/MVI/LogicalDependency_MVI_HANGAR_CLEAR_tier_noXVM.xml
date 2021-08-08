@@ -8,7 +8,7 @@
   <!-- Specify the tasks to run -->
   <TaskDefinitions>
     <!-- import tasks -->
-    <Task ID="import_tasks" Command="import_task" RepoUrlPath="Task_templates/LogicalDependency_MVI_HANGAR.xml"/>
+    <Task ID="import_tasks" Command="import_task" RepoUrlPath="Task_templates/Dependencies/LogicalDependency_MVI_HANGAR.xml"/>
   </TaskDefinitions>
 
 </AutomationSequence>
