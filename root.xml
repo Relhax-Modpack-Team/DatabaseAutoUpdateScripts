@@ -7,23 +7,23 @@
 
   <!-- Category Dependencies START -->
   <!-- Category Icon Mirror Files START -->
-  <AutomationSequence UID="a6y6dhrkqvba4d0k" packageName="LogicalDependency_MVI_BATTLE_CLEAR_noXVM" path="Dependencies/LogicalDependency_MVI_BATTLE_CLEAR_noXVM.xml" />
-  <AutomationSequence UID="xhss5hljrzit42tk" packageName="LogicalDependency_MVI_BATTLE_noXVM" path="Dependencies/LogicalDependency_MVI_BATTLE_noXVM.xml" />
-  <AutomationSequence UID="4kge4lh3led0f6ix" packageName="LogicalDependency_MVI_HANGAR_showAll_noXVM" path="Dependencies/LogicalDependency_MVI_HANGAR_showAll_noXVM.xml" />
-  <AutomationSequence UID="h9mtckn4ka5ifipx" packageName="LogicalDependency_MVI_HANGAR_CLEAR_tier_noXVM" path="Dependencies/LogicalDependency_MVI_HANGAR_CLEAR_tier_noXVM.xml" />
-  <AutomationSequence UID="uyt8ljt5j7xzfuwx" packageName="LogicalDependency_MVI_HANGAR_CLEAR_ALL_noXVM" path="Dependencies/LogicalDependency_MVI_HANGAR_CLEAR_ALL_noXVM.xml" />
+  <AutomationSequence UID="a6y6dhrkqvba4d0k" packageName="LogicalDependency_MVI_BATTLE_CLEAR_noXVM" path="Dependencies/MVI/LogicalDependency_MVI_BATTLE_CLEAR_noXVM.xml" />
+  <AutomationSequence UID="xhss5hljrzit42tk" packageName="LogicalDependency_MVI_BATTLE_noXVM" path="Dependencies/MVI/LogicalDependency_MVI_BATTLE_noXVM.xml" />
+  <AutomationSequence UID="4kge4lh3led0f6ix" packageName="LogicalDependency_MVI_HANGAR_showAll_noXVM" path="Dependencies/MVI/LogicalDependency_MVI_HANGAR_showAll_noXVM.xml" />
+  <AutomationSequence UID="h9mtckn4ka5ifipx" packageName="LogicalDependency_MVI_HANGAR_CLEAR_tier_noXVM" path="Dependencies/MVI/LogicalDependency_MVI_HANGAR_CLEAR_tier_noXVM.xml" />
+  <AutomationSequence UID="uyt8ljt5j7xzfuwx" packageName="LogicalDependency_MVI_HANGAR_CLEAR_ALL_noXVM" path="Dependencies/MVI/LogicalDependency_MVI_HANGAR_CLEAR_ALL_noXVM.xml" />
   <!-- Category Icon Mirror Files END -->
 
   <!-- Category XVM START -->
-  <AutomationSequence UID="vxb6fqgbg3p0hfv9" packageName="LogicalDependency_XVM_Main_Nightly" path="Dependencies/LogicalDependency_XVM_Main_Nightly.xml" />
-  <AutomationSequence UID="fv2w9cfqwfpgp6gd" packageName="Dependency_XVM_XC_vehiclenames" path="Dependencies/Dependency_XVM_XC_vehiclenames.xml" />
-  <AutomationSequence UID="rt6o27llclgwgd8d" packageName="Dependency_XVM_XC_turret" path="Dependencies/Dependency_XVM_XC_turret.xml" />
-  <AutomationSequence UID="v38v19d5333rdqk0" packageName="Dependency_XVM_XC_years" path="Dependencies/Dependency_XVM_XC_years.xml" />
-  <AutomationSequence UID="8sea98j62zv9d2r0" packageName="Dependency_XVM_XC_hull" path="Dependencies/Dependency_XVM_XC_hull.xml" />
-  <AutomationSequence UID="fq7emmwolanq9jv7" packageName="Dependency_XVM_XC_gunDmg" path="Dependencies/Dependency_XVM_XC_gunDmg.xml" />
-  <AutomationSequence UID="q18no0oyqapvgiz4" packageName="Dependency_XVM_XC_gunPen" path="Dependencies/Dependency_XVM_XC_gunPen.xml" />
-  <AutomationSequence UID="lhlph8q71wnqdey0" packageName="Dependency_XVM_XC_speed" path="Dependencies/Dependency_XVM_XC_speed.xml" />
-  <AutomationSequence UID="4a7xos55e5uzv2o2" packageName="Dependency_XVM_XC_elevation" path="Dependencies/Dependency_XVM_XC_elevation.xml" />
+  <AutomationSequence UID="vxb6fqgbg3p0hfv9" packageName="LogicalDependency_XVM_Main_Nightly" path="Dependencies/XVM/LogicalDependency_XVM_Main_Nightly.xml" />
+  <AutomationSequence UID="fv2w9cfqwfpgp6gd" packageName="Dependency_XVM_XC_vehiclenames" path="Dependencies/XVM/Dependency_XVM_XC_vehiclenames.xml" />
+  <AutomationSequence UID="rt6o27llclgwgd8d" packageName="Dependency_XVM_XC_turret" path="Dependencies/XVM/Dependency_XVM_XC_turret.xml" />
+  <AutomationSequence UID="v38v19d5333rdqk0" packageName="Dependency_XVM_XC_years" path="Dependencies/XVM/Dependency_XVM_XC_years.xml" />
+  <AutomationSequence UID="8sea98j62zv9d2r0" packageName="Dependency_XVM_XC_hull" path="Dependencies/XVM/Dependency_XVM_XC_hull.xml" />
+  <AutomationSequence UID="fq7emmwolanq9jv7" packageName="Dependency_XVM_XC_gunDmg" path="Dependencies/XVM/Dependency_XVM_XC_gunDmg.xml" />
+  <AutomationSequence UID="q18no0oyqapvgiz4" packageName="Dependency_XVM_XC_gunPen" path="Dependencies/XVM/Dependency_XVM_XC_gunPen.xml" />
+  <AutomationSequence UID="lhlph8q71wnqdey0" packageName="Dependency_XVM_XC_speed" path="Dependencies/XVM/Dependency_XVM_XC_speed.xml" />
+  <AutomationSequence UID="4a7xos55e5uzv2o2" packageName="Dependency_XVM_XC_elevation" path="Dependencies/XVM/Dependency_XVM_XC_elevation.xml" />
   <!-- Category XVM END -->
   
   <!-- Category GUI API START -->
@@ -63,19 +63,19 @@
   <!-- Category Ingame Aim END   -->
 
   <!-- Category Ingame Misc START -->
-  <AutomationSequence UID="paxp2g7wycyybnvy" packageName="IngameMisc_PreBattleTimer_Aqua" path="Ingame_Misc/Prebattle_Timer/IngameMisc_PreBattleTimer_Aqua.xml"/>
-  <AutomationSequence UID="welc2j3gsss5mskb" packageName="IngameMisc_PreBattleTimer_Blue" path="Ingame_Misc/Prebattle_Timer/IngameMisc_PreBattleTimer_Blue.xml"/>
-  <AutomationSequence UID="93rraj9hroknm4ra" packageName="IngameMisc_PreBattleTimer_Green" path="Ingame_Misc/Prebattle_Timer/IngameMisc_PreBattleTimer_Green.xml"/>
-  <AutomationSequence UID="3h9y2nz0m7mcyx9o" packageName="IngameMisc_PreBattleTimer_Orange" path="Ingame_Misc/Prebattle_Timer/IngameMisc_PreBattleTimer_Orange.xml"/>
-  <AutomationSequence UID="0zaeip7meg1j9pd0" packageName="IngameMisc_PreBattleTimer_Yellow" path="Ingame_Misc/Prebattle_Timer/IngameMisc_PreBattleTimer_Yellow.xml"/>
+  <AutomationSequence UID="paxp2g7wycyybnvy" packageName="IngameMisc_PreBattleTimer_Aqua" path="IngameMisc/PrebattleTimer/IngameMisc_PreBattleTimer_Aqua.xml"/>
+  <AutomationSequence UID="welc2j3gsss5mskb" packageName="IngameMisc_PreBattleTimer_Blue" path="IngameMisc/PrebattleTimer/IngameMisc_PreBattleTimer_Blue.xml"/>
+  <AutomationSequence UID="93rraj9hroknm4ra" packageName="IngameMisc_PreBattleTimer_Green" path="IngameMisc/PrebattleTimer/IngameMisc_PreBattleTimer_Green.xml"/>
+  <AutomationSequence UID="3h9y2nz0m7mcyx9o" packageName="IngameMisc_PreBattleTimer_Orange" path="IngameMisc/PrebattleTimer/IngameMisc_PreBattleTimer_Orange.xml"/>
+  <AutomationSequence UID="0zaeip7meg1j9pd0" packageName="IngameMisc_PreBattleTimer_Yellow" path="IngameMisc/PrebattleTimer/IngameMisc_PreBattleTimer_Yellow.xml"/>
 
-  <AutomationSequence UID="aiallqkdn4oj75zx" packageName="IngameMisc_UnderwaterTimer_V1" path="Ingame_Misc/Underwater_Timer/IngameMisc_UnderwaterTimer_V1.xml"/>
-  <AutomationSequence UID="imj4hav99un0mj7a" packageName="IngameMisc_UnderwaterTimer_V2" path="Ingame_Misc/Underwater_Timer/IngameMisc_UnderwaterTimer_V2.xml"/>
-  <AutomationSequence UID="5w86s2tcah0vz5yd" packageName="IngameMisc_UnderwaterTimer_V3" path="Ingame_Misc/Underwater_Timer/IngameMisc_UnderwaterTimer_V3.xml"/>
-  <AutomationSequence UID="yg5kyxsh4ibkbxuy" packageName="IngameMisc_UnderwaterTimer_V7" path="Ingame_Misc/Underwater_Timer/IngameMisc_UnderwaterTimer_V7.xml"/>
-  <AutomationSequence UID="46d63yjqneao8y39" packageName="IngameMisc_UnderwaterTimer_V10" path="Ingame_Misc/Underwater_Timer/IngameMisc_UnderwaterTimer_V10.xml"/>
+  <AutomationSequence UID="aiallqkdn4oj75zx" packageName="IngameMisc_UnderwaterTimer_V1" path="IngameMisc/UnderwaterTimer/IngameMisc_UnderwaterTimer_V1.xml"/>
+  <AutomationSequence UID="imj4hav99un0mj7a" packageName="IngameMisc_UnderwaterTimer_V2" path="IngameMisc/UnderwaterTimer/IngameMisc_UnderwaterTimer_V2.xml"/>
+  <AutomationSequence UID="5w86s2tcah0vz5yd" packageName="IngameMisc_UnderwaterTimer_V3" path="IngameMisc/UnderwaterTimer/IngameMisc_UnderwaterTimer_V3.xml"/>
+  <AutomationSequence UID="yg5kyxsh4ibkbxuy" packageName="IngameMisc_UnderwaterTimer_V7" path="IngameMisc/UnderwaterTimer/IngameMisc_UnderwaterTimer_V7.xml"/>
+  <AutomationSequence UID="46d63yjqneao8y39" packageName="IngameMisc_UnderwaterTimer_V10" path="IngameMisc/UnderwaterTimer/IngameMisc_UnderwaterTimer_V10.xml"/>
   
-  <AutomationSequence UID="lp7nnb2rbopkpr28" packageName="IngameMisc_Minimap_SpamProtector" path="Ingame_Misc/IngameMisc_Minimap_SpamProtector.xml"/>
+  <AutomationSequence UID="lp7nnb2rbopkpr28" packageName="IngameMisc_Minimap_SpamProtector" path="IngameMisc/IngameMisc_Minimap_SpamProtector.xml"/>
   <!-- Category Ingame Misc END -->
   
   
@@ -86,8 +86,8 @@
   <!-- Category Ingame Info END -->
 
   <!-- Category Garage Mods START -->
-  <AutomationSequence UID="ksbf9er3h535v1vd" packageName="GarageMods_LittleHelperCollection" path="Garage_mods/GarageMods_LittleHelperCollection.xml" />
-  <AutomationSequence UID="w0ffte8rsqbb1su7" packageName="GarageMods_AnnoyingFeaturesRemover" path="Garage_mods/GarageMods_AnnoyingFeaturesRemover.xml" />
+  <AutomationSequence UID="ksbf9er3h535v1vd" packageName="GarageMods_LittleHelperCollection" path="GarageMods/GarageMods_LittleHelperCollection.xml" />
+  <AutomationSequence UID="w0ffte8rsqbb1su7" packageName="GarageMods_AnnoyingFeaturesRemover" path="GarageMods/GarageMods_AnnoyingFeaturesRemover.xml" />
   <!-- Category Garage Mods END   -->
 
   <!-- Category Sound Mods START -->
