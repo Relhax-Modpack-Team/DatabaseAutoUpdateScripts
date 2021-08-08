@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<AutomationSequence documentVersion="1.0">
+  <!-- Specify macros here -->
+  <Macros>
+    <Macro Name="xc_name" Value="turret"/>
+  </Macros>
+  <TaskDefinitions>
+  
+    <!-- create work dirs and macros -->
+    <Task ID="import_createWD" Command="import_task" RepoUrlPath="Task_templates/create_workDirs_macros.xml"/>
+    
+    <!-- get dl-url -->
+    <Task ID="import_getDLUrl" Command="import_task" RepoUrlPath="Task_templates/getDownloadUrl_THISindex0.xml"/>
+
+    <!-- download the source zip file, which *could* implicitly creates the directories, if we didn't define them first -->
+    <Task ID="import_downloadSource" Command="import_task" RepoUrlPath="Task_templates/downloadSourceBrowser_WGMods.xml"/>
+    
+    <!-- download current modpack zip file -->
+    <Task ID="import_downloadModpack" Command="import_task" RepoUrlPath="Task_templates/downloadModpack_PackageNameZip.xml"/>
+    
+    <!-- extractXC_compareXC_uploadZip_updatePkg HAWG-template [xvm_xc_hawg.xml]-->
+    <Task ID="import_updateHawgXC" Command="import_task" RepoUrlPath="Task_templates/Dependencies/Dependeny_XVM_XC_HAWG.xml"/>
+
+  </TaskDefinitions>
+</AutomationSequence>
