@@ -91,6 +91,10 @@
   <AutomationSequence UID="w0ffte8rsqbb1su7" packageName="GarageMods_AnnoyingFeaturesRemover" path="GarageMods/GarageMods_AnnoyingFeaturesRemover.xml" />
   <!-- Category Garage Mods END   -->
 
+  <!-- Category Ingame Aim START -->
+  <AutomationSequence UID="jm0usfegzl8mic1e" packageName="IngameAim_BattleAssistant" path="IngameAim/IngameAim_BattleAssistant.xml" />
+  <!-- Category Ingame Aim END   -->
+
   <!-- Category Sound Mods START -->
   <!-- Category Sound Mods END   -->
 
