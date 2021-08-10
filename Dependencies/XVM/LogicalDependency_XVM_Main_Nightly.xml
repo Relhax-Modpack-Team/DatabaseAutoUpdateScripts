@@ -28,7 +28,7 @@
 
 
     <!-- get the source version of the mod by file name -->
-    <Task ID="get_filename" Command="directory_search" DirectoryPath="{working_folder_source}" SearchPath="?.?.?_????" Recursive="False" MacroPrefix="get_filename_results"/>
+    <Task ID="get_filename" Command="directory_search" DirectoryPath="{working_folder_source}" SearchPattern="?.?.?_????" Recursive="False" MacroPrefix="get_filename_results"/>
     <Task ID="get_modVersion_source" Command="macro_string_split_filename" MacroName="modVersion_source" Index="0" SplitCharacters="\" FilePath="{get_filename_results_0}"/>
     <!-- get modpack version from version field in database -->
     <Task ID="get_modVersion_modpack" Command="macro_create" MacroName="modVersion_modpack" MacroValue="{version}"/>
@@ -54,7 +54,7 @@
     <Task ID="update_package_version" Command="update_package_property" PropertyName="Version" PropertyValue="{modVersion_source}" TargetPackageUID="8rzkblqj805kg3lj" />
 
     <!-- upload to the server -->
-    <Task ID="upload_zip" Command="package_upload" FilePath="{workDirectory}\package\final.zip" ZipFileName="{packageName}_v{modVersion_source}_{clientVersion}_{date}.zip"/>
+    <!-- <Task ID="upload_zip" Command="package_upload" FilePath="{workDirectory}\package\final.zip" ZipFileName="{packageName}_v{modVersion_source}_{clientVersion}_{date}.zip"/> -->
 
   </TaskDefinitions>
 </AutomationSequence>
