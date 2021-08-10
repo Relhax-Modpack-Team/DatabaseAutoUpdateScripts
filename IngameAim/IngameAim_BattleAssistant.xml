@@ -34,13 +34,13 @@
 
 
     <!-- get the current version of the mod by string split and file search -->
-    <Task ID="get_wotmod_filename" Command="directory_search" DirectoryPath="{working_folder_source}" SearchPath="{wotmod_name}*.wotmod" Recursive="False" MacroPrefix="get_sourcewotmod_filename_results"/>
+    <Task ID="get_wotmod_filename" Command="directory_search" DirectoryPath="{working_folder_source}" SearchPattern="{wotmod_name}*.wotmod" Recursive="False" MacroPrefix="get_sourcewotmod_filename_results"/>
     <Task ID="get_mod_version_1" Command="macro_string_split_filename" MacroName="mod_version_1" Index="0" SplitCharacters="{wotmod_name}" FilePath="{get_sourcewotmod_filename_results_0}"/>
     <Task ID="get_mod_version_2" Command="macro_string_split_macro" MacroName="mod_version_2" Index="0" SplitCharacters="_" InputText="{mod_version_1}"/>
 
     
     <!-- get the modpack version of the mod by string split and file search -->
-    <Task ID="get_wotmod_filename2" Command="directory_search" DirectoryPath="{working_folder_modpack}\mods\versiondir\" SearchPath="{wotmod_name}*" Recursive="False" MacroPrefix="get_modpackwotmod_filename_results"/>
+    <Task ID="get_wotmod_filename2" Command="directory_search" DirectoryPath="{working_folder_modpack}\mods\versiondir\" SearchPattern="{wotmod_name}*" Recursive="False" MacroPrefix="get_modpackwotmod_filename_results"/>
     <Task ID="get_mod_version_3" Command="macro_string_split_filename" MacroName="mod_version_random" Index="2" SplitCharacters="_" FilePath="{get_modpackwotmod_filename_results_0}"/>
     
     <!-- Create the wotmod names -->

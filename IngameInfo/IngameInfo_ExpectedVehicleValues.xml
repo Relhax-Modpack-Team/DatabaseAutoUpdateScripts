@@ -40,7 +40,7 @@
     <Task ID="extract_modpack2" Command="shell_exec" Filename="7z.exe" Wd="{working_folder_modpack}" Cmd="x {packageName}.zip expectedVehicleValues_prePatch_disableOptionsFirst.xml -r"/>
 
     <!-- get the current version of the mod by string split and file search -->
-    <Task ID="get_wotmod_filename" Command="directory_search" DirectoryPath="{working_folder_source}\mods\{clientVersion}" SearchPath="{wotmod_name}*.wotmod" Recursive="False" MacroPrefix="get_wotmod_filename_results"/>
+    <Task ID="get_wotmod_filename" Command="directory_search" DirectoryPath="{working_folder_source}\mods\{clientVersion}" SearchPattern="{wotmod_name}*.wotmod" Recursive="False" MacroPrefix="get_wotmod_filename_results"/>
     <Task ID="get_mod_version_1" Command="macro_string_split_filename" MacroName="mod_version_1" Index="1" SplitCharacters="_" FilePath="{get_wotmod_filename_results_0}"/>
     <Task ID="get_mod_version_2" Command="macro_string_split_macro" MacroName="mod_version_2" Index="0" SplitCharacters=".wotmod" InputText="{mod_version_1}"/>
 
