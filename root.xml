@@ -6,13 +6,6 @@
   <!-- Categories specifeid here for each "group" of package automation scripts -->
 
   <!-- Category Dependencies START -->
-  <!-- Category Icon Mirror Files START -->
-  <AutomationSequence UID="a6y6dhrkqvba4d0k" packageName="LogicalDependency_MVI_BATTLE_CLEAR_noXVM" path="Dependencies/MVI/LogicalDependency_MVI_BATTLE_CLEAR_noXVM.xml" />
-  <AutomationSequence UID="xhss5hljrzit42tk" packageName="LogicalDependency_MVI_BATTLE_noXVM" path="Dependencies/MVI/LogicalDependency_MVI_BATTLE_noXVM.xml" />
-  <AutomationSequence UID="4kge4lh3led0f6ix" packageName="LogicalDependency_MVI_HANGAR_showAll_noXVM" path="Dependencies/MVI/LogicalDependency_MVI_HANGAR_showAll_noXVM.xml" />
-  <AutomationSequence UID="h9mtckn4ka5ifipx" packageName="LogicalDependency_MVI_HANGAR_CLEAR_tier_noXVM" path="Dependencies/MVI/LogicalDependency_MVI_HANGAR_CLEAR_tier_noXVM.xml" />
-  <AutomationSequence UID="uyt8ljt5j7xzfuwx" packageName="LogicalDependency_MVI_HANGAR_CLEAR_ALL_noXVM" path="Dependencies/MVI/LogicalDependency_MVI_HANGAR_CLEAR_ALL_noXVM.xml" />
-  <!-- Category Icon Mirror Files END -->
 
   <!-- Category XVM START -->
   <AutomationSequence UID="vxb6fqgbg3p0hfv9" packageName="LogicalDependency_XVM_Main_Nightly" path="Dependencies/XVM/LogicalDependency_XVM_Main_Nightly.xml" />
@@ -42,6 +35,14 @@
   <AutomationSequence UID="7uc2cpqmy2ux8gy4" packageName="Dependency_Crosshairs_Protanki" path="Dependencies/Dependency_Crosshairs_Protanki.xml" />
   <!-- Category Crosshairs END -->
 
+  <!-- Category Icon Mirror Files START -->
+  <AutomationSequence UID="a6y6dhrkqvba4d0k" packageName="LogicalDependency_MVI_BATTLE_CLEAR_noXVM" path="Dependencies/MVI/LogicalDependency_MVI_BATTLE_CLEAR_noXVM.xml" />
+  <AutomationSequence UID="xhss5hljrzit42tk" packageName="LogicalDependency_MVI_BATTLE_noXVM" path="Dependencies/MVI/LogicalDependency_MVI_BATTLE_noXVM.xml" />
+  <AutomationSequence UID="4kge4lh3led0f6ix" packageName="LogicalDependency_MVI_HANGAR_showAll_noXVM" path="Dependencies/MVI/LogicalDependency_MVI_HANGAR_showAll_noXVM.xml" />
+  <AutomationSequence UID="h9mtckn4ka5ifipx" packageName="LogicalDependency_MVI_HANGAR_CLEAR_tier_noXVM" path="Dependencies/MVI/LogicalDependency_MVI_HANGAR_CLEAR_tier_noXVM.xml" />
+  <AutomationSequence UID="uyt8ljt5j7xzfuwx" packageName="LogicalDependency_MVI_HANGAR_CLEAR_ALL_noXVM" path="Dependencies/MVI/LogicalDependency_MVI_HANGAR_CLEAR_ALL_noXVM.xml" />
+  <!-- Category Icon Mirror Files END -->
+  
   <!-- Category Dependencies END  -->
 
   <!-- Category IN-BATTLE Start -->
@@ -64,6 +65,12 @@
   <AutomationSequence UID="38iggbplcyqvzh3i" packageName="IngameAim_ServerReticle_Awfultanker" path="IngameAim/IngameAim_ServerReticle_Awfultanker.xml" />
   <AutomationSequence UID="au1did8dq1mvem8q" packageName="IngameAim_SafeShot_Champi" path="IngameAim/IngameAim_SafeShot_Champi.xml"/>
   <!-- Category Ingame Aim END   -->
+  
+  <!-- Category Ingame Info START -->
+  <AutomationSequence UID="3r6bdbph41vrjucw" packageName="IngameInfo_ExpectedVehicleValues" path="IngameInfo/IngameInfo_ExpectedVehicleValues.xml"/>
+  <AutomationSequence UID="jf9paludpndhr21p" packageName="IngameInfo_TankRatingColors" path="IngameInfo/IngameInfo_TankRatingColors.xml"/>
+  <AutomationSequence UID="msak80oyaflkjz9l" packageName="IngameInfo_PlayersPanelPro" path="IngameInfo/IngameInfo_PlayersPanelPro.xml"/>
+  <!-- Category Ingame Info END -->
 
   <!-- Category Ingame Misc START -->
   <AutomationSequence UID="paxp2g7wycyybnvy" packageName="IngameMisc_PreBattleTimer_Aqua" path="IngameMisc/PrebattleTimer/IngameMisc_PreBattleTimer_Aqua.xml"/>
@@ -81,12 +88,6 @@
   <AutomationSequence UID="lp7nnb2rbopkpr28" packageName="IngameMisc_Minimap_SpamProtector" path="IngameMisc/IngameMisc_Minimap_SpamProtector.xml"/>
   <!-- Category Ingame Misc END -->
   
-  
-  <!-- Category Ingame Info START -->
-  <AutomationSequence UID="3r6bdbph41vrjucw" packageName="IngameInfo_ExpectedVehicleValues" path="IngameInfo/IngameInfo_ExpectedVehicleValues.xml"/>
-  <AutomationSequence UID="jf9paludpndhr21p" packageName="IngameInfo_TankRatingColors" path="IngameInfo/IngameInfo_TankRatingColors.xml"/>
-  <AutomationSequence UID="msak80oyaflkjz9l" packageName="IngameInfo_PlayersPanelPro" path="IngameInfo/IngameInfo_PlayersPanelPro.xml"/>
-  <!-- Category Ingame Info END -->
 
   <!-- Category Garage Mods START -->
   <AutomationSequence UID="ksbf9er3h535v1vd" packageName="GarageMods_LittleHelperCollection" path="GarageMods/GarageMods_LittleHelperCollection.xml" />
