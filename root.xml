@@ -60,6 +60,8 @@
   <!-- Category Crosshairs END   -->
    
   <!-- Category Ingame Aim START -->
+  <AutomationSequence UID="jm0usfegzl8mic1e" packageName="IngameAim_BattleAssistant" path="IngameAim/IngameAim_BattleAssistant.xml" />
+  <AutomationSequence UID="38iggbplcyqvzh3i" packageName="IngameAim_ServerReticle_Awfultanker" path="IngameAim/IngameAim_ServerReticle_Awfultanker.xml" />
   <AutomationSequence UID="au1did8dq1mvem8q" packageName="IngameAim_SafeShot_Champi" path="IngameAim/IngameAim_SafeShot_Champi.xml"/>
   <!-- Category Ingame Aim END   -->
 
@@ -92,8 +94,6 @@
   <!-- Category Garage Mods END   -->
 
   <!-- Category Ingame Aim START -->
-  <AutomationSequence UID="jm0usfegzl8mic1e" packageName="IngameAim_BattleAssistant" path="IngameAim/IngameAim_BattleAssistant.xml" />
-  <AutomationSequence UID="38iggbplcyqvzh3i" packageName="IngameAim_ServerReticle_Awfultanker" path="IngameAim/IngameAim_ServerReticle_Awfultanker.xml" />
   <!-- Category Ingame Aim END   -->
 
   <!-- Category Sound Mods START -->
