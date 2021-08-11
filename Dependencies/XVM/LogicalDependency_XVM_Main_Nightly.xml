@@ -21,7 +21,7 @@
     <Task ID="extract_source2" Command="shell_exec" Filename="7z.exe" Wd="{working_folder_source}" Cmd="e {last_download_filename}  -o{working_folder_package}\mods\versiondir\com.modxvm.xfw *.wotmod -r"/>
     <Task ID="extract_source3" Command="shell_exec" Filename="7z.exe" Wd="{working_folder_source}" Cmd="x {last_download_filename}  -o{working_folder_package} -r default"/>
     <Task ID="extract_source3" Command="shell_exec" Filename="7z.exe" Wd="{working_folder_source}" Cmd="e {last_download_filename}  -o{working_folder_package}\res_mods\configs\xvm\default_backup -r default"/>
-    <Task ID="delete_tmp" Command="directory_delete" DirectoryPath="{working_folder_package}\res_mods\configs\xvm\default_backup\default" SearchPattern="*" Recursive="false"/>
+    <!-- <Task ID="delete_tmp" Command="directory_delete" DirectoryPath="{working_folder_package}\res_mods\configs\xvm\default_backup\default" SearchPattern="*" Recursive="false"/> -->
     <Task ID="extract_source4" Command="shell_exec" Filename="7z.exe" Wd="{working_folder_source}" Cmd="x {last_download_filename}  -o{working_folder_package} -r py_macro"/>
     <Task ID="extract_source5" Command="shell_exec" Filename="7z.exe" Wd="{working_folder_source}" Cmd="x {last_download_filename}  -o{working_folder_package} -r shared_resources"/>
     <Task ID="extract_source6" Command="shell_exec" Filename="7z.exe" Wd="{working_folder_source}" Cmd="x {last_download_filename}  -o{working_folder_package} -r xfw_packages"/>
