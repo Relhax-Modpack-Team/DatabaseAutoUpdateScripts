@@ -11,7 +11,7 @@
     <Task ID="import_tasks_IngameMisc_UnderwaterTimer" Command="import_task" RepoUrlPath="Task_templates/IngameMisc/IngameMisc_UnderwaterTimer.xml"/>
 
     <!-- import tasks -->
-    <Task ID="import_tasks" Command="import_task" RepoUrlPath="Task_templates/single_wotmod_from_wgmods.xml"/>
-    <Task ID="import_tasks" Command="import_task" RepoUrlPath="Task_templates/update_package_version_from_wgmods.xml"/>
+    <Task ID="import_task_single_wotmod_from_wgmods" Command="import_task" RepoUrlPath="Task_templates/single_wotmod_from_wgmods.xml"/>
+    <Task ID="import_task_update_package_version_from_wgmods" Command="import_task" RepoUrlPath="Task_templates/update_package_version_from_wgmods.xml"/>
   </TaskDefinitions>
 </AutomationSequence>
