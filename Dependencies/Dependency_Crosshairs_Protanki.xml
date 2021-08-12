@@ -13,7 +13,7 @@
     <Task ID="import_createWorkDirs" Command="import_task" RepoUrlPath="Task_templates/macro_create_work_dirs.xml"/>    
       
      <!-- download the source zip file, which implicitly creates the directories  -->
-    <Task ID="download_mod_source" Command="download_browser" Url="{download_url}" DestinationPath="{working_folder_source}\{last_download_filename}" HtmlPath="{wotsite_xpath}"  WaitTimeMs="500" WaitCounts="6"/>
+    <Task ID="download_mod_source" Command="download_html" Url="{download_url}" DestinationPath="{working_folder_source}\{last_download_filename}" HtmlPath="{wotsite_xpath}"/>
     <!-- extract the source wotmod files-->
     <Task ID="extract_source_1" Command="shell_exec" Filename="7z.exe" Wd="{working_folder_source}" Cmd="x {last_download_filename} {wotmod_name}.wotmod -r"/>    
     
