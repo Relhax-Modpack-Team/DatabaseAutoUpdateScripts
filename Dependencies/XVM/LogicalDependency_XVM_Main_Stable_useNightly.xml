@@ -9,7 +9,8 @@
     <Task ID="import_createWD" Command="import_task" RepoUrlPath="Task_templates/create_workDirs_macros.xml"/>    
 
     <!-- get dl-url -->
-    <Task ID="get_download_url" Command="retrieve_package_property" PropertyName="DevURLList" TargetPackageUID="vxb6fqgbg3p0hfv9" MacroSaveName="download_url" PropertyIndex="0"/>
+    <!-- <Task ID="get_download_url" Command="retrieve_package_property" PropertyName="DevURLList" TargetPackageUID="vxb6fqgbg3p0hfv9" MacroSaveName="download_url" PropertyIndex="0"/> -->
+    <Task ID="get_download_url" Command="retrieve_package_property" PropertyName="DevURLList" TargetPackageUID="this" MacroSaveName="download_url" PropertyIndex="1"/>
     <!-- download the source zip file, which *could* implicitly creates the directories, if we didn't define them first -->
     <Task ID="import_dowloadSource" Command="import_task" RepoUrlPath="Task_templates/downloadSourceStatic.xml"/>
     
