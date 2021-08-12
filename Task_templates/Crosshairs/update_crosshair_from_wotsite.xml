@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<AutomationSequence documentVersion="1.0">
+  <!-- update_crosshair_from_wotsite.xml
+    Author:  Willster419
+    Created: 2021-08-11
+    This sequence template gets the zip file from the wotsite source, then calls update_crosshair_base.xml
+    Required macros:
+    {crosshair_download_url}        - dev url to uses for getting the package updated source zip file
+   -->
+  <TaskDefinitions>
+    <!--  Fetch source and ftp  -->
+    <Task ID="download_mod_source" Command="download_html" Url="{crosshair_download_url}" HtmlPath="{wotsite_xpath}" DestinationPath="{working_folder_source}\{packageName}_source.zip"/>
+
+    <!-- Import the base crosshair update process -->
+    <Task ID="import_crosshair_base_tasks" Command="import_task" RepoUrlPath="Task_templates/Crosshairs/update_crosshair_base.xml"/>
+  </TaskDefinitions>
+</AutomationSequence>
