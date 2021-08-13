@@ -3,6 +3,9 @@
   <!-- Specify macros here -->
   <Macros>
     <Macro Name="wotmod_name_source" Value="Marksman_white.wotmod"/>
+    <Macro Name="wotmod_name_modpack" Value="crosshair_arcade.wotmod crosshair_sniper.wotmod"/>
+    <Macro Name="swf_names" Value="arcadeCrosshair.swf sniperCrosshair.swf"/>
+    <Macro Name="crosshair_wotmods_create" Value="arcade_sniper"/>
     <Macro Name="target_package_uid" Value="jqlsjxdh1gdlay9e"/>
   </Macros>
 
