@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<AutomationSequence documentVersion="1.0">
+  <!-- Specify macros here -->
+  <Macros>
+    <Macro Name="wotmod_name_source" Value="Byryuza\**\crosshair_arcade.wotmod Byryuza\**\crosshair_sniper.wotmod &quot;Сведение с синим заполнением круга\crosshair_Controls.wotmod&quot;"/>
+    <Macro Name="wotmod_name_modpack" Value="crosshair_arcade.wotmod crosshair_sniper.wotmod crosshair_Controls.wotmod"/>
+    <Macro Name="swf_names" Value="arcadeCrosshair.swf sniperCrosshair.swf battleCrosshairsApp.swf crosshairControls.swf"/>
+    <Macro Name="crosshair_wotmods_create" Value="arcade_sniper_controls"/>
+    <Macro Name="target_package_uid" Value="gjvd5oacwnaybcwp"/>
+  </Macros>
+
+  <!-- Specify the tasks to run -->
+  <TaskDefinitions>
+    <!-- Import the create work dirs macros -->
+    <Task ID="import_create_work_dir_tasks" Command="import_task" RepoUrlPath="Task_templates/create_workDirs_macros.xml"/>
+
+    <!-- Dynamically get the package dev url -->
+    <Task ID="get_download_url" Command="retrieve_package_property" PropertyName="DevURLList" TargetPackageUID="this" MacroSaveName="crosshair_download_url" PropertyIndex="0"/>
+
+    <!-- import the tasks to update the crosshair (arcade/sniper) -->
+    <Task ID="import_update_crosshair_from_wotsite" Command="import_task" RepoUrlPath="Task_templates/Crosshairs/update_crosshair_from_wotsite.xml"/>
+  </TaskDefinitions>
+
+</AutomationSequence>
