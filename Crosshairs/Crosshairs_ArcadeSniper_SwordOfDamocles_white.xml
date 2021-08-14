@@ -2,11 +2,11 @@
 <AutomationSequence documentVersion="1.0">
   <!-- Specify macros here -->
   <Macros>
-    <Macro Name="wotmod_name_source" Value="HarpoonBlackCircle\**\crosshair_arcade.wotmod HarpoonBlackCircle\**\crosshair_sniper.wotmod HarpoonBlackCircle\**\crosshair_Controls.wotmod"/>
+    <Macro Name="wotmod_name_source" Value="White\**\crosshair_arcade.wotmod White\**\crosshair_sniper.wotmod White\**\crosshair_Controls.wotmod"/>
     <Macro Name="wotmod_name_modpack" Value="crosshair_arcade.wotmod crosshair_sniper.wotmod crosshair_Controls.wotmod"/>
-    <Macro Name="swf_names" Value="arcadeCrosshair.swf sniperCrosshair.swf battleCrosshairsApp.swf crosshairControls.swf"/>
-    <Macro Name="crosshair_wotmods_create" Value="arcade_sniper_controls_battleApp"/>
-    <Macro Name="target_package_uid" Value="6hbsgaexhipisbok"/>
+    <Macro Name="swf_names" Value="arcadeCrosshair.swf sniperCrosshair.swf crosshairControls.swf"/>
+    <Macro Name="crosshair_wotmods_create" Value="arcade_sniper_controls"/>
+    <Macro Name="target_package_uid" Value="32jfmo8lguuv2qkl"/>
   </Macros>
 
   <!-- Specify the tasks to run -->

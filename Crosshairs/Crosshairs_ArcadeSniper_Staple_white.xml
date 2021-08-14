@@ -2,11 +2,12 @@
 <AutomationSequence documentVersion="1.0">
   <!-- Specify macros here -->
   <Macros>
-    <Macro Name="wotmod_name_source" Value="HarpoonBlackCircle\**\crosshair_arcade.wotmod HarpoonBlackCircle\**\crosshair_sniper.wotmod HarpoonBlackCircle\**\crosshair_Controls.wotmod"/>
-    <Macro Name="wotmod_name_modpack" Value="crosshair_arcade.wotmod crosshair_sniper.wotmod crosshair_Controls.wotmod"/>
-    <Macro Name="swf_names" Value="arcadeCrosshair.swf sniperCrosshair.swf battleCrosshairsApp.swf crosshairControls.swf"/>
-    <Macro Name="crosshair_wotmods_create" Value="arcade_sniper_controls_battleApp"/>
-    <Macro Name="target_package_uid" Value="6hbsgaexhipisbok"/>
+    <!-- NOTE: the arcade and sniper crosshairs are the same between the russian name folders, for each color. so, we could use eithor one for these macros. -->
+    <Macro Name="wotmod_name_source" Value="&quot;White\Вращающие сведение\**\crosshair_arcade.wotmod&quot; &quot;White\Вращающие сведение\**\crosshair_sniper.wotmod&quot;"/>
+    <Macro Name="wotmod_name_modpack" Value="crosshair_arcade.wotmod crosshair_sniper.wotmod"/>
+    <Macro Name="swf_names" Value="arcadeCrosshair.swf sniperCrosshair.swf"/>
+    <Macro Name="crosshair_wotmods_create" Value="arcade_sniper"/>
+    <Macro Name="target_package_uid" Value="5l6g66yiij77cdc9"/>
   </Macros>
 
   <!-- Specify the tasks to run -->
