@@ -70,6 +70,7 @@
   <AutomationSequence UID="dkzegeahbxjq4gdx" packageName="Crosshairs_ArcadeSniper_Harpoon_blackCircle" path="Crosshairs/Arcade_Sniper/Crosshairs_ArcadeSniper_Harpoon_blackCircle.xml" />
   <AutomationSequence UID="q96todhiauc73rlw" packageName="Crosshairs_ArcadeSniper_Harpoon_blackSquare" path="Crosshairs/Arcade_Sniper/Crosshairs_ArcadeSniper_Harpoon_blackSquare.xml" />
   <AutomationSequence UID="koo0fh715dexfk39" packageName="Crosshairs_ArcadeSniper_Harpoon_newWhite" path="Crosshairs/Arcade_Sniper/Crosshairs_ArcadeSniper_Harpoon_newWhite.xml" />
+  <AutomationSequence UID="h5pgvjfnxls3qc6m" packageName="Crosshairs_ArcadeSniper_J1mB0" path="Crosshairs/Arcade_Sniper/Crosshairs_ArcadeSniper_J1mB0.xml" />
   <AutomationSequence UID="bk6onn56s4ut15oz" packageName="Crosshairs_ArcadeSniper_J1mB0_v1" path="Crosshairs/Arcade_Sniper/Crosshairs_ArcadeSniper_J1mB0_v1.xml" />
   <AutomationSequence UID="o9d3vmb7r1nb1hvz" packageName="Crosshairs_ArcadeSniper_J1mB0_v2" path="Crosshairs/Arcade_Sniper/Crosshairs_ArcadeSniper_J1mB0_v2.xml" />
   <AutomationSequence UID="1yki3mh8rxfs1s2z" packageName="Crosshairs_ArcadeSniper_J1mB0_v3" path="Crosshairs/Arcade_Sniper/Crosshairs_ArcadeSniper_J1mB0_v3.xml" />
