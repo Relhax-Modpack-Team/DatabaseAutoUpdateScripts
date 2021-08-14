@@ -4,5 +4,9 @@
     <Task ID="create_workdir_source_macro" Command="macro_create" MacroName="working_folder_source" MacroValue="{workDirectory}\source"/>
     <Task ID="create_workdir_modpack_macro" Command="macro_create" MacroName="working_folder_modpack" MacroValue="{workDirectory}\modpack"/>
     <Task ID="create_workdir_final_macro" Command="macro_create" MacroName="working_folder_final" MacroValue="{workDirectory}\final"/>
+    <!-- Create the working directories -->
+    <Task ID="create_directory_source" Command="create_directory" DirectoryPath="{working_folder_source}"/>
+    <Task ID="create_directory_modpack" Command="create_directory" DirectoryPath="{working_folder_modpack}"/>
+    <Task ID="create_directory_package" Command="create_directory" DirectoryPath="{working_folder_final}"/>
   </TaskDefinitions>
 </AutomationSequence>

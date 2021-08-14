@@ -5,7 +5,7 @@
     <Task ID="import_macro_create_tasks" Command="import_task" RepoUrlPath="Task_templates/macro_create_work_dirs.xml"/>
 
     <!-- download the source package -->
-    <Task ID="download_mod_source" Command="download_browser" Url="{package_url}" HtmlPath="{wgmods_xpath}" DestinationPath="{working_folder_source}\{packageName}.zip" WaitTimeMs="500" WaitCounts="6"/>
+    <Task ID="download_mod_source" Command="download_html" Url="{package_url}" HtmlPath="{wotsite_xpath}" DestinationPath="{working_folder_source}\{packageName}.zip"/>
 
     <!-- import the rest of the process from single_wotmod -->
     <Task ID="import_single_wotmod" Command="import_task" RepoUrlPath="Task_templates/single_wotmod.xml"/>

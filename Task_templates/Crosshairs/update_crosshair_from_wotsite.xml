@@ -8,7 +8,7 @@
     {crosshair_download_url}        - dev url to uses for getting the package updated source zip file
    -->
   <TaskDefinitions>
-    <!--  Fetch source and ftp  -->
+    <!--  Fetch source package  -->
     <Task ID="download_mod_source" Command="download_html" Url="{crosshair_download_url}" HtmlPath="{wotsite_xpath}" DestinationPath="{working_folder_source}\{packageName}_source.zip"/>
 
     <!-- Import the base crosshair update process -->
