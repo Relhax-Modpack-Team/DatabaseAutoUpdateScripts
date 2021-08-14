@@ -7,6 +7,7 @@
     <Macro Name="swf_names" Value="arcadeCrosshair.swf sniperCrosshair.swf battleCrosshairsApp.swf crosshairControls.swf"/>
     <Macro Name="target_package_uid" Value="gjvd5oacwnaybcwp"/>
     <Macro Name="source_ext" Value=".rar"/>
+    <Macro Name="folder_shell_path" Value="Blue\mods\configs\Deegie\"/>
   </Macros>
 
   <!-- Specify the tasks to run -->

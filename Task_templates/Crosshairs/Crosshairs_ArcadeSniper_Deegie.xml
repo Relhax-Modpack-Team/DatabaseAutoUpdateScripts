@@ -13,6 +13,7 @@
     {swf_names}                  - the name(s) of the swf files to look for and extract from the source and modpack packages
     {target_package_uid}         - the target package to update the 'Version' property
     {source_ext}                 - the extension of the source file
+    {folder_shell_path}          - the path to use for the search of getting the shell icons from the config folder
    -->
   <TaskDefinitions>
     <!-- Import the create work dirs macros -->
@@ -54,7 +55,7 @@
     <Task ID="move_wotmod_controls" Command="file_copy" SourceFilePath="{workDirectory}\controls\crosshair_Controls.wotmod" DestinationFilePath="{working_folder_package}\zip\mods\versiondir\crosshair_Controls.wotmod"/>
 
     <!-- copy the config files over from the configs folder -->
-    <Task ID="extract_config_files" Command="shell_exec" Filename="7z.exe" Wd="{working_folder_source}" Cmd="e {packageName}_source.zip shell_?.png -r"/>
+    <Task ID="extract_config_files" Command="shell_exec" Filename="7z.exe" Wd="{working_folder_source}" Cmd="e {packageName}_source{source_ext} {folder_shell_path}shell_?.png -r"/>
     <Task ID="create_directory_config_files" Command="create_directory" DirectoryPath="{working_folder_package}\zip\mods\configs\Deegie"/>
     <Task ID="copy_config_files" Command="directory_copy" DirectoryPath="{working_folder_source}" DestinationPath="{working_folder_package}\zip\mods\configs\Deegie" SearchPattern="shell_?.png" Recursive="False"/>
 
