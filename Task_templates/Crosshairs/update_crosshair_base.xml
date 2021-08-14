@@ -32,7 +32,7 @@
     - arcade and sniper (arade_sniper)
     - arcade, sniper and crosshairControls (arcade_sniper_controls)
     - stragetic (stragetic) -->
-    <Task ID="import_crosshair_base_tasks" Command="import_task" RepoUrlPath="Task_templates/Crosshairs/{crosshair_wotmods_create}.xml"/>
+    <Task ID="import_crosshair_compare_tasks" Command="import_task" RepoUrlPath="Task_templates/Crosshairs/{crosshair_wotmods_create}.xml"/>
 
     <!-- create the new zip -->
     <Task ID="create_zip" Command="shell_exec" Filename="7z.exe" Wd="{working_folder_package}\zip" Cmd="a -tzip -mx=9 -r final.zip mods"/>
