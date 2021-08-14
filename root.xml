@@ -77,8 +77,8 @@
   <AutomationSequence UID="2gpbvt3afwbpnqap" packageName="Crosshairs_ArcadeSniper_Kellerman_V2" path="Crosshairs/Arcade_Sniper/Crosshairs_ArcadeSniper_Kellerman_V2.xml" />
   <AutomationSequence UID="su25brfcepwpndoo" packageName="Crosshairs_ArcadeSniper_Kellerman_Glass" path="Crosshairs/Arcade_Sniper/Crosshairs_ArcadeSniper_Kellerman_Glass.xml" />
   <AutomationSequence UID="f5wq3s9bfs37n2hp" packageName="Crosshairs_ArcadeSniper_Kellerman_BrokenGlass" path="Crosshairs/Arcade_Sniper/Crosshairs_ArcadeSniper_Kellerman_BrokenGlass.xml" />
-  <AutomationSequence UID="d43zb130wzealrrr" packageName="Crosshairs_ArcadeSniper_Marksman_white" path="Crosshairs/Crosshairs_ArcadeSniper_Marksman_white.xml" />
-  <AutomationSequence UID="y8lus8c10liy9w7x" packageName="Crosshairs_ArcadeSniper_Marksman_green" path="Crosshairs/Crosshairs_ArcadeSniper_Marksman_green.xml" />
+  <AutomationSequence UID="d43zb130wzealrrr" packageName="Crosshairs_ArcadeSniper_Marksman_white" path="Crosshairs/Arcade_Sniper/Crosshairs_ArcadeSniper_Marksman_white.xml" />
+  <AutomationSequence UID="y8lus8c10liy9w7x" packageName="Crosshairs_ArcadeSniper_Marksman_green" path="Crosshairs/Arcade_Sniper/Crosshairs_ArcadeSniper_Marksman_green.xml" />
   <AutomationSequence UID="am4gr3bmp8thwjv4" packageName="Crosshairs_ArcadeSniper_MeltyMap_blue" path="Crosshairs/Arcade_Sniper/Crosshairs_ArcadeSniper_MeltyMap_blue.xml" />
   <AutomationSequence UID="nbauz3hno4mzwv23" packageName="Crosshairs_ArcadeSniper_MeltyMap_green" path="Crosshairs/Arcade_Sniper/Crosshairs_ArcadeSniper_MeltyMap_green.xml" />
   <AutomationSequence UID="b7nja8id67ba6c5c" packageName="Crosshairs_ArcadeSniper_Staple_blue" path="Crosshairs/Arcade_Sniper/Crosshairs_ArcadeSniper_Staple_blue.xml" />
@@ -97,19 +97,19 @@
   <AutomationSequence UID="qf3iavebwuqy039n" packageName="Crosshairs_ArcadeSniper_Taipan_v3green" path="Crosshairs/Arcade_Sniper/Crosshairs_ArcadeSniper_Taipan_v3green.xml" />
   <AutomationSequence UID="xjr49zavq9k5b7y0" packageName="Crosshairs_ArcadeSniper_Terminator" path="Crosshairs/Arcade_Sniper/Crosshairs_ArcadeSniper_Terminator.xml" />
 
-  <AutomationSequence UID="r1xm0qjmxs93f3jk" packageName="Crosshairs_Strategic_Deegie_v1blue" path="Crosshairs/Arcade_Sniper/Crosshairs_Strategic_Deegie_v1blue.xml" />
-  <AutomationSequence UID="lgetsu95sbatqw1x" packageName="Crosshairs_Strategic_Deegie_v2green" path="Crosshairs/Arcade_Sniper/Crosshairs_Strategic_Deegie_v2green.xml" />
-  <AutomationSequence UID="ccxh007af2rpchnn" packageName="Crosshairs_Strategic_Harpoon_BlackCircle" path="Crosshairs/Arcade_Sniper/Crosshairs_Strategic_Harpoon_BlackCircle.xml" />
-  <AutomationSequence UID="zgjzhcjywqkh20wf" packageName="Crosshairs_Strategic_Harpoon_BlackSquare" path="Crosshairs/Arcade_Sniper/Crosshairs_Strategic_Harpoon_BlackSquare.xml" />
-  <AutomationSequence UID="ixf98whrljp01o59" packageName="Crosshairs_Strategic_Harpoon_newWhite" path="Crosshairs/Arcade_Sniper/Crosshairs_Strategic_Harpoon_newWhite.xml" />
-  <AutomationSequence UID="p13v80dafzk7csum" packageName="Crosshairs_Strategic_J1mB0" path="Crosshairs/Arcade_Sniper/Crosshairs_Strategic_J1mB0.xml" />
-  <AutomationSequence UID="denzw7k1vyfaa5jo" packageName="Crosshairs_Strategic_MeltyMap_Blue" path="Crosshairs/Arcade_Sniper/Crosshairs_Strategic_MeltyMap_Blue.xml" />
-  <AutomationSequence UID="n5gf32wh5vhl81u7" packageName="Crosshairs_Strategic_MeltyMap_Green" path="Crosshairs/Arcade_Sniper/Crosshairs_Strategic_MeltyMap_Green.xml" />
-  <AutomationSequence UID="4b48qnskfabh9bp3" packageName="Crosshairs_Strategic_Staple_blue" path="Crosshairs/Arcade_Sniper/Crosshairs_Strategic_Staple_blue.xml" />
-  <AutomationSequence UID="e8eq3zhpol9rzix7" packageName="Crosshairs_Strategic_Staple_white" path="Crosshairs/Arcade_Sniper/Crosshairs_Strategic_Staple_white.xml" />
-  <AutomationSequence UID="29dwbncuzx7auffh" packageName="Crosshairs_Strategic_SwordOfDamocles_green" path="Crosshairs/Arcade_Sniper/Crosshairs_Strategic_SwordOfDamocles_green.xml" />
-  <AutomationSequence UID="fykbjmivztzrurmg" packageName="Crosshairs_Strategic_SwordOfDamocles_white" path="Crosshairs/Arcade_Sniper/Crosshairs_Strategic_SwordOfDamocles_white.xml" />
-  <AutomationSequence UID="m28xjpeft9tz5wct" packageName="Crosshairs_Strategic_Taipan_v1" path="Crosshairs/Arcade_Sniper/Crosshairs_Strategic_Taipan_v1.xml" />
+  <AutomationSequence UID="r1xm0qjmxs93f3jk" packageName="Crosshairs_Strategic_Deegie_v1blue" path="Crosshairs/Strategic/Crosshairs_Strategic_Deegie_v1blue.xml" />
+  <AutomationSequence UID="lgetsu95sbatqw1x" packageName="Crosshairs_Strategic_Deegie_v2green" path="Crosshairs/Strategic/Crosshairs_Strategic_Deegie_v2green.xml" />
+  <AutomationSequence UID="ccxh007af2rpchnn" packageName="Crosshairs_Strategic_Harpoon_BlackCircle" path="Crosshairs/Strategic/Crosshairs_Strategic_Harpoon_BlackCircle.xml" />
+  <AutomationSequence UID="zgjzhcjywqkh20wf" packageName="Crosshairs_Strategic_Harpoon_BlackSquare" path="Crosshairs/Strategic/Crosshairs_Strategic_Harpoon_BlackSquare.xml" />
+  <AutomationSequence UID="ixf98whrljp01o59" packageName="Crosshairs_Strategic_Harpoon_newWhite" path="Crosshairs/Strategic/Crosshairs_Strategic_Harpoon_newWhite.xml" />
+  <AutomationSequence UID="p13v80dafzk7csum" packageName="Crosshairs_Strategic_J1mB0" path="Crosshairs/Strategic/Crosshairs_Strategic_J1mB0.xml" />
+  <AutomationSequence UID="denzw7k1vyfaa5jo" packageName="Crosshairs_Strategic_MeltyMap_Blue" path="Crosshairs/Strategic/Crosshairs_Strategic_MeltyMap_Blue.xml" />
+  <AutomationSequence UID="n5gf32wh5vhl81u7" packageName="Crosshairs_Strategic_MeltyMap_Green" path="Crosshairs/Strategic/Crosshairs_Strategic_MeltyMap_Green.xml" />
+  <AutomationSequence UID="4b48qnskfabh9bp3" packageName="Crosshairs_Strategic_Staple_blue" path="Crosshairs/Strategic/Crosshairs_Strategic_Staple_blue.xml" />
+  <AutomationSequence UID="e8eq3zhpol9rzix7" packageName="Crosshairs_Strategic_Staple_white" path="Crosshairs/Strategic/Crosshairs_Strategic_Staple_white.xml" />
+  <AutomationSequence UID="29dwbncuzx7auffh" packageName="Crosshairs_Strategic_SwordOfDamocles_green" path="Crosshairs/Strategic/Crosshairs_Strategic_SwordOfDamocles_green.xml" />
+  <AutomationSequence UID="fykbjmivztzrurmg" packageName="Crosshairs_Strategic_SwordOfDamocles_white" path="Crosshairs/Strategic/Crosshairs_Strategic_SwordOfDamocles_white.xml" />
+  <AutomationSequence UID="m28xjpeft9tz5wct" packageName="Crosshairs_Strategic_Taipan_v1" path="Crosshairs/Strategic/Crosshairs_Strategic_Taipan_v1.xml" />
   <!-- Category Crosshairs END   -->
    
   <!-- Category Ingame Aim START -->
