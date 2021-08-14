@@ -25,7 +25,7 @@
 
     <!-- extract the swf files from the source. ideally, in the future we would be able to do this right from a zip file. eventually, one day. -->
     <Task ID="extract_source_swfs" Command="shell_exec" Filename="7z.exe" Wd="{working_folder_source}" Cmd="e *.wotmod {swf_names} -r"/>
-    <Task ID="extract_modpack_swfs_arcade" Command="shell_exec" Filename="7z.exe" Wd="{working_folder_modpack}" Cmd="e *.wotmod {swf_names} -r"/>
+    <Task ID="extract_modpack_swfs" Command="shell_exec" Filename="7z.exe" Wd="{working_folder_modpack}" Cmd="e *.wotmod {swf_names} -r"/>
 
     <!-- Import the crosshair task to create the wotmods for each individual swf file. The options are that it could create individual wotmods for:
     - arcade and sniper (arade_sniper)

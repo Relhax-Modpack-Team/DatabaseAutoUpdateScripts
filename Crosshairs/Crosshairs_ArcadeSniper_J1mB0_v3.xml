@@ -4,9 +4,9 @@
   <Macros>
     <Macro Name="wotmod_name_source" Value="crosshair_arcade.wotmod crosshair_sniper.wotmod &quot;Сведение 3\**\crosshair_Controls.wotmod&quot;"/>
     <Macro Name="wotmod_name_modpack" Value="crosshair_arcade.wotmod crosshair_sniper.wotmod crosshair_Controls.wotmod"/>
-    <Macro Name="swf_names" Value="arcadeCrosshair.swf sniperCrosshair.swf"/>
+    <Macro Name="swf_names" Value="arcadeCrosshair.swf sniperCrosshair.swf crosshairControls.swf"/>
     <Macro Name="crosshair_wotmods_create" Value="arcade_sniper_controls"/>
-    <Macro Name="target_package_uid" Value="gjvd5oacwnaybcwp"/>
+    <Macro Name="target_package_uid" Value="bk6onn56s4ut15oz"/>
   </Macros>
 
   <!-- Specify the tasks to run -->

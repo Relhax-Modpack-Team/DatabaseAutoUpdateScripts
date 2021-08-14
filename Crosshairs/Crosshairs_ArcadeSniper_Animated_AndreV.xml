@@ -4,7 +4,7 @@
   <Macros>
     <Macro Name="wotmod_name_source" Value="crosshair_arcade.wotmod crosshair_sniper.wotmod crosshair_Controls.wotmod"/>
     <Macro Name="wotmod_name_modpack" Value="crosshair_arcade.wotmod crosshair_sniper.wotmod crosshair_Controls.wotmod"/>
-    <Macro Name="swf_names" Value="arcadeCrosshair.swf sniperCrosshair.swf"/>
+    <Macro Name="swf_names" Value="arcadeCrosshair.swf sniperCrosshair.swf battleCrosshairsApp.swf crosshairControls.swf"/>
     <Macro Name="crosshair_wotmods_create" Value="arcade_sniper_controls"/>
     <Macro Name="target_package_uid" Value="yru2pcd3m4c526pa"/>
   </Macros>

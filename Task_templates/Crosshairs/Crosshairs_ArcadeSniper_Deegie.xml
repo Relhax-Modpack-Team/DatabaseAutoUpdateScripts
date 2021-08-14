@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<AutomationSequence documentVersion="1.0">
+  <!-- Crosshairs_ArcadeSniper_Deegie.xml
+    Author:  Willster419
+    Created: 2021-08-13
+    This sequence template is for updating the deegie series of crosshairs. It has custom config files and thus must be done by itself
+    Required macros:
+    {working_folder_modpack}     - the working directory for all operations involving the modpack side of the files
+    {working_folder_source}      - the working directory for all operation involving the source side of the files
+    {working_folder_package}     - the working directory of the final zip file package created to be uploaded
+    {wotmod_name_source}         - the name(s) of the wotmod(s) to look for and extract from the source package
+    {wotmod_name_modpack}        - the name(s) of the wotmod(s) to look for and extract from the modpack package
+    {swf_names}                  - the name(s) of the swf files to look for and extract from the source and modpack packages
+    {target_package_uid}         - the target package to update the 'Version' property
+   -->
+  <TaskDefinitions>
+    <!-- Import the create work dirs macros -->
+    <Task ID="import_create_work_dir_tasks" Command="import_task" RepoUrlPath="Task_templates/create_workDirs_macros.xml"/>
+
+    <!-- Dynamically get the package dev url -->
+    <Task ID="get_download_url" Command="retrieve_package_property" PropertyName="DevURLList" TargetPackageUID="this" MacroSaveName="crosshair_download_url" PropertyIndex="0"/>
+
+    <!--  Fetch source and ftp  -->
+    <Task ID="download_mod_source" Command="download_html" Url="{crosshair_download_url}" HtmlPath="{wotsite_xpath}" DestinationPath="{working_folder_source}\{packageName}_source.zip"/>
+
+    <!-- download the modpack current zip file-->
+    <Task ID="download_modpack" Command="package_download" FilePath="{working_folder_modpack}\{packageName}_ftp.zip"/>
+
+    <!-- extract the source and modpack wotmod files-->
+    <!-- 'e' means to extract (to the work direcotry, without using the zip file's paths), and -r means to recurse into the zip folder's directories -->
+    <Task ID="extract_source_wotmod" Command="shell_exec" Filename="7z.exe" Wd="{working_folder_source}" Cmd="e {packageName}_source.zip {wotmod_name_source} -r"/>
+    <Task ID="extract_modpack_wotmods" Command="shell_exec" Filename="7z.exe" Wd="{working_folder_modpack}" Cmd="e {packageName}_ftp.zip {wotmod_name_modpack} -r"/>
+
+    <!-- extract the swf files from the source. ideally, in the future we would be able to do this right from a zip file. eventually, one day. -->
+    <Task ID="extract_source_swfs" Command="shell_exec" Filename="7z.exe" Wd="{working_folder_source}" Cmd="e *.wotmod {swf_names} -r"/>
+    <Task ID="extract_modpack_swfs_arcade" Command="shell_exec" Filename="7z.exe" Wd="{working_folder_modpack}" Cmd="e *.wotmod {swf_names} -r"/>
+
+    <!-- Copy the files to the package directory for creation -->
+    <Task ID="copy_arcade" Command="file_copy" SourceFilePath="{working_folder_source}\arcadeCrosshair.swf" DestinationFilePath="{workDirectory}\arcade\res\gui\flash\arcadeCrosshair.swf"/>
+    <Task ID="copy_sniper" Command="file_copy" SourceFilePath="{working_folder_source}\sniperCrosshair.swf" DestinationFilePath="{workDirectory}\sniper\res\gui\flash\sniperCrosshair.swf"/>
+    <Task ID="copy_controls" Command="file_copy" SourceFilePath="{working_folder_source}\crosshairControls.swf" DestinationFilePath="{workDirectory}\controls\res\gui\flash\crosshairControls.swf"/>
+    <Task ID="copy_controls" Command="file_copy" SourceFilePath="{working_folder_source}\battleCrosshairsApp.swf" DestinationFilePath="{workDirectory}\controls\res\gui\flash\battleCrosshairsApp.swf"/>
+
+    <!-- Create the new wotmods, each swf gets its own -->
+    <!-- https://superuser.com/questions/281573/what-are-the-best-options-to-use-when-compressing-files-using-7-zip -->
+    <Task ID="create_new_arcade_wotmod" Command="shell_exec" Filename="7z.exe" Wd="{workDirectory}\arcade" Cmd="a -tzip -mx=0 -r crosshair_arcade_new.wotmod res"/>
+    <Task ID="create_new_sniper_wotmod" Command="shell_exec" Filename="7z.exe" Wd="{workDirectory}\sniper" Cmd="a -tzip -mx=0 -r crosshair_sniper_new.wotmod res"/>
+    <Task ID="create_new_controls_wotmod" Command="shell_exec" Filename="7z.exe" Wd="{workDirectory}\controls" Cmd="a -tzip -mx=0 -r crosshair_Controls.wotmod res"/>
+
+    <!-- move new wotmods to paths for 7zip to create a new zip file -->
+    <Task ID="move_wotmod_arcade" Command="file_copy" SourceFilePath="{workDirectory}\arcade\crosshair_arcade_new.wotmod" DestinationFilePath="{working_folder_package}\zip\mods\versiondir\crosshair_arcade.wotmod"/>
+    <Task ID="move_wotmod_sniper" Command="file_copy" SourceFilePath="{workDirectory}\sniper\crosshair_sniper_new.wotmod" DestinationFilePath="{working_folder_package}\zip\mods\versiondir\crosshair_sniper.wotmod"/>
+    <Task ID="move_wotmod_controls" Command="file_copy" SourceFilePath="{workDirectory}\controls\crosshair_Controls.wotmod" DestinationFilePath="{working_folder_package}\zip\mods\versiondir\crosshair_Controls.wotmod"/>
+
+    <!-- copy the config files over from the configs folder -->
+    <Task ID="extract_config_files" Command="shell_exec" Filename="7z.exe" Wd="{working_folder_source}" Cmd="e {packageName}_source.zip shell_?.png -r"/>
+    <Task ID="create_directory_config_files" Command="create_directory" DirectoryPath="{working_folder_package}\zip\mods\configs\Deegie"/>
+    <Task ID="copy_config_files" Command="directory_copy" DirectoryPath="{working_folder_source}" DestinationPath="{working_folder_package}\zip\mods\configs\Deegie" SearchPattern="shell_?.png" Recursive="False"/>
+
+    <!-- create the new zip -->
+    <Task ID="create_zip" Command="shell_exec" Filename="7z.exe" Wd="{working_folder_package}\zip" Cmd="a -tzip -mx=9 -r final.zip mods"/>
+
+    <!-- compare the hashes of the complete packages. this is done in 3 steps:
+      1. write the compare_start task (resets the internal counters for matches and differences)
+      2. use compare tasks to compare files on disk or an entry in a zip file
+      3. write the compare_end task (evaluates the counts from the compare tasks)
+          if compare_end finds 0 differences, then the automation process will end early (nothing to update)
+
+      By using the directory_compare task, if the number of swf's change between the modpack and source, something has changed in the structure and we need to account for it
+    -->
+    <Task ID="compare_start" Command="compare_start"/>
+    <Task ID="compare_swfs" Command="file_compare" FileA="{working_folder_modpack}\{packageName}_ftp.zip" FileB="{working_folder_package}\zip\final.zip"/>
+    <Task ID="compare_end" Command="compare_end"/>
+
+    <!-- update version field in database -->
+    <!-- <Task ID="update_package_version" Command="update_package_property" PropertyName="Version" PropertyValue="{clientVersion}" TargetPackageUID="{target_package_uid}"/> -->
+
+    <!-- upload to the server -->
+    <!-- <Task ID="upload_zip" Command="package_upload" FilePath="{workDirectory}\zip\final.zip" ZipFileName="{packageName}_{clientVersion}_{date}.zip"/> -->
+  </TaskDefinitions>
+</AutomationSequence>
