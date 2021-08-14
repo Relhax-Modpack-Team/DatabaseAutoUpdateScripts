@@ -5,7 +5,7 @@
     <Macro Name="wotmod_name_source" Value="&quot;Сведение 1\**\crosshair_Controls.wotmod&quot;"/>
     <Macro Name="wotmod_name_modpack" Value="crosshair_Controls.wotmod"/>
     <Macro Name="swf_names" Value="battleCrosshairsApp.swf crosshairControls.swf"/>
-    <Macro Name="crosshair_wotmods_create" Value="controls"/>
+    <Macro Name="crosshair_wotmods_create" Value="controls_battleApp"/>
     <Macro Name="target_package_uid" Value="vc1pvp7rlghiclkc"/>
   </Macros>
 
