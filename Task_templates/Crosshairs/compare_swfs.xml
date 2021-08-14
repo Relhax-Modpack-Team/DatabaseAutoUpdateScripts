@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<AutomationSequence documentVersion="1.0">
+  <!-- compare_swfs.xml
+    Author:  Willster419
+    Created: 2021-08-13
+    This sequence template is for comparing all swf files, with checking for if the source # of swfs change.
+    Required macros:
+    {working_folder_modpack}     - the working directory for all operations involving the modpack side of the files
+    {working_folder_source}      - the working directory for all operation involving the source side of the files
+   -->
+  <TaskDefinitions>
+    <!-- compare the hashes. this is done in 3 steps:
+      1. write the compare_start task (resets the internal counters for matches and differences)
+      2. use compare tasks to compare files on disk or an entry in a zip file
+      3. write the compare_end task (evaluates the counts from the compare tasks)
+          if compare_end finds 0 differences, then the automation process will end early (nothing to update)
+
+      By using the directory_compare task, if the number of swf's change between the modpack and source, something has changed in the structure and we need to account for it
+    -->
+    <Task ID="compare_start" Command="compare_start"/>
+    <Task ID="compare_swfs" Command="directory_compare" DirectoryComparePathA="{working_folder_source}" DirectoryComparePathB="{working_folder_modpack}" Recursive="False" SearchPattern="*.swf"/>
+    <Task ID="compare_end" Command="compare_end"/>
+  </TaskDefinitions>
+</AutomationSequence>

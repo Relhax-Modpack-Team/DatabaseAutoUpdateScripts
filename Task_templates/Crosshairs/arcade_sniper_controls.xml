@@ -3,24 +3,15 @@
   <!-- arcade_sniper_controls.xml
     Author:  Willster419
     Created: 2021-08-12
-    This sequence template is for comparing the crosshair files arcade, sniper, crosshairControls
+    This sequence template is for comparing the crosshair files arcade, sniper, and crosshairControls (only crosshairControls)
     Required macros:
     {working_folder_modpack}     - the working directory for all operations involving the modpack side of the files
     {working_folder_source}      - the working directory for all operation involving the source side of the files
     {working_folder_package}     - the working directory of the final zip file package created to be uploaded
    -->
   <TaskDefinitions>
-    <!-- compare the hashes. this is done in 3 steps:
-      1. write the compare_start task (resets the internal counters for matches and differences)
-      2. use compare tasks to compare files on disk or an entry in a zip file
-      3. write the compare_end task (evaluates the counts from the compare tasks)
-          if compare_end finds 0 differences, then the automation process will end early (nothing to update)
-    -->
-    <Task ID="compare_start" Command="compare_start"/>
-    <Task ID="compare_arcade" Command="file_compare" FileA="{working_folder_source}\arcadeCrosshair.swf" FileB="{working_folder_modpack}\arcadeCrosshair.swf"/>
-    <Task ID="compare_sniper" Command="file_compare" FileA="{working_folder_source}\sniperCrosshair.swf" FileB="{working_folder_modpack}\sniperCrosshair.swf"/>
-    <Task ID="compare_controls" Command="file_compare" FileA="{working_folder_source}\crosshairControls.swf" FileB="{working_folder_modpack}\crosshairControls.swf"/>
-    <Task ID="compare_end" Command="compare_end"/>
+    <!-- Compare the swfs -->
+    <Task ID="import_crosshair_compare_swfs" Command="import_task" RepoUrlPath="Task_templates/Crosshairs/compare_swfs.xml"/>
 
     <!-- Copy the files to the package directory for creation -->
     <Task ID="copy_arcade" Command="file_copy" SourceFilePath="{working_folder_source}\arcadeCrosshair.swf" DestinationFilePath="{workDirectory}\arcade\res\gui\flash\arcadeCrosshair.swf"/>

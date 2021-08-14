@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <AutomationSequence documentVersion="1.0">
-  <!-- stragetic.xml
+  <!-- controls_battleApp.xml
     Author:  Willster419
-    Created: 2021-08-12
-    This sequence template is for comparing the crosshair files strategic
+    Created: 2021-08-13
+    This sequence template is for comparing the crosshair files crosshairControls (both swfs)
     Required macros:
     {working_folder_modpack}     - the working directory for all operations involving the modpack side of the files
     {working_folder_source}      - the working directory for all operation involving the source side of the files
@@ -14,13 +14,14 @@
     <Task ID="import_crosshair_compare_swfs" Command="import_task" RepoUrlPath="Task_templates/Crosshairs/compare_swfs.xml"/>
 
     <!-- Copy the files to the package directory for creation -->
-    <Task ID="copy_strategic" Command="file_copy" SourceFilePath="{working_folder_source}\strategicCrosshair.swf" DestinationFilePath="{workDirectory}\strategic\res\gui\flash\strategicCrosshair.swf"/>
+    <Task ID="copy_controls" Command="file_copy" SourceFilePath="{working_folder_source}\crosshairControls.swf" DestinationFilePath="{workDirectory}\controls\res\gui\flash\crosshairControls.swf"/>
+    <Task ID="copy_controls" Command="file_copy" SourceFilePath="{working_folder_source}\battleCrosshairsApp.swf" DestinationFilePath="{workDirectory}\controls\res\gui\flash\battleCrosshairsApp.swf"/>
 
     <!-- Create the new wotmods, each swf gets its own -->
     <!-- https://superuser.com/questions/281573/what-are-the-best-options-to-use-when-compressing-files-using-7-zip -->
-    <Task ID="create_new_arcade_wotmod" Command="shell_exec" Filename="7z.exe" Wd="{workDirectory}\strategic" Cmd="a -tzip -mx=0 -r crosshair_strategic_new.wotmod res"/>
+    <Task ID="create_new_controls_wotmod" Command="shell_exec" Filename="7z.exe" Wd="{workDirectory}\controls" Cmd="a -tzip -mx=0 -r crosshair_Controls.wotmod res"/>
 
     <!-- move new wotmods to paths for 7zip to create a new zip file -->
-    <Task ID="move_wotmod_stragetic" Command="file_copy" SourceFilePath="{workDirectory}\strategic\crosshair_strategic_new.wotmod" DestinationFilePath="{working_folder_package}\zip\mods\versiondir\crosshair_strategic.wotmod"/>
+    <Task ID="move_wotmod_controls" Command="file_copy" SourceFilePath="{workDirectory}\controls\crosshair_Controls.wotmod" DestinationFilePath="{working_folder_package}\zip\mods\versiondir\crosshair_Controls.wotmod"/>
   </TaskDefinitions>
 </AutomationSequence>
