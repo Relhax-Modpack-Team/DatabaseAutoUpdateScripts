@@ -38,9 +38,9 @@
     <Task ID="create_zip" Command="shell_exec" Filename="7z.exe" Wd="{working_folder_package}\zip" Cmd="a -tzip -mx=9 -r final.zip mods"/>
 
     <!-- update version field in database -->
-    <!-- <Task ID="update_package_version" Command="update_package_property" PropertyName="Version" PropertyValue="{clientVersion}" TargetPackageUID="{target_package_uid}"/> -->
+    <Task ID="update_package_version" Command="update_package_property" PropertyName="Version" PropertyValue="{clientVersion}" TargetPackageUID="{target_package_uid}"/>
 
     <!-- upload to the server -->
-    <!-- <Task ID="upload_zip" Command="package_upload" FilePath="{workDirectory}\zip\final.zip" ZipFileName="{packageName}_{clientVersion}_{date}.zip"/> -->
+    <Task ID="upload_zip" Command="package_upload" FilePath="{working_folder_package}\zip\final.zip" ZipFileName="{packageName}_{clientVersion}_{date}.zip"/>
   </TaskDefinitions>
 </AutomationSequence>
