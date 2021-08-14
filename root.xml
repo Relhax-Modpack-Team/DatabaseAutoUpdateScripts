@@ -57,8 +57,59 @@
   <!-- Category Clan Icons END -->
 
   <!-- Category Crosshairs START -->
+  <AutomationSequence UID="1asm9a5htwxzrfly" packageName="Crosshairs_ArcadeSniper_2DZoom" path="Crosshairs/Arcade_Sniper/Crosshairs_ArcadeSniper_2DZoom.xml" />
+  <AutomationSequence UID="8dg89d11ncr62jab" packageName="Crosshairs_ArcadeSniper_AW_v1" path="Crosshairs/Arcade_Sniper/Crosshairs_ArcadeSniper_AW_v1.xml" />
+  <AutomationSequence UID="l2nnhd72m8ko2via" packageName="Crosshairs_ArcadeSniper_AW_v2" path="Crosshairs/Arcade_Sniper/Crosshairs_ArcadeSniper_AW_v2.xml" />
+  <AutomationSequence UID="iko3xfgofgzudnln" packageName="Crosshairs_ArcadeSniper_Animated_6" path="Crosshairs/Arcade_Sniper/Crosshairs_ArcadeSniper_Animated_6.xml" />
+  <AutomationSequence UID="s6b9hg3mgoevdz7n" packageName="Crosshairs_ArcadeSniper_Animated_AndreV" path="Crosshairs/Arcade_Sniper/Crosshairs_ArcadeSniper_Animated_AndreV.xml" />
+  <AutomationSequence UID="5viopf9ngk6ddben" packageName="Crosshairs_ArcadeSniper_Animated_Blue" path="Crosshairs/Arcade_Sniper/Crosshairs_ArcadeSniper_Animated_Blue.xml" />
+  <AutomationSequence UID="cy6apj67az0kpg30" packageName="Crosshairs_ArcadeSniper_Bushmaster" path="Crosshairs/Arcade_Sniper/Crosshairs_ArcadeSniper_Bushmaster.xml" />
+  <AutomationSequence UID="t82sdngdwk2gbo3p" packageName="Crosshairs_ArcadeSniper_Deegie_v1blue" path="Crosshairs/Arcade_Sniper/Crosshairs_ArcadeSniper_Deegie_v1blue.xml" />
+  <AutomationSequence UID="nnjz4r6wr345mhl2" packageName="Crosshairs_ArcadeSniper_Deegie_v2green" path="Crosshairs/Arcade_Sniper/Crosshairs_ArcadeSniper_Deegie_v2green.xml" />
+  <AutomationSequence UID="uq7l4v2gliycxlaf" packageName="Crosshairs_ArcadeSniper_Destroyer_blue" path="Crosshairs/Arcade_Sniper/Crosshairs_ArcadeSniper_Destroyer_blue.xml" />
+  <AutomationSequence UID="dkzegeahbxjq4gdx" packageName="Crosshairs_ArcadeSniper_Harpoon_blackCircle" path="Crosshairs/Arcade_Sniper/Crosshairs_ArcadeSniper_Harpoon_blackCircle.xml" />
+  <AutomationSequence UID="q96todhiauc73rlw" packageName="Crosshairs_ArcadeSniper_Harpoon_blackSquare" path="Crosshairs/Arcade_Sniper/Crosshairs_ArcadeSniper_Harpoon_blackSquare.xml" />
+  <AutomationSequence UID="koo0fh715dexfk39" packageName="NEED_PACKAGCrosshairs_ArcadeSniper_Harpoon_newWhiteENAME" path="Crosshairs/Arcade_Sniper/Crosshairs_ArcadeSniper_Harpoon_newWhite.xml" />
+  <AutomationSequence UID="bk6onn56s4ut15oz" packageName="Crosshairs_ArcadeSniper_J1mB0_v1" path="Crosshairs/Arcade_Sniper/Crosshairs_ArcadeSniper_J1mB0_v1.xml" />
+  <AutomationSequence UID="o9d3vmb7r1nb1hvz" packageName="Crosshairs_ArcadeSniper_J1mB0_v2" path="Crosshairs/Arcade_Sniper/Crosshairs_ArcadeSniper_J1mB0_v2.xml" />
+  <AutomationSequence UID="1yki3mh8rxfs1s2z" packageName="Crosshairs_ArcadeSniper_J1mB0_v3" path="Crosshairs/Arcade_Sniper/Crosshairs_ArcadeSniper_J1mB0_v3.xml" />
+  <AutomationSequence UID="81843pdsld90cxsc" packageName="Crosshairs_ArcadeSniper_Kellerman_V1" path="Crosshairs/Arcade_Sniper/Crosshairs_ArcadeSniper_Kellerman_V1.xml" />
+  <AutomationSequence UID="2gpbvt3afwbpnqap" packageName="Crosshairs_ArcadeSniper_Kellerman_V2" path="Crosshairs/Arcade_Sniper/Crosshairs_ArcadeSniper_Kellerman_V2.xml" />
+  <AutomationSequence UID="su25brfcepwpndoo" packageName="Crosshairs_ArcadeSniper_Kellerman_Glass" path="Crosshairs/Arcade_Sniper/Crosshairs_ArcadeSniper_Kellerman_Glass.xml" />
+  <AutomationSequence UID="f5wq3s9bfs37n2hp" packageName="Crosshairs_ArcadeSniper_Kellerman_BrokenGlass" path="Crosshairs/Arcade_Sniper/Crosshairs_ArcadeSniper_Kellerman_BrokenGlass.xml" />
   <AutomationSequence UID="d43zb130wzealrrr" packageName="Crosshairs_ArcadeSniper_Marksman_white" path="Crosshairs/Crosshairs_ArcadeSniper_Marksman_white.xml" />
   <AutomationSequence UID="y8lus8c10liy9w7x" packageName="Crosshairs_ArcadeSniper_Marksman_green" path="Crosshairs/Crosshairs_ArcadeSniper_Marksman_green.xml" />
+  <AutomationSequence UID="am4gr3bmp8thwjv4" packageName="Crosshairs_ArcadeSniper_MeltyMap_blue" path="Crosshairs/Arcade_Sniper/Crosshairs_ArcadeSniper_MeltyMap_blue.xml" />
+  <AutomationSequence UID="nbauz3hno4mzwv23" packageName="Crosshairs_ArcadeSniper_MeltyMap_green" path="Crosshairs/Arcade_Sniper/Crosshairs_ArcadeSniper_MeltyMap_green.xml" />
+  <AutomationSequence UID="b7nja8id67ba6c5c" packageName="Crosshairs_ArcadeSniper_Staple_blue" path="Crosshairs/Arcade_Sniper/Crosshairs_ArcadeSniper_Staple_blue.xml" />
+  <AutomationSequence UID="3muf8clmyxnd2fr1" packageName="Crosshairs_ArcadeSniper_Staple_blue_normal" path="Crosshairs/Arcade_Sniper/Crosshairs_ArcadeSniper_Staple_blue_normal.xml" />
+  <AutomationSequence UID="cqw22juuh7grjv0u" packageName="Crosshairs_ArcadeSniper_Staple_blue_rotation" path="Crosshairs/Arcade_Sniper/Crosshairs_ArcadeSniper_Staple_blue_rotation.xml" />
+  <AutomationSequence UID="e0cghqngezcq9rve" packageName="Crosshairs_ArcadeSniper_Staple_white" path="Crosshairs/Arcade_Sniper/Crosshairs_ArcadeSniper_Staple_white.xml" />
+  <AutomationSequence UID="l9t7m3kyvyp0t57l" packageName="Crosshairs_ArcadeSniper_Staple_white_normal" path="Crosshairs/Arcade_Sniper/Crosshairs_ArcadeSniper_Staple_white_normal.xml" />
+  <AutomationSequence UID="29rbzj4oypihug52" packageName="Crosshairs_ArcadeSniper_Staple_white_rotation" path="Crosshairs/Arcade_Sniper/Crosshairs_ArcadeSniper_Staple_white_rotation.xml" />
+  <AutomationSequence UID="vyvtmkc1me0orlv8" packageName="Crosshairs_ArcadeSniper_Strike_blue" path="Crosshairs/Arcade_Sniper/Crosshairs_ArcadeSniper_Strike_blue.xml" />
+  <AutomationSequence UID="8n17uki2mbs5rx28" packageName="Crosshairs_ArcadeSniper_Strike_green" path="Crosshairs/Arcade_Sniper/Crosshairs_ArcadeSniper_Strike_green.xml" />
+  <AutomationSequence UID="frpuunemgqmd22rl" packageName="Crosshairs_ArcadeSniper_SwordOfDamocles_green" path="Crosshairs/Arcade_Sniper/Crosshairs_ArcadeSniper_SwordOfDamocles_green.xml" />
+  <AutomationSequence UID="a571mr45a9o2ev9y" packageName="Crosshairs_ArcadeSniper_SwordOfDamocles_white" path="Crosshairs/Arcade_Sniper/Crosshairs_ArcadeSniper_SwordOfDamocles_white.xml" />
+  <AutomationSequence UID="zjkv2qg79292einy" packageName="Crosshairs_ArcadeSniper_Taipan_v1" path="Crosshairs/Arcade_Sniper/Crosshairs_ArcadeSniper_Taipan_v1.xml" />
+  <AutomationSequence UID="6n8h2tcr3i39pndb" packageName="Crosshairs_ArcadeSniper_Taipan_v2Default" path="Crosshairs/Arcade_Sniper/Crosshairs_ArcadeSniper_Taipan_v2Default.xml" />
+  <AutomationSequence UID="dqw32w8axxxg0r2o" packageName="Crosshairs_ArcadeSniper_Taipan_v3Tourquoise" path="Crosshairs/Arcade_Sniper/Crosshairs_ArcadeSniper_Taipan_v3Tourquoise.xml" />
+  <AutomationSequence UID="qf3iavebwuqy039n" packageName="Crosshairs_ArcadeSniper_Taipan_v3green" path="Crosshairs/Arcade_Sniper/Crosshairs_ArcadeSniper_Taipan_v3green.xml" />
+  <AutomationSequence UID="xjr49zavq9k5b7y0" packageName="Crosshairs_ArcadeSniper_Terminator" path="Crosshairs/Arcade_Sniper/Crosshairs_ArcadeSniper_Terminator.xml" />
+
+  <AutomationSequence UID="r1xm0qjmxs93f3jk" packageName="Crosshairs_Strategic_Deegie_v1blue" path="Crosshairs/Arcade_Sniper/Crosshairs_Strategic_Deegie_v1blue.xml" />
+  <AutomationSequence UID="lgetsu95sbatqw1x" packageName="Crosshairs_Strategic_Deegie_v2green" path="Crosshairs/Arcade_Sniper/Crosshairs_Strategic_Deegie_v2green.xml" />
+  <AutomationSequence UID="ccxh007af2rpchnn" packageName="Crosshairs_Strategic_Harpoon_BlackCircle" path="Crosshairs/Arcade_Sniper/Crosshairs_Strategic_Harpoon_BlackCircle.xml" />
+  <AutomationSequence UID="zgjzhcjywqkh20wf" packageName="Crosshairs_Strategic_Harpoon_BlackSquare" path="Crosshairs/Arcade_Sniper/Crosshairs_Strategic_Harpoon_BlackSquare.xml" />
+  <AutomationSequence UID="ixf98whrljp01o59" packageName="Crosshairs_Strategic_Harpoon_newWhite" path="Crosshairs/Arcade_Sniper/Crosshairs_Strategic_Harpoon_newWhite.xml" />
+  <AutomationSequence UID="p13v80dafzk7csum" packageName="Crosshairs_Strategic_J1mB0" path="Crosshairs/Arcade_Sniper/Crosshairs_Strategic_J1mB0.xml" />
+  <AutomationSequence UID="denzw7k1vyfaa5jo" packageName="Crosshairs_Strategic_MeltyMap_Blue" path="Crosshairs/Arcade_Sniper/Crosshairs_Strategic_MeltyMap_Blue.xml" />
+  <AutomationSequence UID="n5gf32wh5vhl81u7" packageName="Crosshairs_Strategic_MeltyMap_Green" path="Crosshairs/Arcade_Sniper/Crosshairs_Strategic_MeltyMap_Green.xml" />
+  <AutomationSequence UID="4b48qnskfabh9bp3" packageName="Crosshairs_Strategic_Staple_blue" path="Crosshairs/Arcade_Sniper/Crosshairs_Strategic_Staple_blue.xml" />
+  <AutomationSequence UID="e8eq3zhpol9rzix7" packageName="Crosshairs_Strategic_Staple_white" path="Crosshairs/Arcade_Sniper/Crosshairs_Strategic_Staple_white.xml" />
+  <AutomationSequence UID="29dwbncuzx7auffh" packageName="Crosshairs_Strategic_SwordOfDamocles_green" path="Crosshairs/Arcade_Sniper/Crosshairs_Strategic_SwordOfDamocles_green.xml" />
+  <AutomationSequence UID="fykbjmivztzrurmg" packageName="Crosshairs_Strategic_SwordOfDamocles_white" path="Crosshairs/Arcade_Sniper/Crosshairs_Strategic_SwordOfDamocles_white.xml" />
+  <AutomationSequence UID="m28xjpeft9tz5wct" packageName="Crosshairs_Strategic_Taipan_v1" path="Crosshairs/Arcade_Sniper/Crosshairs_Strategic_Taipan_v1.xml" />
   <!-- Category Crosshairs END   -->
    
   <!-- Category Ingame Aim START -->
