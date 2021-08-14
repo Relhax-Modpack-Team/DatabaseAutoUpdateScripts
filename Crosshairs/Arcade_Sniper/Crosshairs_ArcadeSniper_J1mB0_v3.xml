@@ -7,6 +7,7 @@
     <Macro Name="swf_names" Value="arcadeCrosshair.swf sniperCrosshair.swf crosshairControls.swf"/>
     <Macro Name="crosshair_wotmods_create" Value="arcade_sniper_controls"/>
     <Macro Name="target_package_uid" Value="bk6onn56s4ut15oz"/>
+    <Macro Name="source_ext" Value=".rar"/>
   </Macros>
 
   <!-- Specify the tasks to run -->
