@@ -2,7 +2,7 @@
 <AutomationSequence documentVersion="1.0">
   <!-- Specify macros here -->
   <Macros>
-    <Macro Name="wotmod_name_source" Value="&quot;Сведение 1\**\crosshair_Controls.wotmod&quot;"/>
+    <Macro Name="wotmod_name_source" Value="&quot;Сведение 1\crosshair_Controls.wotmod&quot;"/>
     <Macro Name="wotmod_name_modpack" Value="crosshair_Controls.wotmod"/>
     <Macro Name="swf_names" Value="crosshairControls.swf"/>
     <Macro Name="crosshair_wotmods_create" Value="controls"/>
