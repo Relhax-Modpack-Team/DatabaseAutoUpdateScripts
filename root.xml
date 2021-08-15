@@ -171,5 +171,6 @@
   <!-- Category 6thSense END   -->
   
   <!-- Category Custom Tank Skins START -->
+  <AutomationSequence UID="6pj0oqyvxb0n7pmb" packageName="TankSkinsMisc_Camo_TransparentCamouflage" path="TankSkinsMisc/TankSkinsMisc_Camo_TransparentCamouflage.xml"/>
   <!-- Category Custom Tank Skins END   -->
 </root.xml>

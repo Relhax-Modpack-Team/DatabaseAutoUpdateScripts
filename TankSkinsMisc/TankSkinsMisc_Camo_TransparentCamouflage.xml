@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<AutomationSequence documentVersion="1.0">
+  <!-- Specify macros here -->
+  <Macros>
+    <Macro Name="mct_commands" Value="/CAMO-mod=30"/>
+    <Macro Name="mct_wotmod_name" Value="mod.MCTCreator.Camouflages.wotmod"/>
+  </Macros>
+  <TaskDefinitions>
+    <Task ID="import_run_mct_from_command" Command="import_task" RepoUrlPath="Task_templates/run_mct_from_command.xml"/>
+  </TaskDefinitions>
+</AutomationSequence>
