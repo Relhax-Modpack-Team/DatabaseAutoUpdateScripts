@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<AutomationSequence documentVersion="1.0">
+  <!-- update_package_version_from_wgmods.xml
+    Author:  Willster419
+    Created: 2021-08-15
+    This sequence template gets the path to your wot executable, filtering out the "\WorldOfTanks.exe" from the macro {clientPath}
+    Required macros: (none)
+   -->
+  <TaskDefinitions>
+    <!-- get the package ID. Note we can set the length and startIndex to -1 and 0 respectivly to effectivly get the entire string -->
+    <Task ID="get_WoT_client_path_from_application_macro" Command="macro_string_split_macro" MacroName="clientPathNoExe" SplitCharacters="\WorldOfTanks.exe" Index="0" InputText="{clientPath}"/>
+  </TaskDefinitions>
+</AutomationSequence>
