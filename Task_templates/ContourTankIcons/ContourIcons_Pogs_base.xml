@@ -60,7 +60,7 @@
     <Task ID="update_package_version" Command="update_package_property" PropertyName="Version" PropertyValue="{clientVersion}" TargetPackageUID="this"/>
 
     <!-- upload to the server -->
-    <!-- <Task ID="upload_zip" Command="package_upload" FilePath="{working_folder_package}\zip\final.zip" ZipFileName="{packageName}_{clientVersion}_{date}.zip"/> -->
+    <Task ID="upload_zip" Command="package_upload" FilePath="{working_folder_package}\zip\final.zip" ZipFileName="{packageName}_{clientVersion}_{date}.zip"/>
     </TaskDefinitions>
 
 </AutomationSequence>
