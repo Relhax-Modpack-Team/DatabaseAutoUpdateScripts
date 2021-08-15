@@ -28,10 +28,10 @@
     <Task ID="extract_source6" Command="shell_exec" Filename="7z.exe" Wd="{working_folder_source}" Cmd="x {last_download_filename} en.json -r"/>
     <Task ID="extract_source7" Command="shell_exec" Filename="7z.exe" Wd="{working_folder_source}" Cmd="x {last_download_filename} pl.json -r"/>
     <Task ID="extract_source8" Command="shell_exec" Filename="7z.exe" Wd="{working_folder_source}" Cmd="x {last_download_filename} ru.json -r"/>
-    <Task ID="extract_source9" Command="shell_exec" Filename="7z.exe" Wd="{working_folder_source}" Cmd="x {last_download_filename} \mods\configs\CHAMPi\playerPanelPro\customcfg\* -r"/>
-    <Task ID="extract_source10" Command="shell_exec" Filename="7z.exe" Wd="{working_folder_source}" Cmd="x {last_download_filename} \mods\configs\CHAMPi\playerPanelPro\customcfg\green\* -r"/>
-    <Task ID="extract_source11" Command="shell_exec" Filename="7z.exe" Wd="{working_folder_source}" Cmd="x {last_download_filename} \mods\configs\CHAMPi\playerPanelPro\customcfg\red\* -r"/>
-    <Task ID="extract_source12" Command="shell_exec" Filename="7z.exe" Wd="{working_folder_source}" Cmd="x {last_download_filename} \mods\configs\CHAMPi\playerPanelPro\customcfg\spotted\* -r"/>
+    <Task ID="extract_source9" Command="shell_exec" Filename="7z.exe" Wd="{working_folder_source}" Cmd="x {last_download_filename} \mods\configs\CHAMPi\playerPanelPro\customcfg * -aos"/>
+    <!-- <Task ID="extract_source10" Command="shell_exec" Filename="7z.exe" Wd="{working_folder_source}" Cmd="x {last_download_filename} \mods\configs\CHAMPi\playerPanelPro\customcfg\green * -aos"/> -->
+    <!-- <Task ID="extract_source11" Command="shell_exec" Filename="7z.exe" Wd="{working_folder_source}" Cmd="x {last_download_filename} \mods\configs\CHAMPi\playerPanelPro\customcfg\red * -aos"/> -->
+    <!-- <Task ID="extract_source12" Command="shell_exec" Filename="7z.exe" Wd="{working_folder_source}" Cmd="x {last_download_filename} \mods\configs\CHAMPi\playerPanelPro\customcfg\spotted * -aos"/> -->
 
 
     <!-- 'e' means to extract (to the work direcotry, without using the zip file's paths), and -r means to recurse into the zip folder's directories -->
@@ -69,10 +69,10 @@
     <Task ID="move_source_post_compare5" Command="file_copy" SourceFilePath="{working_folder_source}\mods\configs\CHAMPi\playerPanelPro\i18n\en.json" DestinationFilePath="{workDirectory}\package\mods\configs\CHAMPi\playerPanelPro\i18n\en.json"/>
     <Task ID="move_source_post_compare6" Command="file_copy" SourceFilePath="{working_folder_source}\mods\configs\CHAMPi\playerPanelPro\i18n\pl.json" DestinationFilePath="{workDirectory}\package\mods\configs\CHAMPi\playerPanelPro\i18n\pl.json"/>
     <Task ID="move_source_post_compare7" Command="file_copy" SourceFilePath="{working_folder_source}\mods\configs\CHAMPi\playerPanelPro\i18n\ru.json" DestinationFilePath="{workDirectory}\package\mods\configs\CHAMPi\playerPanelPro\i18n\ru.json"/>
-    <Task ID="move_source_post_compare8" Command="file_copy" SourceFilePath="{working_folder_source}\mods\configs\CHAMPi\playerPanelPro\customcfg\*" DestinationFilePath="{workDirectory}\package\mods\configs\CHAMPi\playerPanelPro\i18n\ru.json"/>
-    <Task ID="move_source_post_compare8" Command="file_copy" SourceFilePath="{working_folder_source}\mods\configs\CHAMPi\playerPanelPro\customcfg\green\*" DestinationFilePath="{workDirectory}\package\mods\configs\CHAMPi\playerPanelPro\i18n\ru.json"/>
-    <Task ID="move_source_post_compare8" Command="file_copy" SourceFilePath="{working_folder_source}\mods\configs\CHAMPi\playerPanelPro\customcfg\red\*" DestinationFilePath="{workDirectory}\package\mods\configs\CHAMPi\playerPanelPro\i18n\ru.json"/>
-    <Task ID="move_source_post_compare8" Command="file_copy" SourceFilePath="{working_folder_source}\mods\configs\CHAMPi\playerPanelPro\customcfg\spotted\*" DestinationFilePath="{workDirectory}\package\mods\configs\CHAMPi\playerPanelPro\i18n\ru.json"/>
+    <Task ID="move_source_post_compare8" Command="directory_copy" DirectoryPath="{working_folder_source}\mods\configs\CHAMPi\playerPanelPro\customcfg" SearchPattern="*" Recursive="true" DestinationPath="{workDirectory}\package\mods\configs\CHAMPi\playerPanelPro\customcfg"/>
+    <!-- <Task ID="move_source_post_compare8" Command="file_copy" SourceFilePath="{working_folder_source}\mods\configs\CHAMPi\playerPanelPro\customcfg\green\*" DestinationFilePath="{workDirectory}\package\mods\configs\CHAMPi\playerPanelPro\i18n\ru.json"/> -->
+    <!-- <Task ID="move_source_post_compare8" Command="file_copy" SourceFilePath="{working_folder_source}\mods\configs\CHAMPi\playerPanelPro\customcfg\red\*" DestinationFilePath="{workDirectory}\package\mods\configs\CHAMPi\playerPanelPro\i18n\ru.json"/> -->
+    <!-- <Task ID="move_source_post_compare8" Command="file_copy" SourceFilePath="{working_folder_source}\mods\configs\CHAMPi\playerPanelPro\customcfg\spotted\*" DestinationFilePath="{workDirectory}\package\mods\configs\CHAMPi\playerPanelPro\customcfg\spotted\"/> -->
     <!-- copy patchfile from source -->
     <Task ID="move_source_post_compare11" Command="file_copy" SourceFilePath="{working_folder_modpack}\_patch\Ingame_Info_PlayersPanelPro_DisableAllExtras_2021-01-03.xml" DestinationFilePath="{workDirectory}\package\_patch\Ingame_Info_PlayersPanelPro_DisableAllExtras_2021-01-03.xml"/>
 
