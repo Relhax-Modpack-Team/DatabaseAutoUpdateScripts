@@ -5,12 +5,13 @@
     Created: 2021-07-19
     This sequence template gets the version value from a wgmods dev url and updates the given version property of the given package
     Required macros:
-    {package_url}        - dev url to use sfor the macro_substring_browser task
+    {package_url}        - dev url to use for the macro_substring_browser task
     {target_package_uid} - the target package to update the Version property
    -->
   <TaskDefinitions>
     <!-- get the package ID. Note we can set the length and startIndex to -1 and 0 respectivly to effectivly get the entire string -->
-    <Task ID="get_version_macro_from_wgmods" Command="macro_substring_browser" MacroName="mod_version_from_wgmods" Length="-1" StartIndex="0" Url="{package_url}" HtmlPath="{wgmods_xpath_version}" WaitTimeMs="500" WaitCounts="6" BrowserHeight="0" BrowserWidth="0"/>
+    <Task ID="get_version_macro_from_wgmods" Command="macro_substring_browser" MacroName="mod_version_from_wgmods" Length="-1" StartIndex="0"
+      Url="{package_url}" HtmlPath="{wgmods_xpath_version}" WaitTimeMs="500" WaitCounts="6" BrowserHeight="0" BrowserWidth="0"/>
     <!-- update version field in database -->
     <Task ID="update_package_version" Command="update_package_property" PropertyName="Version" PropertyValue="{mod_version_from_wgmods}" TargetPackageUID="{target_package_uid}"/>
   </TaskDefinitions>
