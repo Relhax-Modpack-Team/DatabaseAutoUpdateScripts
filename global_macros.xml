@@ -23,5 +23,5 @@
   <!-- this xpath works in browser and html modes -->
   <Macro Name="xvm_stable_xpath" Value="//a[contains(text(), '(archive)') and not(contains(text(), 'TEST'))]/@href"/>
   <!-- this xpath works in browser mode only -->
-  <Macro Name="koreanrandom_attachment_xpath" Value="//a[span = '{koreanrandom_attachment_name}']/@href"/>
+  <Macro Name="koreanrandom_attachment_xpath" Value="//a[contains(span, '{koreanrandom_attachment_name}')]/@href"/>
 </GlobalMacros>
