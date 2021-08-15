@@ -19,7 +19,7 @@
     <Task ID="get_download_url" Command="retrieve_package_property" PropertyName="DevURLList" TargetPackageUID="this" MacroSaveName="crosshair_download_url" PropertyIndex="0"/>
 
     <!-- download the source from wgmods -->
-    <Task ID="download_mod_source" Command="download_browser" Url="{crosshair_download_url}" DestinationPath="{working_folder_source}\{packageName}_source.zip" HtmlPath="{wgmods_xpath}" WaitTimeMs="500" WaitCounts="2"/>
+    <Task ID="download_mod_source" Command="download_browser" Url="{crosshair_download_url}" DestinationPath="{working_folder_source}\{packageName}_source.zip" HtmlPath="{wgmods_xpath}" WaitTimeMs="500" WaitCounts="2" BrowserHeight="0" BrowserWidth="0"/>
 
     <!-- import the tasks to update the crosshair (arcade/sniper) -->
     <Task ID="import_update_crosshair_base" Command="import_task" RepoUrlPath="Task_templates/Crosshairs/update_crosshair_base.xml"/>

@@ -13,7 +13,7 @@
     <!-- import tasks -->
     <Task ID="import_getUrl" Command="import_task" RepoUrlPath="Task_templates/getDownloadUrl_THISindex0.xml"/>
     
-    <Task ID="download_mod_source" Command="download_browser" Url="{download_url}" DestinationPath="{working_folder_source}\{last_download_filename}" HtmlPath="{awfultanker_xpath}"/>    
+    <Task ID="download_mod_source" Command="download_browser" Url="{download_url}" DestinationPath="{working_folder_source}\{last_download_filename}" HtmlPath="{awfultanker_xpath}" BrowserHeight="0" BrowserWidth="0"/>    
     
     <!-- import tasks -->
     <!-- <Task ID="import_dlModpack" Command="import_task" RepoUrlPath="Task_templates/downloadModpack_PackageNameZip.xml"/> -->
