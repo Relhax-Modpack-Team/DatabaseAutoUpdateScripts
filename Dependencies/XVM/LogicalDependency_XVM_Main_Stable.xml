@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<AutomationSequence documentVersion="1.0">
+  <!-- Specify macros here -->
+  <Macros>
+  </Macros>
+  <TaskDefinitions>
+  
+    <!-- create work dirs and macros -->
+    <Task ID="import_createWD" Command="import_task" RepoUrlPath="Task_templates/create_workDirs_macros.xml"/>    
+
+    <!-- get dl-url -->
+    <Task ID="get_download_url" Command="retrieve_package_property" PropertyName="DevURLList" TargetPackageUID="this" MacroSaveName="download_url" PropertyIndex="0"/>
+    <!-- download the source zip file, which *could* implicitly creates the directories, if we didn't define them first -->
+    <Task ID="download_source" Command="download_browser" Url="{download_url}" DestinationPath="{working_folder_source}\{last_download_filename}" HtmlPath="{xvm_stable_xpath}" WaitTimeMs="500" WaitCounts="6" BrowserHeight="0" BrowserWidth="0"/>
+    
+    
+    
+    <!-- extract source files-->
+    <Task ID="extract_source" Command="shell_exec" Filename="7z.exe" Wd="{working_folder_source}" Cmd="x {last_download_filename} *.*.*_**** -r -x!com.*"/>
+    <Task ID="extract_source2" Command="shell_exec" Filename="7z.exe" Wd="{working_folder_source}" Cmd="e {last_download_filename}  -o{working_folder_package}\mods\versiondir\com.modxvm.xfw *.wotmod -r"/>
+    <Task ID="extract_source3" Command="shell_exec" Filename="7z.exe" Wd="{working_folder_source}" Cmd="x {last_download_filename}  -o{working_folder_package} -r default"/>
+    <Task ID="extract_source3" Command="shell_exec" Filename="7z.exe" Wd="{working_folder_source}" Cmd="e {last_download_filename}  -o{working_folder_package}\res_mods\configs\xvm\default_backup -r default"/>
+    <!-- <Task ID="delete_tmp" Command="directory_delete" DirectoryPath="{working_folder_package}\res_mods\configs\xvm\default_backup\default" SearchPattern="default" Recursive="false"/> -->
+    <Task ID="extract_source4" Command="shell_exec" Filename="7z.exe" Wd="{working_folder_source}" Cmd="x {last_download_filename}  -o{working_folder_package} -r py_macro"/>
+    <Task ID="extract_source5" Command="shell_exec" Filename="7z.exe" Wd="{working_folder_source}" Cmd="x {last_download_filename}  -o{working_folder_package} -r shared_resources"/>
+    <Task ID="extract_source6" Command="shell_exec" Filename="7z.exe" Wd="{working_folder_source}" Cmd="x {last_download_filename}  -o{working_folder_package} -r xfw_packages"/>
+
+
+    <!-- get the source version of the mod by file name -->
+    <Task ID="get_filename" Command="directory_search" DirectoryPath="{working_folder_source}" SearchPattern="?.?.?_????" Recursive="False" MacroPrefix="get_filename_results"/>
+    <Task ID="get_modVersion_source" Command="macro_string_split_filename" MacroName="modVersion_source" Index="0" SplitCharacters="\" FilePath="{get_filename_results_0}"/>
+    <!-- get modpack version from version field in database -->
+    <Task ID="get_modVersion_modpack" Command="macro_create" MacroName="modVersion_modpack" MacroValue="{version}"/>
+
+
+    
+    <!-- i want to compare the result of two tasks:  -->
+    <!-- (get_modVersion_source -> {modVersion_source} VS get_modVersion_modpack -> {modVersion_modpack}) -->
+    <!-- <Task ID="compare_start" Command="compare_start"/> -->
+    <!-- Compare get_modVersion-tasks results -->
+    <!-- <Task ID="compare_string" Command="file_compare" -->
+      <!-- FileA="{modVersion_source}" -->
+      <!-- FileB="{modVersion_modpack}"/> -->
+    <!-- <Task ID="compare_end" Command="compare_end"/> -->
+
+
+
+    <!-- create the new zip -->
+    <Task ID="create_zip" Command="shell_exec" Filename="7z.exe" Wd="{workDirectory}\package" Cmd="{7z_createFinalZip}"/>
+    
+<!-- update version field in database - [LogicalDependency_XVM_Main_Nightly] and [XVMconfigBuilder_BuildSelector_Nightly] -->
+    <Task ID="update_package_version" Command="update_package_property" PropertyName="Version" PropertyValue="{modVersion_source}" TargetPackageUID="i84r7raah7wjh3oa" />
+    <Task ID="update_package_version" Command="update_package_property" PropertyName="Version" PropertyValue="{modVersion_source}" TargetPackageUID="w2s53lki94c2grej" />
+
+    <!-- upload to the server -->
+    <Task ID="upload_zip" Command="package_upload" FilePath="{workDirectory}\package\final.zip" ZipFileName="{packageName}_v{modVersion_source}_{clientVersion}_{date}.zip"/>
+
+  </TaskDefinitions>
+</AutomationSequence>
