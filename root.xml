@@ -127,6 +127,15 @@
   <AutomationSequence UID="jm0usfegzl8mic1e" packageName="IngameAim_BattleAssistant" path="IngameAim/IngameAim_BattleAssistant.xml" />
   <AutomationSequence UID="38iggbplcyqvzh3i" packageName="IngameAim_ServerReticle_Awfultanker" path="IngameAim/IngameAim_ServerReticle_Awfultanker.xml" />
   <AutomationSequence UID="au1did8dq1mvem8q" packageName="IngameAim_SafeShot_Champi" path="IngameAim/IngameAim_SafeShot_Champi.xml"/>
+  <AutomationSequence UID="voxfbwmk4lr95os0" packageName="IngameAim_TargetArrow_Blue" path="IngameAim/TargetArrow/IngameAim_TargetArrow_Blue.xml"/>
+  <AutomationSequence UID="8d4ujvsl3hjr50z0" packageName="IngameAim_TargetArrow_Green" path="IngameAim/TargetArrow/IngameAim_TargetArrow_Green.xml"/>
+  <AutomationSequence UID="2sm1bzi4y0lghthd" packageName="IngameAim_TargetArrow_Purple" path="IngameAim/TargetArrow/IngameAim_TargetArrow_Purple.xml"/>
+  <AutomationSequence UID="fhsgjyo5xxeyh5pd" packageName="IngameAim_TargetArrow_Red" path="IngameAim/TargetArrow/IngameAim_TargetArrow_Red.xml"/>
+  <AutomationSequence UID="izr03wgj4ozr5dl0" packageName="IngameAim_TargetArrow_RedBlack" path="IngameAim/TargetArrow/IngameAim_TargetArrow_RedBlack.xml"/>
+  <AutomationSequence UID="wcd9kspkzi51qbw9" packageName="IngameAim_TargetArrow_RedWhite" path="IngameAim/TargetArrow/IngameAim_TargetArrow_RedWhite.xml"/>
+  <AutomationSequence UID="s6zvryu6wt6ghgwc" packageName="IngameAim_TargetArrow_White" path="IngameAim/TargetArrow/IngameAim_TargetArrow_White.xml"/>
+  <AutomationSequence UID="mkg2j2kprc85s9eq" packageName="IngameAim_TargetArrow_Yellow" path="IngameAim/TargetArrow/IngameAim_TargetArrow_Yellow.xml"/>
+  <AutomationSequence UID="vgmsi8usgqdgpej4" packageName="IngameAim_TargetArrow_YellowBlack" path="IngameAim/TargetArrow/IngameAim_TargetArrow_YellowBlack.xml"/>
   <!-- Category Ingame Aim END   -->
   
   <!-- Category Ingame Info START -->
