@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <AutomationSequence documentVersion="1.0">
-  <!-- arcade_sniper_controls.xml
+  <!-- arcade_sniper_controls_battleApp.xml
     Author:  Willster419
     Created: 2021-08-13
     This sequence template is for comparing the crosshair files arcade, sniper, and crosshairControls (both swfs)
