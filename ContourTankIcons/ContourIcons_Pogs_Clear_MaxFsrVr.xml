@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<AutomationSequence documentVersion="1.0">
+  <!-- Specify macros here -->
+  <Macros>
+    <Macro Name="zip_file_name_search" Value="CLEAR_MAX_FSR_VR.zip"/>
+    <Macro Name="target_package_uid" Value="3i03tcmf1t9lof09"/>
+  </Macros>
+
+  <!-- Specify the tasks to run -->
+  <TaskDefinitions>
+    <!-- Import the create work dirs macros -->
+    <Task ID="import_pogs_tasks" Command="import_task" RepoUrlPath="Task_templates/ContourTankIcons\ContourIcons_Pogs_base.xml"/>
+  </TaskDefinitions>
+
+</AutomationSequence>

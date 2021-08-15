@@ -17,4 +17,6 @@
   <Macro Name="7z_create_package_zipfile" Value="a -tzip -mx=9 -r final.zip {mods_resMods_folders}"/>
   <!-- this will create the final.zip with all files from work directory -->
   <Macro Name="7z_createFinalZip" Value="a -tzip -mx=9 -r final.zip"/>
+  <Macro Name="mediafire_xpath_folder" Value="//a[contains(@class, 'thumbnailClickArea') and contains(@title, '{folder_name_search}')]//@href"/>
+  <Macro Name="mediafire_xpath_file" Value="//a[contains(@class, 'filetype_column') and contains(@href, '{zip_file_name_search}')]//@href"/>
 </GlobalMacros>

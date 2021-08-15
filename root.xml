@@ -113,6 +113,15 @@
   <AutomationSequence UID="m28xjpeft9tz5wct" packageName="Crosshairs_Strategic_Taipan_v1" path="Crosshairs/Strategic/Crosshairs_Strategic_Taipan_v1.xml" />
   <AutomationSequence UID="vqsv678trj8n0m4y" packageName="Crosshairs_gunConstraints" path="Crosshairs/Crosshairs_gunConstraints.xml" />
   <!-- Category Crosshairs END   -->
+
+  <!-- Category Contour & Tank Icons START -->
+  <AutomationSequence UID="alpqtgizv83szkpm" packageName="ContourIcons_Pogs_Clear_SIMPLE" path="ContourTankIcons/ContourIcons_Pogs_Clear_SIMPLE.xml" />
+  <AutomationSequence UID="4z6xlj8iqr5iad70" packageName="ContourIcons_Pogs_Clear_MAX" path="ContourTankIcons/ContourIcons_Pogs_Clear_MAX.xml" />
+  <AutomationSequence UID="hodctjejpoxzapez" packageName="ContourIcons_Pogs_Clear_MAXFsr" path="ContourTankIcons/ContourIcons_Pogs_Clear_MAXFsr.xml"/>
+  <AutomationSequence UID="udjr1ikkpkqha0lz" packageName="ContourIcons_Pogs_Clear_MaxFsrVr" path="ContourTankIcons/ContourIcons_Pogs_Clear_MaxFsrVr.xml" />
+  <AutomationSequence UID="os1ytma3j3r7lt3c" packageName="ContourIcons_Pogs_Clear_MaxFsrVrRld" path="ContourTankIcons/ContourIcons_Pogs_Clear_MaxFsrVrRld.xml" />
+  <AutomationSequence UID="e6es9lm5iwc6lhic" packageName="ContourIcons_Pogs_DaMatz" path="ContourTankIcons/ContourIcons_Pogs_DaMatz.xml"/>
+  <!-- Category Contour & Tank Icons   -->
    
   <!-- Category Ingame Aim START -->
   <AutomationSequence UID="jm0usfegzl8mic1e" packageName="IngameAim_BattleAssistant" path="IngameAim/IngameAim_BattleAssistant.xml" />
