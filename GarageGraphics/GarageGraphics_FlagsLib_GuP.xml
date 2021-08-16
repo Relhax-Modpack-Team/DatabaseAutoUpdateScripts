@@ -25,7 +25,7 @@
     <Task ID="create_zip" Command="shell_exec" Filename="7z.exe" Wd="{workDirectory}\package" Cmd="{7z_createFinalZip}"/>
 
     <!-- update version field in database -->
-    <!-- <Task ID="update_package_version" Command="update_package_property" PropertyName="Version" PropertyValue="{clientVersion}" /> -->
+    <Task ID="update_package_version" Command="update_package_property" PropertyName="Version" PropertyValue="{clientVersion}" />
 
     <!-- upload to the server -->
     <Task ID="upload_zip" Command="package_upload" FilePath="{working_folder_package}\final.zip" ZipFileName="{packageName}_{clientVersion}_{date}.zip"/>
