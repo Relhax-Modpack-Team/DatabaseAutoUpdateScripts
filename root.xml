@@ -165,6 +165,11 @@
   <AutomationSequence UID="ksbf9er3h535v1vd" packageName="GarageMods_LittleHelperCollection" path="GarageMods/GarageMods_LittleHelperCollection.xml" />
   <AutomationSequence UID="w0ffte8rsqbb1su7" packageName="GarageMods_AnnoyingFeaturesRemover" path="GarageMods/GarageMods_AnnoyingFeaturesRemover.xml" />
   <!-- Category Garage Mods END   -->
+  
+  
+  <!-- Category Garage Graphics START -->
+  <AutomationSequence UID="wgze5olfl2k7rxv8" packageName="GarageGraphics_UI_GIRLSundPANZER" path="GarageGraphics/GarageGraphics_UI_GIRLSundPANZER.xml" />
+  <!-- Category Garage Graphics END   -->
 
   <!-- Category Ingame Aim START -->
   <!-- Category Ingame Aim END   -->
