@@ -2,10 +2,10 @@
 <AutomationSequence documentVersion="1.0">
   <!-- Specify macros here -->
   <Macros>
-    <Macro Name="mct_commands" Value="/CAMO-mod=30"/>
-    <Macro Name="mct_wotmodModpack_name" Value="mod.MCTCreator.Camouflages.wotmod"/>
-    <Macro Name="wotmodPackageNameMCT" Value="mod.MCTCreator.Camouflages"/>
-    <Macro Name="patchfileName" Value="TransCamo_adding_packages.xml"/>
+    <Macro Name="mct_commands" Value="/DPT-mod &quot;FFFFFF&quot; /inside-color &quot;B0B0B0&quot; /remove-shadows"/>
+    <Macro Name="mct_wotmodModpack_name" Value="deadTanksBase.wotmod"/>
+    <Macro Name="wotmodPackageNameMCT" Value="deadTanksBase"/>
+    <Macro Name="patchfileName" Value="deadTanksBase_adding_packages.xml"/>
   </Macros>
   <TaskDefinitions>
     <Task ID="import_run_mct_from_command" Command="import_task" RepoUrlPath="Task_templates/run_mct_from_command.xml"/>

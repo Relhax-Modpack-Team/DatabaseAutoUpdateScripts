@@ -6,7 +6,9 @@
     This sequence template downloads and extracts the mct zip file from the developer website, and runs the executable
     Required macros:
     {mct_commands}     - The commands to send to the MCT application
-    {mct_wotmod_name}  - The name to use for the wotmod
+    {mct_wotmodModpack_name}  - The name to use for the wotmod
+    {wotmodPackageNameMCT}  - The name to use for the creation of the wotmod with mct
+    {patchfileName}  - The name of the patchfile inside the modpack package
    -->
   <TaskDefinitions>
     <!-- import getting the wot directory path without the exe -->
@@ -31,16 +33,16 @@
 
     <!-- extract the modpack wotmod -->
     <!-- 'e' means to extract (to the work direcotry, without using the zip file's paths), and -r means to recurse into the zip folder's directories -->
-    <Task ID="extract_modpack" Command="shell_exec" Filename="7z.exe" Wd="{working_folder_modpack}" Cmd="e {packageName}.zip {mct_wotmod_name} -r"/>
+    <Task ID="extract_modpack" Command="shell_exec" Filename="7z.exe" Wd="{working_folder_modpack}" Cmd="e {packageName}.zip {mct_wotmodModpack_name} -r"/>
     <!-- extract the patchfile from modpack package / it extracts all .xml files. ONLY USEFUL FOR MODS WITH ONE SINGLE XML FILE USED AS PATCH -->
-    <Task ID="extract_modpackPatchfile" Command="shell_exec" Filename="7z.exe" Wd="{working_folder_modpack}" Cmd="x {packageName}.zip *.xml -r"/>
+    <Task ID="extract_modpackPatchfile" Command="shell_exec" Filename="7z.exe" Wd="{working_folder_modpack}" Cmd="x {packageName}.zip {patchfileName} -r"/>
 
     <!-- Run the MCT exe -->
-    <Task ID="run_mct" Command="shell_exec" Filename="{working_folder_mct}\MCTCreator2.exe" Wd="{working_folder_mct}" Cmd="/wot-path=&quot;{clientPathNoExe}\&quot; /mods-path=&quot;{working_folder_mct}&quot; /auto-close-console {mct_commands}"/>
+    <Task ID="run_mct" Command="shell_exec" Filename="{working_folder_mct}\MCTCreator2.exe" Wd="{working_folder_mct}" Cmd="/wot-path=&quot;{clientPathNoExe}\&quot; /mods-path=&quot;{working_folder_mct}&quot; /DPT-wotmod-name &quot;{wotmodPackageNameMCT}&quot; /auto-close-console {mct_commands}"/>
 
     <!-- get the filename and rename to what's used in the modpack -->
     <Task ID="get_mct_wotmod_filename" Command="directory_search" DirectoryPath="{working_folder_mct}" SearchPattern="mod.MCTCreator.*.wotmod" Recursive="False" MacroPrefix="mct_filename_from_shell"/>
-    <Task ID="rename_wotmod" Command="file_move" SourceFilePath="{mct_filename_from_shell_0}" DestinationFilePath="{working_folder_mct}\{mct_wotmod_name}"/>
+    <Task ID="rename_wotmod" Command="file_move" SourceFilePath="{mct_filename_from_shell_0}" DestinationFilePath="{working_folder_mct}\{mct_wotmodModpack_name}"/>
 
     <!-- compare the hashes of the complete packages. this is done in 3 steps:
       1. write the compare_start task (resets the internal counters for matches and differences)
@@ -51,11 +53,11 @@
       By using the directory_compare task, if the number of swf's change between the modpack and source, something has changed in the structure and we need to account for it
     -->
     <Task ID="compare_start" Command="compare_start"/>
-    <Task ID="compare_contour_icons" Command="file_compare" FileA="{working_folder_modpack}\{mct_wotmod_name}" FileB="{working_folder_mct}\{mct_wotmod_name}"/>
+    <Task ID="compare_contour_icons" Command="file_compare" FileA="{working_folder_modpack}\{mct_wotmodModpack_name}" FileB="{working_folder_mct}\{mct_wotmodModpack_name}"/>
     <Task ID="compare_end" Command="compare_end"/>
 
     <!-- move the target wotmod into the package folder -->
-    <Task ID="move_wotmod" Command="file_move" SourceFilePath="{working_folder_mct}\{mct_wotmod_name}" DestinationFilePath="{working_folder_package}\zip\mods\versiondir\{mct_wotmod_name}"/>
+    <Task ID="move_wotmod" Command="file_move" SourceFilePath="{working_folder_mct}\{mct_wotmodModpack_name}" DestinationFilePath="{working_folder_package}\mods\versiondir\{mct_wotmodModpack_name}"/>
     <!-- move patchfile folder from modpack to final package -->
     <Task ID="move_patchfileModpack" Command="directory_copy" DirectoryPath="{working_folder_modpack}\_patch" SearchPattern="*" Recursive="true" DestinationPath="{working_folder_package}\_patch"/>
 
@@ -63,6 +65,6 @@
     <Task ID="create_zip" Command="shell_exec" Filename="7z.exe" Wd="{workDirectory}\package" Cmd="{7z_createFinalZip}"/>
 
     <!-- upload to the server -->
-    <Task ID="upload_zip" Command="package_upload" FilePath="{working_folder_package}\zip\final.zip" ZipFileName="{packageName}_{clientVersion}_{date}.zip"/>
+    <Task ID="upload_zip" Command="package_upload" FilePath="{working_folder_package}\final.zip" ZipFileName="{packageName}_{clientVersion}_{date}.zip"/>
   </TaskDefinitions>
 </AutomationSequence>
