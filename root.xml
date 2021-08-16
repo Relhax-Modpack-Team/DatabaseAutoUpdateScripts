@@ -169,6 +169,7 @@
   
   <!-- Category Garage Graphics START -->
   <AutomationSequence UID="wgze5olfl2k7rxv8" packageName="GarageGraphics_UI_GIRLSundPANZER" path="GarageGraphics/GarageGraphics_UI_GIRLSundPANZER.xml" />
+  <AutomationSequence UID="ntfgi7r1nr6iw633" packageName="GarageGraphics_FlagsLib_GuP" path="GarageGraphics/GarageGraphics_FlagsLib_GuP.xml" />
   <!-- Category Garage Graphics END   -->
 
   <!-- Category Ingame Aim START -->

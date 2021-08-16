@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<AutomationSequence documentVersion="1.0">
+  <!-- Specify macros here -->
+  <Macros>
+    <Macro Name="download_url" Value="https://github.com/SEA-group/GIRLS-und-PANZER-UI/archive/refs/heads/master.zip"/>
+  </Macros>
+
+  <!-- Specify the tasks to run -->
+  <TaskDefinitions>
+    <!-- create work dirs and macros -->
+    <Task ID="import_createWD" Command="import_task" RepoUrlPath="Task_templates/create_workDirs_macros.xml"/>
+
+    <!-- download the source zip file, which *could* implicitly creates the directories, if we didn't define them first -->
+    <Task ID="import_downloadSourceStatic" Command="import_task" RepoUrlPath="Task_templates/downloadSourceStatic.xml"/>   
+    
+
+    <!-- extract MLG.bnk from source and modpack -->
+    <Task ID="extract_source" Command="shell_exec" Filename="7z.exe" Wd="{working_folder_source}" Cmd="e {last_download_filename} -o{working_folder_package}\res_mods\versiondir\gui\flash FlagsLib.swf -r"/>
+
+
+    <!-- Update modpack files -->
+    <!-- <Task ID="update_modpack" Command="directory_copy" DirectoryPath="{working_folder_source}\res_mods" SearchPattern="*" Recursive="true" DestinationPath="{working_folder_package}\res_mods"/> -->
+
+    <!-- create the new zip-->
+    <Task ID="create_zip" Command="shell_exec" Filename="7z.exe" Wd="{workDirectory}\package" Cmd="{7z_createFinalZip}"/>
+
+    <!-- update version field in database -->
+    <!-- <Task ID="update_package_version" Command="update_package_property" PropertyName="Version" PropertyValue="{clientVersion}" /> -->
+
+    <!-- upload to the server -->
+    <Task ID="upload_zip" Command="package_upload" FilePath="{working_folder_package}\final.zip" ZipFileName="{packageName}_{clientVersion}_{date}.zip"/>
+  </TaskDefinitions>
+
+</AutomationSequence>
