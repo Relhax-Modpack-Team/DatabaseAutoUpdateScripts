@@ -19,7 +19,7 @@
   -->
   <TaskDefinitions>
     <!-- for inside macro of the global_macro '7z_create_package_zipfile' -->
-    <Task ID="create_mods_resmods_macro_for_7z_cmd" Command="macro_create" MacroName="mods_resMods_folders" MacroValue="mods_or_res_mods"/>
+    <Task ID="create_mods_resmods_macro_for_7z_cmd" Command="macro_create" MacroName="mods_resMods_folders" MacroValue="{mods_or_res_mods}"/>
 
     <!-- download and the modpack package -->
     <Task ID="download_modpack" Command="package_download" FilePath="{working_folder_modpack}\{packageName}.zip"/>
