@@ -190,6 +190,7 @@
   <!-- Category Garage Mods START -->
   <AutomationSequence UID="ksbf9er3h535v1vd" packageName="GarageMods_LittleHelperCollection" path="GarageMods/GarageMods_LittleHelperCollection.xml" />
   <AutomationSequence UID="w0ffte8rsqbb1su7" packageName="GarageMods_AnnoyingFeaturesRemover" path="GarageMods/GarageMods_AnnoyingFeaturesRemover.xml" />
+  <AutomationSequence UID="jzzwfqdgru1nbu48" packageName="GarageMods_ReplayManager" path="GarageMods/GarageMods_ReplayManager.xml" />
   <!-- Category Garage Mods END   -->
   
   
