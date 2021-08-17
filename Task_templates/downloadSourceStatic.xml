@@ -1,4 +1,9 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<!-- NEEDED MACROS:  -->
+<!-- {download_url} -->
+<!-- {working_folder_source} -->
+<!-- CREATES/FILLS MACROS:   -->
+<!-- [last_download_filename} -->
 <AutomationSequence documentVersion="1.0">
   <TaskDefinitions>
     <!-- download the source zip file, which *could* implicitly creates the directories, if we didn't define them first -->
