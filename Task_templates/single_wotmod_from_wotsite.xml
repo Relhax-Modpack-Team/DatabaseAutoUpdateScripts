@@ -1,11 +1,27 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <AutomationSequence documentVersion="1.0">
+  <!-- single_wotmod_from_wotsite.xml
+    Author:  Willster419
+    Created: 2021-08-??
+    This sequence template does the following tasks:
+     - creates the work directories from the import task macro_create_work_dirs
+     - downloads the package from the wotsite website
+     - runs the imported task single_wotmod
+    Required macros:
+    {package_url}                  - The download url of the wotsite website to download from
+    {file_path}                    - The path to the wotmod inside the source zip file
+    {source_extract_recursive}     - The optional recursive argument to use when extracting the source wotmod. set as " " (with space) to disable
+    NOTE: see single_wotmod import task for more required macros
+  -->
   <TaskDefinitions>
     <!-- import tasks -->
     <Task ID="import_macro_create_tasks" Command="import_task" RepoUrlPath="Task_templates/macro_create_work_dirs.xml"/>
 
     <!-- download the source package -->
     <Task ID="download_mod_source" Command="download_html" Url="{package_url}" HtmlPath="{wotsite_xpath}" DestinationPath="{working_folder_source}\{packageName}.zip"/>
+
+    <!-- extract wotmod from source and modpack. note that the file_path macro has the slash to connect to file_name -->
+    <Task ID="extract_source" Command="shell_exec" Filename="7z.exe" Wd="{working_folder_source}" Cmd="e {packageName}.zip {file_path}{file_name} {source_extract_recursive}"/>
 
     <!-- import the rest of the process from single_wotmod -->
     <Task ID="import_single_wotmod" Command="import_task" RepoUrlPath="Task_templates/single_wotmod.xml"/>

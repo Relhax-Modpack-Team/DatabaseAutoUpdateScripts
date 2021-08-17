@@ -1,11 +1,28 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <AutomationSequence documentVersion="1.0">
+  <!-- single_wotmod.xml
+    Author:  Willster419
+    Created: 2021-08-??
+    This sequence template does the following tasks:
+     - downloads the modpack zip file
+     - extracts the source from a specified path, with optional recursion argument
+     - extracts the modpack zip file
+     - compares the modpack and source wotmod file
+     - creates the final new zip package with the source's wotmod
+     - uploads the new package to the server
+    Required macros:
+    {working_folder_modpack}       - The working folder of the modpack zip file and extraction processes
+    {working_folder_source}        - The working folder of the source zip file and extracation processes
+    {working_folder_final}         - The working folder of the newly created zip file package for the database
+    {file_name}                    - The name of the wotmod for BOTH the source and modpack
+    {mods_or_res_mods}             - A macro to specify if the wotmod (or any single file) should be placed into the mods or res_mods folder structure
+  -->
   <TaskDefinitions>
-    <!-- download the modpack package -->
-    <Task ID="download_modpack" Command="package_download" FilePath="{working_folder_modpack}\{packageName}.zip"/>
+    <!-- for inside macro of the global_macro '7z_create_package_zipfile' -->
+    <Task ID="create_mods_resmods_macro_for_7z_cmd" Command="macro_create" MacroName="mods_resMods_folders" MacroValue="mods_or_res_mods"/>
 
-    <!-- extract wotmod from source and modpack. note that the file_path macro has the slash to connect to file_name -->
-    <Task ID="extract_source" Command="shell_exec" Filename="7z.exe" Wd="{working_folder_source}" Cmd="e {packageName}.zip {file_path}{file_name} {source_extract_recursive}"/>
+    <!-- download and the modpack package -->
+    <Task ID="download_modpack" Command="package_download" FilePath="{working_folder_modpack}\{packageName}.zip"/>
     <Task ID="extract_modpack" Command="shell_exec" Filename="7z.exe" Wd="{working_folder_modpack}" Cmd="e {packageName}.zip {file_name} -r"/>
 
     <!-- Compare the source and modpack files -->

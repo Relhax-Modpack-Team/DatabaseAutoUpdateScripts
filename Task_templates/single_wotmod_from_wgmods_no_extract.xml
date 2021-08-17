@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<AutomationSequence documentVersion="1.0">
+  <!-- single_wotmod_from_wgmods_no_extract.xml
+    Author:  Willster419
+    Created: 2021-08-16
+    This sequence template does the following tasks:
+     - creates the work directories from the import task macro_create_work_dirs
+     - downloads the package from the wgmods website
+     - runs the imported task single_wotmod
+    Required macros:
+    {package_url}       - The download url of the wgmods website to download from
+    {file_name}         - The name of the wotmod for BOTH the source and modpack
+    NOTE: see single_wotmod import task for more required macros
+  -->
+  <TaskDefinitions>
+    <!-- import tasks -->
+    <Task ID="import_macro_create_tasks" Command="import_task" RepoUrlPath="Task_templates/macro_create_work_dirs.xml"/>
+
+    <!-- download the source package -->
+    <Task ID="download_mod_source" Command="download_browser" Url="{package_url}" HtmlPath="{wgmods_xpath}" DestinationPath="{working_folder_source}\{file_name}" WaitTimeMs="500" WaitCounts="6" BrowserHeight="0" BrowserWidth="0"/>
+
+    <!-- import the rest of the process from single_wotmod -->
+    <Task ID="import_single_wotmod" Command="import_task" RepoUrlPath="Task_templates/single_wotmod_direct.xml"/>
+  </TaskDefinitions>
+</AutomationSequence>
