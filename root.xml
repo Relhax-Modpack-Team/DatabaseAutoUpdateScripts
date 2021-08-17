@@ -160,6 +160,14 @@
   <AutomationSequence UID="px6jrz5us97tnnbb" packageName="IngameMisc_BetterVisibleFlatTrainWagons" path="IngameMisc/IngameMisc_BetterVisibleFlatTrainWagons.xml"/>
   
   <AutomationSequence UID="lp7nnb2rbopkpr28" packageName="IngameMisc_Minimap_SpamProtector" path="IngameMisc/IngameMisc_Minimap_SpamProtector.xml"/>
+  
+  <AutomationSequence UID="4c5z9v7ii0xi4wau" packageName="IngameMisc_Minimap_Type_Basic_TacticalMinimap" path="IngameMisc/Minimap/IngameMisc_Minimap_Type_Basic_TacticalMinimap.xml"/>
+  <AutomationSequence UID="o4hjk1s2v1zquf4g" packageName="IngameMisc_Minimap_Type_Basic_TacticalMinimapDOTS" path="IngameMisc/Minimap/IngameMisc_Minimap_Type_Basic_TacticalMinimapDOTS.xml"/>
+  <AutomationSequence UID="6bh9t6dox4rw39j6" packageName="IngameMisc_Minimap_Type_Basic_TacticalMinimapSCOUT" path="IngameMisc/Minimap/IngameMisc_Minimap_Type_Basic_TacticalMinimapSCOUT.xml"/>
+  <AutomationSequence UID="2h8sblo6l53uoshm" packageName="IngameMisc_Minimap_Type_Basic_TacticalMinimapDOTSall" path="IngameMisc/Minimap/IngameMisc_Minimap_Type_Basic_TacticalMinimapDOTSall.xml"/>
+  <AutomationSequence UID="dxt3vltu4zer6pxq" packageName="IngameMisc_Minimap_Type_Basic_TacticalMinimapClassicAll" path="IngameMisc/Minimap/IngameMisc_Minimap_Type_Basic_TacticalMinimapClassicAll.xml"/>
+  <AutomationSequence UID="o400gx93bck7fc67" packageName="IngameMisc_Minimap_Type_Basic_WOTInspector" path="IngameMisc/Minimap/IngameMisc_Minimap_Type_Basic_WOTInspector.xml"/>
+  <AutomationSequence UID="iji881zm6wmxq5ok" packageName="IngameMisc_Minimap_Type_Basic_WOTInspectorTech" path="IngameMisc/Minimap/IngameMisc_Minimap_Type_Basic_WOTInspectorTech.xml"/>
   <!-- Category Ingame Misc END -->
   
 

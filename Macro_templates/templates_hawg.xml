@@ -6,5 +6,7 @@
     <Macro Name="wotmod_name_IngameMisc_PreBattleTimer" Value="Hawg_prebattleTimer.wotmod"/>
     <Macro Name="devurl_IngameAim_TargetArrow" Value="https://wgmods.net/2095/"/>
     <Macro Name="wotmod_name_IngameAim_TargetArrow" Value="Hawg_battleVehicleMarkers.wotmod"/>
+    <Macro Name="devurl_IngameMisc_Minimap_Type_Basic_TacticalMinimap" Value="https://wgmods.net/5131/"/>
+    <Macro Name="wotmod_name_IngameMisc_Minimap_Type_Basic_TacticalMinimap" Value="Hawg_Tac_spaces.wotmod"/>
   </Macros>
 </AutomationSequence>
