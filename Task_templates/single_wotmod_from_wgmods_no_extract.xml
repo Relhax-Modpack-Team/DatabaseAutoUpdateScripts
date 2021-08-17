@@ -20,6 +20,6 @@
     <Task ID="download_mod_source" Command="download_browser" Url="{package_url}" HtmlPath="{wgmods_xpath}" DestinationPath="{working_folder_source}\{file_name}" WaitTimeMs="500" WaitCounts="6" BrowserHeight="0" BrowserWidth="0"/>
 
     <!-- import the rest of the process from single_wotmod -->
-    <Task ID="import_single_wotmod" Command="import_task" RepoUrlPath="Task_templates/single_wotmod_direct.xml"/>
+    <Task ID="import_single_wotmod" Command="import_task" RepoUrlPath="Task_templates/single_wotmod.xml"/>
   </TaskDefinitions>
 </AutomationSequence>
