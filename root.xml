@@ -168,6 +168,22 @@
   <AutomationSequence UID="dxt3vltu4zer6pxq" packageName="IngameMisc_Minimap_Type_Basic_TacticalMinimapClassicAll" path="IngameMisc/Minimap/IngameMisc_Minimap_Type_Basic_TacticalMinimapClassicAll.xml"/>
   <AutomationSequence UID="o400gx93bck7fc67" packageName="IngameMisc_Minimap_Type_Basic_WOTInspector" path="IngameMisc/Minimap/IngameMisc_Minimap_Type_Basic_WOTInspector.xml"/>
   <AutomationSequence UID="iji881zm6wmxq5ok" packageName="IngameMisc_Minimap_Type_Basic_WOTInspectorTech" path="IngameMisc/Minimap/IngameMisc_Minimap_Type_Basic_WOTInspectorTech.xml"/>
+
+  <AutomationSequence UID="a1uz7221ullzrqk6" packageName="IngameMisc_Minimap_TargetIcon_Type2_Blue" path="IngameMisc/Minimap/IngameMisc_Minimap_TargetIcon_Type2_Blue.xml"/>
+  <AutomationSequence UID="nq1ef282thegr1r6" packageName="IngameMisc_Minimap_TargetIcon_Type2_Green" path="IngameMisc/Minimap/IngameMisc_Minimap_TargetIcon_Type2_Green.xml"/>
+  <AutomationSequence UID="h4il75ylo0g63u9j" packageName="IngameMisc_Minimap_TargetIcon_Type2_Orange" path="IngameMisc/Minimap/IngameMisc_Minimap_TargetIcon_Type2_Orange.xml"/>
+  <AutomationSequence UID="utp0f54mnx8o36hj" packageName="IngameMisc_Minimap_TargetIcon_Type2_Purple" path="IngameMisc/Minimap/IngameMisc_Minimap_TargetIcon_Type2_Purple.xml"/>
+  <AutomationSequence UID="7ivfn4annt052ioi" packageName="IngameMisc_Minimap_TargetIcon_Type2_Red" path="IngameMisc/Minimap/IngameMisc_Minimap_TargetIcon_Type2_Red.xml"/>
+  <AutomationSequence UID="1xdmf806ic2veb6w" packageName="IngameMisc_Minimap_TargetIcon_Type2_White" path="IngameMisc/Minimap/IngameMisc_Minimap_TargetIcon_Type2_White.xml"/>
+  <AutomationSequence UID="emj1n767h9vdemdv" packageName="IngameMisc_Minimap_TargetIcon_Type2_Yellow" path="IngameMisc/Minimap/IngameMisc_Minimap_TargetIcon_Type2_Yellow.xml"/>
+
+  <AutomationSequence UID="515aq1xuq26uhjdg" packageName="IngameMisc_WOTtweaker_SkyBoxes_ClearSky" path="IngameMisc/IngameMisc_WOTtweaker/IngameMisc_WOTtweaker_SkyBoxes_ClearSky.xml"/>
+  <AutomationSequence UID="vntcs9j60a5gyrrl" packageName="IngameMisc_WOTtweaker_SkyBoxes_BlueSky" path="IngameMisc/IngameMisc_WOTtweaker/IngameMisc_WOTtweaker_SkyBoxes_BlueSky.xml"/>
+  <AutomationSequence UID="kj1bdhpt8d6fggo1" packageName="IngameMisc_WOTtweaker_SkyBoxes_NightfallSky" path="IngameMisc/IngameMisc_WOTtweaker/IngameMisc_WOTtweaker_SkyBoxes_NightfallSky.xml"/>
+  <AutomationSequence UID="ecfavcf10g7c46bg" packageName="IngameMisc_WOTtweaker_Environment_FogRemover" path="IngameMisc/IngameMisc_WOTtweaker/IngameMisc_WOTtweaker_Environment_FogRemover.xml"/>
+  <AutomationSequence UID="2c8773kpadcaeihv" packageName="IngameMisc_WOTtweaker_Environment_BlackSky" path="IngameMisc/IngameMisc_WOTtweaker/IngameMisc_WOTtweaker_Environment_BlackSky.xml"/>
+  <AutomationSequence UID="w1m2b13fv3r3mayc" packageName="IngameMisc_WOTtweaker_Environment_BlackSkyFogRemover" path="IngameMisc/IngameMisc_WOTtweaker/IngameMisc_WOTtweaker_Environment_BlackSkyFogRemover.xml"/>
+  <AutomationSequence UID="tv323tdpmnyze2az" packageName="IngameMisc_WOTtweaker_disableDirt" path="IngameMisc/IngameMisc_WOTtweaker/IngameMisc_WOTtweaker_disableDirt.xml"/>
   <!-- Category Ingame Misc END -->
   
 

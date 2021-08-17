@@ -8,5 +8,11 @@
     <Macro Name="wotmod_name_IngameAim_TargetArrow" Value="Hawg_battleVehicleMarkers.wotmod"/>
     <Macro Name="devurl_IngameMisc_Minimap_Type_Basic_TacticalMinimap" Value="https://wgmods.net/5131/"/>
     <Macro Name="wotmod_name_IngameMisc_Minimap_Type_Basic_TacticalMinimap" Value="Hawg_Tac_spaces.wotmod"/>
+    <Macro Name="devurl_IngameMisc_Minimap_TargetIcon" Value="https://wgmods.net/1684/"/>
+    <Macro Name="wotmod_IngameMisc_Minimap_TargetIcon" Value="Hawg_minimapEntriesLibrary.wotmod"/>
+    <Macro Name="devurl_IngameMisc_WOTtweaker_SkyBoxes" Value="https://wgmods.net/3095/"/>
+    <Macro Name="wotmod_IngameMisc_WOTtweaker_SkyBoxes" Value="Hawg_SkyDome.wotmod"/>
+    <Macro Name="devurl_IngameMisc_WOTtweaker_Environment" Value="{devurl_IngameMisc_WOTtweaker_SkyBoxes}"/>
+    <Macro Name="wotmod_IngameMisc_WOTtweaker_Environment" Value="Hawg_weather.wotmod"/>
   </Macros>
 </AutomationSequence>

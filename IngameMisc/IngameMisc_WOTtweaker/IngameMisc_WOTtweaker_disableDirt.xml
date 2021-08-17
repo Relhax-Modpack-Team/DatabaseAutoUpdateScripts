@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<AutomationSequence documentVersion="1.0">
+  <Macros>
+    <Macro Name="file_path" Value="&quot;FPS_\1. No_Dirt_\&quot;"/>
+  </Macros>
+  <TaskDefinitions>
+    <!-- import hawg macro lib -->
+    <Task ID="import_macros" Command="import_macro" RepoUrlPath="Macro_templates/templates_hawg.xml"/>
+
+    <!-- create macros -->
+    <Task ID="create_devurl_macro" Command="macro_create" MacroName="package_url" MacroValue="{devurl_IngameMisc_WOTtweaker_Environment}"/>
+    <Task ID="create_file_name_macro" Command="macro_create" MacroName="file_name" MacroValue="Hawg_NoDirt.wotmod"/>
+    <Task ID="create_mods_resmods_macro" Command="macro_create" MacroName="mods_or_res_mods" MacroValue="mods"/>
+    <Task ID="create_source_extract_recursive_macro" Command="macro_create" MacroName="source_extract_recursive" MacroValue=" "/>
+
+    <!-- import tasks -->
+    <Task ID="import_tasks" Command="import_task" RepoUrlPath="Task_templates/single_wotmod_from_wgmods.xml"/>
+  </TaskDefinitions>
+</AutomationSequence>

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<AutomationSequence documentVersion="1.0">
+  <Macros>
+    <Macro Name="file_path" Value="&quot;Minimap_Lab_\Mod Files\Type 2\6. Red\&quot;"/>
+  </Macros>
+  <TaskDefinitions>
+    <!-- import hawg macro lib -->
+    <Task ID="import_macros" Command="import_macro" RepoUrlPath="Macro_templates/templates_hawg.xml"/>
+
+    <!-- import task list specific to IngameMisc_Minimap_TargetIcon -->
+    <Task ID="import_tasks_IngameMisc_Minimap_TargetIcon" Command="import_task" RepoUrlPath="Task_templates/IngameMisc/IngameMisc_Minimap_TargetIcon.xml"/>
+
+    <!-- import tasks -->
+    <Task ID="import_tasks" Command="import_task" RepoUrlPath="Task_templates/single_wotmod_from_wgmods.xml"/>
+    <Task ID="import_tasks" Command="import_task" RepoUrlPath="Task_templates/update_package_version_from_wgmods.xml"/>
+  </TaskDefinitions>
+</AutomationSequence>
