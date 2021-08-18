@@ -24,4 +24,9 @@
   <Macro Name="xvm_stable_xpath" Value="//a[contains(text(), '(archive)') and not(contains(text(), 'TEST'))]/@href"/>
   <!-- this xpath works in browser mode only -->
   <Macro Name="koreanrandom_attachment_xpath" Value="//a[contains(span, '{koreanrandom_attachment_name}')]/@href"/>
+
+  <!-- protanki modpack urls -->
+  <Macro Name="protanki_modpack_lite" Value="https://wgmods.net/3647"/>
+  <Macro Name="protanki_modpack_base" Value="https://wgmods.net/21/"/>
+  <Macro Name="protanki_modpack_extend" Value="https://wgmods.net/89/"/>
 </GlobalMacros>
