@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<AutomationSequence documentVersion="1.0">
+  <!-- inno_setup_extract_wgmods.xml
+    Author:  Willster419
+    Created: 2021-08-17
+    This sequence template does the following tasks:
+     - creates the work directories from the import task create_workDirs_macros
+     - gets the package download url and downloads the package form wgmods
+     - creates a macro for the inno setup exe to extract
+     - imports the task inno_setup_extract.xml to actually extract the setup exe
+    Required macros:
+    {dev_url_index}                - the 0 based integer index to get the download package from, in the array of potential dev urls for the package
+    NOTE: see inno_setup_extract.xml import task for more required macros
+  -->
+  <TaskDefinitions>
+    <!-- import tasks -->
+    <Task ID="import_task_create_workDirs_macros" Command="import_task" RepoUrlPath="Task_templates/create_workDirs_macros.xml"/>
+
+    <!-- get the download url to download the inno setup package -->
+    <Task ID="get_package_download_url" Command="retrieve_package_property" PropertyName="DevURLList" TargetPackageUID="this" MacroSaveName="download_url" PropertyIndex="{dev_url_index}"/>
+
+    <!-- download the inno setup extracter from our github -->
+    <Task ID="download_mod_source" Command="download_browser" Url="{download_url}" HtmlPath="{wgmods_xpath}" DestinationPath="{working_folder_source}\{packageName}.exe" WaitTimeMs="500" WaitCounts="6" BrowserHeight="0" BrowserWidth="0"/>
+    <Task ID="create_inno_setup_exe_macro" Command="macro_create" MacroName="inno_setup_exe" MacroValue="{working_folder_source}\{packageName}.exe"/>
+
+    <!-- import the rest of the process from single_wotmod -->
+    <Task ID="import_task_inno_setup_extract" Command="import_task" RepoUrlPath="Task_templates/inno_setup_extract.xml"/>
+  </TaskDefinitions>
+</AutomationSequence>

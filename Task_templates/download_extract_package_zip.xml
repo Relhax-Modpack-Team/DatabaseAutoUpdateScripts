@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<AutomationSequence documentVersion="1.0">
+  <!-- download_extract_package_zip.xml
+    Author:  Willster419
+    Created: 2021-08-17
+    This sequence template does the following tasks:
+      - downloads the modpack zip file of the package
+      - extracts all files listed to the working directory with the recursive option
+        (only needs a file list, assumes no dupllicate filenames in the entire zip at any paths)
+    Required macros:
+    {working_folder_modpack}       - The working folder of the modpack zip file and extraction processes
+    {modpack_file_extract_list}    - A list of all filenames to extract from the 
+  -->
+  <TaskDefinitions>
+    <!-- download and the modpack package -->
+    <Task ID="download_modpack" Command="package_download" FilePath="{working_folder_modpack}\{packageName}.zip"/>
+    <Task ID="extract_modpack" Command="shell_exec" Filename="7z.exe" Wd="{working_folder_modpack}" Cmd="e {packageName}.zip {modpack_file_extract_list} -r"/>
+  </TaskDefinitions>
+</AutomationSequence>

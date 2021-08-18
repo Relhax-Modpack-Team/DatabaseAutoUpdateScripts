@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<AutomationSequence documentVersion="1.0">
+  <!-- inno_setup_extract.xml
+    Author:  Willster419
+    Created: 2021-08-17
+    This sequence template does the following tasks:
+     - downloads the modpack zip file of the package
+     - downloads the inno unpacker utility
+     - extracts the inno unpacker utility to {working_folder_source}
+     - runs the unpacker utility
+    Required macros:
+    {working_folder_source}        - The working folder of the source zip file and extracation processes
+    {inno_setup_exe}               - The macro that represents the complete path to the inno setup exe to extract
+    {inno_files_to_extract}        - The list of files to extract from the setup exe
+    NOTE: see single_wotmod import task for more required macros
+  -->
+  <TaskDefinitions>
+    <!-- download the inno setup extracter from our github -->
+    <Task ID="download_innounp" Command="download_static" Url="https://github.com/Relhax-Modpack-Team/WoTTools/blob/master/Inno%20Setup%20Unpacker/innounp.zip?raw=true" DestinationPath="{working_folder_source}\{last_download_filename}"/>
+    <Task ID="create_innounp_macro" Command="macro_create" MacroName="innounp" MacroValue="{working_folder_source}\{last_download_filename}"/>
+
+    <!-- extract the ino setup executable -->
+    <Task ID="extract_inno_exe" Command="shell_exec" Filename="7z.exe" Wd="{working_folder_source}" Cmd="e innounp.exe"/>
+
+    <!-- extract the ino setup executable
+      -e     extract files without paths
+      -y     assume Yes on all queries (e.g. overwrite files)
+      -b     batch (non-interactive) mode - will not prompt for password or disk changes
+      
+      EXAMPLE THAT WORKED FROM COMMAND LINE: innounp.exe -x wotmodpack_protanki_extend.exe tv.protanki.smartequipment_2.3.wotmod -->
+    <Task ID="extract_files_inside_inno_exe" Command="shell_exec" Filename="innounp.exe" Wd="{working_folder_source}" Cmd="-e -y -b {inno_setup_exe} {inno_files_to_extract}"/>
+  </TaskDefinitions>
+</AutomationSequence>
