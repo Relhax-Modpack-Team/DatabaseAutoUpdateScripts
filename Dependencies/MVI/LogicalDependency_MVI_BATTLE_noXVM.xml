@@ -3,12 +3,13 @@
   <!-- Specify macros here -->
   <Macros>
     <Macro Name="github_direct_url" Value="https://github.com/AstaRom/wot_mods/raw/master/mvi/mvi_battle.zip"/>
+    <Macro Name="mvi_wotmod_name" Value="mvi_battle.wotmod"/>
   </Macros>
 
   <!-- Specify the tasks to run -->
   <TaskDefinitions>
     <!-- import tasks -->
-    <Task ID="import_tasks" Command="import_task" RepoUrlPath="Task_templates/Dependencies/LogicalDependency_MVI_BATTLE.xml"/>
+    <Task ID="import_tasks" Command="import_task" RepoUrlPath="Task_templates/Dependencies/LogicalDependency_MVI.xml"/>
   </TaskDefinitions>
 
 </AutomationSequence>
