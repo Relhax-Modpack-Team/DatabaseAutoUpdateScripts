@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<AutomationSequence documentVersion="1.0">
+  <!-- Specify macros here -->
+  <Macros>
+  </Macros>
+
+  <!-- Specify the tasks to run -->
+  <TaskDefinitions>
+    <!-- import task to create workDir macros and folders -->
+    <Task ID="import_task_create_workDirs_macros" Command="import_task" RepoUrlPath="Task_templates/create_workDirs_macros.xml"/>
+
+    
+    <!-- import task to get the wot path, with no exe -->
+    <Task ID="import_task_get_wot_path_no_exe" Command="import_task" RepoUrlPath="Task_templates/get_wot_path_no_exe.xml"/>
+
+    <!-- download the modpack source file -->
+    <Task ID="download_modpack" Command="package_download" FilePath="{working_folder_modpack}\{packageName}.zip"/>
+
+    <!-- extract language files from the modpack -->
+    <Task ID="extract_modpack" Command="shell_exec" Filename="7z.exe" Wd="{working_folder_modpack}" Cmd="x {packageName}.zip"/>
+
+    <!-- compare the hashes of the complete packages. this is done in 3 steps:
+      1. write the compare_start task (resets the internal counters for matches and differences)
+      2. use compare tasks to compare files on disk or an entry in a zip file
+      3. write the compare_end task (evaluates the counts from the compare tasks)
+          if compare_end finds 0 differences, then the automation process will end early (nothing to update)
+
+      By using the directory_compare task, if the number of swf's change between the modpack and source, something has changed in the structure and we need to account for it
+    -->
+    <!-- <Task ID="compare_start" Command="compare_start"/> -->
+    <!-- currently does not work, needs to use one that treats a difference if files as "continue", not "error" -->
+    <!-- <Task ID="compare_text_files" Command="directory_compare" SearchPattern="*.mo" Recursive="False"
+      DirectoryComparePathA="{working_folder_modpack}\res_mods\versiondir\text\lc_messages" DirectoryComparePathB="{clientPathNoExe}\res\text\lc_messages"/> -->
+    <!-- <Task ID="compare_end" Command="compare_end"/> -->
+
+    <!-- if an update is required, the continue here. first, delete all files in the lc_messages folder of the modpack -->
+    <Task ID="delete_old_mo_files" Command="directory_delete" DirectoryPath="{working_folder_modpack}\res_mods\versiondir\text\lc_messages" SearchPattern="*.mo" Recursive="false" IncludeRootInSearch="False"/>
+
+    <!-- then copy over the new files -->
+    <Task ID="copy_new_mo_files" Command="directory_copy" DirectoryPath="{clientPathNoExe}\res\text\lc_messages" DestinationPath="{working_folder_modpack}\res_mods\versiondir\text\lc_messages" SearchPattern="*.mo" Recursive="False"/>
+
+    <!-- create the new zip -->
+    <Task ID="create_zip" Command="shell_exec" Filename="7z.exe" Wd="{working_folder_modpack}" Cmd="a -tzip -mx=9 -r final.zip res_mods"/>
+
+    <!-- upload to the server -->
+    <Task ID="upload_zip" Command="package_upload" FilePath="{working_folder_modpack}\final.zip" ZipFileName="{packageName}_{clientVersion}_{date}.zip"/>
+  </TaskDefinitions>
+</AutomationSequence>
