@@ -20,7 +20,7 @@
   
   
     <!-- extract the source wotmod files-->
-    <Task ID="extract_source" Command="shell_exec" Filename="7z.exe" Wd="{working_folder_source}" Cmd="e {last_download_filename} {wotmod_name}*.wotmod -o{working_folder_source}\mods\versiondir\ -r"/>
+    <Task ID="extract_source" Command="shell_exec" Filename="7z.exe" Wd="{working_folder_source}" Cmd="e {last_download_filename} {wotmod_name}*.wotmod -o&quot;{working_folder_source}\mods\versiondir\&quot; -r"/>
     
     <!-- download the modpack current zip file, which implicitly creates the directories  -->
     <Task ID="download_modpack" Command="package_download" FilePath="{working_folder_modpack}\{packageName}.zip"/>
