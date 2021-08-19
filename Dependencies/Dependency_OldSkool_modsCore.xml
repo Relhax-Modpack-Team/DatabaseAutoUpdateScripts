@@ -31,8 +31,6 @@
     <Task ID="get_mod_version_2" Command="macro_string_split_macro" MacroName="mod_version_2" Index="0" SplitCharacters=".wotmod" InputText="{mod_version_1}"/>
     
     
-    
-    
     <!-- download the modpack current zip file, which implicitly creates the directories  -->
     <Task ID="download_modpack" Command="package_download" FilePath="{working_folder_modpack}\{packageName}.zip"/>
     <!-- extract the modpack wotmod files-->
@@ -44,9 +42,6 @@
     <Task ID="create_wotmod_modpack_macro" Command="macro_create" MacroName="wotmod_modpack" MacroValue="{oldskoolMod_Wotmodname}_{version}.wotmod"/>
     
     
-
-
-
     <!-- compare the hashes  -->
     <Task ID="compare_start" Command="compare_start"/>
     <!-- Compare wotmod -->
@@ -61,21 +56,13 @@
     <!-- <Task ID="compare_end" Command="compare_end"/> -->
 
     <!-- if the comparison is good, meaning there is an update, then we want to copy the source into a new 'final' folder and upload -->
-    <!-- <Task ID="create_source_dir_post_compare" Command="create_directory" DirectoryPath="{workDirectory}\package\mods\versiondir"/> -->
-    <Task ID="move_source_post_compare" Command="file_copy" SourceFilePath="{working_folder_source}\mods\versiondir\oldskool\{wotmod_source}" DestinationFilePath="{workDirectory}\package\\mods\versiondir\oldskool\{wotmod_source}"/>
-    <!-- <Task ID="move_source_post_compare2" Command="file_copy" SourceFilePath="{working_folder_source}\hideHangarElements\mods\{clientVersion}\hangarAddons\coreMods.wotmod" DestinationFilePath="{workDirectory}\package\mods\versiondir\hangarAddons\coreMods.wotmod"/> -->
-    <!-- <Task ID="move_source_post_compare3" Command="file_copy" SourceFilePath="{working_folder_source}\hideHangarElements\mods\configs\hangarAddons\hideHangarElements.json" DestinationFilePath="{workDirectory}\package\mods\configs\hangarAddons\hideHangarElements.json"/> -->
+    <Task ID="move_source_post_compare" Command="file_copy" SourceFilePath="{working_folder_source}\mods\versiondir\oldskool\{wotmod_source}" DestinationFilePath="{workDirectory}\package\mods\versiondir\oldskool\{wotmod_source}"/>
 
-    <!-- create the new zip
-      "a" is to add to an archive. In this case because it's the first file, the archive is created for the first time.
-      -tzip is to create a zip format archive
-      -mx=9 is setting the level of compression to 9 (scale goes from 0 [store] to 9[ultra])
-      -r recurse subdirectories
-    -->
+    <!-- create the new zip -->
     <Task ID="create_zip" Command="shell_exec" Filename="7z.exe" Wd="{workDirectory}\package" Cmd="{7z_createFinalZip}"/>
 
-    <!-- update version field in database (using clientVersion for this mod) -->
-    <Task ID="update_package_version" Command="update_package_property" PropertyName="Version" PropertyValue="{clientVersion}" />
+    <!-- update version field in database -->
+    <Task ID="update_package_version" Command="update_package_property" PropertyName="Version" PropertyValue="{mod_version_2}" />
 
     <!-- upload to the server -->
     <Task ID="upload_zip" Command="package_upload" FilePath="{workDirectory}\package\final.zip" ZipFileName="{packageName}_v{mod_version_2}_{clientVersion}_{date}.zip"/>
