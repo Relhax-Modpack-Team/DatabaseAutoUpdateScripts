@@ -41,8 +41,8 @@
     <Task ID="run_mct" Command="shell_exec" Filename="{working_folder_mct}\MCTCreator2.exe" Wd="{working_folder_mct}" Cmd="/wot-path=&quot;{clientPathNoExe}\&quot; /mods-path=&quot;{working_folder_mct}&quot; /DPT-wotmod-name &quot;{wotmodPackageNameMCT}&quot; /auto-close-console {mct_commands}"/>
 
     <!-- get the filename and rename to what's used in the modpack -->
-    <Task ID="get_mct_wotmod_filename" Command="directory_search" DirectoryPath="{working_folder_mct}" SearchPattern="mod.MCTCreator.*.wotmod" Recursive="False" MacroPrefix="mct_filename_from_shell"/>
-    <Task ID="rename_wotmod" Command="file_move" SourceFilePath="{mct_filename_from_shell_0}" DestinationFilePath="{working_folder_mct}\{mct_wotmodModpack_name}"/>
+    <!-- <Task ID="get_mct_wotmod_filename" Command="directory_search" DirectoryPath="{working_folder_mct}" SearchPattern="{wotmodPackageNameMCT}.wotmod" Recursive="False" MacroPrefix="mct_filename_from_shell"/> -->
+    <!-- <Task ID="rename_wotmod" Command="file_move" SourceFilePath="{mct_filename_from_shell_0}" DestinationFilePath="{working_folder_mct}\{mct_wotmodModpack_name}"/> -->
 
     <!-- compare the hashes of the complete packages. this is done in 3 steps:
       1. write the compare_start task (resets the internal counters for matches and differences)
