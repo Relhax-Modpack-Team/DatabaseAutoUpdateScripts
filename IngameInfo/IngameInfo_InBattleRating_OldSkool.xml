@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<AutomationSequence documentVersion="1.0">
+  <!-- Specify macros here -->
+  <Macros>
+    <Macro Name="download_url" Value="https://github.com/deadhat/wotmods-public/archive/refs/heads/master.zip"/>
+    <Macro Name="oldskoolMod_Zipname" Value="battle_efficiency"/>
+    <Macro Name="oldskoolMod_Wotmodname" Value="oldskool.battle_efficiency"/>
+    <Macro Name="oldskoolMod_CFGname" Value="battle_efficiency.json"/>
+    <Macro Name="patchfileName" Value="IngameInfo_InBattleRating_OldSkool_patch.xml"/>
+  </Macros>
+  
+    <!-- import tasks -->
+    <!-- <Task ID="import_OldSkool_ModsWithSingleCfgFile" Command="import_task" RepoUrlPath="Task_templates/OldSkool_SingleCfgFile_Patchfile.xml"/> -->
+    
+    
+<!-- NEEDED MACROS: -->
+<!-- {download_url}                 -->
+<!-- {oldskoolMod_Zipname}          -->
+<!-- {oldskoolMod_Wotmodname}       -->
+<!-- {oldskoolMod_CFGname}          -->
+<!-- {patchfileName}                -->
+
+  <TaskDefinitions>
+  
+    <!-- import tasks -->
+    <Task ID="import_macro_create_tasks" Command="import_task" RepoUrlPath="Task_templates/create_workDirs_macros.xml"/>
+      
+     <!-- download the source zip file, which implicitly creates the directories  -->
+    <Task ID="download_source" Command="download_static" Url="{download_url}" DestinationPath="{working_folder_source}\{last_download_filename}"/>
+    
+    <!-- extract the source wotmod files-->
+    <Task ID="extract_source_1" Command="shell_exec" Filename="7z.exe" Wd="{working_folder_source}" Cmd="e {last_download_filename} {oldskoolMod_Zipname}_*.zip -r"/>
+    
+    
+        <!-- get the name of the last extracted (zip)file -->
+    <Task ID="get_zip_filename" Command="directory_search" DirectoryPath="{working_folder_source}" SearchPattern="{oldskoolMod_Zipname}_*.zip" Recursive="False" MacroPrefix="get_zip_filename_results"/>
+    
+    <!-- extract 2 -->
+    <Task ID="extract_source_2" Command="shell_exec" Filename="7z.exe" Wd="{working_folder_source}" Cmd="e {get_zip_filename_results_0} -o&quot;{working_folder_source}\mods\versiondir\oldskool&quot; {oldskoolMod_Wotmodname}_*.wotmod -r"/>
+    <Task ID="extract_source_3" Command="shell_exec" Filename="7z.exe" Wd="{working_folder_source}" Cmd="e {get_zip_filename_results_0} -o&quot;{working_folder_source}\mods\configs\oldskool&quot; {oldskoolMod_CFGname} -r"/>
+    
+    
+    <!-- get the current version of the mod by string split and file search -->
+    <Task ID="get_wotmod_filename" Command="directory_search" DirectoryPath="{working_folder_source}\mods\versiondir\oldskool" SearchPattern="{oldskoolMod_Wotmodname}_*.wotmod" Recursive="False" MacroPrefix="get_wotmod_filename_results"/>
+    <Task ID="get_mod_version_1" Command="macro_string_split_filename" MacroName="mod_version_1" Index="2" SplitCharacters="_" FilePath="{get_wotmod_filename_results_0}"/>
+    <Task ID="get_mod_version_2" Command="macro_string_split_macro" MacroName="mod_version_2" Index="0" SplitCharacters=".wotmod" InputText="{mod_version_1}"/>
+    
+    
+    <!-- download the modpack current zip file, which implicitly creates the directories  -->
+    <Task ID="download_modpack" Command="package_download" FilePath="{working_folder_modpack}\{packageName}.zip"/>
+    <!-- extract the modpack wotmod files-->
+    <Task ID="extract_modpack_1" Command="shell_exec" Filename="7z.exe" Wd="{working_folder_modpack}" Cmd="x {packageName}.zip {oldskoolMod_Wotmodname}_*.wotmod -r"/>
+    <Task ID="extract_modpack_1" Command="shell_exec" Filename="7z.exe" Wd="{working_folder_modpack}" Cmd="x {packageName}.zip {oldskoolMod_CFGname} -r"/>
+    <Task ID="extract_modpack_patchfile" Command="shell_exec" Filename="7z.exe" Wd="{working_folder_modpack}" Cmd="e {packageName}.zip -o&quot;{working_folder_package}\_patch&quot; {patchfileName} -r"/>
+    
+    
+    <!-- Create the wotmod names -->
+    <Task ID="create_wotmod_source_macro" Command="macro_create" MacroName="wotmod_source" MacroValue="{oldskoolMod_Wotmodname}_{mod_version_2}.wotmod"/>
+    <Task ID="create_wotmod_modpack_macro" Command="macro_create" MacroName="wotmod_modpack" MacroValue="{oldskoolMod_Wotmodname}_{version}.wotmod"/>
+    
+    
+    <!-- compare the hashes  -->
+    <Task ID="compare_start" Command="compare_start"/>
+    <!-- Compare wotmod -->
+    <Task ID="compare_wotmod" Command="file_compare"
+      FileA="{working_folder_source}\mods\versiondir\oldskool\{wotmod_source}"
+      FileB="{working_folder_modpack}\mods\versiondir\oldskool\{wotmod_modpack}"/>
+    <!-- Compare config / inverse -->
+    <!-- sequence should stop when there are changes to the cfg file -->
+    <Task ID="compare_cfg" Command="file_compare_inverse"
+      FileA="{working_folder_source}\mods\configs\oldskool\{oldskoolMod_CFGname}"
+      FileB="{working_folder_modpack}\mods\configs\oldskool\{oldskoolMod_CFGname}"/>
+    <!-- <Task ID="compare_end" Command="compare_end"/> -->
+
+    <!-- if the comparison is good, meaning there is an update, then we want to copy the source into a new 'final' folder and upload -->
+    <Task ID="move_postCcompare_wotmod" Command="file_copy" SourceFilePath="{working_folder_source}\mods\versiondir\oldskool\{wotmod_source}" DestinationFilePath="{workDirectory}\package\mods\versiondir\oldskool\{wotmod_source}"/>
+    <Task ID="move_postCcompare_config" Command="file_copy" SourceFilePath="{working_folder_source}\mods\configs\oldskool\{oldskoolMod_CFGname}" DestinationFilePath="{workDirectory}\package\mods\configs\oldskool\{oldskoolMod_CFGname}"/>
+
+    <!-- create the new zip -->
+    <Task ID="create_zip" Command="shell_exec" Filename="7z.exe" Wd="{workDirectory}\package" Cmd="{7z_createFinalZip}"/>
+
+    <!-- update version field in database -->
+    <Task ID="update_package_version" Command="update_package_property" PropertyName="Version" PropertyValue="{mod_version_2}" />
+
+    <!-- upload to the server -->
+    <Task ID="upload_zip" Command="package_upload" FilePath="{workDirectory}\package\final.zip" ZipFileName="{packageName}_v{mod_version_2}_{clientVersion}_{date}.zip"/>
+
+
+  </TaskDefinitions>
+</AutomationSequence>

@@ -131,7 +131,7 @@
   <AutomationSequence UID="38iggbplcyqvzh3i" packageName="IngameAim_ServerReticle_Awfultanker" path="IngameAim/IngameAim_ServerReticle_Awfultanker.xml" />
   <AutomationSequence UID="lgh50ztb1ft3qcw3" packageName="IngameAim_SafeShot_OldSkool" path="IngameAim/IngameAim_SafeShot_OldSkool.xml"/>
   <AutomationSequence UID="au1did8dq1mvem8q" packageName="IngameAim_SafeShot_Champi" path="IngameAim/IngameAim_SafeShot_Champi.xml"/>
-  <AutomationSequence UID="hhl7bpuggq3ujfea" packageName="IngameAim_SpgFlytime_OldSkool" path="IngameAim/IngameAim_SpgFlytime_OldSkool.xml"/>
+  <!-- <AutomationSequence UID="hhl7bpuggq3ujfea" packageName="IngameAim_SpgFlytime_OldSkool" path="IngameAim/IngameAim_SpgFlytime_OldSkool.xml"/> -->
   <AutomationSequence UID="voxfbwmk4lr95os0" packageName="IngameAim_TargetArrow_Blue" path="IngameAim/TargetArrow/IngameAim_TargetArrow_Blue.xml"/>
   <AutomationSequence UID="8d4ujvsl3hjr50z0" packageName="IngameAim_TargetArrow_Green" path="IngameAim/TargetArrow/IngameAim_TargetArrow_Green.xml"/>
   <AutomationSequence UID="2sm1bzi4y0lghthd" packageName="IngameAim_TargetArrow_Purple" path="IngameAim/TargetArrow/IngameAim_TargetArrow_Purple.xml"/>
@@ -147,6 +147,11 @@
   <AutomationSequence UID="3r6bdbph41vrjucw" packageName="IngameInfo_ExpectedVehicleValues" path="IngameInfo/IngameInfo_ExpectedVehicleValues.xml"/>
   <AutomationSequence UID="jf9paludpndhr21p" packageName="IngameInfo_TankRatingColors" path="IngameInfo/IngameInfo_TankRatingColors.xml"/>
   <AutomationSequence UID="msak80oyaflkjz9l" packageName="IngameInfo_PlayersPanelPro" path="IngameInfo/IngameInfo_PlayersPanelPro.xml"/>
+  <AutomationSequence UID="2gdx5auuv13ar7ze" packageName="IngameInfo_ArtyHitLog" path="IngameInfo/IngameInfo_ArtyHitLog.xml"/>
+  <AutomationSequence UID="8lyb8uwumkw5xpvv" packageName="IngameInfo_DebugPanel_oldskool" path="IngameInfo/IngameInfo_DebugPanel_oldskool.xml"/>
+  <AutomationSequence UID="my79ujmsxfzagayc" packageName="IngameInfo_EnemySpottedStatus_OldSkool" path="IngameInfo/IngameInfo_EnemySpottedStatus_OldSkool.xml"/>
+  <AutomationSequence UID="17azqxqn06baz884" packageName="IngameInfo_InBattleRating_OldSkool" path="IngameInfo/IngameInfo_InBattleRating_OldSkool.xml"/>
+  <AutomationSequence UID="elgpf2m074c3d6ip" packageName="IngameInfo_TankInfoPanel_OldSkool" path="IngameInfo/IngameInfo_TankInfoPanel_OldSkool.xml"/>
   <!-- Category Ingame Info END -->
 
   <!-- Category Ingame Misc START -->
@@ -163,6 +168,8 @@
   <AutomationSequence UID="46d63yjqneao8y39" packageName="IngameMisc_UnderwaterTimer_V10" path="IngameMisc/UnderwaterTimer/IngameMisc_UnderwaterTimer_V10.xml"/>
   
   <AutomationSequence UID="px6jrz5us97tnnbb" packageName="IngameMisc_BetterVisibleFlatTrainWagons" path="IngameMisc/IngameMisc_BetterVisibleFlatTrainWagons.xml"/>
+  
+  <AutomationSequence UID="lwj26ht7rnt0j1wh" packageName="IngameMisc_Chatmods_FriendsMarker" path="IngameMisc/IngameMisc_Chatmods_FriendsMarker.xml"/>
   
   <AutomationSequence UID="lp7nnb2rbopkpr28" packageName="IngameMisc_Minimap_SpamProtector" path="IngameMisc/IngameMisc_Minimap_SpamProtector.xml"/>
   
@@ -196,6 +203,7 @@
   <AutomationSequence UID="ksbf9er3h535v1vd" packageName="GarageMods_LittleHelperCollection" path="GarageMods/GarageMods_LittleHelperCollection.xml" />
   <AutomationSequence UID="w0ffte8rsqbb1su7" packageName="GarageMods_AnnoyingFeaturesRemover" path="GarageMods/GarageMods_AnnoyingFeaturesRemover.xml" />
   <AutomationSequence UID="jzzwfqdgru1nbu48" packageName="GarageMods_ReplayManager" path="GarageMods/GarageMods_ReplayManager.xml" />
+  <AutomationSequence UID="7hjfw49664u06l3a" packageName="GarageMods_CrewAutoReturn_Oldskool" path="GarageMods/GarageMods_CrewAutoReturn_Oldskool.xml" />
   <!-- Category Garage Mods END   -->
   
   

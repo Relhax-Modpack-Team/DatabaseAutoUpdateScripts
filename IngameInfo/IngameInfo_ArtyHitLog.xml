@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<AutomationSequence documentVersion="1.0">
+  <!-- Specify macros here -->
+  <Macros>
+    <Macro Name="download_url" Value="https://github.com/deadhat/wotmods-public/archive/refs/heads/master.zip"/>
+    <Macro Name="oldskoolMod_Zipname" Value="spgHitLog"/>
+    <Macro Name="oldskoolMod_Wotmodname" Value="oldskool.spgHitLog"/>
+    <Macro Name="oldskoolMod_CFGname" Value="spgHitLog.json"/>
+    <Macro Name="patchfileName" Value="IngameInfo_ArtyHitLog_patch.xml"/>
+  </Macros>
+  <TaskDefinitions>
+  
+    <!-- import tasks -->
+    <Task ID="import_OldSkool_ModsWithSingleCfgFile" Command="import_task" RepoUrlPath="Task_templates/OldSkool_SingleCfgFile_Patchfile.xml"/>
+  
+
+
+  </TaskDefinitions>
+</AutomationSequence>
