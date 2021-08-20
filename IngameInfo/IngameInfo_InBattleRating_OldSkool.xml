@@ -9,19 +9,12 @@
     <Macro Name="patchfileName" Value="IngameInfo_InBattleRating_OldSkool_patch.xml"/>
   </Macros>
   
+  <TaskDefinitions>
+  
     <!-- import tasks -->
     <!-- <Task ID="import_OldSkool_ModsWithSingleCfgFile" Command="import_task" RepoUrlPath="Task_templates/OldSkool_SingleCfgFile_Patchfile.xml"/> -->
     
     
-<!-- NEEDED MACROS: -->
-<!-- {download_url}                 -->
-<!-- {oldskoolMod_Zipname}          -->
-<!-- {oldskoolMod_Wotmodname}       -->
-<!-- {oldskoolMod_CFGname}          -->
-<!-- {patchfileName}                -->
-
-  <TaskDefinitions>
-  
     <!-- import tasks -->
     <Task ID="import_macro_create_tasks" Command="import_task" RepoUrlPath="Task_templates/create_workDirs_macros.xml"/>
       
