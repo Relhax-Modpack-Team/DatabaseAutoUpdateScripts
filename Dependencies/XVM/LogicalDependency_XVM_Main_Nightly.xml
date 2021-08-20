@@ -54,7 +54,7 @@
     <Task ID="update_package_version" Command="update_package_property" PropertyName="Version" PropertyValue="{modVersion_source}" TargetPackageUID="8rzkblqj805kg3lj" />
 
     <!-- upload to the server -->
-    <!-- <Task ID="upload_zip" Command="package_upload" FilePath="{workDirectory}\package\final.zip" ZipFileName="{packageName}_v{modVersion_source}_{clientVersion}_{date}.zip"/> -->
+    <Task ID="upload_zip" Command="package_upload" FilePath="{workDirectory}\package\final.zip" ZipFileName="{packageName}_v{modVersion_source}_{clientVersion}_{date}.zip"/>
 
   </TaskDefinitions>
 </AutomationSequence>
