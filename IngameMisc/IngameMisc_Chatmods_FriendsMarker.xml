@@ -57,7 +57,7 @@
     <!-- <Task ID="compare_cfg" Command="file_compare_inverse" -->
       <!-- FileA="{working_folder_source}\mods\configs\oldskool\{oldskoolMod_CFGname}" -->
       <!-- FileB="{working_folder_modpack}\mods\configs\oldskool\{oldskoolMod_CFGname}"/> -->
-    <!-- <Task ID="compare_end" Command="compare_end"/> -->
+    <Task ID="compare_end" Command="compare_end"/>
 
     <!-- if the comparison is good, meaning there is an update, then we want to copy the source into a new 'final' folder and upload -->
     <Task ID="move_postCcompare_wotmod" Command="file_copy" SourceFilePath="{working_folder_source}\mods\versiondir\oldskool\{wotmod_source}" DestinationFilePath="{workDirectory}\package\mods\versiondir\oldskool\{wotmod_source}"/>
