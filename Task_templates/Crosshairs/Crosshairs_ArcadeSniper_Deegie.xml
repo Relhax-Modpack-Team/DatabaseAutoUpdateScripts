@@ -37,6 +37,23 @@
     <Task ID="extract_source_swfs" Command="shell_exec" Filename="7z.exe" Wd="{working_folder_source}" Cmd="e *.wotmod {swf_names} -r"/>
     <Task ID="extract_modpack_swfs_arcade" Command="shell_exec" Filename="7z.exe" Wd="{working_folder_modpack}" Cmd="e *.wotmod {swf_names} -r"/>
 
+    <!-- extract the png files -->
+    <Task ID="extract_config_files_source" Command="shell_exec" Filename="7z.exe" Wd="{working_folder_source}" Cmd="e {packageName}_source{source_ext} {folder_shell_path}shell_?.png -r"/>
+    <Task ID="extract_config_files_modpack" Command="shell_exec" Filename="7z.exe" Wd="{working_folder_modpack}" Cmd="e {packageName}_ftp.zip mods\configs\Deegie\shell_?.png -r"/>
+
+    <!-- compare the hashes. this is done in 3 steps:
+      1. write the compare_start task (resets the internal counters for matches and differences)
+      2. use compare tasks to compare files on disk or an entry in a zip file
+      3. write the compare_end task (evaluates the counts from the compare tasks)
+          if compare_end finds 0 differences, then the automation process will end early (nothing to update)
+
+      By using the directory_compare task, if the number of swf's change between the modpack and source, something has changed in the structure and we need to account for it
+    -->
+    <Task ID="compare_start" Command="compare_start"/>
+    <Task ID="compare_swfs_swf" Command="directory_compare" DirectoryComparePathA="{working_folder_source}" DirectoryComparePathB="{working_folder_modpack}" Recursive="False" SearchPattern="*.swf"/>
+    <Task ID="compare_swfs_png" Command="directory_compare" DirectoryComparePathA="{working_folder_source}" DirectoryComparePathB="{working_folder_modpack}" Recursive="False" SearchPattern="*.png"/>
+    <Task ID="compare_end" Command="compare_end"/>
+
     <!-- Copy the files to the package directory for creation -->
     <Task ID="copy_arcade" Command="file_copy" SourceFilePath="{working_folder_source}\arcadeCrosshair.swf" DestinationFilePath="{workDirectory}\arcade\res\gui\flash\arcadeCrosshair.swf"/>
     <Task ID="copy_sniper" Command="file_copy" SourceFilePath="{working_folder_source}\sniperCrosshair.swf" DestinationFilePath="{workDirectory}\sniper\res\gui\flash\sniperCrosshair.swf"/>
@@ -55,24 +72,11 @@
     <Task ID="move_wotmod_controls" Command="file_copy" SourceFilePath="{workDirectory}\controls\crosshair_Controls.wotmod" DestinationFilePath="{working_folder_package}\zip\mods\versiondir\crosshair_Controls.wotmod"/>
 
     <!-- copy the config files over from the configs folder -->
-    <Task ID="extract_config_files" Command="shell_exec" Filename="7z.exe" Wd="{working_folder_source}" Cmd="e {packageName}_source{source_ext} {folder_shell_path}shell_?.png -r"/>
     <Task ID="create_directory_config_files" Command="create_directory" DirectoryPath="{working_folder_package}\zip\mods\configs\Deegie"/>
     <Task ID="copy_config_files" Command="directory_copy" DirectoryPath="{working_folder_source}" DestinationPath="{working_folder_package}\zip\mods\configs\Deegie" SearchPattern="shell_?.png" Recursive="False"/>
 
     <!-- create the new zip -->
     <Task ID="create_zip" Command="shell_exec" Filename="7z.exe" Wd="{working_folder_package}\zip" Cmd="a -tzip -mx=9 -r final.zip mods"/>
-
-    <!-- compare the hashes of the complete packages. this is done in 3 steps:
-      1. write the compare_start task (resets the internal counters for matches and differences)
-      2. use compare tasks to compare files on disk or an entry in a zip file
-      3. write the compare_end task (evaluates the counts from the compare tasks)
-          if compare_end finds 0 differences, then the automation process will end early (nothing to update)
-
-      By using the directory_compare task, if the number of swf's change between the modpack and source, something has changed in the structure and we need to account for it
-    -->
-    <Task ID="compare_start" Command="compare_start"/>
-    <Task ID="compare_swfs" Command="file_compare" FileA="{working_folder_modpack}\{packageName}_ftp.zip" FileB="{working_folder_package}\zip\final.zip"/>
-    <Task ID="compare_end" Command="compare_end"/>
 
     <!-- update version field in database -->
     <Task ID="update_package_version" Command="update_package_property" PropertyName="Version" PropertyValue="{clientVersion}" TargetPackageUID="{target_package_uid}"/>
