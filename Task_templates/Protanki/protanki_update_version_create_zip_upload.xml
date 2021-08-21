@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<AutomationSequence documentVersion="1.0">
+  <TaskDefinitions>
+    <!-- update version field in database -->
+    <Task ID="update_package_version" Command="update_package_property" PropertyName="Version" PropertyValue="{mod_version_2}" />
+
+    <!-- create the new zip
+      "a" is to add to an archive. In this case because it's the first file, the archive is created for the first time.
+      -tzip is to create a zip format archive
+      -mx=9 is setting the level of compression to 9 (scale goes from 0 [store] to 9[ultra])
+      -r recurse subdirectories
+      NOTE: this will include everything in the working directory
+    -->
+    <Task ID="create_zip" Command="shell_exec" Filename="7z.exe" Wd="{workDirectory}\package" Cmd="{7z_createFinalZip}"/>
+
+    <!-- upload to the server -->
+    <Task ID="upload_zip" Command="package_upload" FilePath="{workDirectory}\package\final.zip" ZipFileName="{packageName}_v{mod_version_2}_{clientVersion}_{date}.zip"/>
+  </TaskDefinitions>
+</AutomationSequence>

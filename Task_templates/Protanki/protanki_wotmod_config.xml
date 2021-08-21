@@ -2,10 +2,7 @@
 <AutomationSequence documentVersion="1.0">
   <TaskDefinitions>
     <!-- get the current version of the mod by string split and file search -->
-    <Task ID="get_source_wotmod_filename" Command="directory_search" DirectoryPath="{working_folder_source}" SearchPattern="{wotmod_name_prefix}*.wotmod" Recursive="False" MacroPrefix="get_wotmod_filename_results"/>
-    <Task ID="get_modpack_wotmod_filename" Command="directory_search" DirectoryPath="{working_folder_modpack}" SearchPattern="{wotmod_name_prefix}*.wotmod" Recursive="False" MacroPrefix="get_wotmod_modpack_filename_results"/>
-    <Task ID="get_mod_version_1" Command="macro_string_split_filename" MacroName="mod_version_1" Index="1" SplitCharacters="_" FilePath="{get_wotmod_filename_results_0}"/>
-    <Task ID="get_mod_version_2" Command="macro_string_split_macro" MacroName="mod_version_2" Index="0" SplitCharacters=".wotmod" InputText="{mod_version_1}"/>
+    <Task ID="import_task_protanki_get_mod_version" Command="import_task" RepoUrlPath="Task_templates/Protanki/protanki_get_mod_version.xml"/>
 
     <!-- compare the hashes. this is done in 3 steps:
       1. write the compare_start task (resets the internal counters for matches and differences)
@@ -23,19 +20,7 @@
     <!-- import the copy tasks. this is done as a macro cause we have different versions we could use -->
     <Task ID="import_task_protanki_copy_wotmod_config" Command="import_task" RepoUrlPath="Task_templates/Protanki/{protanki_copy_task}.xml"/>
 
-    <!-- update version field in database -->
-    <Task ID="update_package_version" Command="update_package_property" PropertyName="Version" PropertyValue="{mod_version_2}" />
-
-    <!-- create the new zip
-      "a" is to add to an archive. In this case because it's the first file, the archive is created for the first time.
-      -tzip is to create a zip format archive
-      -mx=9 is setting the level of compression to 9 (scale goes from 0 [store] to 9[ultra])
-      -r recurse subdirectories
-      NOTE: this will include everything in the working directory
-    -->
-    <Task ID="create_zip" Command="shell_exec" Filename="7z.exe" Wd="{workDirectory}\package" Cmd="{7z_createFinalZip}"/>
-
-    <!-- upload to the server -->
-    <Task ID="upload_zip" Command="package_upload" FilePath="{workDirectory}\package\final.zip" ZipFileName="{packageName}_v{mod_version_2}_{clientVersion}_{date}.zip"/>
+    <!-- update the version number, create the package, and upload -->
+    <Task ID="import_task_protanki_get_mod_version" Command="import_task" RepoUrlPath="Task_templates/Protanki/protanki_update_version_create_zip_upload.xml"/>
   </TaskDefinitions>
 </AutomationSequence>
