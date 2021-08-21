@@ -2,12 +2,12 @@
 <AutomationSequence documentVersion="1.0">
   <!-- Specify macros here -->
   <Macros>
-    <Macro Name="wotmod_name_prefix" Value="tv.protanki.autoloader"/>
+    <Macro Name="wotmod_name_prefix" Value="tv.protanki.reductioninfo"/>
     <Macro Name="download_url" Value="{protanki_modpack_lite}"/>
-    <Macro Name="json_source" Value="autoloaderHelper.json"/>
-    <Macro Name="json_modpack" Value="autoloaderHelper.json"/>
-    <Macro Name="inno_files_to_extract" Value="autoloaderHelper.json {wotmod_name_prefix}*.wotmod"/>
-    <Macro Name="modpack_file_extract_list" Value="{inno_files_to_extract}"/>
+    <Macro Name="json_source" Value="reductionInfo,1.json"/>
+    <Macro Name="json_modpack" Value="reductionInfo.json"/>
+    <Macro Name="inno_files_to_extract" Value="{json_source} {wotmod_name_prefix}*.wotmod"/>
+    <Macro Name="modpack_file_extract_list" Value="{json_modpack} {wotmod_name_prefix}*.wotmod"/>
     <Macro Name="protanki_copy_task" Value="protanki_copy_wotmod_config"/>
   </Macros>
   <TaskDefinitions>

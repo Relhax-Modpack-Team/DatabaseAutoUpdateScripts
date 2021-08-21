@@ -20,11 +20,8 @@
     <Task ID="compare_wotmod" Command="file_compare" FileA="{working_folder_source}\{json_source}" FileB="{working_folder_modpack}\{json_modpack}"/>
     <Task ID="compare_end" Command="compare_end"/>
 
-    <!-- if the comparison is good, meaning there is an update, then we want to copy the source into a new 'final' folder and upload -->
-    <Task ID="create_source_dir_wotmod_post_compare" Command="create_directory" DirectoryPath="{workDirectory}\package\mods\versiondir"/>
-    <Task ID="create_source_dir_json_post_compare" Command="create_directory" DirectoryPath="{workDirectory}\package\mods\configs\protanki"/>
-    <Task ID="copy_wotmod_to_package" Command="file_copy" SourceFilePath="{get_wotmod_filename_results_0}" DestinationFilePath="{workDirectory}\package\mods\versiondir\{wotmod_name_prefix}_{mod_version_2}.wotmod"/>
-    <Task ID="copy_json_to_package" Command="file_copy" SourceFilePath="{working_folder_source}\{json_source}" DestinationFilePath="{workDirectory}\package\mods\configs\protanki\{json_modpack}"/>
+    <!-- import the copy tasks. this is done as a macro cause we have different versions we could use -->
+    <Task ID="import_task_protanki_copy_wotmod_config" Command="import_task" RepoUrlPath="Task_templates/Protanki/{protanki_copy_task}.xml"/>
 
     <!-- update version field in database -->
     <Task ID="update_package_version" Command="update_package_property" PropertyName="Version" PropertyValue="{mod_version_2}" />
