@@ -3,7 +3,7 @@
   <!-- Specify macros here -->
   <Macros>
     <Macro Name="wotmod_name" Value="PYmodsCore"/>    
-    <Macro Name="download_url" Value="https://disk.yandex.com/d/b-fqQA923Mqvwk"/>
+    <Macro Name="download_url" Value="https://docviewer.yandex.com/view/0/?*=l%2F9MgrQ4BpjZZy6ZBfZQrG0MeMt7InVybCI6InlhLWRpc2stcHVibGljOi8vT2dUMWJUQS9NSXgySzBtOVYrdWc1UUhuNGYwSjh6Yzk2eWxhdFdHbm5iZz0iLCJ0aXRsZSI6IlNvdW5kRXZlbnRJbmplY3Rvci56aXAiLCJub2lmcmFtZSI6ZmFsc2UsInVpZCI6IjAiLCJ0cyI6MTYyOTU1MDQ1NDYwMSwieXUiOiI5ODc3MzM3ODcxNjE5MDk2OTgwIn0%3D"/>
   </Macros>
   <TaskDefinitions>
   
@@ -11,7 +11,9 @@
     <Task ID="import_createWD" Command="import_task" RepoUrlPath="Task_templates/create_workDirs_macros.xml"/>    
       
      <!-- download the source zip file, which implicitly creates the directories  -->
-    <Task ID="download_mod_source" Command="download_browser" Url="{download_url}" DestinationPath="{working_folder_source}\{last_download_filename}" HtmlPath="{yadisk_xpath}"  WaitTimeMs="500" WaitCounts="6" BrowserHeight="0" BrowserWidth="0"/>
+     <!-- download the source zip file, which implicitly creates the directories  -->
+    <Task ID="download_source" Command="download_static" Url="{download_url}" DestinationPath="{working_folder_source}\{last_download_filename}"/>
+    <!-- <Task ID="download_mod_source" Command="download_browser" Url="{download_url}" DestinationPath="{working_folder_source}\{last_download_filename}" HtmlPath="{yadisk_xpath}"  WaitTimeMs="500" WaitCounts="6" BrowserHeight="0" BrowserWidth="0"/> -->
     <!-- extract the source wotmod files-->
     <Task ID="extract_source_1" Command="shell_exec" Filename="7z.exe" Wd="{working_folder_source}" Cmd="x {last_download_filename} {wotmod_name}.wotmod -r"/>
   
