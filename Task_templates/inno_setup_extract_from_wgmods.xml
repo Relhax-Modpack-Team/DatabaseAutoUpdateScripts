@@ -13,9 +13,6 @@
     NOTE: see inno_setup_extract.xml import task for more required macros
   -->
   <TaskDefinitions>
-    <!-- import tasks -->
-    <Task ID="import_task_create_workDirs_macros" Command="import_task" RepoUrlPath="Task_templates/create_workDirs_macros.xml"/>
-
     <!-- get the download url to download the inno setup package -->
     <Task ID="get_package_download_url" Command="retrieve_package_property" PropertyName="DevURLList" TargetPackageUID="this" MacroSaveName="download_url" PropertyIndex="{dev_url_index}"/>
 
