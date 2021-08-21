@@ -16,11 +16,10 @@
   -->
   <TaskDefinitions>
     <!-- download the inno setup extracter from our github -->
-    <Task ID="download_innounp" Command="download_static" Url="https://github.com/Relhax-Modpack-Team/WoTTools/blob/master/Inno%20Setup%20Unpacker/innounp.zip?raw=true" DestinationPath="{working_folder_source}\{last_download_filename}"/>
-    <Task ID="create_innounp_macro" Command="macro_create" MacroName="innounp" MacroValue="{working_folder_source}\{last_download_filename}"/>
+    <Task ID="download_innounp" Command="download_static" Url="https://github.com/Relhax-Modpack-Team/WoTTools/blob/master/Inno%20Setup%20Unpacker/innounp.zip?raw=true" DestinationPath="{working_folder_source}\innounp.zip"/>
 
     <!-- extract the ino setup executable -->
-    <Task ID="extract_inno_exe" Command="shell_exec" Filename="7z.exe" Wd="{working_folder_source}" Cmd="e innounp.exe"/>
+    <Task ID="extract_inno_exe" Command="shell_exec" Filename="7z.exe" Wd="{working_folder_source}" Cmd="e innounp.zip innounp.exe"/>
 
     <!-- extract the ino setup executable
       -e     extract files without paths
@@ -28,6 +27,6 @@
       -b     batch (non-interactive) mode - will not prompt for password or disk changes
       
       EXAMPLE THAT WORKED FROM COMMAND LINE: innounp.exe -x wotmodpack_protanki_extend.exe tv.protanki.smartequipment_2.3.wotmod -->
-    <Task ID="extract_files_inside_inno_exe" Command="shell_exec" Filename="innounp.exe" Wd="{working_folder_source}" Cmd="-e -y -b {inno_setup_exe} {inno_files_to_extract}"/>
+    <Task ID="extract_files_inside_inno_exe" Command="shell_exec" Filename="{working_folder_source}\innounp.exe" Wd="{working_folder_source}" Cmd="-e -y -b &quot;{inno_setup_exe}&quot; {inno_files_to_extract}"/>
   </TaskDefinitions>
 </AutomationSequence>
