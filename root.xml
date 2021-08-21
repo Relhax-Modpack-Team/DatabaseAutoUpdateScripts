@@ -129,6 +129,7 @@
   <!-- Category Ingame Aim START -->
   <AutomationSequence UID="5ys1yd14xd9nenj0" packageName="IngameAim_autoloaderHelper" path="IngameAim/IngameAim_autoloaderHelper.xml"/>
   <AutomationSequence UID="jm0usfegzl8mic1e" packageName="IngameAim_BattleAssistant" path="IngameAim/IngameAim_BattleAssistant.xml" />
+  <AutomationSequence UID="fbvrxgqbbx07kt0m" packageName="IngameAim_DispersionIndicator_P0LIR0ID" path="IngameAim/IngameAim_DispersionIndicator_P0LIR0ID.xml" />
   <AutomationSequence UID="38iggbplcyqvzh3i" packageName="IngameAim_ServerReticle_Awfultanker" path="IngameAim/IngameAim_ServerReticle_Awfultanker.xml" />
   <AutomationSequence UID="lgh50ztb1ft3qcw3" packageName="IngameAim_SafeShot_OldSkool" path="IngameAim/IngameAim_SafeShot_OldSkool.xml"/>
   <AutomationSequence UID="au1did8dq1mvem8q" packageName="IngameAim_SafeShot_Champi" path="IngameAim/IngameAim_SafeShot_Champi.xml"/>
