@@ -15,7 +15,7 @@
     <Task ID="compare_start" Command="compare_start"/>
     <Task ID="compare_wotmod" Command="file_compare" FileA="{get_wotmod_filename_results_0}" FileB="{get_wotmod_modpack_filename_results_0}"/>
     <Task ID="compare_json" Command="file_compare" FileA="{working_folder_source}\{json_source}" FileB="{working_folder_modpack}\{json_modpack}"/>
-    <Task ID="compare_json" Command="file_compare" FileA="{working_folder_source}\itemsPrice.json" FileB="{working_folder_modpack}\itemsPrice.json"/>
+    <Task ID="compare_itemPrice" Command="file_compare" FileA="{working_folder_source}\itemsPrice.json" FileB="{working_folder_modpack}\itemsPrice.json"/>
     <Task ID="compare_end" Command="compare_end"/>
 
     <!-- import the copy tasks. this is done as a macro cause we have different versions we could use -->
