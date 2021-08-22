@@ -3,7 +3,7 @@
   <!-- Specify macros here -->
   <Macros>
     <Macro Name="download_url" Value="https://github.com/deadhat/wotmods-public/archive/refs/heads/master.zip"/>
-    <Macro Name="oldskoolMod_Zipname" Value="proCore"/>
+    <Macro Name="oldskoolMod_Zipname" Value="modsCore"/>
     <Macro Name="oldskoolMod_Wotmodname" Value="oldskool.modsCore"/>
   </Macros>
   <TaskDefinitions>
