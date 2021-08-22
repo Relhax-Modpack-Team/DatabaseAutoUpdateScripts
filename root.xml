@@ -196,6 +196,8 @@
   <AutomationSequence UID="1xdmf806ic2veb6w" packageName="IngameMisc_Minimap_TargetIcon_Type2_White" path="IngameMisc/Minimap/IngameMisc_Minimap_TargetIcon_Type2_White.xml"/>
   <AutomationSequence UID="emj1n767h9vdemdv" packageName="IngameMisc_Minimap_TargetIcon_Type2_Yellow" path="IngameMisc/Minimap/IngameMisc_Minimap_TargetIcon_Type2_Yellow.xml"/>
 
+  <AutomationSequence UID="ocfhqnv3chhb5k9x" packageName="IngameMisc_smartRepair" path="IngameMisc/IngameMisc_smartRepair.xml"/>
+
   <AutomationSequence UID="515aq1xuq26uhjdg" packageName="IngameMisc_WOTtweaker_SkyBoxes_ClearSky" path="IngameMisc/IngameMisc_WOTtweaker/IngameMisc_WOTtweaker_SkyBoxes_ClearSky.xml"/>
   <AutomationSequence UID="vntcs9j60a5gyrrl" packageName="IngameMisc_WOTtweaker_SkyBoxes_BlueSky" path="IngameMisc/IngameMisc_WOTtweaker/IngameMisc_WOTtweaker_SkyBoxes_BlueSky.xml"/>
   <AutomationSequence UID="kj1bdhpt8d6fggo1" packageName="IngameMisc_WOTtweaker_SkyBoxes_NightfallSky" path="IngameMisc/IngameMisc_WOTtweaker/IngameMisc_WOTtweaker_SkyBoxes_NightfallSky.xml"/>

@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<AutomationSequence documentVersion="1.0">
+  <!-- Specify macros here -->
+  <Macros>
+    <Macro Name="wotmod_name_prefix" Value="tv.protanki.smartequipment"/>
+    <Macro Name="download_url" Value="{protanki_modpack_lite}"/>
+    <Macro Name="json_source" Value="smartRepair.json"/>
+    <Macro Name="json_modpack" Value="smartRepair.json"/>
+    <Macro Name="inno_files_to_extract" Value="{json_source} {wotmod_name_prefix}*.wotmod"/>
+    <Macro Name="modpack_file_extract_list" Value="{json_modpack} {wotmod_name_prefix}*.wotmod"/>
+    <Macro Name="protanki_copy_task" Value="protanki_copy_wotmod_config"/>
+  </Macros>
+  <TaskDefinitions>
+    <!-- create the working directories -->
+    <Task ID="import_task_create_workDirs_macros" Command="import_task" RepoUrlPath="Task_templates/create_workDirs_macros.xml"/>
+
+    <!-- download and extract from the modpack files -->
+    <Task ID="import_task_download_extract_package_zip" Command="import_task" RepoUrlPath="Task_templates/download_extract_package_zip.xml"/>
+
+    <!-- download the protanki modpack and extract the same files, from source -->
+    <Task ID="import_task_inno_setup_extract_from_wgmods_direct_url" Command="import_task" RepoUrlPath="Task_templates/inno_setup_extract_from_wgmods_direct_url.xml"/>
+
+    <!-- import the task for handling protanki files -->
+    <Task ID="import_task_protanki_wotmod_config" Command="import_task" RepoUrlPath="Task_templates/Protanki/protanki_wotmod_config.xml"/>
+  </TaskDefinitions>
+</AutomationSequence>
