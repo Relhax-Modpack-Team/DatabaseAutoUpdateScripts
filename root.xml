@@ -224,8 +224,9 @@
   <AutomationSequence UID="ntfgi7r1nr6iw633" packageName="GarageGraphics_FlagsLib_GuP" path="GarageGraphics/GarageGraphics_FlagsLib_GuP.xml" />
   <!-- Category Garage Graphics END   -->
 
-  <!-- Category Ingame Aim START -->
-  <!-- Category Ingame Aim END   -->
+  <!-- Category Statistics START -->
+  <AutomationSequence UID="7alete96ch8yvut2" packageName="SessionStatistics_ProtankiSessionlog" path="GarageGraphics/SessionStatistics_ProtankiSessionlog.xml" />
+  <!-- Category Statistics END   -->
 
   <!-- Category Sound Mods START -->
   <!-- Category Sound Mods END   -->
