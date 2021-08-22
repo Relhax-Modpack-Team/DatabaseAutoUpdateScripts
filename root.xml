@@ -239,6 +239,7 @@
   <AutomationSequence UID="6pj0oqyvxb0n7pmb" packageName="TankSkinsMisc_Camo_TransparentCamouflage" path="TankSkinsMisc/TankSkinsMisc_Camo_TransparentCamouflage.xml"/>
   <AutomationSequence UID="rgg9scuztkonnscj" packageName="TankSkinsMisc_crashedTracks" path="TankSkinsMisc/TankSkinsMisc_crashedTracks.xml"/>
   <AutomationSequence UID="v15c8hy5g8x19o59" packageName="TankSkinsMisc_deadTanks" path="TankSkinsMisc/TankSkinsMisc_deadTanks.xml"/>
+  <AutomationSequence UID="4oqavzsjeibq4fxe" packageName="TankSkinsMisc_ColoredPenetration_protanki" path="TankSkinsMisc/TankSkinsMisc_ColoredPenetration_protanki.xml"/>
   <!-- Category Task SKins Misc END   -->
   
   <!-- Category Custom Tank Skins START -->
