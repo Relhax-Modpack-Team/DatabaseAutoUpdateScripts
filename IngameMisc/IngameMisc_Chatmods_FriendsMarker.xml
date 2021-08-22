@@ -24,11 +24,11 @@
      <!-- download the source zip file, which implicitly creates the directories  -->
     <Task ID="download_source" Command="download_static" Url="{download_url}" DestinationPath="{working_folder_source}\{last_download_filename}"/>
     <!-- extract the source wotmod files-->
-    <Task ID="extract_source_1" Command="shell_exec" Filename="7z.exe" Wd="{working_folder_source}" Cmd="e {last_download_filename} {oldskoolMod_Zipname}_*.zip -r"/>
+    <Task ID="extract_source_1" Command="shell_exec" Filename="7z.exe" Wd="{working_folder_source}" Cmd="e &quot;{last_download_filename}&quot; {oldskoolMod_Zipname}_*.zip -r"/>
         <!-- get the name of the last extracted (zip)file -->
     <Task ID="get_zip_filename" Command="directory_search" DirectoryPath="{working_folder_source}" SearchPattern="{oldskoolMod_Zipname}_*.zip" Recursive="False" MacroPrefix="get_zip_filename_results"/>
     <!-- extract 2 -->
-    <Task ID="extract_source_2" Command="shell_exec" Filename="7z.exe" Wd="{working_folder_source}" Cmd="e {get_zip_filename_results_0} -o&quot;{working_folder_source}\mods\versiondir\oldskool&quot; {oldskoolMod_Wotmodname}_*.wotmod -r"/>
+    <Task ID="extract_source_2" Command="shell_exec" Filename="7z.exe" Wd="{working_folder_source}" Cmd="e &quot;{get_zip_filename_results_0}&quot; -o&quot;{working_folder_source}\mods\versiondir\oldskool&quot; {oldskoolMod_Wotmodname}_*.wotmod -r"/>
     <!-- <Task ID="extract_source_3" Command="shell_exec" Filename="7z.exe" Wd="{working_folder_source}" Cmd="e {get_zip_filename_results_0} -o&quot;{working_folder_source}\mods\configs\oldskool&quot; {oldskoolMod_CFGname} -r"/> -->
     <!-- get the current version of the mod by string split and file search -->
     <Task ID="get_wotmod_filename" Command="directory_search" DirectoryPath="{working_folder_source}\mods\versiondir\oldskool" SearchPattern="{oldskoolMod_Wotmodname}_*.wotmod" Recursive="False" MacroPrefix="get_wotmod_filename_results"/>
