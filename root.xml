@@ -225,7 +225,7 @@
   <!-- Category Garage Graphics END   -->
 
   <!-- Category Statistics START -->
-  <AutomationSequence UID="7alete96ch8yvut2" packageName="SessionStatistics_ProtankiSessionlog" path="GarageGraphics/SessionStatistics_ProtankiSessionlog.xml" />
+  <AutomationSequence UID="7alete96ch8yvut2" packageName="SessionStatistics_ProtankiSessionlog" path="Statistics/SessionStatistics_ProtankiSessionlog.xml" />
   <!-- Category Statistics END   -->
 
   <!-- Category Sound Mods START -->
