@@ -158,6 +158,7 @@
   <AutomationSequence UID="my79ujmsxfzagayc" packageName="IngameInfo_EnemySpottedStatus_OldSkool" path="IngameInfo/IngameInfo_EnemySpottedStatus_OldSkool.xml"/>
   <AutomationSequence UID="17azqxqn06baz884" packageName="IngameInfo_InBattleRating_OldSkool" path="IngameInfo/IngameInfo_InBattleRating_OldSkool.xml"/>
   <AutomationSequence UID="elgpf2m074c3d6ip" packageName="IngameInfo_TankInfoPanel_OldSkool" path="IngameInfo/IngameInfo_TankInfoPanel_OldSkool.xml"/>
+  <AutomationSequence UID="ran4n2t1715ldipp" packageName="IngameInfo_TankInfoPanel_protanki" path="IngameInfo/IngameInfo_TankInfoPanel_protanki.xml"/>
   <!-- Category Ingame Info END -->
 
   <!-- Category Ingame Misc START -->

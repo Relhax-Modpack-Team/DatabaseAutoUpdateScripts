@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<AutomationSequence documentVersion="1.0">
+  <TaskDefinitions>
+    <!-- if the comparison is good, meaning there is an update, then we want to copy the source into a new 'final' folder and upload -->
+    <Task ID="create_source_dir_wotmod_post_compare" Command="create_directory" DirectoryPath="{working_folder_package}\mods\versiondir"/>
+    <Task ID="create_source_dir_json_post_compare" Command="create_directory" DirectoryPath="{working_folder_package}\mods\configs\infopanel"/>
+    <Task ID="copy_wotmod_to_package" Command="file_copy" SourceFilePath="{working_folder_source}\{wotmod_name_prefix}.wotmod" DestinationFilePath="{working_folder_package}\mods\versiondir\{wotmod_name_prefix}.wotmod"/>
+    <Task ID="copy_config_xml_files" Command="directory_copy" DirectoryPath="{working_folder_source}" DestinationPath="{working_folder_modpack}\mods\configs\infopanel" SearchPattern="*.xml" Recursive="False"/>
+  </TaskDefinitions>
+</AutomationSequence>
