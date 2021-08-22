@@ -241,7 +241,4 @@
   <AutomationSequence UID="v15c8hy5g8x19o59" packageName="TankSkinsMisc_deadTanks" path="TankSkinsMisc/TankSkinsMisc_deadTanks.xml"/>
   <AutomationSequence UID="4oqavzsjeibq4fxe" packageName="TankSkinsMisc_ColoredPenetration_protanki" path="TankSkinsMisc/TankSkinsMisc_ColoredPenetration_protanki.xml"/>
   <!-- Category Task SKins Misc END   -->
-  
-  <!-- Category Custom Tank Skins START -->
-  <!-- Category Custom Tank Skins END   -->
 </root.xml>
