@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<AutomationSequence documentVersion="1.0">
+  <TaskDefinitions>
+    <!-- get the current version of the mod by string split and file search -->
+    <Task ID="import_task_protanki_get_mod_version" Command="import_task" RepoUrlPath="Task_templates/Protanki/protanki_get_mod_version.xml"/>
+
+    <!-- compare the hashes. this is done in 3 steps:
+      1. write the compare_start task (resets the internal counters for matches and differences)
+      2. use compare tasks to compare files on disk or an entry in a zip file
+      3. write the compare_end task (evaluates the counts from the compare tasks)
+          if compare_end finds 0 differences, then the automation process will end early (nothing to update)
+
+      By using the directory_compare task, if the number of swf's change between the modpack and source, something has changed in the structure and we need to account for it
+    -->
+    <Task ID="compare_start" Command="compare_start"/>
+    <Task ID="compare_wotmod" Command="file_compare" FileA="{get_wotmod_filename_results_0}" FileB="{get_wotmod_modpack_filename_results_0}"/>
+    <Task ID="compare_json" Command="file_compare" FileA="{working_folder_source}\{json_source}" FileB="{working_folder_modpack}\{json_modpack}"/>
+    <Task ID="compare_json" Command="file_compare" FileA="{working_folder_source}\itemsPrice.json" FileB="{working_folder_modpack}\itemsPrice.json"/>
+    <Task ID="compare_end" Command="compare_end"/>
+
+    <!-- import the copy tasks. this is done as a macro cause we have different versions we could use -->
+    <Task ID="import_task_protanki_copy_wotmod_config" Command="import_task" RepoUrlPath="Task_templates/Protanki/{protanki_copy_task}.xml"/>
+
+    <!-- update the version number, create the package, and upload -->
+    <Task ID="import_task_protanki_get_mod_version" Command="import_task" RepoUrlPath="Task_templates/Protanki/protanki_update_version_create_zip_upload.xml"/>
+  </TaskDefinitions>
+</AutomationSequence>

@@ -150,6 +150,7 @@
   <AutomationSequence UID="4qcvi028h2edpw0y" packageName="IngameInfo_FinalShot" path="IngameInfo/IngameInfo_FinalShot.xml"/>
   <AutomationSequence UID="3r6bdbph41vrjucw" packageName="IngameInfo_ExpectedVehicleValues" path="IngameInfo/IngameInfo_ExpectedVehicleValues.xml"/>
   <AutomationSequence UID="jf9paludpndhr21p" packageName="IngameInfo_TankRatingColors" path="IngameInfo/IngameInfo_TankRatingColors.xml"/>
+  <AutomationSequence UID="ewheywwoz33rzjf4" packageName="IngameInfo_InBattleRating_Protanki" path="IngameInfo/IngameInfo_InBattleRating_Protanki.xml"/>
   <AutomationSequence UID="msak80oyaflkjz9l" packageName="IngameInfo_PlayersPanelPro" path="IngameInfo/IngameInfo_PlayersPanelPro.xml"/>
   <AutomationSequence UID="2gdx5auuv13ar7ze" packageName="IngameInfo_ArtyHitLog" path="IngameInfo/IngameInfo_ArtyHitLog.xml"/>
   <AutomationSequence UID="8lyb8uwumkw5xpvv" packageName="IngameInfo_DebugPanel_oldskool" path="IngameInfo/IngameInfo_DebugPanel_oldskool.xml"/>
