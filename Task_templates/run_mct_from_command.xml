@@ -38,7 +38,7 @@
     <Task ID="extract_modpackPatchfile" Command="shell_exec" Filename="7z.exe" Wd="{working_folder_modpack}" Cmd="x {packageName}.zip {patchfileName} -r"/>
 
     <!-- Run the MCT exe -->
-    <Task ID="run_mct" Command="shell_exec" Filename="{working_folder_mct}\MCTCreator2.exe" Wd="{working_folder_mct}" Cmd="/wot-path=&quot;{clientPathNoExe}\&quot; /mods-path=&quot;{working_folder_mct}&quot; /DPT-wotmod-name &quot;{wotmodPackageNameMCT}&quot; /auto-close-console {mct_commands}"/>
+    <Task ID="run_mct" Command="shell_exec" Filename="{working_folder_mct}\MCTCreator2.exe" Wd="{working_folder_mct}" Cmd="/wot-path=&quot;{clientPathNoExe}\&quot; /mods-path=&quot;{working_folder_mct}&quot; /DPT-wotmod-name &quot;{wotmodPackageNameMCT}&quot; /CCT-wotmod-name &quot;{wotmodPackageNameMCT}&quot; /CTM-wotmod-name &quot;{wotmodPackageNameMCT}&quot; /CAMO-wotmod-name &quot;{wotmodPackageNameMCT}&quot; /auto-close-console {mct_commands}"/>
 
     <!-- get the filename and rename to what's used in the modpack -->
     <!-- <Task ID="get_mct_wotmod_filename" Command="directory_search" DirectoryPath="{working_folder_mct}" SearchPattern="{wotmodPackageNameMCT}.wotmod" Recursive="False" MacroPrefix="mct_filename_from_shell"/> -->
