@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <AutomationSequence documentVersion="1.0">
   <TaskDefinitions>
-    <Task ID="extract_modpack_patch" Command="shell_exec" Filename="7z.exe" Wd="{working_folder_source}" Cmd="x {packageName}.zip -o&quot;{working_folder_package}&quot; itemsPrice.json -r"/>
+    <Task ID="extract_modpack_patch" Command="shell_exec" Filename="7z.exe" Wd="{working_folder_modpack}" Cmd="x {packageName}.zip -o&quot;{working_folder_package}&quot; itemsPrice.json -r"/>
     <Task ID="import_task_protanki_copy_wotmod_config" Command="import_task" RepoUrlPath="Task_templates/Protanki/protanki_copy_wotmod_config.xml"/>
   </TaskDefinitions>
 </AutomationSequence>
