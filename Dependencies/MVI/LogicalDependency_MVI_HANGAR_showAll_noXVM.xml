@@ -2,14 +2,14 @@
 <AutomationSequence documentVersion="1.0">
   <!-- Specify macros here -->
   <Macros>
-    <Macro Name="github_direct_url" Value="https://github.com/AstaRom/wot_mods/raw/master/mvi/mvi_hangar.zip"/>
-    <Macro Name="mvi_wotmod_name" Value="mvi_hangar.wotmod"/>
+    <Macro Name="antiMirror_option" Value="showAll"/>
   </Macros>
 
   <!-- Specify the tasks to run -->
   <TaskDefinitions>
     <!-- import tasks -->
-    <Task ID="import_tasks" Command="import_task" RepoUrlPath="Task_templates/Dependencies/LogicalDependency_MVI.xml"/>
+    <Task ID="import_createWorkDirs" Command="import_task" RepoUrlPath="Task_templates/macro_create_work_dirs.xml"/>
+    <Task ID="import_logicalDependnecy_MVI_hangar_new" Command="import_task" RepoUrlPath="Task_templates/Dependencies/logicalDependnecy_MVI_hangar_new.xml"/>
   </TaskDefinitions>
 
 </AutomationSequence>

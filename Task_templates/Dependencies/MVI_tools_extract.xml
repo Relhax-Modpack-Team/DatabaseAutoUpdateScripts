@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<AutomationSequence documentVersion="1.0">
+  <!-- MVI_tools_extract.xml
+    Author:  Willster419
+    Created: 2021-08-26
+    This sequence template does the following tasks:
+      - downloads the latest version of our contour icon anti mirror exe
+      - downloads the flash decompiler from our wotTools repo
+      - extracts flash decompiler from zip file
+      - extracts the trainingRoom swf from the game client
+    Required macros:
+    {working_folder_source}        - The working folder of the source zip file and extraction process
+    {antiMirror_github_exe}        - The url to the antimirror application exe
+    {flash_decompile_url}          - The url to the flash decompile zip file
+  -->
+  <TaskDefinitions>
+    <!-- download and extract the tools required for the swf decompile and anti mirror -->
+    <Task ID="download_antiMirror_exe" Command="download_static" Url="{antiMirror_github_exe}" DestinationPath="{working_folder_source}\ZazerkalieProduce.exe"/>
+    <Task ID="create_macro_antiMirror_exe" Command="macro_create" MacroName="antiMirror_exe" MacroValue="{working_folder_source}\ZazerkalieProduce.exe"/>
+
+    <Task ID="download_flash_jar" Command="download_static" Url="{flash_decompile_url}" DestinationPath="{working_folder_source}\ffdec.zip"/>
+    <Task ID="extract_flash_jar" Command="shell_exec" Filename="7z.exe" Wd="{working_folder_source}" Cmd="x &quot;{working_folder_source}\ffdec.zip&quot;"/>
+    <Task ID="create_macro_flash_jar" Command="macro_create" MacroName="flash_jar" MacroValue="{working_folder_source}\ffdec.jar"/>
+  </TaskDefinitions>
+</AutomationSequence>

@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<AutomationSequence documentVersion="1.0">
+  <!-- logicalDependnecy_MVI_hangar_new.xml
+    Author:  Willster419
+    Created: 2021-08-26
+    This sequence template does the following tasks:
+      - downloads the latest version of our contour icon anti mirror exe
+      - downloads the flash decompiler from our wotTools repo
+      - extracts flash decompiler from zip file
+      - extracts the trainingRoom swf from the game client
+      - runs the contour icon anti mirror appliclation to create the anti mirror swf file
+      - downloads the modpack zip file of the package
+      - extracts the mvi_hangar wotmod
+      - extracts the flash file outside of the mvi_hangar wotmod
+      - compare the new anti mirror swf file with the modpack's old version
+      - if they are different, then the application continues to create the package and upload to the server
+    Required macros:
+    {working_folder_modpack}       - The working folder of the modpack zip file and extraction processes
+    {working_folder_source}        - The working folder of the source zip file and extraction process
+    {working_folder_package}       - The working folder of the final output package for upload
+    {antiMirror_option}            - The '-mode' arguemnt when creating the anti mirror exe
+    {antiMirror_exe}               - The full path to the anti mirror executable (created in MVI_tools_extract)
+    {flash_jar}                    - The full path to the flash decompiler jar file (created in MVI_tools_extract)
+  -->
+  <TaskDefinitions>
+    <!-- import task to create workDir macros and folders -->
+    <Task ID="import_task_create_workDirs_macros" Command="import_task" RepoUrlPath="Task_templates/create_workDirs_macros.xml"/>
+
+    <!-- download and extract the tools required for the swf decompile and anti mirror -->
+    <Task ID="import_task_create_workDirs_macros" Command="import_task" RepoUrlPath="Task_templates/Dependencies/MVI_tools_extract.xml"/>
+
+    <!-- extract the training room swf from the wot client exe -->
+    <Task ID="extract_trainingRoom_swf" Command="shell_exec" Filename="7z.exe" Wd="{working_folder_source}" Cmd="e &quot;{clientPath}\res\packages\gui-part2.pkg&quot; gui\flash\trainingRoom.swf"/>
+
+    <!-- create the anti mirror swfs -->
+    <Task ID="create_anitMirror_swf" Command="shell_exec" Filename="{antiMirror_exe}" Wd="{working_folder_source}" Cmd="-l true -v true -j java.exe -f &quot;{flash_jar}&quot; -i &quot;{working_folder_source}&quot; -o &quot;{working_folder_package}\res\gui\flash&quot; -s trainingRoom.swf -m {antiMirror_option}"/>
+
+    <!-- download and extract the modpack package and swf -->
+    <Task ID="download_modpack" Command="package_download" FilePath="{working_folder_modpack}\{packageName}.zip"/>
+    <Task ID="extract_modpack" Command="shell_exec" Filename="7z.exe" Wd="{working_folder_modpack}" Cmd="e {packageName}.zip mvi_hangar.wotmod -r"/>
+    <Task ID="extract_modpack_swf" Command="shell_exec" Filename="7z.exe" Wd="{working_folder_modpack}" Cmd="e mvi_hangar.wotmod trainingRoom.swf -r"/>
+
+    <!-- compare the trainingRoom.swf files -->
+    <Task ID="compare_start" Command="compare_start"/>
+    <Task ID="compare_trainingRoom_swf" Command="file_compare" FileA="{working_folder_package}\res\gui\flash\trainingRoom.swf" FileB="{working_folder_modpack}\trainingRoom.swf"/>
+    <Task ID="compare_end" Command="compare_end"/>
+
+    <!-- create the new wotmod -->
+    <Task ID="create_new_wotmod" Command="shell_exec" Filename="7z.exe" Wd="{working_folder_package}" Cmd="a -tzip -mx=0 -r mvi_hangar.wotmod"/>
+    <Task ID="move_wotmod_controls" Command="file_move" SourceFilePath="{working_folder_package}\mvi_hangar.wotmod" DestinationFilePath="{working_folder_package}\zip\mods\versiondir\mvi_hangar.wotmod"/>
+
+    <!-- create and upload the package -->
+    <Task ID="create_package" Command="shell_exec" Filename="7z.exe" Wd="{working_folder_package}\zip" Cmd="{7z_createFinalZip}"/>
+    <Task ID="upload_package" Command="package_upload" FilePath="{working_folder_package}\zip\final.zip" ZipFileName="{packageName}_{clientVersion}_{date}.zip"/>
+  </TaskDefinitions>
+</AutomationSequence>
