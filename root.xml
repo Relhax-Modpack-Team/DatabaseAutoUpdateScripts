@@ -114,7 +114,8 @@
   <AutomationSequence UID="29dwbncuzx7auffh" packageName="Crosshairs_Strategic_SwordOfDamocles_green" path="Crosshairs/Strategic/Crosshairs_Strategic_SwordOfDamocles_green.xml" />
   <AutomationSequence UID="fykbjmivztzrurmg" packageName="Crosshairs_Strategic_SwordOfDamocles_white" path="Crosshairs/Strategic/Crosshairs_Strategic_SwordOfDamocles_white.xml" />
   <AutomationSequence UID="m28xjpeft9tz5wct" packageName="Crosshairs_Strategic_Taipan_v1" path="Crosshairs/Strategic/Crosshairs_Strategic_Taipan_v1.xml" />
-  <AutomationSequence UID="vqsv678trj8n0m4y" packageName="Crosshairs_gunConstraints" path="Crosshairs/Crosshairs_gunConstraints.xml" />
+  
+  <!-- <AutomationSequence UID="vqsv678trj8n0m4y" packageName="Crosshairs_gunConstraints" path="Crosshairs/Crosshairs_gunConstraints.xml" /> -->
   <!-- Category Crosshairs END   -->
 
   <!-- Category Contour & Tank Icons START -->
