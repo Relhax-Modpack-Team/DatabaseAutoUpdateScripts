@@ -22,6 +22,6 @@
     <Task ID="import_task_protanki_copy_wotmod_config" Command="import_task" RepoUrlPath="Task_templates/Protanki/{protanki_copy_task}.xml"/>
 
     <!-- update the version number, create the package, and upload -->
-    <Task ID="import_task_protanki_get_mod_version" Command="import_task" RepoUrlPath="Task_templates/Protanki/protanki_update_version_create_zip_upload.xml"/>
+    <Task ID="import_task_protanki_update_version_create_zip_upload" Command="import_task" RepoUrlPath="Task_templates/Protanki/protanki_update_version_create_zip_upload.xml"/>
   </TaskDefinitions>
 </AutomationSequence>
