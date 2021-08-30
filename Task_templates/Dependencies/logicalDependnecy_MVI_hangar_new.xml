@@ -33,7 +33,8 @@
     <Task ID="extract_trainingRoom_swf" Command="shell_exec" Filename="7z.exe" Wd="{working_folder_source}" Cmd="e &quot;{clientPath}\res\packages\gui-part2.pkg&quot; gui\flash\trainingRoom.swf"/>
 
     <!-- create the anti mirror swfs -->
-    <Task ID="create_anitMirror_swf" Command="shell_exec" Filename="{antiMirror_exe}" Wd="{working_folder_source}" Cmd="-l true -v true -j java.exe -f &quot;{flash_jar}&quot; -i &quot;{working_folder_source}&quot; -o &quot;{working_folder_package}\res\gui\flash&quot; -s trainingRoom.swf -m {antiMirror_option}"/>
+    <Task ID="create_anitMirror_swf" Command="shell_exec" Filename="{antiMirror_exe}" Wd="{working_folder_source}" Cmd="-l true -v true -j java.exe -f &quot;{flash_jar}&quot; 
+    -i &quot;{working_folder_source}&quot; -o &quot;{working_folder_package}\res\gui\flash&quot; -s trainingRoom.swf -m {antiMirror_option}"/>
 
     <!-- download and extract the modpack package and swf -->
     <Task ID="download_modpack" Command="package_download" FilePath="{working_folder_modpack}\{packageName}.zip"/>
