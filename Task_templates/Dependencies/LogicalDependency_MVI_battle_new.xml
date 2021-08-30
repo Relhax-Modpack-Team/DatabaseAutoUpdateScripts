@@ -2,17 +2,17 @@
 <AutomationSequence documentVersion="1.0">
   <!-- logicalDependnecy_MVI_battle_new.xml
     Author:  Willster419
-    Created: 2021-08-26
+    Created: 2021-08-29
     This sequence template does the following tasks:
       - downloads the latest version of our contour icon anti mirror exe
       - downloads the flash decompiler from our wotTools repo
       - extracts flash decompiler from zip file
-      - extracts the trainingRoom swf from the game client
-      - runs the contour icon anti mirror appliclation to create the anti mirror swf file
+      - extracts the swfs from the game client
+      - runs the contour icon anti mirror appliclation to create the anti mirror swf files
       - downloads the modpack zip file of the package
       - extracts the mvi_battle wotmod
-      - extracts the flash file outside of the mvi_battle wotmod
-      - compare the new anti mirror swf file with the modpack's old version
+      - extracts the flash files outside of the mvi_battle wotmod
+      - compare the new anti mirror swf files with the modpack's old version
       - if they are different, then the application continues to create the package and upload to the server
     Required macros:
     {working_folder_modpack}       - The working folder of the modpack zip file and extraction processes

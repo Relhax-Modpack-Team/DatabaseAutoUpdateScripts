@@ -2,14 +2,14 @@
 <AutomationSequence documentVersion="1.0">
   <!-- Specify macros here -->
   <Macros>
-    <Macro Name="github_direct_url" Value="https://github.com/AstaRom/wot_mods/raw/master/mvi/mvi_battle_clear.zip"/>
-    <Macro Name="mvi_wotmod_name" Value="mvi_battle.wotmod"/>
+    <Macro Name="antiMirror_option" Value="clearAll"/>
   </Macros>
 
   <!-- Specify the tasks to run -->
   <TaskDefinitions>
     <!-- import tasks -->
-    <Task ID="import_tasks" Command="import_task" RepoUrlPath="Task_templates/Dependencies/LogicalDependency_MVI.xml"/>
+    <Task ID="import_createWorkDirs" Command="import_task" RepoUrlPath="Task_templates/macro_create_work_dirs.xml"/>
+    <Task ID="import_logicalDependnecy_MVI_battle_new" Command="import_task" RepoUrlPath="Task_templates/Dependencies/LogicalDependnecy_MVI_battle_new.xml"/>
   </TaskDefinitions>
 
 </AutomationSequence>
