@@ -2,17 +2,26 @@
   <Macros>
     <Macro Name="devurl_IngameMisc_UnderwaterTimer" Value="https://wgmods.net/2865/"/>
     <Macro Name="wotmod_name_IngameMisc_UnderwaterTimer" Value="Hawg_timersPanel.wotmod"/>
+
     <Macro Name="devurl_IngameMisc_PreBattleTimer" Value="https://wgmods.net/2040/"/>
     <Macro Name="wotmod_name_IngameMisc_PreBattleTimer" Value="Hawg_prebattleTimer.wotmod"/>
+
     <Macro Name="devurl_IngameAim_TargetArrow" Value="https://wgmods.net/2095/"/>
     <Macro Name="wotmod_name_IngameAim_TargetArrow" Value="Hawg_battleVehicleMarkers.wotmod"/>
+
     <Macro Name="devurl_IngameMisc_Minimap_Type_Basic_TacticalMinimap" Value="https://wgmods.net/5131/"/>
     <Macro Name="wotmod_name_IngameMisc_Minimap_Type_Basic_TacticalMinimap" Value="Hawg_Tac_spaces.wotmod"/>
+
     <Macro Name="devurl_IngameMisc_Minimap_TargetIcon" Value="https://wgmods.net/1684/"/>
     <Macro Name="wotmod_IngameMisc_Minimap_TargetIcon" Value="Hawg_minimapEntriesLibrary.wotmod"/>
+
     <Macro Name="devurl_IngameMisc_WOTtweaker_SkyBoxes" Value="https://wgmods.net/3095/"/>
     <Macro Name="wotmod_IngameMisc_WOTtweaker_SkyBoxes" Value="Hawg_SkyDome.wotmod"/>
+
     <Macro Name="devurl_IngameMisc_WOTtweaker_Environment" Value="{devurl_IngameMisc_WOTtweaker_SkyBoxes}"/>
     <Macro Name="wotmod_IngameMisc_WOTtweaker_Environment" Value="Hawg_weather.wotmod"/>
+
+    <Macro Name="devurl_GarageGraphics_FlagsLib_HAWG" Value="https://wgmods.net/2044/"/>
+    <Macro Name="wotmod_GarageGraphics_FlagsLib_HAWG" Value="Hawg_FlagsLib.wotmod"/>
   </Macros>
 </AutomationSequence>
