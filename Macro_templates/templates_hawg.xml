@@ -26,5 +26,8 @@
 
     <Macro Name="devurl_GarageGraphics_LobbyHeader_PersonalReserve" Value="https://wgmods.net/2344/"/>
     <Macro Name="wotmod_GarageGraphics_LobbyHeader_PersonalReserve" Value="Hawg_Headers.wotmod"/>
+
+    <Macro Name="devurl_GarageGraphics_Carousel_LED" Value="https://wgmods.net/1798/"/>
+    <Macro Name="wotmod_GarageGraphics_Carousel_LED" Value="Hawg_TankCarousel.wotmod"/>
   </Macros>
 </AutomationSequence>
