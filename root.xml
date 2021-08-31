@@ -231,6 +231,9 @@
   <AutomationSequence UID="epsrjnjp168z9vsr" packageName="GarageGraphics_FlagsLib_HAWGFullEmblems" path="GarageGraphics/FlagsLib/GarageGraphics_FlagsLib_HAWGFullEmblems.xml" />
   <AutomationSequence UID="jegg5da9j0fkd84j" packageName="GarageGraphics_FlagsLib_HAWGWTE100" path="GarageGraphics/FlagsLib/GarageGraphics_FlagsLib_HAWGWTE100.xml" />
   <AutomationSequence UID="4b2wpcf6apz91k5s" packageName="GarageGraphics_FlagsLib_HAWGSteelHunterEmblems" path="GarageGraphics/FlagsLib/GarageGraphics_FlagsLib_HAWGSteelHunterEmblems.xml" />
+  <AutomationSequence UID="d6pyq0jwcf87wemw" packageName="GarageGraphics_LobbyHeader_PersonalReserve_Aqua" path="GarageGraphics/LobbyHeader/GarageGraphics_LobbyHeader_PersonalReserve_Aqua.xml" />
+  <AutomationSequence UID="7k76i49f7yax7749" packageName="GarageGraphics_LobbyHeader_PersonalReserve_Blue" path="GarageGraphics/LobbyHeader/GarageGraphics_LobbyHeader_PersonalReserve_Blue.xml" />
+  <AutomationSequence UID="b5w8x9dltmjbt3xz" packageName="GarageGraphics_LobbyHeader_PersonalReserve_Yellow" path="GarageGraphics/LobbyHeader/GarageGraphics_LobbyHeader_PersonalReserve_Yellow.xml" />
   <!-- Category Garage Graphics END   -->
 
   <!-- Category Statistics START -->
