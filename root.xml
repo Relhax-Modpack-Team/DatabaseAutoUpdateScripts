@@ -27,7 +27,6 @@
 
   <!-- Category Standard START -->
   <AutomationSequence UID="n1h14mo15q78x01s" packageName="Dependency_MLG_bnk" path="Dependencies/Dependency_MLG_bnk.xml" />
-  <AutomationSequence UID="hgy8wqek0a9x8tj5" packageName="Dependency_MLG_englishLocalization" path="Dependencies/Dependency_MLG_englishLocalization.xml" />
   <AutomationSequence UID="ex0ocsm6tio4kknh" packageName="Dependency_PMOD" path="Dependencies/Dependency_PMOD.xml" />
   <AutomationSequence UID="cw7xk1guapz8hayk" packageName="Dependency_OldSkool_modsCore" path="Dependencies/Dependency_OldSkool_modsCore.xml" />
   <!-- unfinished -->
