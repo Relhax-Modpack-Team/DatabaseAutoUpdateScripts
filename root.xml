@@ -180,6 +180,8 @@
   
   <AutomationSequence UID="lp7nnb2rbopkpr28" packageName="IngameMisc_Minimap_SpamProtector" path="IngameMisc/IngameMisc_Minimap_SpamProtector.xml"/>
   
+  <AutomationSequence UID="tbeauz2ls2pel9qt" packageName="IngameMisc_interfaceScaling_OldSkool" path="IngameMisc/IngameMisc_interfaceScaling_OldSkool.xml"/>
+  
   <AutomationSequence UID="4c5z9v7ii0xi4wau" packageName="IngameMisc_Minimap_Type_Basic_TacticalMinimap" path="IngameMisc/Minimap/IngameMisc_Minimap_Type_Basic_TacticalMinimap.xml"/>
   <AutomationSequence UID="o4hjk1s2v1zquf4g" packageName="IngameMisc_Minimap_Type_Basic_TacticalMinimapDOTS" path="IngameMisc/Minimap/IngameMisc_Minimap_Type_Basic_TacticalMinimapDOTS.xml"/>
   <AutomationSequence UID="6bh9t6dox4rw39j6" packageName="IngameMisc_Minimap_Type_Basic_TacticalMinimapSCOUT" path="IngameMisc/Minimap/IngameMisc_Minimap_Type_Basic_TacticalMinimapSCOUT.xml"/>
