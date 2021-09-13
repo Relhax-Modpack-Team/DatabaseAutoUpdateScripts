@@ -38,9 +38,9 @@
 
     <Task ID="compare_start" Command="compare_start"/>
     <!-- Compare wotmod and config file -->
-    <Task ID="compare_wotmod" Command="file_compare"
+    <Task ID="compare_python_script" Command="file_compare"
       FileA="{working_folder_source}\{dynamic_folder_name_2}\scripts\client\gui\mods\mod_AT_ServerMarker.pyc"
-      FileB="{working_folder_modpack}\mods\versiondir\{wotmod_modpack}"/>
+      FileB="{working_folder_modpack}\res_mods\versiondir\scripts\client\gui\mods\mod_AT_ServerMarker.pyc"/>
     <Task ID="compare_end" Command="compare_end"/>
 
     <!-- if the comparison is good, meaning there is an update, then we want to copy the source into a new 'final' folder and upload -->
