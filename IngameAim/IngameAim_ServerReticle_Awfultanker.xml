@@ -33,7 +33,7 @@
 
     <!-- get the folder name by doing a file search and getting the first directory slash -->
     <Task ID="get_package_folder_name_1" Command="directory_search" DirectoryPath="{working_folder_source}" SearchPattern="*" Recursive="True" MacroPrefix="filename_results"/>
-    <Task ID="get_package_folder_name_2" Command="macro_string_split_macro" MacroName="dynamic_folder_name_1" Index="0" SplitCharacters="{applicationPath}" InputText="{filename_results_0}"/>
+    <Task ID="get_package_folder_name_2" Command="macro_string_split_macro" MacroName="dynamic_folder_name_1" Index="0" SplitCharacters="{working_folder_source}\" InputText="{filename_results_2}"/>
     <Task ID="get_package_folder_name_3" Command="macro_string_split_macro" MacroName="dynamic_folder_name_2" Index="0" SplitCharacters="\" InputText="{dynamic_folder_name_1}"/>
 
     <Task ID="compare_start" Command="compare_start"/>
