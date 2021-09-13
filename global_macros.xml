@@ -6,6 +6,7 @@
   <Macro Name="yadisk_xpath" Value="//a[contains(@class, 'button download-file-button')]//@href"/>
   <Macro Name="gdrive_xpath" Value="//a[contains(@class, 'gb_3 gb_4 gb_9d gb_3c')]//@href"/>
   <Macro Name="awfultanker_xpath" Value="//a[contains(@class, 'download')]//@href"/>
+  <Macro Name="awefultanker_url_base" Value="https://awfultanker.torvox.eu/"/>
   <Macro Name="clanIcon_downloader_github_exe" Value="https://github.com/Relhax-Modpack-Team/WGClanIconDownload/releases/download/1.0.1.1/WoTClanIconDownloadConsole.exe"/>
   <Macro Name="antiMirror_github_exe" Value="https://github.com/Relhax-Modpack-Team/ZazerkalieProduce/releases/download/1.0.2.0/ZazerkalieProduce.exe"/>
   <Macro Name="flash_decompile_url" Value="https://github.com/Relhax-Modpack-Team/WoTTools/raw/master/Flash%20decompile/ffdec_11.3.0.zip"/>
