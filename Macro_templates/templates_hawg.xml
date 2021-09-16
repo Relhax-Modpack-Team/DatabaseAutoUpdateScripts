@@ -29,5 +29,8 @@
 
     <Macro Name="devurl_GarageGraphics_Carousel_LED" Value="https://wgmods.net/1798/"/>
     <Macro Name="wotmod_GarageGraphics_Carousel_LED" Value="Hawg_TankCarousel.wotmod"/>
+
+    <Macro Name="devurl_TankSkinsMisc_ColoredPenetration_HAWG" Value="https://wgmods.net/2030/"/>
+    <Macro Name="wotmod_TankSkinsMisc_ColoredPenetration_HAWG" Value="Hawg_PaintBall.wotmod"/>
   </Macros>
 </AutomationSequence>

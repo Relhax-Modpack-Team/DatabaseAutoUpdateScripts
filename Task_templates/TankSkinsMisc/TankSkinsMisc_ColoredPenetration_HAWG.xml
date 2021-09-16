@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<AutomationSequence documentVersion="1.0">
+  <TaskDefinitions>
+    <Task ID="create_devurl_macro" Command="macro_create" MacroName="package_url" MacroValue="{devurl_TankSkinsMisc_ColoredPenetration_HAWG}"/>
+    <Task ID="create_file_name_macro" Command="macro_create" MacroName="file_name" MacroValue="{wotmod_TankSkinsMisc_ColoredPenetration_HAWG}"/>
+    <Task ID="create_mods_resmods_macro" Command="macro_create" MacroName="mods_or_res_mods" MacroValue="mods"/>
+    <Task ID="create_source_extract_recursive_macro" Command="macro_create" MacroName="source_extract_recursive" MacroValue=" "/>
+  </TaskDefinitions>
+</AutomationSequence>
