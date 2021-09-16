@@ -33,27 +33,29 @@
     <!-- download the modpack current zip file-->
     <Task ID="download_modpack" Command="package_download" FilePath="{working_folder_modpack}\{packageName}_ftp.zip"/>
 
+    <!-- create the path to extract the modpack files -->
+    <Task ID="create_final_package_directory_path" Command="create_directory" DirectoryPath="{working_folder_modpack}\contour_icons"/>
+
+    <!-- extract the modpack files -->
+    <!-- 'e' means to extract (to the work direcotry, without using the zip file's paths), and -r means to recurse into the zip folder's directories -->
+    <Task ID="extract_modpack" Command="shell_exec" Filename="7z.exe" Wd="{working_folder_modpack}" Cmd="e {packageName}_ftp.zip *.png -r -o&quot;{working_folder_modpack}\contour_icons&quot;"/>
+
     <!-- create the path to extract the source files -->
     <Task ID="create_final_package_directory_path" Command="create_directory" DirectoryPath="{working_folder_package}\zip\res_mods\versiondir\gui\maps\icons\vehicle\contour"/>
 
-    <!-- extract the source and modpack wotmod files-->
+    <!-- extract the source files -->
     <!-- 'e' means to extract (to the work direcotry, without using the zip file's paths), and -r means to recurse into the zip folder's directories -->
     <Task ID="extract_source" Command="shell_exec" Filename="7z.exe" Wd="{working_folder_source}" Cmd="e {packageName}_source.zip *.png -r -o&quot;{working_folder_package}\zip\res_mods\versiondir\gui\maps\icons\vehicle\contour&quot;"/>
 
+    <!-- compare the hashes of each of the png files. if the number of files is different, then log it as a needed update -->
+    <Task ID="compare_start" Command="compare_start"/>
+    <Task ID="compare_contour_icons" Command="directory_compare_count" SearchPattern="*" Recursive="False"
+      DirectoryComparePathA="{working_folder_modpack}\contour_icons"
+      DirectoryComparePathB="{working_folder_package}\zip\res_mods\versiondir\gui\maps\icons\vehicle\contour"/>
+    <Task ID="compare_end" Command="compare_end"/>
+
     <!-- create the new zip -->
     <Task ID="create_zip" Command="shell_exec" Filename="7z.exe" Wd="{working_folder_package}\zip" Cmd="a -tzip -mx=9 -r final.zip res_mods"/>
-
-    <!-- compare the hashes of the complete packages. this is done in 3 steps:
-      1. write the compare_start task (resets the internal counters for matches and differences)
-      2. use compare tasks to compare files on disk or an entry in a zip file
-      3. write the compare_end task (evaluates the counts from the compare tasks)
-          if compare_end finds 0 differences, then the automation process will end early (nothing to update)
-
-      By using the directory_compare task, if the number of swf's change between the modpack and source, something has changed in the structure and we need to account for it
-    -->
-    <Task ID="compare_start" Command="compare_start"/>
-    <Task ID="compare_contour_icons" Command="file_compare" FileA="{working_folder_modpack}\{packageName}_ftp.zip" FileB="{working_folder_package}\zip\final.zip"/>
-    <Task ID="compare_end" Command="compare_end"/>
 
     <!-- update version field in database -->
     <Task ID="update_package_version" Command="update_package_property" PropertyName="Version" PropertyValue="{clientVersion}" TargetPackageUID="{target_package_uid}"/>
