@@ -222,6 +222,12 @@
   
   
   <!-- Category Garage Graphics START -->
+  <AutomationSequence UID="w79wjdc0ctoptiq3" packageName="GarageGraphics_BattleResults_CustomWindow_HAWGDarthVader" path="GarageGraphics/BattleResults/GarageGraphics_BattleResults_CustomWindow_HAWGDarthVader.xml" />
+  <AutomationSequence UID="3bxjig8k68ix4mfg" packageName="GarageGraphics_BattleResults_CustomWindow_HAWGGrim" path="GarageGraphics/BattleResults/GarageGraphics_BattleResults_CustomWindow_HAWGGrim.xml" />
+  <AutomationSequence UID="hi9rin0ou36bqvt6" packageName="GarageGraphics_BattleResults_CustomWindow_HAWGPinUps" path="GarageGraphics/BattleResults/GarageGraphics_BattleResults_CustomWindow_HAWGPinUps.xml" />
+  <AutomationSequence UID="ji2iae6zcwv8t6i3" packageName="GarageGraphics_BattleResults_CustomWindow_HAWGCobra" path="GarageGraphics/BattleResults/GarageGraphics_BattleResults_CustomWindow_HAWGCobra.xml" />
+  <AutomationSequence UID="s6ngyv0da7awowb8" packageName="GarageGraphics_BattleResults_CustomWindow_HAWGTanks" path="GarageGraphics/BattleResults/GarageGraphics_BattleResults_CustomWindow_HAWGTanks.xml" />
+  <AutomationSequence UID="eza7yp8amcli1nxi" packageName="GarageGraphics_BattleResults_CustomWindow_HAWGSkulls" path="GarageGraphics/BattleResults/GarageGraphics_BattleResults_CustomWindow_HAWGSkulls.xml" />
   <AutomationSequence UID="wgze5olfl2k7rxv8" packageName="GarageGraphics_UI_GIRLSundPANZER" path="GarageGraphics/GarageGraphics_UI_GIRLSundPANZER.xml" />
   <AutomationSequence UID="ntfgi7r1nr6iw633" packageName="GarageGraphics_FlagsLib_GuP" path="GarageGraphics/GarageGraphics_FlagsLib_GuP.xml" />
   <AutomationSequence UID="7laip9tmg3s77mzg" packageName="GarageGraphics_FlagsLib_HAWGSmallBottom" path="GarageGraphics/FlagsLib/GarageGraphics_FlagsLib_HAWGSmallBottom.xml" />

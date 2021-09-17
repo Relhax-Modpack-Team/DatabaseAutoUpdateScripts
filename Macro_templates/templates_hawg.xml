@@ -32,5 +32,8 @@
 
     <Macro Name="devurl_TankSkinsMisc_ColoredPenetration_HAWG" Value="https://wgmods.net/2030/"/>
     <Macro Name="wotmod_TankSkinsMisc_ColoredPenetration_HAWG" Value="Hawg_PaintBall.wotmod"/>
+
+    <Macro Name="devurl_GarageGraphics_BattleResults_CustomWindow_HAWG" Value="https://wgmods.net/1815/"/>
+    <Macro Name="wotmod_GarageGraphics_BattleResults_CustomWindow_HAWG" Value="Hawg_commonStats.wotmod"/>
   </Macros>
 </AutomationSequence>
