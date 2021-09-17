@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<AutomationSequence documentVersion="1.0">
+  <!-- Specify macros here -->
+  <Macros>
+    <Macro Name="wotmod_name" Value="wotinspector.com.armor_inspector"/>
+  </Macros>
+  <TaskDefinitions>
+  
+    <!-- create work dirs and macros -->
+    <Task ID="import_createWD" Command="import_task" RepoUrlPath="Task_templates/create_workDirs_macros.xml"/>
+    
+    <!-- get dl-url -->
+    <Task ID="import_getDLUrl" Command="import_task" RepoUrlPath="Task_templates/getDownloadUrl_THISindex0.xml"/>
+
+    <!-- download the source zip file, which *could* implicitly creates the directories, if we didn't define them first -->
+    <Task ID="import_downloadSource" Command="import_task" RepoUrlPath="Task_templates/downloadSourceBrowser_WGMods.xml"/>
+    
+    <!-- download current modpack zip file -->
+    <Task ID="import_downloadModpack" Command="import_task" RepoUrlPath="Task_templates/downloadModpack_PackageNameZip.xml"/>
+  
+  
+    <!-- extract the source wotmod files-->
+    <!-- <Task ID="extract_source" Command="shell_exec" Filename="7z.exe" Wd="{working_folder_source}" Cmd="e {last_download_filename} {wotmod_name}*.wotmod -o&quot;{working_folder_source}\mods\versiondir\&quot; -r"/> -->
+    
+    <!-- download the modpack current zip file, which implicitly creates the directories  -->
+    <!-- <Task ID="download_modpack" Command="package_download" FilePath="{working_folder_modpack}\{packageName}.zip"/> -->
+    <!-- extract the modpack wotmod files-->
+    <Task ID="extract_modpack" Command="shell_exec" Filename="7z.exe" Wd="{working_folder_modpack}" Cmd="x {packageName}.zip {wotmod_name}*.wotmod -r"/>
+
+    <!-- get the current version of the mod by string split and file search -->
+    <Task ID="get_wotmod_filename" Command="directory_search" DirectoryPath="{working_folder_source}" SearchPattern="{wotmod_name}*.wotmod" Recursive="False" MacroPrefix="get_wotmod_filename_results"/>
+    <Task ID="get_mod_version_1" Command="macro_string_split_filename" MacroName="mod_version_1" Index="0" SplitCharacters="wotinspector.com.armor_inspector." FilePath="{get_wotmod_filename_results_0}"/>
+    <Task ID="get_mod_version_2" Command="macro_string_split_macro" MacroName="mod_version_2" Index="0" SplitCharacters=".wotmod" InputText="{mod_version_1}"/>
+
+    <!-- Create the wotmod names -->
+    <Task ID="create_wotmod_source_macro" Command="macro_create" MacroName="wotmod_source" MacroValue="{wotmod_name}.{mod_version_2}.wotmod"/>
+    <Task ID="create_wotmod_modpack_macro" Command="macro_create" MacroName="wotmod_modpack" MacroValue="{wotmod_name}.{version}.wotmod"/>
+
+    <!-- compare the hashes-->
+    <Task ID="compare_start" Command="compare_start"/>
+    <!-- Compare wotmod file -->
+    <Task ID="compare_wotmod" Command="file_compare"
+      FileA="{working_folder_source}\{wotmod_source}"
+      FileB="{working_folder_modpack}\mods\versiondir\{wotmod_modpack}"/>
+    <Task ID="compare_end" Command="compare_end"/>
+
+    <!-- if the comparison is good, meaning there is an update, then we want to copy the source into a new 'final' folder and upload -->
+    <Task ID="move_source_post_compare" Command="file_copy" SourceFilePath="{working_folder_source}\{wotmod_source}" DestinationFilePath="{workDirectory}\package\mods\versiondir\{wotmod_source}"/>
+
+    <!-- create the new zip
+      "a" is to add to an archive. In this case because it's the first file, the archive is created for the first time.
+      -tzip is to create a zip format archive
+      -mx=9 is setting the level of compression to 9 (scale goes from 0 [store] to 9[ultra])
+      -r recurse subdirectories
+    -->
+    <Task ID="create_zip" Command="shell_exec" Filename="7z.exe" Wd="{workDirectory}\package" Cmd="{7z_createFinalZip}"/>
+
+    <!-- update version field in database (using clientVersion for this mod) -->
+    <Task ID="update_package_version" Command="update_package_property" PropertyName="Version" PropertyValue="{mod_version_2}" />
+
+    <!-- upload to the server -->
+    <Task ID="upload_zip" Command="package_upload" FilePath="{workDirectory}\package\final.zip" ZipFileName="{packageName}_v{mod_version_2}_{clientVersion}_{date}.zip"/>
+
+
+  </TaskDefinitions>
+</AutomationSequence>
