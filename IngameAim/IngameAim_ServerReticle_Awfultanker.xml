@@ -44,7 +44,7 @@
     <Task ID="compare_end" Command="compare_end"/>
 
     <!-- if the comparison is good, meaning there is an update, then we want to copy the source into a new 'final' folder and upload -->
-    <Task ID="copy_source_post_compare" Command="directory_copy" DirectoryPath="{working_folder_source}\{dynamic_folder_name_2}" SearchPattern="*" Recursive="true" DestinationPath="{working_folder_package}\versiondir"/>
+    <Task ID="copy_source_post_compare" Command="directory_copy" DirectoryPath="{working_folder_source}\{dynamic_folder_name_2}" SearchPattern="*" Recursive="true" DestinationPath="{working_folder_package}\res_mods\versiondir"/>
 
     <!-- create the new zip -->
     <Task ID="create_zip" Command="shell_exec" Filename="7z.exe" Wd="{working_folder_package}" Cmd="{7z_createFinalZip}"/>
