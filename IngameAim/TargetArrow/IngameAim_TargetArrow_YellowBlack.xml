@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <AutomationSequence documentVersion="1.0">
   <Macros>
-    <Macro Name="file_path" Value="&quot;TargetMarkers_\Mod Files\9.  ! Yellow - Black\&quot;"/>
+    <Macro Name="file_path" Value="&quot;TargetMarkers_\Mod Files\09. ! Yellow - Black\&quot;"/>
   </Macros>
   <TaskDefinitions>
     <!-- import hawg macro lib -->
