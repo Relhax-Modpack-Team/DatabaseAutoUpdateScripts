@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<AutomationSequence documentVersion="1.0">
+  <!-- Specify macros here -->
+  <Macros>
+  </Macros>
+
+  <!-- Specify the tasks to run -->
+  <TaskDefinitions>
+
+    <!-- import tasks -->
+    <Task ID="import_createWorkDirs" Command="import_task" RepoUrlPath="Task_templates/create_workDirs_macros.xml"/>
+
+    <!-- import tasks -->
+    <Task ID="import_getUrl" Command="import_task" RepoUrlPath="Task_templates/getDownloadUrl_THISindex0.xml"/>
+
+    <!-- Get the MediaFire folder that contains the package we want to download. Note we can set the length and startIndex to -1 and 0 respectivly to effectivly get the entire string -->
+    <Task ID="get_url_relative_path" Command="macro_substring_html" MacroName="relative_url_path" Length="-1" StartIndex="0" Url="{download_url}" HtmlPath="{awfultanker_xpath}"/>
+
+    <!-- create the macro to use for the full download. create it by combining the base url for the website and the xpath result -->
+    <Task ID="create_download_url_macro" Command="macro_create" MacroName="download_url_full" MacroValue="{awefultanker_url_base}{relative_url_path}"/>
+
+    <!-- download the source package -->
+    <Task ID="download_mod_source" Command="download_static" Url="{download_url_full}" DestinationPath="{working_folder_source}\{last_download_filename}"/>
+
+    <!-- import task to download the package url from the ftp database -->
+    <Task ID="import_dlModpack" Command="import_task" RepoUrlPath="Task_templates/downloadModpack_PackageNameZip.xml"/>
+
+    <!-- extract the source package -->
+    <Task ID="extract_source" Command="shell_exec" Filename="7z.exe" Wd="{working_folder_source}" Cmd="x {last_download_filename}"/>
+
+    <!-- extract the modpack package -->
+    <Task ID="extract_modpack" Command="shell_exec" Filename="7z.exe" Wd="{working_folder_modpack}" Cmd="x {packageName}.zip"/>
+
+    <!-- get the folder name by doing a file search and getting the first directory slash -->
+    <Task ID="get_package_folder_name_1" Command="directory_search" DirectoryPath="{working_folder_source}" SearchPattern="*" Recursive="True" MacroPrefix="filename_results"/>
+    <Task ID="get_package_folder_name_2" Command="macro_string_split_macro" MacroName="dynamic_folder_name_1" Index="0" SplitCharacters="{working_folder_source}\" InputText="{filename_results_2}"/>
+    <Task ID="get_package_folder_name_3" Command="macro_string_split_macro" MacroName="dynamic_folder_name_2" Index="0" SplitCharacters="\" InputText="{dynamic_folder_name_1}"/>
+
+    <Task ID="compare_start" Command="compare_start"/>
+    <!-- Compare wotmod and config file -->
+    <Task ID="compare_python_script" Command="file_compare"
+      FileA="{working_folder_source}\{dynamic_folder_name_2}\scripts\client\gui\mods\mod_AT_SessionStats.pyc"
+      FileB="{working_folder_modpack}\res_mods\versiondir\scripts\client\gui\mods\mod_AT_SessionStats.pyc"/>
+    <Task ID="compare_end" Command="compare_end"/>
+
+    <!-- if the comparison is good, meaning there is an update, then we want to copy the source into a new 'final' folder and upload -->
+    <Task ID="copy_source_post_compare" Command="directory_copy" DirectoryPath="{working_folder_source}\{dynamic_folder_name_2}" SearchPattern="*" Recursive="true" DestinationPath="{working_folder_package}\res_mods\versiondir"/>
+    <Task ID="copy_source_post_compare" Command="directory_copy" DirectoryPath="{working_folder_source}\configs" SearchPattern="*" Recursive="true" DestinationPath="{working_folder_package}\res_mods\configs"/>
+
+    <!-- create the new zip -->
+    <Task ID="create_zip" Command="shell_exec" Filename="7z.exe" Wd="{working_folder_package}" Cmd="{7z_createFinalZip}"/>
+
+    <!-- upload to the server -->
+    <Task ID="upload_zip" Command="package_upload" FilePath="{working_folder_package}\final.zip" ZipFileName="{packageName}_{clientVersion}_{date}.zip"/>
+  </TaskDefinitions>
+
+</AutomationSequence>
