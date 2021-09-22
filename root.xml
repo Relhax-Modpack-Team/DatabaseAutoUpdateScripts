@@ -261,6 +261,8 @@
   <!-- Category Statistics END   -->
 
   <!-- Category Sound Mods START -->
+  <AutomationSequence UID="lc9q6q6m1kl6dukc" packageName="Sounds_Engines_WarMod" path="SoundMods/Sounds_Engines_WarMod.xml" />
+  <AutomationSequence UID="tq4dhn2b8t8k80pc" packageName="Sounds_Guns_WarMod" path="SoundMods/Sounds_Guns_WarMod.xml" />
   <!-- Category Sound Mods END   -->
 
   <!-- Category 6thSense START -->
