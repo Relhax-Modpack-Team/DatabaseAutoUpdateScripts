@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <AutomationSequence documentVersion="1.0">
   <Macros>
-    <Macro Name="file_path" Value="&quot;Minimap_Lab_\Mod Files\Type 2\4. Orange\&quot;"/>
+    <Macro Name="file_path" Value="&quot;Minimap_Lab_\Mod Files\_Type 2\12. Orange\&quot;"/>
   </Macros>
   <TaskDefinitions>
     <!-- import hawg macro lib -->
