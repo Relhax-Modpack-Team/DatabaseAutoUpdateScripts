@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <AutomationSequence documentVersion="1.0">
   <Macros>
-    <Macro Name="file_path" Value="&quot;8_Carousel_Flags_\02 Full\&quot;"/>
+    <Macro Name="file_path" Value="&quot;8_Carousel_Flags_\02. Full\&quot;"/>
   </Macros>
   <TaskDefinitions>
     <!-- import hawg macro lib -->
