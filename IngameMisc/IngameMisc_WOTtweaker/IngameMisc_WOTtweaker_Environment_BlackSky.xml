@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <AutomationSequence documentVersion="1.0">
   <Macros>
-    <Macro Name="file_path" Value="&quot;FPS_\6. Black_Skys\1.  Black Sky Only\&quot;"/>
+    <Macro Name="file_path" Value="&quot;FPS_\6. Black_Skys\1. Black Sky Only\&quot;"/>
   </Macros>
   <TaskDefinitions>
     <!-- import hawg macro lib -->
