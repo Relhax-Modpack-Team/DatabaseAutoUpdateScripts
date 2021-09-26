@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<AutomationSequence documentVersion="1.0">
+  <!-- 
+    Author:  elektrosmoker
+    Created: 2021-09-26
+    Required macros:
+    {working_folder_package}     - the working directory of the final zip file package created to be uploaded
+    {contourIconsTempDir}       - name of the temporary folder used for TIM. must be inside the Relhax-directory
+    {contourIconsName}       - name of the subfolder created by TIM. usually named after mod
+    {finalIconsDir}       - this is where the icon files are getting saved
+    {clientVersion}       - current client version
+   -->
+  <TaskDefinitions>
+    <!-- Import the create work dirs macros -->
+    <Task ID="import_create_work_dir_tasks" Command="import_task" RepoUrlPath="Task_templates/create_workDirs_macros.xml"/>
+
+    <!-- if the comparison is good, meaning there is an update, then we want to copy the source into a new 'final' folder and upload -->
+    <Task ID="copy_contourIcons" Command="directory_copy" DirectoryPath="{applicationPath}\{contourIconsTempDir}\{contourIconsName}\res_mods\{clientVersion}\gui\maps\icons\vehicle\contour" SearchPattern="*" Recursive="true" DestinationPath="{working_folder_package}\{finalIconsDir}"/>
+
+    <!-- create the new zip -->
+    <Task ID="create_zip" Command="shell_exec" Filename="7z.exe" Wd="{working_folder_package}" Cmd="{7z_createFinalZip}"/>
+
+    <!-- update version field in database -->
+    <Task ID="update_package_version" Command="update_package_property" PropertyName="Version" PropertyValue="{clientVersion}" TargetPackageUID="this"/>
+
+    <!-- upload to the server -->
+    <Task ID="upload_zip" Command="package_upload" FilePath="{working_folder_package}\final.zip" ZipFileName="{packageName}_{clientVersion}_{date}.zip"/>
+    </TaskDefinitions>
+
+</AutomationSequence>

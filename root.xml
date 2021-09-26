@@ -124,6 +124,20 @@
   <AutomationSequence UID="udjr1ikkpkqha0lz" packageName="ContourIcons_Pogs_Clear_MaxFsrVr" path="ContourTankIcons/ContourIcons_Pogs_Clear_MaxFsrVr.xml" />
   <AutomationSequence UID="os1ytma3j3r7lt3c" packageName="ContourIcons_Pogs_Clear_MaxFsrVrRld" path="ContourTankIcons/ContourIcons_Pogs_Clear_MaxFsrVrRld.xml" />
   <AutomationSequence UID="e6es9lm5iwc6lhic" packageName="ContourIcons_Pogs_DaMatz" path="ContourTankIcons/ContourIcons_Pogs_DaMatz.xml"/>
+    
+  <AutomationSequence UID="finweabekvucb31b" packageName="ContourIcons_APCRNOOB_Standard" path="ContourTankIcons/ContourIcons_APCRNOOB_Standard.xml"/>
+  <AutomationSequence UID="mmbied7yebokm7qo" packageName="ContourIcons_APCRNOOB_miniV2" path="ContourTankIcons/ContourIcons_APCRNOOB_miniV2.xml"/>
+  <AutomationSequence UID="b0ocucj0d39jmv4n" packageName="ContourIcons_Aslain" path="ContourTankIcons/ContourIcons_Aslain.xml"/>
+  <AutomationSequence UID="vsjd2ell6fw8yb00" packageName="ContourIcons_Blackspy_Original" path="ContourTankIcons/ContourIcons_Blackspy_Original.xml"/>
+  <AutomationSequence UID="p60luib41yxx94id" packageName="ContourIcons_Blackspy_Yasha" path="ContourTankIcons/ContourIcons_Blackspy_Yasha.xml"/>
+  <AutomationSequence UID="infkp273tlybfb7v" packageName="ContourIcons_elektrosmoker" path="ContourTankIcons/ContourIcons_elektrosmoker.xml"/>
+  <AutomationSequence UID="81se51k5rejbfymu" packageName="ContourIcons_HARDicons" path="ContourTankIcons/ContourIcons_HARDicons.xml"/>
+  <AutomationSequence UID="1p5n7f095xe97ugx" packageName="ContourIcons_J1mB0_ReWorked" path="ContourTankIcons/ContourIcons_J1mB0_ReWorked.xml"/>
+  <AutomationSequence UID="nuyqw3hjg7qvg7ah" packageName="ContourIcons_TheIllusion_BIG" path="ContourTankIcons/ContourIcons_TheIllusion_BIG.xml"/>
+  <AutomationSequence UID="0j5542nkf3jcgjig" packageName="ContourIcons_TheIllusion_SMALL" path="ContourTankIcons/ContourIcons_TheIllusion_SMALL.xml"/>
+  
+  <AutomationSequence UID="2mbvcocccfyw2cxl" packageName="TankIcons_Carousel_Premium_elektrosmoker" path="ContourTankIcons/TankIcons_Carousel_Premium_elektrosmoker.xml"/>
+  <AutomationSequence UID="moltt0zns0nhm5z9" packageName="TankIcons_TechTree_elektrosmoker" path="ContourTankIcons/TankIcons_TechTree_elektrosmoker.xml"/>
   <!-- Category Contour & Tank Icons   -->
    
   <!-- Category Ingame Aim START -->
@@ -277,4 +291,5 @@
   <AutomationSequence UID="qhd1ws0fqnnci6jo" packageName="TankSkinsMisc_ColoredPenetration_HAWGreg" path="TankSkinsMisc/TankSkinsMisc_ColoredPenetration_HAWGreg.xml"/>
   <AutomationSequence UID="36kg4s6gpkftihqn" packageName="TankSkinsMisc_ColoredPenetration_HAWGcolorblind" path="TankSkinsMisc/TankSkinsMisc_ColoredPenetration_HAWGcolorblind.xml"/>
   <!-- Category Task SKins Misc END   -->
+  
 </root.xml>

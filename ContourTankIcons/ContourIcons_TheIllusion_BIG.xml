@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<AutomationSequence documentVersion="1.0">
+  <!-- Specify macros here -->
+  <!-- 
+    Author:  elektrosmoker
+    Created: 2021-09-26
+    Required macros:
+    {working_folder_package}     - the working directory of the final zip file package created to be uploaded
+    {contourIconsTempDir}       - name of the temporary folder used for TIM. must be inside the Relhax-directory (as example, for me it is: \RelhaxModpack\RelhaxWorkDir)
+    {contourIconsName}       - name of the subfolder created by TIM. usually named after mod
+    {finalIconsDir}       - this is where the icon files are getting saved
+    {clientVersion}       - current client version
+   -->
+  <Macros>
+    <Macro Name="contourIconsTempDir" Value="RelhaxWorkDir"/>
+    <Macro Name="contourIconsName" Value="ContourIcons_TheIllusion_BIG (theillusion)"/>
+  <!-- use next line for ContourIcons -->
+    <Macro Name="finalIconsDir" Value="res_mods\versiondir\gui\maps\icons\vehicle\contour"/>
+  <!-- use next line for TankIcons_Carousel   -->
+    <!-- <Macro Name="finalIconsDir" Value="res_mods\versiondir\gui\maps\icons\vehicle"/> -->
+  <!-- use next line for TankIcons_TechTree -->
+    <!-- <Macro Name="finalIconsDir" Value="res_mods\versiondir\gui\maps\icons\vehicle\small"/> -->
+  </Macros>
+
+  <!-- Specify the tasks to run -->
+  <TaskDefinitions>
+    <!-- Import the create work dirs macros -->
+    <Task ID="importTask_TIMfirstTHENthis" Command="import_task" RepoUrlPath="Task_templates/ContourTankIcons\ContourIcons_TIMfirstTHENthis.xml"/>
+  </TaskDefinitions>
+
+</AutomationSequence>
