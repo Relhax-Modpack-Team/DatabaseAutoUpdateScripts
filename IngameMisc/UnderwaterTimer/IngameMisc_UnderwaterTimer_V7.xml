@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <AutomationSequence documentVersion="1.0">
   <Macros>
-    <Macro Name="file_path" Value="&quot;UnderWater_\Mod Files\7\&quot;"/>
+    <Macro Name="file_path" Value="&quot;UnderWater_\Mod Files\07\&quot;"/>
   </Macros>
   <TaskDefinitions>
     <!-- import hawg macro lib -->
