@@ -35,5 +35,8 @@
 
     <Macro Name="devurl_GarageGraphics_BattleResults_CustomWindow_HAWG" Value="https://wgmods.net/1815/"/>
     <Macro Name="wotmod_GarageGraphics_BattleResults_CustomWindow_HAWG" Value="Hawg_commonStats.wotmod"/>
+
+    <Macro Name="devurl_DamagePanels_HawgGlass" Value="https://wgmods.net/2087/"/>
+    <Macro Name="wotmod_DamagePanels_HawgGlass" Value="Hawg_damagePanel.wotmod"/>
   </Macros>
 </AutomationSequence>

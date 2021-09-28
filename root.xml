@@ -115,7 +115,7 @@
   <AutomationSequence UID="m28xjpeft9tz5wct" packageName="Crosshairs_Strategic_Taipan_v1" path="Crosshairs/Strategic/Crosshairs_Strategic_Taipan_v1.xml" />
   
   <!-- <AutomationSequence UID="vqsv678trj8n0m4y" packageName="Crosshairs_gunConstraints" path="Crosshairs/Crosshairs_gunConstraints.xml" /> -->
-  <!-- Category Crosshairs END   -->
+  <!-- Category Crosshairs END -->
 
   <!-- Category Contour & Tank Icons START -->
   <AutomationSequence UID="alpqtgizv83szkpm" packageName="ContourIcons_Pogs_Clear_SIMPLE" path="ContourTankIcons/ContourIcons_Pogs_Clear_SIMPLE.xml" />
@@ -138,8 +138,15 @@
   
   <AutomationSequence UID="2mbvcocccfyw2cxl" packageName="TankIcons_Carousel_Premium_elektrosmoker" path="ContourTankIcons/TankIcons_Carousel_Premium_elektrosmoker.xml"/>
   <AutomationSequence UID="moltt0zns0nhm5z9" packageName="TankIcons_TechTree_elektrosmoker" path="ContourTankIcons/TankIcons_TechTree_elektrosmoker.xml"/>
-  <!-- Category Contour & Tank Icons   -->
-   
+  <!-- Category Contour & Tank Icons END -->
+
+  <!-- Category Damage Logs & Panels START -->
+  <AutomationSequence UID="dxbut7jxn1k6uir2" packageName="DamagePanels_HawgGlass" path="DamageLogsPanels/DamagePanels_HawgGlass.xml"/>
+  <AutomationSequence UID="qmi917pymxcnuty2" packageName="DamagePanels_HawgGlassAngleIndicatorOuter" path="DamageLogsPanels/DamagePanels_HawgGlassAngleIndicatorOuter.xml"/>
+  <AutomationSequence UID="k1zhtbfhhhed5mgf" packageName="DamagePanels_HawgGlassAngleIndicatorInnerFull" path="DamageLogsPanels/DamagePanels_HawgGlassAngleIndicatorInnerFull.xml"/>
+  <AutomationSequence UID="xq6v1aligd6v5yof" packageName="DamagePanels_HawgGlassAngleIndicatorInnerLite" path="DamageLogsPanels/DamagePanels_HawgGlassAngleIndicatorInnerLite.xml"/>
+  <!-- Category Damage Logs & Panels END -->
+
   <!-- Category Ingame Aim START -->
   <AutomationSequence UID="5ys1yd14xd9nenj0" packageName="IngameAim_autoloaderHelper" path="IngameAim/IngameAim_autoloaderHelper.xml"/>
   <AutomationSequence UID="jm0usfegzl8mic1e" packageName="IngameAim_BattleAssistant" path="IngameAim/IngameAim_BattleAssistant.xml" />
