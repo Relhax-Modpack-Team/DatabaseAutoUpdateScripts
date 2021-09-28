@@ -250,6 +250,9 @@
   <AutomationSequence UID="ji2iae6zcwv8t6i3" packageName="GarageGraphics_BattleResults_CustomWindow_HAWGCobra" path="GarageGraphics/BattleResults/GarageGraphics_BattleResults_CustomWindow_HAWGCobra.xml" />
   <AutomationSequence UID="s6ngyv0da7awowb8" packageName="GarageGraphics_BattleResults_CustomWindow_HAWGTanks" path="GarageGraphics/BattleResults/GarageGraphics_BattleResults_CustomWindow_HAWGTanks.xml" />
   <AutomationSequence UID="eza7yp8amcli1nxi" packageName="GarageGraphics_BattleResults_CustomWindow_HAWGSkulls" path="GarageGraphics/BattleResults/GarageGraphics_BattleResults_CustomWindow_HAWGSkulls.xml" />
+  <AutomationSequence UID="c18z25fqjfk6w14m" packageName="GarageGraphics_BattleResults_TankIcon_NationEmblem" path="GarageGraphics/BattleResults/GarageGraphics_BattleResults_TankIcon_NationEmblem.xml" />
+  <AutomationSequence UID="6fp6t959eymw8um0" packageName="GarageGraphics_BattleResults_TankIcon_BeachParty" path="GarageGraphics/BattleResults/GarageGraphics_BattleResults_TankIcon_BeachParty.xml" />
+  <AutomationSequence UID="j4wl19badued86tz" packageName="GarageGraphics_BattleResults_TankIcon_NationFlag" path="GarageGraphics/BattleResults/GarageGraphics_BattleResults_TankIcon_NationFlag.xml" />
   <AutomationSequence UID="wgze5olfl2k7rxv8" packageName="GarageGraphics_UI_GIRLSundPANZER" path="GarageGraphics/GarageGraphics_UI_GIRLSundPANZER.xml" />
   <AutomationSequence UID="ntfgi7r1nr6iw633" packageName="GarageGraphics_FlagsLib_GuP" path="GarageGraphics/GarageGraphics_FlagsLib_GuP.xml" />
   <AutomationSequence UID="7laip9tmg3s77mzg" packageName="GarageGraphics_FlagsLib_HAWGSmallBottom" path="GarageGraphics/FlagsLib/GarageGraphics_FlagsLib_HAWGSmallBottom.xml" />

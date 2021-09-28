@@ -38,5 +38,7 @@
 
     <Macro Name="devurl_DamagePanels_HawgGlass" Value="https://wgmods.net/2087/"/>
     <Macro Name="wotmod_DamagePanels_HawgGlass" Value="Hawg_damagePanel.wotmod"/>
+
+    <Macro Name="wotmod_GarageGraphics_BattleResults_TankIcon" Value="Hawg_BattleResults_New.wotmod"/>
   </Macros>
 </AutomationSequence>

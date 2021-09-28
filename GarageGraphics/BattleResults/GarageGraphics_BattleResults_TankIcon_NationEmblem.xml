@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<AutomationSequence documentVersion="1.0">
+  <Macros>
+    <Macro Name="file_path" Value="&quot;Emblem_Battle_Results_\&quot;"/>
+  </Macros>
+  <TaskDefinitions>
+    <!-- import hawg macro lib -->
+    <Task ID="import_macros" Command="import_macro" RepoUrlPath="Macro_templates/templates_hawg.xml"/>
+
+    <!-- Dynamically get the root folder on MediaFire from the top package -->
+    <Task ID="get_download_page_url" Command="retrieve_package_property" PropertyName="DevURLList" TargetPackageUID="this" MacroSaveName="package_url" PropertyIndex="1"/>
+
+    <!-- import task list specific to GarageGraphics_BattleResults_TankIcon -->
+    <Task ID="import_tasks_GarageGraphics_BattleResults_TankIcon" Command="import_task" RepoUrlPath="Task_templates/GarageGraphics/GarageGraphics_BattleResults_TankIcon.xml"/>
+
+    <!-- import tasks -->
+    <Task ID="import_tasks" Command="import_task" RepoUrlPath="Task_templates/single_wotmod_from_wgmods.xml"/>
+  </TaskDefinitions>
+</AutomationSequence>
