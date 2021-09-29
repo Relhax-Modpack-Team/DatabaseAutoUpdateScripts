@@ -138,6 +138,16 @@
   
   <AutomationSequence UID="2mbvcocccfyw2cxl" packageName="TankIcons_Carousel_Premium_elektrosmoker" path="ContourTankIcons/TankIcons_Carousel_Premium_elektrosmoker.xml"/>
   <AutomationSequence UID="moltt0zns0nhm5z9" packageName="TankIcons_TechTree_elektrosmoker" path="ContourTankIcons/TankIcons_TechTree_elektrosmoker.xml"/>
+
+  <AutomationSequence UID="ib6gkejtqmg5pppw" packageName="TankIcons_Carousel_Regular_DEbrandedCamo" path="ContourTankIcons/TankIcons_Carousel_Regular_DEbrandedCamo.xml"/>
+  <AutomationSequence UID="cponbi9cl5iu0i79" packageName="TankIcons_Carousel_Regular_DEbrandedDefault" path="ContourTankIcons/TankIcons_Carousel_Regular_DEbrandedDefault.xml"/>
+  <AutomationSequence UID="96p3rkhyddx1baal" packageName="TankIcons_Carousel_Premium_DebrandedCamo" path="ContourTankIcons/TankIcons_Carousel_Premium_DebrandedCamo.xml"/>
+  <AutomationSequence UID="gadprndi8tr8mezy" packageName="TankIcons_Carousel_Premium_DebrandedLightGold" path="ContourTankIcons/TankIcons_Carousel_Premium_DebrandedLightGold.xml"/>
+
+  <AutomationSequence UID="2n42n4ex50yfigz3" packageName="TankIcons_TechTree_DEbrandedV1DefaultYaya" path="ContourTankIcons/TankIcons_TechTree_DEbrandedV1DefaultYaya.xml"/>
+  <AutomationSequence UID="370eaics9uiw122v" packageName="TankIcons_TechTree_DEbrandedV2PremiumLightColored" path="ContourTankIcons/TankIcons_TechTree_DEbrandedV2PremiumLightColored.xml"/>
+  <AutomationSequence UID="gw7tiiit8rae1eav" packageName="TankIcons_TechTree_DEbrandedV2PremiumLightDEbranded" path="ContourTankIcons/TankIcons_TechTree_DEbrandedV2PremiumLightDEbranded.xml"/>
+  <AutomationSequence UID="tld8qhot8n2w1qhv" packageName="TankIcons_TechTree_DEbrandedV2PremiumLightYaya" path="ContourTankIcons/TankIcons_TechTree_DEbrandedV2PremiumLightYaya.xml"/>
   <!-- Category Contour & Tank Icons END -->
 
   <!-- Category Damage Logs & Panels START -->

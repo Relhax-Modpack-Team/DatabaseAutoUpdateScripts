@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<AutomationSequence documentVersion="1.0">
+  <!-- ContourIcons_Pogs_base.xml
+    Author:  Willster419
+    Created: 2021-09-18
+    This sequence template is the base for all DEbranded's icon mods (tank and contour)
+    Required macros:
+    {working_folder_source}      - the working directory for all operation involving the source side of the files
+   -->
+  <TaskDefinitions>
+    <!-- Dynamically get the root folder on MediaFire from the top package -->
+    <Task ID="get_download_page_url" Command="retrieve_package_property" PropertyName="DevURLList" TargetPackageUID="this" MacroSaveName="download_url" PropertyIndex="1"/>
+
+    <!-- Fetch source -->
+    <Task ID="download_mod_source" Command="download_browser" Url="{download_url}" DestinationPath="{working_folder_source}\{packageName}_source.zip" HtmlPath="{wgmods_xpath}" WaitTimeMs="500" WaitCounts="6" BrowserHeight="0" BrowserWidth="0"/>
+    </TaskDefinitions>
+
+</AutomationSequence>
