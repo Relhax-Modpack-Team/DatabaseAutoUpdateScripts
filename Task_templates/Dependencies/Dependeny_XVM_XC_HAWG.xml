@@ -12,13 +12,13 @@
     <Task ID="compare_start" Command="compare_start"/>
     <!-- Compare xc file -->
     <Task ID="compare_xc" Command="file_compare"
-      FileA="{working_folder_source}\REBIRTH_\Game Files\World_of_Tanks\res_mods\configs\xvm\REBIRTH\{xc_name}.xc"
+      FileA="{working_folder_source}\REBIRTH_\_Game Files\World_of_Tanks\res_mods\configs\xvm\REBIRTH\{xc_name}.xc"
       FileB="{working_folder_modpack}\res_mods\configs\xvm\xvmConfigFolderName\{xc_name}.xc"/>
     <Task ID="compare_end" Command="compare_end"/>
 
 
     <!-- Update modpack files -->
-    <Task ID="update_modpack" Command="file_copy" SourceFilePath="{working_folder_source}\REBIRTH_\Game Files\World_of_Tanks\res_mods\configs\xvm\REBIRTH\{xc_name}.xc" DestinationFilePath="{working_folder_package}\res_mods\configs\xvm\xvmConfigFolderName\{xc_name}.xc"/>
+    <Task ID="update_modpack" Command="file_copy" SourceFilePath="{working_folder_source}\REBIRTH_\_Game Files\World_of_Tanks\res_mods\configs\xvm\REBIRTH\{xc_name}.xc" DestinationFilePath="{working_folder_package}\res_mods\configs\xvm\xvmConfigFolderName\{xc_name}.xc"/>
 
 
     <!-- create the new zip -->
