@@ -151,6 +151,8 @@
   <!-- Category Contour & Tank Icons END -->
 
   <!-- Category Damage Logs & Panels START -->
+  <AutomationSequence UID="49rw6qojor6hzrzx" packageName="DamageLogs" path="DamageLogsPanels/DamageLogs.xml" />
+
   <AutomationSequence UID="dxbut7jxn1k6uir2" packageName="DamagePanels_HawgGlass" path="DamageLogsPanels/DamagePanels_HawgGlass.xml"/>
   <AutomationSequence UID="qmi917pymxcnuty2" packageName="DamagePanels_HawgGlassAngleIndicatorOuter" path="DamageLogsPanels/DamagePanels_HawgGlassAngleIndicatorOuter.xml"/>
   <AutomationSequence UID="k1zhtbfhhhed5mgf" packageName="DamagePanels_HawgGlassAngleIndicatorInnerFull" path="DamageLogsPanels/DamagePanels_HawgGlassAngleIndicatorInnerFull.xml"/>

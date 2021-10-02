@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<AutomationSequence documentVersion="1.0">
+  <Macros>
+    <Macro Name="file_path" Value="&quot;Лог урона +ремонт по центру&quot;\**\"/>
+    <Macro Name="file_name" Value="tv.protanki.damagelog.wotmod"/>
+    <Macro Name="mods_or_res_mods" Value="mods"/>
+    <Macro Name="mods_resMods_folders" Value="mods"/>
+    <Macro Name="source_extract_recursive" Value="-r"/>
+  </Macros>
+  <TaskDefinitions>
+    <!-- import tasks -->
+    <Task ID="import_macro_create_tasks" Command="import_task" RepoUrlPath="Task_templates/macro_create_work_dirs.xml"/>
+
+    <!-- get the dev url for the to be imported task -->
+    <Task ID="get_download_url" Command="retrieve_package_property" PropertyName="DevURLList" TargetPackageUID="this" MacroSaveName="package_url" PropertyIndex="0"/>
+
+    <!-- download the source package -->
+    <Task ID="download_mod_source" Command="download_html" Url="{package_url}" HtmlPath="{wotsite_xpath}" DestinationPath="{working_folder_source}\{packageName}.rar"/>
+
+    <!-- extract wotmod from source and modpack. note that the file_path macro has the slash to connect to file_name -->
+    <Task ID="extract_source" Command="shell_exec" Filename="7z.exe" Wd="{working_folder_source}" Cmd="e {packageName}.rar {file_path}{file_name} {source_extract_recursive}"/>
+
+    <!-- download and the modpack package -->
+    <Task ID="download_modpack" Command="package_download" FilePath="{working_folder_modpack}\{packageName}.zip"/>
+    <Task ID="extract_modpack" Command="shell_exec" Filename="7z.exe" Wd="{working_folder_modpack}" Cmd="e {packageName}.zip {file_name} -r"/>
+
+    <!-- Compare the source and modpack files -->
+    <Task ID="compare_start" Command="compare_start"/>
+    <Task ID="compare_wotmod" Command="file_compare" FileA="{working_folder_source}\{file_name}" FileB="{working_folder_modpack}\{file_name}"/>
+    <Task ID="compare_end" Command="compare_end"/>
+
+    <!-- Output the config files from the modpack to the final package (we use a custom english config) -->
+    <Task ID="extract_modpack_configs" Command="shell_exec" Filename="7z.exe" Wd="{working_folder_modpack}" Cmd="x {packageName}.zip *.cfg -r -o&quot;{working_folder_final}&quot;"/>
+
+    <!-- Create new folder path for final package -->
+    <Task ID="create_folderpath_final" Command="create_directory" DirectoryPath="{working_folder_final}\{mods_or_res_mods}\versiondir"/>
+
+    <!-- Update modpack files -->
+    <Task ID="copy_source_to_final" Command="file_copy" SourceFilePath="{working_folder_source}\{file_name}" DestinationFilePath="{working_folder_final}\{mods_or_res_mods}\versiondir\{file_name}"/>
+
+    <!-- Create final package -->
+    <Task ID="create_package_zip" Command="shell_exec" Filename="7z.exe" Wd="{working_folder_final}" Cmd="{7z_create_package_zipfile}"/>
+
+    <!-- upload to the server -->
+    <Task ID="upload_zip" Command="package_upload" FilePath="{working_folder_final}\final.zip" ZipFileName="{packageName}_{clientVersion}_{date}.zip"/>
+  </TaskDefinitions>
+</AutomationSequence>
