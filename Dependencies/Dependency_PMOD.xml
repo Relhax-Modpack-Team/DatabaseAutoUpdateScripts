@@ -19,7 +19,7 @@
     <Task ID="import_downloadModpack" Command="import_task" RepoUrlPath="Task_templates/downloadModpack_PackageNameZip.xml"/>
 
     <!-- extract source -->
-    <Task ID="extract_source_wotmod" Command="shell_exec" Filename="7z.exe" Wd="{working_folder_source}" Cmd="e {last_download_filename}  -o{working_folder_source}\mods\versiondir {wotmod_name}_*.wotmod -r"/>
+    <Task ID="extract_source_wotmod" Command="shell_exec" Filename="7z.exe" Wd="{working_folder_source}" Cmd="e {last_download_filename} -o&quot;{working_folder_source}\mods\versiondir\&quot; {wotmod_name}_*.wotmod -r"/>
     <Task ID="extract_source_cfg" Command="shell_exec" Filename="7z.exe" Wd="{working_folder_source}" Cmd="x {last_download_filename} -o{working_folder_package} -r configs"/>
 
 

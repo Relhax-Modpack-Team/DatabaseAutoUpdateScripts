@@ -23,7 +23,7 @@
 
 
     <!-- extract the source and modpack wotmod files-->
-    <Task ID="extract_source" Command="shell_exec" Filename="7z.exe" Wd="{working_folder_source}" Cmd="x {last_download_filename} {wotmod_name}*.wotmod -r"/>
+    <Task ID="extract_source" Command="shell_exec" Filename="7z.exe" Wd="{working_folder_source}" Cmd="e {last_download_filename} -o&quot;{working_folder_source}\mods\{clientVersion}\&quot; {wotmod_name}*.wotmod -r"/>
     <Task ID="extract_source3" Command="shell_exec" Filename="7z.exe" Wd="{working_folder_source}" Cmd="x {last_download_filename} minimapSpamProtector.json -r"/>
     <Task ID="extract_source4" Command="shell_exec" Filename="7z.exe" Wd="{working_folder_source}" Cmd="x {last_download_filename} de.json -r"/>
     <Task ID="extract_source5" Command="shell_exec" Filename="7z.exe" Wd="{working_folder_source}" Cmd="x {last_download_filename} en.json -r"/>
