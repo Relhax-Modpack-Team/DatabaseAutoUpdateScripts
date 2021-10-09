@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<AutomationSequence documentVersion="1.0">
+  <Macros>
+    <Macro Name="wotmod_file_path" Value="&quot;Металлик панель&quot;\**\"/>
+    <Macro Name="file_name" Value="damagePanel.wotmod"/>
+    <Macro Name="mods_or_res_mods" Value="mods"/>
+    <Macro Name="source_extract_recursive" Value="-r"/>
+  </Macros>
+  <TaskDefinitions>
+    <!-- import damagepanel task with damagelog config -->
+    <Task ID="import_damagepanel_with_damagelog_config_tasks" Command="import_task" RepoUrlPath="Task_templates/DamageLogsPanels/DamagePanels_wotmod_with_damagelog_config.xml"/>
+  </TaskDefinitions>
+</AutomationSequence>

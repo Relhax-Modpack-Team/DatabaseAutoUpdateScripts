@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<AutomationSequence documentVersion="1.0">
+  <!-- DamagePanels_wotmod_with_damagelog_config.xml
+    Author:  Willster419
+    Created: 2021-10-09
+    This sequence template looks for the hash of the single damage panel wotmod file, and if out of date, copies the updated version.
+    Before uploading, it will additionally output the damage log configs associated with it into the final package's directory
+    Required macros:
+    {wotmod_file_path}             - The path inside the source file to the target wotmod file
+    {file_name}                    - The name of the wotmod for BOTH the source and modpack, including the file extension
+    {mods_or_res_mods}             - A macro to specify if the wotmod (or any single file) should be placed into the mods or res_mods folder structure
+    {source_extract_recursive}     - Controls during extraction of the source if it should be done recursively or not
+  -->
+  <TaskDefinitions>
+    <!-- import tasks -->
+    <Task ID="import_macro_create_tasks" Command="import_task" RepoUrlPath="Task_templates/create_workDirs_macros.xml"/>
+
+    <!-- get the dev url for the to be imported task -->
+    <Task ID="get_download_url" Command="retrieve_package_property" PropertyName="DevURLList" TargetPackageUID="this" MacroSaveName="package_url" PropertyIndex="0"/>
+
+    <!-- download the source package -->
+    <Task ID="download_mod_source" Command="download_html" Url="{package_url}" HtmlPath="{wotsite_xpath}" DestinationPath="{working_folder_source}\{packageName}.rar"/>
+
+    <!-- extract wotmod from source and modpack. note that the wotmod_file_path macro has the slash to connect to file_name -->
+    <Task ID="extract_source" Command="shell_exec" Filename="7z.exe" Wd="{working_folder_source}" Cmd="e {packageName}.rar {wotmod_file_path}{file_name} {source_extract_recursive}"/>
+
+    <!-- for inside macro of the global_macro '7z_create_package_zipfile' -->
+    <Task ID="create_mods_resmods_macro_for_7z_cmd" Command="macro_create" MacroName="mods_resMods_folders" MacroValue="{mods_or_res_mods}"/>
+
+    <!-- download and the modpack package -->
+    <Task ID="download_modpack" Command="package_download" FilePath="{working_folder_modpack}\{packageName}.zip"/>
+    <Task ID="extract_modpack" Command="shell_exec" Filename="7z.exe" Wd="{working_folder_modpack}" Cmd="e {packageName}.zip {file_name} -r"/>
+
+    <!-- Compare the source and modpack files -->
+    <Task ID="compare_start" Command="compare_start"/>
+    <Task ID="compare_wotmod" Command="file_compare" FileA="{working_folder_source}\{file_name}" FileB="{working_folder_modpack}\{file_name}"/>
+    <Task ID="compare_end" Command="compare_end"/>
+
+    <!-- Create new folder path for final package -->
+    <Task ID="create_folderpath_final" Command="create_directory" DirectoryPath="{working_folder_package}\{mods_or_res_mods}\versiondir"/>
+
+    <!-- Update wotmod -->
+    <Task ID="copy_source_to_final" Command="file_copy" SourceFilePath="{working_folder_source}\{file_name}" DestinationFilePath="{working_folder_package}\{mods_or_res_mods}\versiondir\{file_name}"/>
+
+    <!-- Output the damagelog config files from the modpack to the final package (we use a custom english config) -->
+    <Task ID="extract_damagelog_config_files" Command="shell_exec" Filename="7z.exe" Wd="{working_folder_modpack}" Cmd="x {packageName}.zip *.cfg -r -o&quot;{working_folder_package}&quot;"/>
+
+    <!-- create the new package zip file -->
+    <Task ID="create_package_zip" Command="shell_exec" Filename="7z.exe" Wd="{working_folder_package}" Cmd="{7z_create_package_zipfile}"/>
+
+    <!-- upload to the server -->
+    <Task ID="upload_zip" Command="package_upload" FilePath="{working_folder_package}\final.zip" ZipFileName="{packageName}_{clientVersion}_{date}.zip"/>
+  </TaskDefinitions>
+</AutomationSequence>
