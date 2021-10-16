@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <AutomationSequence documentVersion="1.0">
   <Macros>
-    <Macro Name="file_path" Value="&quot;Personal_Reserve_Hangar_Headers_\Mod Files\Yellow\&quot;"/>
+    <Macro Name="file_path" Value="&quot;Personal_Reserve_Hangar_Headers_\Mod Files\08.Yellow\&quot;"/>
   </Macros>
   <TaskDefinitions>
     <!-- import hawg macro lib -->
