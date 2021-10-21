@@ -60,7 +60,7 @@
     <Task ID="create_source_dir_post_compare" Command="create_directory" DirectoryPath="{workDirectory}\package\mods\versiondir"/>
     <Task ID="move_source_post_compare" Command="file_copy" SourceFilePath="{working_folder_source}\{wotmod_source}" DestinationFilePath="{workDirectory}\package\mods\versiondir\{wotmod_source}"/>
     <!-- copy cfg file from source -->
-    <Task ID="move_cfg" Command="file_copy" SourceFilePath="{working_folder_modpack}\mods\configs\battle_assistant\mod_battle_assistant.txt.xml" DestinationFilePath="{workDirectory}\package\\mods\configs\battle_assistant\mod_battle_assistant.txt.xml"/>
+    <Task ID="move_cfg" Command="file_copy" SourceFilePath="{working_folder_modpack}\mods\configs\battle_assistant\mod_battle_assistant.txt" DestinationFilePath="{working_folder_package}\mods\configs\battle_assistant\mod_battle_assistant.txt"/>
 
     <!-- create the new zip -->
     <Task ID="create_zip" Command="shell_exec" Filename="7z.exe" Wd="{workDirectory}\package" Cmd="{7z_createFinalZip}"/>
