@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <AutomationSequence documentVersion="1.0">
   <Macros>
-    <Macro Name="file_path" Value="&quot;19_Battle_Results_\6. Cobra_\&quot;"/>
+    <Macro Name="file_path" Value="&quot;19_Battle_Results_\06. Cobra_\&quot;"/>
   </Macros>
   <TaskDefinitions>
     <!-- import hawg macro lib -->
