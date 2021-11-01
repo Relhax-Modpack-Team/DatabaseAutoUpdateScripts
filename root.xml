@@ -31,7 +31,6 @@
   <!-- Category GUI API END -->
 
   <!-- Category Standard START -->
-  <AutomationSequence UID="n1h14mo15q78x01s" packageName="Dependency_MLG_bnk" path="Dependencies/Dependency_MLG_bnk.xml" />
   <AutomationSequence UID="ex0ocsm6tio4kknh" packageName="Dependency_PMOD" path="Dependencies/Dependency_PMOD.xml" />
   <AutomationSequence UID="cw7xk1guapz8hayk" packageName="Dependency_OldSkool_modsCore" path="Dependencies/Dependency_OldSkool_modsCore.xml" />
   <!-- unfinished -->
@@ -143,16 +142,6 @@
   
   <AutomationSequence UID="2mbvcocccfyw2cxl" packageName="TankIcons_Carousel_Premium_elektrosmoker" path="ContourTankIcons/TankIcons_Carousel_Premium_elektrosmoker.xml"/>
   <AutomationSequence UID="moltt0zns0nhm5z9" packageName="TankIcons_TechTree_elektrosmoker" path="ContourTankIcons/TankIcons_TechTree_elektrosmoker.xml"/>
-
-  <AutomationSequence UID="ib6gkejtqmg5pppw" packageName="TankIcons_Carousel_Regular_DEbrandedCamo" path="ContourTankIcons/TankIcons_Carousel_Regular_DEbrandedCamo.xml"/>
-  <AutomationSequence UID="cponbi9cl5iu0i79" packageName="TankIcons_Carousel_Regular_DEbrandedDefault" path="ContourTankIcons/TankIcons_Carousel_Regular_DEbrandedDefault.xml"/>
-  <AutomationSequence UID="96p3rkhyddx1baal" packageName="TankIcons_Carousel_Premium_DebrandedCamo" path="ContourTankIcons/TankIcons_Carousel_Premium_DebrandedCamo.xml"/>
-  <AutomationSequence UID="gadprndi8tr8mezy" packageName="TankIcons_Carousel_Premium_DebrandedLightGold" path="ContourTankIcons/TankIcons_Carousel_Premium_DebrandedLightGold.xml"/>
-
-  <AutomationSequence UID="2n42n4ex50yfigz3" packageName="TankIcons_TechTree_DEbrandedV1DefaultYaya" path="ContourTankIcons/TankIcons_TechTree_DEbrandedV1DefaultYaya.xml"/>
-  <AutomationSequence UID="370eaics9uiw122v" packageName="TankIcons_TechTree_DEbrandedV2PremiumLightColored" path="ContourTankIcons/TankIcons_TechTree_DEbrandedV2PremiumLightColored.xml"/>
-  <AutomationSequence UID="gw7tiiit8rae1eav" packageName="TankIcons_TechTree_DEbrandedV2PremiumLightDEbranded" path="ContourTankIcons/TankIcons_TechTree_DEbrandedV2PremiumLightDEbranded.xml"/>
-  <AutomationSequence UID="tld8qhot8n2w1qhv" packageName="TankIcons_TechTree_DEbrandedV2PremiumLightYaya" path="ContourTankIcons/TankIcons_TechTree_DEbrandedV2PremiumLightYaya.xml"/>
   <!-- Category Contour & Tank Icons END -->
 
   <!-- Category Damage Logs & Panels START -->
@@ -179,7 +168,6 @@
   <AutomationSequence UID="38iggbplcyqvzh3i" packageName="IngameAim_ServerReticle_Awfultanker" path="IngameAim/IngameAim_ServerReticle_Awfultanker.xml" />
   <AutomationSequence UID="lgh50ztb1ft3qcw3" packageName="IngameAim_SafeShot_OldSkool" path="IngameAim/IngameAim_SafeShot_OldSkool.xml"/>
   <AutomationSequence UID="au1did8dq1mvem8q" packageName="IngameAim_SafeShot_Champi" path="IngameAim/IngameAim_SafeShot_Champi.xml"/>
-  <!-- <AutomationSequence UID="hhl7bpuggq3ujfea" packageName="IngameAim_SpgFlytime_OldSkool" path="IngameAim/IngameAim_SpgFlytime_OldSkool.xml"/> -->
   <AutomationSequence UID="voxfbwmk4lr95os0" packageName="IngameAim_TargetArrow_Blue" path="IngameAim/TargetArrow/IngameAim_TargetArrow_Blue.xml"/>
   <AutomationSequence UID="8d4ujvsl3hjr50z0" packageName="IngameAim_TargetArrow_Green" path="IngameAim/TargetArrow/IngameAim_TargetArrow_Green.xml"/>
   <AutomationSequence UID="2sm1bzi4y0lghthd" packageName="IngameAim_TargetArrow_Purple" path="IngameAim/TargetArrow/IngameAim_TargetArrow_Purple.xml"/>
@@ -199,7 +187,6 @@
   <AutomationSequence UID="ewheywwoz33rzjf4" packageName="IngameInfo_InBattleRating_Protanki" path="IngameInfo/IngameInfo_InBattleRating_Protanki.xml"/>
   <AutomationSequence UID="chhsw0vni7x0c903" packageName="IngameInfo_RTAN_Protanki" path="IngameInfo/IngameInfo_RTAN_Protanki.xml"/>
   <AutomationSequence UID="msak80oyaflkjz9l" packageName="IngameInfo_PlayersPanelPro" path="IngameInfo/IngameInfo_PlayersPanelPro.xml"/>
-  <AutomationSequence UID="2gdx5auuv13ar7ze" packageName="IngameInfo_ArtyHitLog" path="IngameInfo/IngameInfo_ArtyHitLog.xml"/>
   <AutomationSequence UID="8lyb8uwumkw5xpvv" packageName="IngameInfo_DebugPanel_oldskool" path="IngameInfo/IngameInfo_DebugPanel_oldskool.xml"/>
   <AutomationSequence UID="my79ujmsxfzagayc" packageName="IngameInfo_EnemySpottedStatus_OldSkool" path="IngameInfo/IngameInfo_EnemySpottedStatus_OldSkool.xml"/>
   <AutomationSequence UID="17azqxqn06baz884" packageName="IngameInfo_InBattleRating_OldSkool" path="IngameInfo/IngameInfo_InBattleRating_OldSkool.xml"/>
@@ -225,8 +212,6 @@
   <AutomationSequence UID="lwj26ht7rnt0j1wh" packageName="IngameMisc_Chatmods_FriendsMarker" path="IngameMisc/IngameMisc_Chatmods_FriendsMarker.xml"/>
   
   <AutomationSequence UID="lp7nnb2rbopkpr28" packageName="IngameMisc_Minimap_SpamProtector" path="IngameMisc/IngameMisc_Minimap_SpamProtector.xml"/>
-  
-  <AutomationSequence UID="tbeauz2ls2pel9qt" packageName="IngameMisc_interfaceScaling_OldSkool" path="IngameMisc/IngameMisc_interfaceScaling_OldSkool.xml"/>
   
   <AutomationSequence UID="4c5z9v7ii0xi4wau" packageName="IngameMisc_Minimap_Type_Basic_TacticalMinimap" path="IngameMisc/Minimap/IngameMisc_Minimap_Type_Basic_TacticalMinimap.xml"/>
   <AutomationSequence UID="o4hjk1s2v1zquf4g" packageName="IngameMisc_Minimap_Type_Basic_TacticalMinimapDOTS" path="IngameMisc/Minimap/IngameMisc_Minimap_Type_Basic_TacticalMinimapDOTS.xml"/>
