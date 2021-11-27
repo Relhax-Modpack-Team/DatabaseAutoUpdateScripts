@@ -7,7 +7,7 @@
 
   <!-- Category Dependencies START -->
 
-  <!-- Category XVM START -->
+  <!-- Subgroup XVM START -->
   <!-- nightly -->
   <AutomationSequence UID="vxb6fqgbg3p0hfv9" packageName="LogicalDependency_XVM_Main_Nightly" path="Dependencies/XVM/LogicalDependency_XVM_Main_Nightly.xml" />
   <!-- stable [ACTIVATE WHEN STABLE VERSION IS AVAILABLE]-->
@@ -23,33 +23,33 @@
   <AutomationSequence UID="q18no0oyqapvgiz4" packageName="Dependency_XVM_XC_gunPen" path="Dependencies/XVM/Dependency_XVM_XC_gunPen.xml" />
   <AutomationSequence UID="lhlph8q71wnqdey0" packageName="Dependency_XVM_XC_speed" path="Dependencies/XVM/Dependency_XVM_XC_speed.xml" />
   <AutomationSequence UID="4a7xos55e5uzv2o2" packageName="Dependency_XVM_XC_elevation" path="Dependencies/XVM/Dependency_XVM_XC_elevation.xml" />
-  <!-- Category XVM END -->
+  <!-- Subgroup XVM END -->
   
-  <!-- Category GUI API START -->
+  <!-- Subgroup GUI API START -->
   <AutomationSequence UID="8bhv4wcpn1quvd5v" packageName="Dependency_CHAMPi_settingsGUI" path="Dependencies/Dependency_CHAMPi_settingsGUI.xml" />
   <AutomationSequence UID="ypupkvormubtv1ju" packageName="Dependency_Gambiter_GUIflash" path="Dependencies/Dependency_Gambiter_GUIflash.xml" />
-  <!-- Category GUI API END -->
+  <!-- Subgroup GUI API END -->
 
-  <!-- Category Standard START -->
+  <!-- Subgroup Standard START -->
   <!-- broken -->
   <!-- <AutomationSequence UID="ex0ocsm6tio4kknh" packageName="Dependency_PMOD" path="Dependencies/Dependency_PMOD.xml" /> -->
   <AutomationSequence UID="cw7xk1guapz8hayk" packageName="Dependency_OldSkool_modsCore" path="Dependencies/Dependency_OldSkool_modsCore.xml" />
   <!-- unfinished -->
   <!-- <AutomationSequence UID="5tjbkykag9506587" packageName="Dependency_P0LIR0ID_modsListApi" path="workDir/Dependency_P0LIR0ID_modsListApi.xml" /> -->
   <!-- <AutomationSequence UID="pldcs1mv9lrphm5k" packageName="Dependency_PY_PYmodsCore" path="workDir/Dependency_PY_PYmodsCore.xml" /> -->
-  <!-- Category Standard END -->
+  <!-- Subgroup Standard END -->
   
-  <!-- Category Crosshairs START -->
+  <!-- Subgroup Crosshairs START -->
   <AutomationSequence UID="7uc2cpqmy2ux8gy4" packageName="Dependency_Crosshairs_Protanki" path="Dependencies/Dependency_Crosshairs_Protanki.xml" />
-  <!-- Category Crosshairs END -->
+  <!-- Subgroup Crosshairs END -->
 
-  <!-- Category Icon Mirror Files START -->
+  <!-- Subgroup Icon Mirror Files START -->
   <AutomationSequence UID="a6y6dhrkqvba4d0k" packageName="LogicalDependency_MVI_BATTLE_CLEAR_noXVM" path="Dependencies/MVI/LogicalDependency_MVI_BATTLE_CLEAR_noXVM.xml" />
   <AutomationSequence UID="xhss5hljrzit42tk" packageName="LogicalDependency_MVI_BATTLE_noXVM" path="Dependencies/MVI/LogicalDependency_MVI_BATTLE_noXVM.xml" />
   <AutomationSequence UID="4kge4lh3led0f6ix" packageName="LogicalDependency_MVI_HANGAR_showAll_noXVM" path="Dependencies/MVI/LogicalDependency_MVI_HANGAR_showAll_noXVM.xml" />
   <AutomationSequence UID="h9mtckn4ka5ifipx" packageName="LogicalDependency_MVI_HANGAR_CLEAR_tier_noXVM" path="Dependencies/MVI/LogicalDependency_MVI_HANGAR_CLEAR_tier_noXVM.xml" />
   <AutomationSequence UID="uyt8ljt5j7xzfuwx" packageName="LogicalDependency_MVI_HANGAR_CLEAR_ALL_noXVM" path="Dependencies/MVI/LogicalDependency_MVI_HANGAR_CLEAR_ALL_noXVM.xml" />
-  <!-- Category Icon Mirror Files END -->
+  <!-- Subgroup Icon Mirror Files END -->
   
   <!-- Category Dependencies END  -->
 
