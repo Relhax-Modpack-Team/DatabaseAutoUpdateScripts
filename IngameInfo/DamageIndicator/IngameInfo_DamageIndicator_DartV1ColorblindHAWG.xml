@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <AutomationSequence documentVersion="1.0">
   <Macros>
-    <Macro Name="file_path" Value="&quot;25_Damage_Indicators_\8.  Dart_V1\Color Blind\&quot;"/>
+    <Macro Name="file_path" Value="&quot;25_Damage_Indicators_\8.  Dart_V1\Color_Blind\&quot;"/>
   </Macros>
   <TaskDefinitions>
     <!-- import hawg macro lib -->
