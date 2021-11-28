@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<AutomationSequence documentVersion="1.0">
+  <Macros>
+    <Macro Name="file_name" Value="damageIndicator"/>
+    <Macro Name="mods_resMods_folders" Value="res_mods"/>
+    <Macro Name="url_index" Value="0"/>
+  </Macros>
+  <TaskDefinitions>
+    <!-- Create work dirs -->
+    <Task ID="import_macro_create_tasks" Command="import_task" RepoUrlPath="Task_templates/macro_create_work_dirs.xml"/>
+
+    <!-- Get dev url into macro to use for imported tasks -->
+    <Task ID="get_package_download_url" Command="retrieve_package_property" PropertyName="DevURLList" TargetPackageUID="this" MacroSaveName="package_url" PropertyIndex="{url_index}"/>
+
+    <!-- Get the download url for the source -->
+    <Task ID="import_task_get_download_url_from_wotspeak" Command="import_task" RepoUrlPath="Task_templates/get_download_url_from_wotspeak.xml"/>
+
+    <!-- download the source package -->
+    <Task ID="download_mod_source" Command="download_static" Url="{download_url}" DestinationPath="{working_folder_source}\{packageName}.zip"/>
+
+    <!-- extract wotmod from source. note that the file_path macro has the slash to connect to file_name -->
+    <Task ID="extract_source" Command="shell_exec" Filename="7z.exe" Wd="{working_folder_source}" Cmd="e {packageName}.zip {file_name}.xml {file_name}.dds -r"/>
+
+    <!-- download and the modpack package -->
+    <Task ID="download_modpack" Command="package_download" FilePath="{working_folder_modpack}\{packageName}.zip"/>
+    <Task ID="extract_modpack" Command="shell_exec" Filename="7z.exe" Wd="{working_folder_modpack}" Cmd="e {packageName}.zip {file_name}.xml {file_name}.dds -r"/>
+
+    <!-- Compare the source and modpack files -->
+    <Task ID="compare_start" Command="compare_start"/>
+    <Task ID="compare_wotmod" Command="file_compare" FileA="{working_folder_source}\{file_name}.dds" FileB="{working_folder_modpack}\{file_name}.dds"/>
+    <Task ID="compare_wotmod" Command="file_compare" FileA="{working_folder_source}\{file_name}.xml" FileB="{working_folder_modpack}\{file_name}.xml"/>
+    <Task ID="compare_end" Command="compare_end"/>
+
+    <!-- Create new folder path for final package -->
+    <Task ID="create_folderpath_final" Command="create_directory" DirectoryPath="{working_folder_final}\{mods_resMods_folders}\versiondir\gui\flash\atlases"/>
+
+    <!-- Update modpack files -->
+    <Task ID="copy_source_to_final" Command="file_copy" SourceFilePath="{working_folder_source}\{file_name}.dds" DestinationFilePath="{working_folder_final}\{mods_resMods_folders}\versiondir\gui\flash\atlases\{file_name}.dds"/>
+    <Task ID="copy_source_to_final" Command="file_copy" SourceFilePath="{working_folder_source}\{file_name}.xml" DestinationFilePath="{working_folder_final}\{mods_resMods_folders}\versiondir\gui\flash\atlases\{file_name}.xml"/>
+    <Task ID="create_package_zip" Command="shell_exec" Filename="7z.exe" Wd="{working_folder_final}" Cmd="{7z_create_package_zipfile}"/>
+
+    <!-- upload to the server -->
+    <Task ID="upload_zip" Command="package_upload" FilePath="{working_folder_final}\final.zip" ZipFileName="{packageName}_{clientVersion}_{date}.zip"/>
+  </TaskDefinitions>
+</AutomationSequence>

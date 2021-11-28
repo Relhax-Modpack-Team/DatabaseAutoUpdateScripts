@@ -40,5 +40,8 @@
     <Macro Name="wotmod_DamagePanels_HawgGlass" Value="Hawg_damagePanel.wotmod"/>
 
     <Macro Name="wotmod_GarageGraphics_BattleResults_TankIcon" Value="Hawg_BattleResults_New.wotmod"/>
+
+    <Macro Name="devurl_IngameInfo_DamageIndicator_HAWG" Value="https://wgmods.net/1683/"/>
+    <Macro Name="wotmod_IngameInfo_DamageIndicator_HAWG" Value="Hawg_damageIndicator.wotmod"/>
   </Macros>
 </AutomationSequence>

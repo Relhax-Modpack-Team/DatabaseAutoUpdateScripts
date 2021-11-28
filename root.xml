@@ -193,6 +193,24 @@
   <AutomationSequence UID="17azqxqn06baz884" packageName="IngameInfo_InBattleRating_OldSkool" path="IngameInfo/IngameInfo_InBattleRating_OldSkool.xml"/>
   <AutomationSequence UID="elgpf2m074c3d6ip" packageName="IngameInfo_TankInfoPanel_OldSkool" path="IngameInfo/IngameInfo_TankInfoPanel_OldSkool.xml"/>
   <AutomationSequence UID="ran4n2t1715ldipp" packageName="IngameInfo_TankInfoPanel_protanki" path="IngameInfo/IngameInfo_TankInfoPanel_protanki.xml"/>
+
+  <AutomationSequence UID="n09woj0h8emhm0wt" packageName="IngameInfo_DamageIndicator_ApacheColorblindHAWG" path="IngameInfo/DamageIndicator/IngameInfo_DamageIndicator_ApacheColorblindHAWG.xml"/>
+  <AutomationSequence UID="dxximfx7sz7xzik7" packageName="IngameInfo_DamageIndicator_ApacheHAWG" path="IngameInfo/DamageIndicator/IngameInfo_DamageIndicator_ApacheHAWG.xml"/>
+  <AutomationSequence UID="n8ly1t0v9nlwgjgi" packageName="IngameInfo_DamageIndicator_ArrowColorblindHAWG" path="IngameInfo/DamageIndicator/IngameInfo_DamageIndicator_ArrowColorblindHAWG.xml"/>
+  <AutomationSequence UID="2zps3nr736d7g0v2" packageName="IngameInfo_DamageIndicator_ArrowHAWG" path="IngameInfo/DamageIndicator/IngameInfo_DamageIndicator_ArrowHAWG.xml"/>
+  <AutomationSequence UID="lo62upv57tig5v20" packageName="IngameInfo_DamageIndicator_CherokeeColorblindHAWG" path="IngameInfo/DamageIndicator/IngameInfo_DamageIndicator_CherokeeColorblindHAWG.xml"/>
+  <AutomationSequence UID="cnbbs64h4oukoimj" packageName="IngameInfo_DamageIndicator_CherokeeHAWG" path="IngameInfo/DamageIndicator/IngameInfo_DamageIndicator_CherokeeHAWG.xml"/>
+  <AutomationSequence UID="eugh43192gnwk36o" packageName="IngameInfo_DamageIndicator_DamageIndicatorV1HAWG" path="IngameInfo/DamageIndicator/IngameInfo_DamageIndicator_DamageIndicatorV1HAWG.xml"/>
+  <AutomationSequence UID="4891ip6yv8ykhqq5" packageName="IngameInfo_DamageIndicator_DamageIndicatorV2HAWG" path="IngameInfo/DamageIndicator/IngameInfo_DamageIndicator_DamageIndicatorV2HAWG.xml"/>
+  <AutomationSequence UID="9418sb2yqxadys7j" packageName="IngameInfo_DamageIndicator_DartV1ColorblindHAWG" path="IngameInfo/DamageIndicator/IngameInfo_DamageIndicator_DartV1ColorblindHAWG.xml"/>
+  <AutomationSequence UID="p93nx0sjabu0jpil" packageName="IngameInfo_DamageIndicator_DartV1HAWG" path="IngameInfo/DamageIndicator/IngameInfo_DamageIndicator_DartV1HAWG.xml"/>
+  <AutomationSequence UID="kxflxqvb3v8mle32" packageName="IngameInfo_DamageIndicator_DartV2ColorblindHAWG" path="IngameInfo/DamageIndicator/IngameInfo_DamageIndicator_DartV2ColorblindHAWG.xml"/>
+  <AutomationSequence UID="zd5as70stknez5qf" packageName="IngameInfo_DamageIndicator_DartV2HAWG" path="IngameInfo/DamageIndicator/IngameInfo_DamageIndicator_DartV2HAWG.xml"/>
+  <AutomationSequence UID="v6r1udufiagtbghb" packageName="IngameInfo_DamageIndicator_NeedleColorBlindV1HAWG" path="IngameInfo/DamageIndicator/IngameInfo_DamageIndicator_NeedleColorBlindV1HAWG.xml"/>
+  <AutomationSequence UID="o9fuegpb4uq1tmm6" packageName="IngameInfo_DamageIndicator_NeedleV2HAWG" path="IngameInfo/DamageIndicator/IngameInfo_DamageIndicator_NeedleV2HAWG.xml"/>
+  <AutomationSequence UID="yei8dh8jtlr7ie9a" packageName="IngameInfo_DamageIndicator_RobinHoodColorblindHAWG" path="IngameInfo/DamageIndicator/IngameInfo_DamageIndicator_RobinHoodColorblindHAWG.xml"/>
+  <AutomationSequence UID="e2htiflkv4d8zbyn" packageName="IngameInfo_DamageIndicator_RobinHoodHAWG" path="IngameInfo/DamageIndicator/IngameInfo_DamageIndicator_RobinHoodHAWG.xml"/>
+  <AutomationSequence UID="i7lhsvktorc6x2gw" packageName="IngameInfo_DamageIndicator_Wotspeak" path="IngameInfo/DamageIndicator/IngameInfo_DamageIndicator_Wotspeak.xml"/>
   <!-- Category Ingame Info END -->
 
   <!-- Category Ingame Misc START -->

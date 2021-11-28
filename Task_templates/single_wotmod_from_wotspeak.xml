@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<AutomationSequence documentVersion="1.0">
+  <!-- single_wotmod_from_wotspeake.xml
+    Author:  Willster419
+    Created: 2021-08-??
+    This sequence template does the following tasks:
+     - creates the work directories from the import task macro_create_work_dirs
+     - downloads the package from the wotspeak website
+     - runs the imported task single_wotmod
+    Required macros:
+    {package_url}                  - The download url of the wotspeak website to download from (used in get_download_url_from_wotspeak)
+    {file_name}                    - The name of the source's wotmod to extract via 7zip (also used in single_wotmod)
+    NOTE: see single_wotmod import task for more required macros
+  -->
+  <TaskDefinitions>
+    <!-- import tasks -->
+    <Task ID="import_macro_create_tasks" Command="import_task" RepoUrlPath="Task_templates/macro_create_work_dirs.xml"/>
+    <Task ID="import_task_get_download_url_from_wotspeak" Command="import_task" RepoUrlPath="Task_templates/get_download_url_from_wotspeak.xml"/>
+
+    <!-- download the source package -->
+    <Task ID="download_mod_source" Command="download_static" Url="{download_url}" DestinationPath="{working_folder_source}\{packageName}.zip"/>
+
+    <!-- extract wotmod from source. note that the file_path macro has the slash to connect to file_name -->
+    <Task ID="extract_source" Command="shell_exec" Filename="7z.exe" Wd="{working_folder_source}" Cmd="e {packageName}.zip {file_name} -r"/>
+
+    <!-- import the rest of the process from single_wotmod -->
+    <Task ID="import_single_wotmod" Command="import_task" RepoUrlPath="Task_templates/single_wotmod.xml"/>
+  </TaskDefinitions>
+</AutomationSequence>

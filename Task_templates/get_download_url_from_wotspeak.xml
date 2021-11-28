@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<AutomationSequence documentVersion="1.0">
+  <!-- get_download_url_from_wotspeak.xml
+    Author:  Willster419
+    Created: 2021-11-27
+    This sequence template does the following tasks:
+     - gets the download putton href string from the wotspeak download url
+     - trims it to remove the first part that we don't care about
+    Required macros:
+    {package_url}                  - The download url of the wotsite website to download from
+  -->
+  <TaskDefinitions>
+    <!-- get the url from the webpage -->
+    <Task ID="get_wotspeak_download_url" Command="macro_string_split_html" MacroName="download_url_pre" SplitCharacters="dwn.php?xf=" Index="1" Url="{package_url}" HtmlPath="{wotspeak_xpath}"/>
+
+    <!-- Then string split the end to get the part we want -->
+    <Task ID="get_mod_version_2" Command="macro_string_split_macro" MacroName="download_url" Index="0" SplitCharacters="&amp;" InputText="{download_url_pre}"/>
+  </TaskDefinitions>
+</AutomationSequence>

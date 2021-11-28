@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<AutomationSequence documentVersion="1.0">
+  <Macros>
+    <Macro Name="file_path" Value="&quot;25_Damage_Indicators_\5. Dart_V.2\Color Blind\&quot;"/>
+  </Macros>
+  <TaskDefinitions>
+    <!-- import hawg macro lib -->
+    <Task ID="import_macros" Command="import_macro" RepoUrlPath="Macro_templates/templates_hawg.xml"/>
+
+    <!-- import task list specific to IngameInfo_DamageIndicator -->
+    <Task ID="import_tasks_IngameInfo_DamageIndicator_HAWG" Command="import_task" RepoUrlPath="Task_templates/IngameInfo/IngameInfo_DamageIndicator_HAWG.xml"/>
+
+    <!-- import tasks -->
+    <Task ID="import_tasks" Command="import_task" RepoUrlPath="Task_templates/single_wotmod_from_wgmods.xml"/>
+  </TaskDefinitions>
+</AutomationSequence>
