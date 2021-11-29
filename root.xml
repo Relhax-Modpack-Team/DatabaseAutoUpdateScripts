@@ -281,7 +281,9 @@
   <AutomationSequence UID="c18z25fqjfk6w14m" packageName="GarageGraphics_BattleResults_TankIcon_NationEmblem" path="GarageGraphics/BattleResults/GarageGraphics_BattleResults_TankIcon_NationEmblem.xml" />
   <AutomationSequence UID="6fp6t959eymw8um0" packageName="GarageGraphics_BattleResults_TankIcon_BeachParty" path="GarageGraphics/BattleResults/GarageGraphics_BattleResults_TankIcon_BeachParty.xml" />
   <AutomationSequence UID="j4wl19badued86tz" packageName="GarageGraphics_BattleResults_TankIcon_NationFlag" path="GarageGraphics/BattleResults/GarageGraphics_BattleResults_TankIcon_NationFlag.xml" />
+
   <AutomationSequence UID="wgze5olfl2k7rxv8" packageName="GarageGraphics_UI_GIRLSundPANZER" path="GarageGraphics/GarageGraphics_UI_GIRLSundPANZER.xml" />
+
   <AutomationSequence UID="ntfgi7r1nr6iw633" packageName="GarageGraphics_FlagsLib_GuP" path="GarageGraphics/GarageGraphics_FlagsLib_GuP.xml" />
   <AutomationSequence UID="7laip9tmg3s77mzg" packageName="GarageGraphics_FlagsLib_HAWGSmallBottom" path="GarageGraphics/FlagsLib/GarageGraphics_FlagsLib_HAWGSmallBottom.xml" />
   <AutomationSequence UID="12quc2y0ftniag5u" packageName="GarageGraphics_FlagsLib_HAWGFull" path="GarageGraphics/FlagsLib/GarageGraphics_FlagsLib_HAWGFull.xml" />
@@ -291,9 +293,11 @@
   <AutomationSequence UID="epsrjnjp168z9vsr" packageName="GarageGraphics_FlagsLib_HAWGFullEmblems" path="GarageGraphics/FlagsLib/GarageGraphics_FlagsLib_HAWGFullEmblems.xml" />
   <AutomationSequence UID="jegg5da9j0fkd84j" packageName="GarageGraphics_FlagsLib_HAWGWTE100" path="GarageGraphics/FlagsLib/GarageGraphics_FlagsLib_HAWGWTE100.xml" />
   <AutomationSequence UID="4b2wpcf6apz91k5s" packageName="GarageGraphics_FlagsLib_HAWGSteelHunterEmblems" path="GarageGraphics/FlagsLib/GarageGraphics_FlagsLib_HAWGSteelHunterEmblems.xml" />
+
   <AutomationSequence UID="d6pyq0jwcf87wemw" packageName="GarageGraphics_LobbyHeader_PersonalReserve_Aqua" path="GarageGraphics/LobbyHeader/GarageGraphics_LobbyHeader_PersonalReserve_Aqua.xml" />
   <AutomationSequence UID="7k76i49f7yax7749" packageName="GarageGraphics_LobbyHeader_PersonalReserve_Blue" path="GarageGraphics/LobbyHeader/GarageGraphics_LobbyHeader_PersonalReserve_Blue.xml" />
   <AutomationSequence UID="b5w8x9dltmjbt3xz" packageName="GarageGraphics_LobbyHeader_PersonalReserve_Yellow" path="GarageGraphics/LobbyHeader/GarageGraphics_LobbyHeader_PersonalReserve_Yellow.xml" />
+
   <AutomationSequence UID="xzzpvqe4zqlm4toq" packageName="GarageGraphics_Carousel_LED_Aqua" path="GarageGraphics/Carousel/LED/GarageGraphics_Carousel_LED_Aqua.xml" />
   <AutomationSequence UID="hsur3thps27bf9l3" packageName="GarageGraphics_Carousel_LED_Blue" path="GarageGraphics/Carousel/LED/GarageGraphics_Carousel_LED_Blue.xml" />
   <AutomationSequence UID="ovid3wd9mi1iqeag" packageName="GarageGraphics_Carousel_LED_BlueRedStripes" path="GarageGraphics/Carousel/LED/GarageGraphics_Carousel_LED_BlueRedStripes.xml" />
