@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<AutomationSequence documentVersion="1.0">
+  <!-- single_wotmod_with_patch.xml
+    Author:  Willster419
+    Created: 2021-11-28
+    This sequence template does the following tasks:
+     - downloads the modpack zip file
+     - extracts the source from a specified path, with optional recursion argument
+     - extracts the modpack zip file
+     - compares the modpack and source wotmod file
+     - creates the final new zip package with the source's wotmod and patches
+     - uploads the new package to the server
+    Required macros:
+    {working_folder_modpack}       - The working folder of the modpack zip file and extraction processes
+    {working_folder_source}        - The working folder of the source zip file and extracation processes
+    {working_folder_final}         - The working folder of the newly created zip file package for the database
+    {file_name}                    - The name of the wotmod for BOTH the source and modpack
+    {mods_or_res_mods}             - A macro to specify if the wotmod (or any single file) should be placed into the mods or res_mods folder structure
+  -->
+  <TaskDefinitions>
+    <!-- for inside macro of the global_macro '7z_create_package_zipfile' -->
+    <Task ID="create_mods_resmods_macro_for_7z_cmd" Command="macro_create" MacroName="mods_resMods_folders" MacroValue="{mods_or_res_mods}"/>
+
+    <!-- download and the modpack package -->
+    <Task ID="download_modpack" Command="package_download" FilePath="{working_folder_modpack}\{packageName}.zip"/>
+    <Task ID="extract_modpack" Command="shell_exec" Filename="7z.exe" Wd="{working_folder_modpack}" Cmd="e {packageName}.zip {file_name} -r"/>
+
+    <!-- Compare the source and modpack files -->
+    <Task ID="compare_start" Command="compare_start"/>
+    <Task ID="compare_wotmod" Command="file_compare" FileA="{working_folder_source}\{file_name}" FileB="{working_folder_modpack}\{file_name}"/>
+    <Task ID="compare_end" Command="compare_end"/>
+
+    <!-- Create new folder path for final package -->
+    <Task ID="create_folderpath_final" Command="create_directory" DirectoryPath="{working_folder_final}\{mods_or_res_mods}\versiondir"/>
+
+    <!-- Update modpack files -->
+    <Task ID="copy_source_to_final" Command="file_copy" SourceFilePath="{working_folder_source}\{file_name}" DestinationFilePath="{working_folder_final}\{mods_or_res_mods}\versiondir\{file_name}"/>
+
+    <!-- Copy over the patch files -->
+    <Task ID="extract_patches" Command="shell_exec" Filename="7z.exe" Wd="{working_folder_modpack}" Cmd="e {packageName}.zip -o&quot;{working_folder_final}\_patch&quot; _patch\*.xml"/>
+
+    <!-- Create the final package -->
+    <Task ID="create_package_zip" Command="shell_exec" Filename="7z.exe" Wd="{working_folder_final}" Cmd="{7z_create_package_zipfile}"/>
+
+    <!-- upload to the server -->
+    <Task ID="upload_zip" Command="package_upload" FilePath="{working_folder_final}\final.zip" ZipFileName="{packageName}_{clientVersion}_{date}.zip"/>
+  </TaskDefinitions>
+</AutomationSequence>
