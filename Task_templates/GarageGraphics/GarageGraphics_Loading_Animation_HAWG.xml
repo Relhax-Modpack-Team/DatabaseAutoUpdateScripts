@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<AutomationSequence documentVersion="1.0">
+  <!-- GarageGraphics_Loading_Animation_HAWG.xml
+    Author:  Willster419
+    Created: 2021-11-28
+    This sequence template is a breakout-modify of the {single_wotmod_from_wgmods_with_patch} template (and all inside imported tasks).
+    It is custom because we use different file names for the flash wotmod packages, and we need to copy over the patches as well.
+    Required macros:
+    {working_folder_modpack}       - The working folder of the modpack zip file and extraction processes
+    {working_folder_source}        - The working folder of the source zip file and extracation processes
+    {working_folder_final}         - The working folder of the newly created zip file package for the database
+    {file_path}                    - The path to the wotmod inside the source zip file
+  -->
+  <TaskDefinitions>
+    <!-- Create macros used later in the sequence -->
+    <Task ID="create_devurl_macro" Command="retrieve_package_property" PropertyName="DevURLList" TargetPackageUID="this" MacroSaveName="package_url" PropertyIndex="0"/>
+    <Task ID="create_package_to_update_macro" Command="macro_create" MacroName="target_package_uid" MacroValue="{packageUID}"/>
+
+    <!-- download the source package -->
+    <Task ID="download_mod_source" Command="download_browser" Url="{package_url}" HtmlPath="{wgmods_xpath}" DestinationPath="{working_folder_source}\{packageName}.zip" WaitTimeMs="500" WaitCounts="6" BrowserHeight="0" BrowserWidth="0"/>
+
+    <!-- extract wotmod from source and modpack. note that the file_path macro has the slash to connect to file_name -->
+    <Task ID="extract_source" Command="shell_exec" Filename="7z.exe" Wd="{working_folder_source}" Cmd="e {packageName}.zip {file_path}Hawg_logos.wotmod {file_path}Hawg_waiting.wotmod"/>
+
+    <!-- download and extract the modpack package -->
+    <Task ID="download_modpack" Command="package_download" FilePath="{working_folder_modpack}\{packageName}.zip"/>
+    <Task ID="extract_modpack" Command="shell_exec" Filename="7z.exe" Wd="{working_folder_modpack}" Cmd="e {packageName}.zip LogoSWF.wotmod WaitingSWF.wotmod -r"/>
+
+    <!-- Compare the source and modpack files -->
+    <Task ID="compare_start" Command="compare_start"/>
+    <Task ID="compare_wotmod" Command="file_compare" FileA="{working_folder_source}\Hawg_logos.wotmod" FileB="{working_folder_modpack}\LogoSWF.wotmod"/>
+    <Task ID="compare_wotmod" Command="file_compare" FileA="{working_folder_source}\Hawg_waiting.wotmod" FileB="{working_folder_modpack}\WaitingSWF.wotmod"/>
+    <Task ID="compare_end" Command="compare_end"/>
+
+    <!-- Create new folder path for final package -->
+    <Task ID="create_folderpath_final" Command="create_directory" DirectoryPath="{working_folder_final}\mods\versiondir"/>
+
+    <!-- Update modpack files -->
+    <Task ID="copy_source_to_final" Command="file_copy" SourceFilePath="{working_folder_source}\Hawg_logos.wotmod" DestinationFilePath="{working_folder_final}\mods\versiondir\LogoSWF.wotmod"/>
+    <Task ID="copy_source_to_final" Command="file_copy" SourceFilePath="{working_folder_source}\Hawg_waiting.wotmod" DestinationFilePath="{working_folder_final}\mods\versiondir\WaitingSWF.wotmod"/>
+
+    <!-- Copy over the patch files -->
+    <Task ID="extract_patches" Command="shell_exec" Filename="7z.exe" Wd="{working_folder_modpack}" Cmd="e {packageName}.zip -o&quot;{working_folder_final}\_patch&quot; _patch\*.xml"/>
+
+    <!-- Create the final package -->
+    <Task ID="create_package_zip" Command="shell_exec" Filename="7z.exe" Wd="{working_folder_final}" Cmd="{7z_createFinalZip}"/>
+
+    <!-- upload to the server -->
+    <Task ID="upload_zip" Command="package_upload" FilePath="{working_folder_final}\final.zip" ZipFileName="{packageName}_{clientVersion}_{date}.zip"/>
+
+    <!-- Update the version property of the package -->
+    <Task ID="import_tasks" Command="import_task" RepoUrlPath="Task_templates/update_package_version_from_wgmods.xml"/>
+  </TaskDefinitions>
+</AutomationSequence>

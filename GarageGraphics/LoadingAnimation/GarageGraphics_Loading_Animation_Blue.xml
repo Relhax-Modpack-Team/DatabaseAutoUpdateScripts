@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<AutomationSequence documentVersion="1.0">
+  <Macros>
+    <Macro Name="file_path" Value="&quot;Loading Wheels_\08. Blue-Cog\&quot;"/>
+  </Macros>
+  <TaskDefinitions>
+    <!-- import tasks to create dir macros and folders -->
+    <Task ID="import_macro_create_tasks" Command="import_task" RepoUrlPath="Task_templates/macro_create_work_dirs.xml"/>
+
+    <!-- import task list specific to GarageGraphics_Loading_Animation_HAWG (all HAWG based GarageGraphics_Loading_Animation packages) -->
+    <Task ID="import_tasks_GarageGraphics_Loading_Animation_HAWG" Command="import_task" RepoUrlPath="Task_templates/GarageGraphics/GarageGraphics_Loading_Animation_HAWG.xml"/>
+
+    <!-- import tasks to update the {version} property of the package -->
+    <Task ID="import_tasks" Command="import_task" RepoUrlPath="Task_templates/update_package_version_from_wgmods.xml"/>
+  </TaskDefinitions>
+</AutomationSequence>

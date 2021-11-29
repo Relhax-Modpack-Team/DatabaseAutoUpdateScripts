@@ -305,6 +305,26 @@
   <AutomationSequence UID="4mqxqh37e8aex9sy" packageName="GarageGraphics_Carousel_LED_Red" path="GarageGraphics/Carousel/LED/GarageGraphics_Carousel_LED_Red.xml" />
   <AutomationSequence UID="oflyyk5s8kw38poa" packageName="GarageGraphics_Carousel_LED_USA" path="GarageGraphics/Carousel/LED/GarageGraphics_Carousel_LED_USA.xml" />
   <AutomationSequence UID="87gz6n7c1wjsj6kn" packageName="GarageGraphics_Carousel_LED_Yellow" path="GarageGraphics/Carousel/LED/GarageGraphics_Carousel_LED_Yellow.xml" />
+
+  <AutomationSequence UID="41mz8jvqozsix6cp" packageName="GarageGraphics_Loading_Animation_Red" path="GarageGraphics/LoadingAnimation/GarageGraphics_Loading_Animation_Red.xml"/>
+  <AutomationSequence UID="87e8x83t6c82lu4w" packageName="GarageGraphics_Loading_Animation_Blue" path="GarageGraphics/LoadingAnimation/GarageGraphics_Loading_Animation_Blue.xml"/>
+  <AutomationSequence UID="umtk6zpi29sz81n7" packageName="GarageGraphics_Loading_Animation_Green" path="GarageGraphics/LoadingAnimation/GarageGraphics_Loading_Animation_Green.xml"/>
+  <AutomationSequence UID="br1q4j3qretx1mnw" packageName="GarageGraphics_Loading_Animation_Yellow" path="GarageGraphics/LoadingAnimation/GarageGraphics_Loading_Animation_Yellow.xml"/>
+  <AutomationSequence UID="pwt26b0gbzl2m8in" packageName="GarageGraphics_Loading_Animation_0NoLogo" path="GarageGraphics/LoadingAnimation/GarageGraphics_Loading_Animation_0NoLogo.xml"/>
+  <AutomationSequence UID="qfzztnigxevad17r" packageName="GarageGraphics_Loading_Animation_1Grim" path="GarageGraphics/LoadingAnimation/GarageGraphics_Loading_Animation_1Grim.xml"/>
+  <AutomationSequence UID="4mb7tuakl9kpzamh" packageName="GarageGraphics_Loading_Animation_2PinUpGirl" path="GarageGraphics/LoadingAnimation/GarageGraphics_Loading_Animation_2PinUpGirl.xml"/>
+  <AutomationSequence UID="lq1h8nkq9hojmnhy" packageName="GarageGraphics_Loading_Animation_3Skull1" path="GarageGraphics/LoadingAnimation/GarageGraphics_Loading_Animation_3Skull1.xml"/>
+  <AutomationSequence UID="dqsklocfxh3sdp0r" packageName="GarageGraphics_Loading_Animation_4HAWG" path="GarageGraphics/LoadingAnimation/GarageGraphics_Loading_Animation_4HAWG.xml"/>
+  <AutomationSequence UID="a2i47fx2ujbkc10t" packageName="GarageGraphics_Loading_Animation_5FallenSoldier" path="GarageGraphics/LoadingAnimation/GarageGraphics_Loading_Animation_5FallenSoldier.xml"/>
+  <AutomationSequence UID="6ggcf8s6yg7xzg9f" packageName="GarageGraphics_Loading_Animation_6Skull2" path="GarageGraphics/LoadingAnimation/GarageGraphics_Loading_Animation_6Skull2.xml"/>
+  <AutomationSequence UID="87098zeq7wt3m7e6" packageName="GarageGraphics_Loading_Animation_10Tank" path="GarageGraphics/LoadingAnimation/GarageGraphics_Loading_Animation_10Tank.xml"/>
+  <AutomationSequence UID="hbim1tglk5c6zmtg" packageName="GarageGraphics_Loading_Animation_11Rank" path="GarageGraphics/LoadingAnimation/GarageGraphics_Loading_Animation_11Rank.xml"/>
+  <AutomationSequence UID="muawdidbaqmwr4f1" packageName="GarageGraphics_Loading_Animation_12Clan" path="GarageGraphics/LoadingAnimation/GarageGraphics_Loading_Animation_12Clan.xml"/>
+  <AutomationSequence UID="viuu008p800lmv76" packageName="GarageGraphics_Loading_Animation_13Swords" path="GarageGraphics/LoadingAnimation/GarageGraphics_Loading_Animation_13Swords.xml"/>
+  <AutomationSequence UID="xinltqe0rtpho5x4" packageName="GarageGraphics_Loading_Animation_14LeviathanGhost" path="GarageGraphics/LoadingAnimation/GarageGraphics_Loading_Animation_14LeviathanGhost.xml"/>
+  <AutomationSequence UID="jbbctkmw3y132wie" packageName="GarageGraphics_Loading_Animation_15GhostBusters" path="GarageGraphics/LoadingAnimation/GarageGraphics_Loading_Animation_15GhostBusters.xml"/>
+  <AutomationSequence UID="zjgblhkc9meergm1" packageName="GarageGraphics_Loading_Animation_16CowGirl" path="GarageGraphics/LoadingAnimation/GarageGraphics_Loading_Animation_16CowGirl.xml"/>
+  <AutomationSequence UID="6m4xllgv329l2lbe" packageName="GarageGraphics_Loading_Animation_17FireBall" path="GarageGraphics/LoadingAnimation/GarageGraphics_Loading_Animation_17FireBall.xml"/>
   <!-- Category Garage Graphics END   -->
 
   <!-- Category Statistics START -->
