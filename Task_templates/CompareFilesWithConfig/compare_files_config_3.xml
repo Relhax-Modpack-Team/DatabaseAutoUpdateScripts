@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<AutomationSequence documentVersion="1.0">
+<!-- compare_files_config_3.xml
+    Author:  Willster419
+    Created: 2021-12-01
+    This sequence template is for comparing n number of files (n being given by the file name), each file both in the {modpack} and {source} directories.
+    Additionally, it does an inverse compare on a configuration file.
+    Required macros:
+    {working_folder_modpack}       - The working folder of the modpack zip file and extraction processes
+    {working_folder_source}        - The working folder of the source zip file and extracation processes
+    {compare_file_1}               - The name of the first file to compare
+    {compare_file_2}               - The name of the second file to compare
+    {compare_file_3}               - The name of the third file to compare
+    {compare_file_config}          - The name of the configuration file to compare
+  -->
+  <TaskDefinitions>
+    <Task ID="compare_start" Command="compare_start"/>
+
+    <!-- Compare file 1 -->
+    <Task ID="compare_file_1" Command="file_compare"
+      FileA="{working_folder_source}\{compare_file_1}"
+      FileB="{working_folder_modpack}\{compare_file_1}"/>
+
+    <!-- Compare file 2 -->
+    <Task ID="compare_file_2" Command="file_compare"
+      FileA="{working_folder_source}\{compare_file_2}"
+      FileB="{working_folder_modpack}\{compare_file_2}"/>
+
+    <!-- Compare file 3 -->
+    <Task ID="compare_file_3" Command="file_compare"
+      FileA="{working_folder_source}\{compare_file_3}"
+      FileB="{working_folder_modpack}\{compare_file_3}"/>
+
+    <!-- Compare config / inverse -->
+    <!-- sequence should stop when there are changes to the cfg file -->
+    <Task ID="compare_cfg" Command="file_compare_inverse"
+      FileA="{working_folder_source}\{compare_file_config}"
+      FileB="{working_folder_modpack}\{compare_file_config}"/>
+
+    <Task ID="compare_end" Command="compare_end"/>
+  </TaskDefinitions>
+</AutomationSequence>
