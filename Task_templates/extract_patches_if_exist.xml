@@ -10,7 +10,7 @@
     {working_folder_package}       - The working fodler of the final zip file package created to be uploaded
   -->
   <TaskDefinitions>
-    <!-- And dont' forgot to check for any patch files! If there are none to extract then 7z won't make a folder -->
+    <!-- If there are none to extract then 7z won't make a folder -->
     <Task ID="extract_patches_if_exist" Command="shell_exec" Filename="7z.exe" Wd="{working_folder_modpack}" Cmd="e {packageName}.zip -o&quot;{working_folder_package}\_patch&quot; _patch/*.xml"/>
   </TaskDefinitions>
 </AutomationSequence>

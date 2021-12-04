@@ -31,8 +31,7 @@
   <!-- Subgroup GUI API END -->
 
   <!-- Subgroup Standard START -->
-  <!-- broken -->
-  <!-- <AutomationSequence UID="ex0ocsm6tio4kknh" packageName="Dependency_PMOD" path="Dependencies/Dependency_PMOD.xml" /> -->
+  <AutomationSequence UID="ex0ocsm6tio4kknh" packageName="Dependency_PMOD" path="Dependencies/Dependency_PMOD.xml" />
   <AutomationSequence UID="cw7xk1guapz8hayk" packageName="Dependency_OldSkool_modsCore" path="Dependencies/Dependency_OldSkool_modsCore.xml" />
   <!-- unfinished -->
   <!-- <AutomationSequence UID="5tjbkykag9506587" packageName="Dependency_P0LIR0ID_modsListApi" path="workDir/Dependency_P0LIR0ID_modsListApi.xml" /> -->
