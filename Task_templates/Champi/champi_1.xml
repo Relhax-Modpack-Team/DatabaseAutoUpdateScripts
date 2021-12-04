@@ -41,7 +41,7 @@
       Cmd="e {last_download_filename} mods\{champi_client_version}\{wotmod_prefix}{mod_name}*.wotmod mods\configs\CHAMPi\{mod_name}\{mod_name}.json {additional_files}"/>
 
     <Task ID="extract_modpack_flat" Command="shell_exec" Filename="7z.exe" Wd="{working_folder_modpack}"
-      Cmd="e {packageName}.zip mods\{champi_client_version}\{wotmod_prefix}{mod_name}*.wotmod mods\configs\CHAMPi\{mod_name}\{mod_name}.json {additional_files}"/>
+      Cmd="e {packageName}.zip mods\versiondir\{wotmod_prefix}{mod_name}*.wotmod mods\configs\CHAMPi\{mod_name}\{mod_name}.json {additional_files}"/>
 
     <Task ID="extract_source_lang_flat" Command="shell_exec" Filename="7z.exe" Wd="{working_folder_source}"
       Cmd="e {last_download_filename} -olang mods\configs\CHAMPi\{mod_name}\\i18n\*.json"/>
@@ -49,14 +49,18 @@
     <Task ID="extract_modpack_lang_flat" Command="shell_exec" Filename="7z.exe" Wd="{working_folder_modpack}"
       Cmd="e {packageName}.zip -olang mods\configs\CHAMPi\{mod_name}\i18n\*.json"/>
 
+    <!-- Get the names of the wotmods for both package and source -->
+    <Task ID="get_wotmod_source" Command="directory_search" DirectoryPath="{working_folder_source}" SearchPattern="{wotmod_prefix}{mod_name}*.wotmod" Recursive="False" MacroPrefix="get_wotmod_source"/>
+    <Task ID="get_wotmod_modpack" Command="directory_search" DirectoryPath="{working_folder_modpack}" SearchPattern="{wotmod_prefix}{mod_name}*.wotmod" Recursive="False" MacroPrefix="get_wotmod_modpack"/>
+
     <!-- Start a compare session. We are essentially comparing:
       - wotmod
       - config (inverse)
       - additional files
       - language files (compare dir update mode) -->
     <Task ID="compare_start" Command="compare_start"/>
-    <Task ID="compare_lang_files" Command="directory_compare_count" SearchPattern="*.json" Recursive="False"
-      DirectoryComparePathA="{working_folder_modpack}\lang"
-      DirectoryComparePathB="{working_folder_source}\lang"/>
+    <Task ID="compare_wotmod" Command="file_compare"
+      FileA="{get_wotmod_source_0}"
+      FileB="{get_wotmod_modpack_0}"/>
   </TaskDefinitions>
 </AutomationSequence>
