@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<AutomationSequence documentVersion="1.0">
+<!-- create_upload_zip.xml
+    Author:  Willster419
+    Created: 2021-12-03
+    This sequence template is part 2 for comparing and updating champi based mods. As of last month, he confirmed he doesn't
+    individually package his mods anymore. Therefore, we must get them by extracting from his installer -.-
+    This part picks up by stopping the compare.
+
+    Required macros:
+    {working_folder_modpack}       - The working folder of the modpack zip file and extraction processes
+    {upload_zip_filename}          - The name of the zipfile to exist on the server, without file extension
+  -->
+  <TaskDefinitions>
+
+    <!-- create the new zip
+      "a" is to add to an archive. In this case because it's the first file, the archive is created for the first time.
+      -tzip is to create a zip format archive
+      -mx=9 is setting the level of compression to 9 (scale goes from 0 [store] to 9[ultra])
+      -r recurse subdirectories
+    -->
+    <Task ID="create_zip" Command="shell_exec" Filename="7z.exe" Wd="{working_folder_package}" Cmd="{7z_createFinalZip}"/>
+
+    <!-- upload to the server -->
+    <Task ID="upload_zip" Command="package_upload" FilePath="{working_folder_package}\final.zip" ZipFileName="{upload_zip_filename}.zip"/>
+  </TaskDefinitions>
+</AutomationSequence>

@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<AutomationSequence documentVersion="1.0">
+<!-- champi_2.xml
+    Author:  Willster419
+    Created: 2021-12-03
+    This sequence template is part 2 for comparing and updating champi based mods. As of last month, he confirmed he doesn't
+    individually package his mods anymore. Therefore, we must get them by extracting from his installer -.-
+    This part picks up by stopping the compare.
+
+    Required macros:
+    {working_folder_modpack}       - The working folder of the modpack zip file and extraction processes
+    {working_folder_source}        - The working folder of the source zip file and extracation processes
+    {working_folder_package}       - The working fodler of the final zip file package created to be uploaded
+    {mod_name}                     - The name of the mod, used in the wotmod name and config file/folder name
+    {wotmod_prefix}                - The prefix of the wotmod filename
+    {champi_client_version}        - The version name of the folder used in his installer, it's created in <champi_1.xml>
+
+    Optional macros:
+    {additional_files}             - Any additional files to extract from source
+  -->
+  <TaskDefinitions>
+    <Task ID="compare_end" Command="compare_end"/>
+
+    <!-- Running this part means that there are files that can be updated, and the config doesn't need to be updated. It runs in 3 parts:
+      1. Extract the language files to a specific folder. This is because there's an extra folder in the path inside the installer.
+      2. Extract the wotmod to a specific folder so we can use the 'versiondir' macro used by our installer.
+      3. Extract any remaining listed files to their designated locations by using the 'x' arg of 7zip. -->
+    <Task ID="extract_source_to_package_lang" Command="shell_exec" Filename="7z.exe" Wd="{working_folder_source}"
+      Cmd="e {last_download_filename} -o&quot;{working_folder_package}\mods\configs\CHAMPi\{mod_name}\i18n&quot; mods\configs\CHAMPi\{mod_name}\\i18n\*.json"/>
+    <Task ID="extract_source_to_package_wotmod" Command="shell_exec" Filename="7z.exe" Wd="{working_folder_source}"
+      Cmd="e {last_download_filename} -o&quot;{working_folder_package}\mods\versiondir&quot; mods\{champi_client_version}\{wotmod_prefix}{mod_name}*.wotmod"/>
+    <Task ID="extract_source_to_package_config_other" Command="shell_exec" Filename="7z.exe" Wd="{working_folder_source}"
+      Cmd="x {last_download_filename} -o&quot;{working_folder_package}&quot; mods\configs\CHAMPi\{mod_name}\{mod_name}.json {additional_files}"/>
+
+    <!-- And dont' forgot to check for any patch files! If there are none to extract then 7z won't make a folder -->
+    <Task ID="extract_patches_if_exist" Command="shell_exec" Filename="7z.exe" Wd="{working_folder_modpack}" Cmd="e {packageName}.zip -o&quot;{working_folder_package}\_patch&quot; _patch/*.xml"/>
+
+    <!-- Run some tasks for getting macros from filenames, just so that it will verify that files exist as intended. We at least need to verify:
+    - wotmod
+    - config file
+    - language files -->
+    <Task ID="get_wotmod" Command="directory_search" DirectoryPath="{working_folder_package}\mods\versiondir" SearchPattern="{wotmod_prefix}{mod_name}*.wotmod" Recursive="False" MacroPrefix="get_wotmod"/>
+    <Task ID="check_wotmod_exists" Command="macro_string_split_filename" MacroName="check_wotmod_exists" Index="0" SplitCharacters="_" FilePath="{get_wotmod_0}"/>
+
+    <Task ID="check_cfg_exists" Command="macro_string_split_filename" MacroName="check_cfg_exists" Index="0" SplitCharacters="_" FilePath="{working_folder_package}\mods\configs\CHAMPi\{mod_name}\{mod_name}.json"/>
+
+    <Task ID="get_lang_files" Command="directory_search" DirectoryPath="{working_folder_package}\mods\configs\CHAMPi\{mod_name}\i18n" SearchPattern="*.json" Recursive="False" MacroPrefix="get_lang_files"/>
+    <Task ID="check_lang_exists" Command="macro_string_split_filename" MacroName="check_lang_exists" Index="0" SplitCharacters="_" FilePath="{get_lang_files_0}"/>
+
+    <!-- get the current version of the mod by string split and file search -->
+    <Task ID="get_mod_version_1" Command="macro_string_split_filename" MacroName="mod_version_1" Index="1" SplitCharacters="_" FilePath="{get_wotmod_0}"/>
+    <Task ID="get_mod_version_2" Command="macro_string_split_macro" MacroName="mod_version_2" Index="0" SplitCharacters=".wotmod" InputText="{mod_version_1}"/>
+
+    <!-- update version field in database -->
+    <Task ID="update_package_version" Command="update_package_property" PropertyName="Version" PropertyValue="{mod_version_2}" />
+
+    <!-- Create macro of the ftp server filename to use -->
+    <Task ID="create_ftp_file_macro" Command="macro_create" MacroName="upload_zip_filename" MacroValue="{packageName}_v{mod_version_2}_{clientVersion}_{date}"/>
+  </TaskDefinitions>
+</AutomationSequence>

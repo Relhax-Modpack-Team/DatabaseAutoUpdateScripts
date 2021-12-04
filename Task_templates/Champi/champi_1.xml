@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<AutomationSequence documentVersion="1.0">
+<!-- champi_1.xml
+    Author:  Willster419
+    Created: 2021-12-03
+    This sequence template is part 1for comparing and updating champi based mods. As of last month, he confirmed he doesn't
+    individually package his mods anymore. Therefore, we must get them by extracting from his installer -.-
+    This part takes us down to starting a compare, and comparing the wotmod, cfg file, and language files.
+
+    Required macros:
+    {working_folder_modpack}       - The working folder of the modpack zip file and extraction processes
+    {working_folder_source}        - The working folder of the source zip file and extracation processes
+    {mod_name}                     - The name of the mod, used in the wotmod name and config file/folder name
+    {wotmod_prefix}                - The prefix of the wotmod filename
+
+    Optional macros:
+    {additional_files}             - Any additional files to extract from source
+  -->
+  <TaskDefinitions>
+    <!-- create the working directories -->
+    <Task ID="import_task_create_workDirs_macros" Command="import_task" RepoUrlPath="Task_templates/create_workDirs_macros.xml"/>
+
+    <!-- import champi macro lib -->
+    <Task ID="import_macros" Command="import_macro" RepoUrlPath="Macro_templates/champi.xml"/>
+
+    <!-- Download his modpack installer-->
+    <Task ID="download_mod_source" Command="download_html" Url="{champi_download_url}" DestinationPath="{working_folder_source}\{last_download_filename}" HtmlPath="{champi_xpath}"/>
+
+    <!-- Download the package from the database -->
+    <Task ID="download_modpack" Command="package_download" FilePath="{working_folder_modpack}\{packageName}.zip"/>
+
+    <!-- Get the version of the client the installer is designed for. Meaning, it *should* also match the version number of the mods folder in the installer.
+         The way we can do this is by string parsing the file file name of the installer.
+          - Split by 'champi-wot-modpack-installer_v', so we get the first half of the name with the version dir, for example: 1.14.1.4_01.exe
+          - Split by '_', so we are left with '1.14.1.4' -->
+    <Task ID="get_client_version_1" Command="macro_string_split_macro" MacroName="champi_client_version_part" Index="0" SplitCharacters="champi-wot-modpack-installer_v" InputText="{last_download_filename}"/>
+    <Task ID="get_client_version_2" Command="macro_string_split_macro" MacroName="champi_client_version" Index="0" SplitCharacters="_" InputText="{champi_client_version_part}"/>
+
+    <!-- Extract the required source and modpack files to a flat directory location for comparison only -->
+    <Task ID="extract_source_flat" Command="shell_exec" Filename="7z.exe" Wd="{working_folder_source}"
+      Cmd="e {last_download_filename} mods\{champi_client_version}\{wotmod_prefix}{mod_name}*.wotmod mods\configs\CHAMPi\{mod_name}\{mod_name}.json {additional_files}"/>
+
+    <Task ID="extract_modpack_flat" Command="shell_exec" Filename="7z.exe" Wd="{working_folder_modpack}"
+      Cmd="e {packageName}.zip mods\{champi_client_version}\{wotmod_prefix}{mod_name}*.wotmod mods\configs\CHAMPi\{mod_name}\{mod_name}.json {additional_files}"/>
+
+    <Task ID="extract_source_lang_flat" Command="shell_exec" Filename="7z.exe" Wd="{working_folder_source}"
+      Cmd="e {last_download_filename} -olang mods\configs\CHAMPi\{mod_name}\\i18n\*.json"/>
+
+    <Task ID="extract_modpack_lang_flat" Command="shell_exec" Filename="7z.exe" Wd="{working_folder_modpack}"
+      Cmd="e {packageName}.zip -olang mods\configs\CHAMPi\{mod_name}\i18n\*.json"/>
+
+    <!-- Start a compare session. We are essentially comparing:
+      - wotmod
+      - config (inverse)
+      - additional files
+      - language files (compare dir update mode) -->
+    <Task ID="compare_start" Command="compare_start"/>
+    <Task ID="compare_lang_files" Command="directory_compare_count" SearchPattern="*.json" Recursive="False"
+      DirectoryComparePathA="{working_folder_modpack}\lang"
+      DirectoryComparePathB="{working_folder_source}\lang"/>
+  </TaskDefinitions>
+</AutomationSequence>

@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<AutomationSequence documentVersion="1.0">
+  <Macros>
+    <Macro Name="champi_download_url" Value="https://wot.champi.de/"/>
+    <Macro Name="champi_xpath_mod_name" Value="CHAMPi WoT Mods Installer"/>
+  </Macros>
+</AutomationSequence>

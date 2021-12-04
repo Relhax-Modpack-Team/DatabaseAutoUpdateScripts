@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<AutomationSequence documentVersion="1.0">
+<!-- champi_lang_config.xml
+    Author:  Willster419
+    Created: 2021-12-03
+    This sequence template is a supplement for champi_1.xml, intended to be inserted only if required by the package itself.
+    This sequence template manages comparison of the config and language files for champi mods
+
+    Required macros:
+    {working_folder_modpack}       - The working folder of the modpack zip file and extraction processes
+    {working_folder_source}        - The working folder of the source zip file and extracation processes
+    {mod_name}                     - The name of the mod, used in the wotmod name and config file/folder name
+  -->
+  <TaskDefinitions>
+    <!-- Compare language files -->
+    <Task ID="compare_lang_files" Command="directory_compare_count" SearchPattern="*.json" Recursive="False"
+      DirectoryComparePathA="{working_folder_source}\lang"
+      DirectoryComparePathB="{working_folder_modpack}\lang"/>
+    <!-- Compare config / inverse -->
+    <!-- sequence should stop when there are changes to the cfg file -->
+    <Task ID="compare_cfg" Command="file_compare_inverse"
+      FileA="{working_folder_source}\{mod_name}.json"
+      FileB="{working_folder_modpack}\{mod_name}.json"/>
+  </TaskDefinitions>
+</AutomationSequence>
