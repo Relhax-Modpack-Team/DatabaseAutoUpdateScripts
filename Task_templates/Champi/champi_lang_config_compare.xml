@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <AutomationSequence documentVersion="1.0">
-<!-- champi_lang_config.xml
+<!-- champi_lang_config_compare.xml
     Author:  Willster419
     Created: 2021-12-03
     This sequence template is a supplement for champi_1.xml, intended to be inserted only if required by the package itself.

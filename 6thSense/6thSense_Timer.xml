@@ -15,14 +15,16 @@
     <!-- Run champi tasks part 1-->
     <Task ID="import_champi_1" Command="import_task" RepoUrlPath="Task_templates/Champi/champi_1.xml"/>
 
-    <!-- Run champi tasks lang and config -->
-    <Task ID="import_champi_lang_config" Command="import_task" RepoUrlPath="Task_templates/Champi/champi_lang_config.xml"/>
+    <!-- Run champi tasks lang and config compare -->
+    <Task ID="import_champi_lang_config" Command="import_task" RepoUrlPath="Task_templates/Champi/champi_lang_config_compare.xml"/>
 
     <!-- Run champi tasks part 2 -->
     <Task ID="import_champi_2" Command="import_task" RepoUrlPath="Task_templates/Champi/champi_2.xml"/>
 
+    <!-- Run champi tasks lang and config verify -->
+    <Task ID="import_champi_lang_config" Command="import_task" RepoUrlPath="Task_templates/Champi/champi_lang_config_verify.xml"/>
+
     <!-- Run create zip and upload tasks -->
     <Task ID="import_create_upload_zip" Command="import_task" RepoUrlPath="Task_templates/create_upload_zip.xml"/>
   </TaskDefinitions>
-
 </AutomationSequence>

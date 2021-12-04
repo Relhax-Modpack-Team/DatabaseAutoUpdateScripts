@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<AutomationSequence documentVersion="1.0">
+<!-- champi_lang_config_verify.xml
+    Author:  Willster419
+    Created: 2021-12-03
+    This sequence template is a supplement for champi_2.xml, intended to be inserted only if required by the package itself.
+    This sequence template manages verification of the config and language files for champi mods
+
+    Required macros:
+    {working_folder_package}       - The working fodler of the final zip file package created to be uploaded
+    {mod_name}                     - The name of the mod, used in the wotmod name and config file/folder name
+  -->
+  <TaskDefinitions>
+    <Task ID="check_cfg_exists" Command="macro_string_split_filename" MacroName="check_cfg_exists" Index="0" SplitCharacters="_" FilePath="{working_folder_package}\mods\configs\CHAMPi\{mod_name}\{mod_name}.json"/>
+
+    <Task ID="get_lang_files" Command="directory_search" DirectoryPath="{working_folder_package}\mods\configs\CHAMPi\{mod_name}\i18n" SearchPattern="*.json" Recursive="False" MacroPrefix="get_lang_files"/>
+    <Task ID="check_lang_exists" Command="macro_string_split_filename" MacroName="check_lang_exists" Index="0" SplitCharacters="_" FilePath="{get_lang_files_0}"/>
+  </TaskDefinitions>
+</AutomationSequence>

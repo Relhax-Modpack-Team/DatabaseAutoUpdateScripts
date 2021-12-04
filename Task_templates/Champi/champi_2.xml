@@ -42,17 +42,12 @@
     <Task ID="get_wotmod" Command="directory_search" DirectoryPath="{working_folder_package}\mods\versiondir" SearchPattern="{wotmod_prefix}{mod_name}*.wotmod" Recursive="False" MacroPrefix="get_wotmod"/>
     <Task ID="check_wotmod_exists" Command="macro_string_split_filename" MacroName="check_wotmod_exists" Index="0" SplitCharacters="_" FilePath="{get_wotmod_0}"/>
 
-    <Task ID="check_cfg_exists" Command="macro_string_split_filename" MacroName="check_cfg_exists" Index="0" SplitCharacters="_" FilePath="{working_folder_package}\mods\configs\CHAMPi\{mod_name}\{mod_name}.json"/>
-
-    <Task ID="get_lang_files" Command="directory_search" DirectoryPath="{working_folder_package}\mods\configs\CHAMPi\{mod_name}\i18n" SearchPattern="*.json" Recursive="False" MacroPrefix="get_lang_files"/>
-    <Task ID="check_lang_exists" Command="macro_string_split_filename" MacroName="check_lang_exists" Index="0" SplitCharacters="_" FilePath="{get_lang_files_0}"/>
-
     <!-- get the current version of the mod by string split and file search -->
     <Task ID="get_mod_version_1" Command="macro_string_split_filename" MacroName="mod_version_1" Index="1" SplitCharacters="_" FilePath="{get_wotmod_0}"/>
     <Task ID="get_mod_version_2" Command="macro_string_split_macro" MacroName="mod_version_2" Index="0" SplitCharacters=".wotmod" InputText="{mod_version_1}"/>
 
     <!-- update version field in database -->
-    <Task ID="update_package_version" Command="update_package_property" PropertyName="Version" PropertyValue="{mod_version_2}" />
+    <Task ID="update_package_version" Command="update_package_property" PropertyName="Version" PropertyValue="{mod_version_2}"/>
 
     <!-- Create macro of the ftp server filename to use -->
     <Task ID="create_ftp_file_macro" Command="macro_create" MacroName="upload_zip_filename" MacroValue="{packageName}_v{mod_version_2}_{clientVersion}_{date}"/>
