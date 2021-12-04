@@ -2,84 +2,29 @@
 <AutomationSequence documentVersion="1.0">
   <!-- Specify macros here -->
   <Macros>
-    <!-- for inside macro of the global_macro 'champi_xpath' -->
-    <Macro Name="champi_xpath_mod_name" Value="Safeshot Pro"/>
-    <Macro Name="wotmod_name" Value="de.champi.wot.safeShotPro"/>
+    <Macro Name="mod_name" Value="safeShotPro"/>
+    <Macro Name="wotmod_prefix" Value="de.champi.wot."/>
+    <Macro Name="additional_files" Value=" "/>
   </Macros>
 
   <!-- Specify the tasks to run -->
   <TaskDefinitions>
-    
-    <!-- import tasks -->
-    <Task ID="import_macro_create_tasks" Command="import_task" RepoUrlPath="Task_templates/create_workDirs_macros.xml"/>
+    <!-- Create them there work dir macros -->
+    <Task ID="import_macro_create_work_dirs" Command="import_task" RepoUrlPath="Task_templates/create_workDirs_macros.xml"/>
 
-    <!-- download the source and the modpack current zip file, which *could* implicitly creates the directories, if we didn't define them first -->
-    <Task ID="get_download_url" Command="retrieve_package_property" PropertyName="DevURLList" TargetPackageUID="this" MacroSaveName="download_url" PropertyIndex="0"/>
-    <Task ID="download_mod_source" Command="download_html" Url="{download_url}" DestinationPath="{working_folder_source}\{last_download_filename}" HtmlPath="{champi_xpath}"/>
-    <Task ID="download_modpack" Command="package_download" FilePath="{working_folder_modpack}\{packageName}.zip"/>
+    <!-- Run champi tasks part 1-->
+    <Task ID="import_champi_1" Command="import_task" RepoUrlPath="Task_templates/Champi/champi_1.xml"/>
 
+    <!-- Run champi tasks lang and config compare -->
+    <Task ID="import_champi_lang_config" Command="import_task" RepoUrlPath="Task_templates/Champi/champi_lang_config_compare.xml"/>
 
+    <!-- Run champi tasks part 2 -->
+    <Task ID="import_champi_2" Command="import_task" RepoUrlPath="Task_templates/Champi/champi_2.xml"/>
 
-    <!-- extract the source and modpack wotmod files-->
-    <Task ID="extract_source" Command="shell_exec" Filename="7z.exe" Wd="{working_folder_source}" Cmd="e {last_download_filename} -o&quot;{working_folder_source}\mods\{clientVersion}\&quot; {wotmod_name}*.wotmod -r"/>
-    <Task ID="extract_source3" Command="shell_exec" Filename="7z.exe" Wd="{working_folder_source}" Cmd="x {last_download_filename} safeShotPro.json -r"/>
-    <Task ID="extract_source5" Command="shell_exec" Filename="7z.exe" Wd="{working_folder_source}" Cmd="x {last_download_filename} de.json -r"/>
-    <Task ID="extract_source6" Command="shell_exec" Filename="7z.exe" Wd="{working_folder_source}" Cmd="x {last_download_filename} en.json -r"/>
-    <Task ID="extract_source7" Command="shell_exec" Filename="7z.exe" Wd="{working_folder_source}" Cmd="x {last_download_filename} pl.json -r"/>
+    <!-- Run champi tasks lang and config verify -->
+    <Task ID="import_champi_lang_config" Command="import_task" RepoUrlPath="Task_templates/Champi/champi_lang_config_verify.xml"/>
 
-
-    <!-- 'e' means to extract (to the work direcotry, without using the zip file's paths), and -r means to recurse into the zip folder's directories -->
-    <Task ID="extract_modpack" Command="shell_exec" Filename="7z.exe" Wd="{working_folder_modpack}" Cmd="x {packageName}.zip {wotmod_name}*.wotmod -r"/>
-    <Task ID="extract_modpack2" Command="shell_exec" Filename="7z.exe" Wd="{working_folder_modpack}" Cmd="x {packageName}.zip SafeShot_champi_disableALL.xml -r"/>
-
-    <!-- get the current version of the mod by string split and file search -->
-    <Task ID="get_wotmod_filename" Command="directory_search" DirectoryPath="{working_folder_source}\mods\{clientVersion}" SearchPattern="{wotmod_name}*.wotmod" Recursive="False" MacroPrefix="get_wotmod_filename_results"/>
-    <Task ID="get_mod_version_1" Command="macro_string_split_filename" MacroName="mod_version_1" Index="1" SplitCharacters="_" FilePath="{get_wotmod_filename_results_0}"/>
-    <Task ID="get_mod_version_2" Command="macro_string_split_macro" MacroName="mod_version_2" Index="0" SplitCharacters=".wotmod" InputText="{mod_version_1}"/>
-
-    <!-- Create the wotmod names -->
-    <Task ID="create_wotmod_source_macro" Command="macro_create" MacroName="wotmod_source" MacroValue="{wotmod_name}_{mod_version_2}.wotmod"/>
-    <Task ID="create_wotmod_modpack_macro" Command="macro_create" MacroName="wotmod_modpack" MacroValue="{wotmod_name}_{version}.wotmod"/>
-
-    <!-- compare the hashes. this is done in 3 steps:
-      1. write the compare_start task (resets the internal counters for matches and differences)
-      2. use compare tasks to compare files on disk or an entry in a zip file
-      3. write the compare_end task (evaluates the counts from the compare tasks)
-          if compare_end finds 0 differences, then the automation process will end early (nothing to update)
-    -->
-    <Task ID="compare_start" Command="compare_start"/>
-    <!-- Compare wotmod and config file -->
-    <Task ID="compare_wotmod" Command="file_compare"
-      FileA="{working_folder_source}\mods\{clientVersion}\{wotmod_source}"
-      FileB="{working_folder_modpack}\mods\versiondir\{wotmod_modpack}"/>
-    <Task ID="compare_end" Command="compare_end"/>
-
-    <!-- if the comparison is good, meaning there is an update, then we want to copy the source into a new 'final' folder and upload -->
-    <Task ID="create_source_dir_post_compare" Command="create_directory" DirectoryPath="{workDirectory}\package\mods\versiondir"/>
-    <Task ID="move_source_post_compare" Command="file_copy" SourceFilePath="{working_folder_source}\mods\{clientVersion}\{wotmod_source}" DestinationFilePath="{workDirectory}\package\mods\versiondir\{wotmod_source}"/>
-    <Task ID="move_source_post_compare2" Command="file_copy" SourceFilePath="{working_folder_source}\mods\configs\CHAMPi\safeShotPro\safeShotPro.json" DestinationFilePath="{workDirectory}\package\mods\configs\CHAMPi\safeShotPro\safeShotPro.json"/>
-    <Task ID="move_source_post_compare4" Command="file_copy" SourceFilePath="{working_folder_source}\mods\configs\CHAMPi\safeShotPro\i18n\de.json" DestinationFilePath="{workDirectory}\package\mods\configs\CHAMPi\safeShotPro\i18n\de.json"/>
-    <Task ID="move_source_post_compare5" Command="file_copy" SourceFilePath="{working_folder_source}\mods\configs\CHAMPi\safeShotPro\i18n\en.json" DestinationFilePath="{workDirectory}\package\mods\configs\CHAMPi\safeShotPro\i18n\en.json"/>
-    <Task ID="move_source_post_compare6" Command="file_copy" SourceFilePath="{working_folder_source}\mods\configs\CHAMPi\safeShotPro\i18n\pl.json" DestinationFilePath="{workDirectory}\package\mods\configs\CHAMPi\safeShotPro\i18n\pl.json"/>
-    <!-- copy patchfile from source -->
-    <Task ID="move_source_post_compare11" Command="file_copy" SourceFilePath="{working_folder_modpack}\_patch\SafeShot_champi_disableALL.xml" DestinationFilePath="{workDirectory}\package\_patch\SafeShot_champi_disableALL.xml"/>
-
-    <!-- create the new zip
-      "a" is to add to an archive. In this case because it's the first file, the archive is created for the first time.
-      -tzip is to create a zip format archive
-      -mx=9 is setting the level of compression to 9 (scale goes from 0 [store] to 9[ultra])
-      -r recurse subdirectories
-    -->
-    <Task ID="create_zip" Command="shell_exec" Filename="7z.exe" Wd="{workDirectory}\package" Cmd="{7z_createFinalZip}"/>
-
-    <!-- update version field in database -->
-    <Task ID="update_package_version" Command="update_package_property" PropertyName="Version" PropertyValue="{mod_version_2}" />
-
-    <!-- upload to the server -->
-    <Task ID="upload_zip" Command="package_upload" FilePath="{workDirectory}\package\final.zip" ZipFileName="{packageName}_v{mod_version_2}_{clientVersion}_{date}.zip"/>
-  
-  
-  
+    <!-- Run create zip and upload tasks -->
+    <Task ID="import_create_upload_zip" Command="import_task" RepoUrlPath="Task_templates/create_upload_zip.xml"/>
   </TaskDefinitions>
-
 </AutomationSequence>
