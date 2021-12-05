@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<AutomationSequence documentVersion="1.0">
+<!-- Sounds_CrewVoices_Bloggers.xml
+    Author:  Willster419
+    Created: 2021-12-05
+    This sequence template contains the entire process for updating all blogger voice files
+
+    Required macros:
+    {package_folder_path}          - The path inside the wot package structure that contains the 2 audio files to extract
+  -->
+  <TaskDefinitions>
+  <!-- Create them good ol workdirs and macors -->
+  <Task ID="import_create_workDirs_macros" Command="import_task" RepoUrlPath="Task_templates/create_workDirs_macros.xml"/>
+
+  <!-- Download the modpack package to a zip file -->
+  <Task ID="import_download_package" Command="import_task" RepoUrlPath="Task_templates/downloadModpack_PackageNameZip.xml"/>
+
+  <!-- Extract the modpack package -->
+  <Task ID="extract_modpack" Command="shell_exec" Filename="7z.exe" Wd="{working_folder_modpack}" Cmd="x {packageName}.zip"/>
+
+  <!-- Extract the source (game) sound files to the package directory -->
+  <Task ID="extract_modpack" Command="shell_exec" Filename="7z.exe" Wd="{working_folder_modpack}"
+    Cmd="e {clientPath}\res\packages\audioww-part1.pkg -o&quot;{working_folder_package}\res_mods\versiondir\audioww&quot; audioww\bloggers\{package_folder_path}"/>
+  <Task ID="extract_modpack" Command="shell_exec" Filename="7z.exe" Wd="{working_folder_modpack}"
+    Cmd="e {clientPath}\res\packages\audioww-part2.pkg -o&quot;{working_folder_package}\res_mods\versiondir\audioww&quot; audioww\bloggers\{package_folder_path}"/>
+
+  <!-- Delete the extra folder that gets created -->
+  <Task ID="delete_extra_directory" Command="directory_delete" DirectoryPath="{working_folder_package}\res_mods\versiondir\audioww\{package_folder_path}" SearchPattern="*" Recursive="True" IncludeRootInSearch="True"/>
+
+  <!-- Compare the two files -->
+  <Task ID="compare_start" Command="compare_start"/>
+
+  <!-- Compare inbattle_communication_pc.bnk -->
+  <Task ID="compare_file_1" Command="file_compare"
+    FileA="{working_folder_package}\res_mods\versiondir\audioww\inbattle_communication_pc.bnk"
+    FileB="{working_folder_modpack}\res_mods\versiondir\audioww\inbattle_communication_pc.bnk"/>
+
+  <!-- Compare voiceover.bnk -->
+  <Task ID="compare_file_2" Command="file_compare"
+    FileA="{working_folder_package}\res_mods\versiondir\audioww\voiceover.bnk"
+    FileB="{working_folder_modpack}\res_mods\versiondir\audioww\voiceover.bnk"/>
+
+  <Task ID="compare_end" Command="compare_end"/>
+
+  <!-- Upload the changes to the server -->
+  <Task ID="create_workdir_source_macro" Command="macro_create" MacroName="upload_zip_filename" MacroValue="{packageName}_{clientVersion}_{date}.zip"/>
+  <Task ID="import_create_upload_zip" Command="import_task" RepoUrlPath="Task_templates/create_upload_zip.xml"/>
+  </TaskDefinitions>
+</AutomationSequence>

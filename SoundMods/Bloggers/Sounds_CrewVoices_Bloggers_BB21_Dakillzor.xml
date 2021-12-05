@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<AutomationSequence documentVersion="1.0">
+  <!-- Specify macros here -->
+  <Macros>
+    <Macro Name="package_folder_path" Value="BB21_Dakillzor"/>
+  </Macros>
+
+  <!-- Specify the tasks to run -->
+  <TaskDefinitions>
+    <!-- run main blogger voice mod task -->
+    <Task ID="import_macro_create_tasks" Command="import_task" RepoUrlPath="Task_templates/SoundMods/Sounds_CrewVoices_Bloggers.xml"/>
+  </TaskDefinitions>
+</AutomationSequence>
