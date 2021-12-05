@@ -24,7 +24,7 @@
   <AutomationSequence UID="lhlph8q71wnqdey0" packageName="Dependency_XVM_XC_speed" path="Dependencies/XVM/Dependency_XVM_XC_speed.xml" />
   <AutomationSequence UID="4a7xos55e5uzv2o2" packageName="Dependency_XVM_XC_elevation" path="Dependencies/XVM/Dependency_XVM_XC_elevation.xml" />
   <!-- Subgroup XVM END -->
-  
+
   <!-- Subgroup GUI API START -->
   <AutomationSequence UID="8bhv4wcpn1quvd5v" packageName="Dependency_CHAMPi_settingsGUI" path="Dependencies/Dependency_CHAMPi_settingsGUI.xml" />
   <AutomationSequence UID="ypupkvormubtv1ju" packageName="Dependency_Gambiter_GUIflash" path="Dependencies/Dependency_Gambiter_GUIflash.xml" />
@@ -49,7 +49,7 @@
   <AutomationSequence UID="h9mtckn4ka5ifipx" packageName="LogicalDependency_MVI_HANGAR_CLEAR_tier_noXVM" path="Dependencies/MVI/LogicalDependency_MVI_HANGAR_CLEAR_tier_noXVM.xml" />
   <AutomationSequence UID="uyt8ljt5j7xzfuwx" packageName="LogicalDependency_MVI_HANGAR_CLEAR_ALL_noXVM" path="Dependencies/MVI/LogicalDependency_MVI_HANGAR_CLEAR_ALL_noXVM.xml" />
   <!-- Subgroup Icon Mirror Files END -->
-  
+
   <!-- Category Dependencies END  -->
 
   <!-- Category IN-BATTLE Start -->
@@ -128,7 +128,7 @@
   <AutomationSequence UID="udjr1ikkpkqha0lz" packageName="ContourIcons_Pogs_Clear_MaxFsrVr" path="ContourTankIcons/ContourIcons_Pogs_Clear_MaxFsrVr.xml" />
   <AutomationSequence UID="os1ytma3j3r7lt3c" packageName="ContourIcons_Pogs_Clear_MaxFsrVrRld" path="ContourTankIcons/ContourIcons_Pogs_Clear_MaxFsrVrRld.xml" />
   <AutomationSequence UID="e6es9lm5iwc6lhic" packageName="ContourIcons_Pogs_DaMatz" path="ContourTankIcons/ContourIcons_Pogs_DaMatz.xml"/>
-    
+
   <AutomationSequence UID="finweabekvucb31b" packageName="ContourIcons_APCRNOOB_Standard" path="ContourTankIcons/ContourIcons_APCRNOOB_Standard.xml"/>
   <AutomationSequence UID="mmbied7yebokm7qo" packageName="ContourIcons_APCRNOOB_miniV2" path="ContourTankIcons/ContourIcons_APCRNOOB_miniV2.xml"/>
   <AutomationSequence UID="b0ocucj0d39jmv4n" packageName="ContourIcons_Aslain" path="ContourTankIcons/ContourIcons_Aslain.xml"/>
@@ -139,7 +139,7 @@
   <AutomationSequence UID="1p5n7f095xe97ugx" packageName="ContourIcons_J1mB0_ReWorked" path="ContourTankIcons/ContourIcons_J1mB0_ReWorked.xml"/>
   <AutomationSequence UID="nuyqw3hjg7qvg7ah" packageName="ContourIcons_TheIllusion_BIG" path="ContourTankIcons/ContourIcons_TheIllusion_BIG.xml"/>
   <AutomationSequence UID="0j5542nkf3jcgjig" packageName="ContourIcons_TheIllusion_SMALL" path="ContourTankIcons/ContourIcons_TheIllusion_SMALL.xml"/>
-  
+
   <AutomationSequence UID="2mbvcocccfyw2cxl" packageName="TankIcons_Carousel_Premium_elektrosmoker" path="ContourTankIcons/TankIcons_Carousel_Premium_elektrosmoker.xml"/>
   <AutomationSequence UID="moltt0zns0nhm5z9" packageName="TankIcons_TechTree_elektrosmoker" path="ContourTankIcons/TankIcons_TechTree_elektrosmoker.xml"/>
   <!-- Category Contour & Tank Icons END -->
@@ -178,7 +178,7 @@
   <AutomationSequence UID="mkg2j2kprc85s9eq" packageName="IngameAim_TargetArrow_Yellow" path="IngameAim/TargetArrow/IngameAim_TargetArrow_Yellow.xml"/>
   <AutomationSequence UID="vgmsi8usgqdgpej4" packageName="IngameAim_TargetArrow_YellowBlack" path="IngameAim/TargetArrow/IngameAim_TargetArrow_YellowBlack.xml"/>
   <!-- Category Ingame Aim END   -->
-  
+
   <!-- Category Ingame Info START -->
   <AutomationSequence UID="hxsbz0o3ni6eae4h" packageName="IngameInfo_DangerLights" path="IngameInfo/IngameInfo_DangerLights.xml"/>
   <AutomationSequence UID="4qcvi028h2edpw0y" packageName="IngameInfo_FinalShot" path="IngameInfo/IngameInfo_FinalShot.xml"/>
@@ -224,13 +224,13 @@
   <AutomationSequence UID="5w86s2tcah0vz5yd" packageName="IngameMisc_UnderwaterTimer_V3" path="IngameMisc/UnderwaterTimer/IngameMisc_UnderwaterTimer_V3.xml"/>
   <AutomationSequence UID="yg5kyxsh4ibkbxuy" packageName="IngameMisc_UnderwaterTimer_V7" path="IngameMisc/UnderwaterTimer/IngameMisc_UnderwaterTimer_V7.xml"/>
   <AutomationSequence UID="46d63yjqneao8y39" packageName="IngameMisc_UnderwaterTimer_V10" path="IngameMisc/UnderwaterTimer/IngameMisc_UnderwaterTimer_V10.xml"/>
-  
+
   <AutomationSequence UID="px6jrz5us97tnnbb" packageName="IngameMisc_BetterVisibleFlatTrainWagons" path="IngameMisc/IngameMisc_BetterVisibleFlatTrainWagons.xml"/>
-  
+
   <AutomationSequence UID="lwj26ht7rnt0j1wh" packageName="IngameMisc_Chatmods_FriendsMarker" path="IngameMisc/IngameMisc_Chatmods_FriendsMarker.xml"/>
-  
+
   <AutomationSequence UID="lp7nnb2rbopkpr28" packageName="IngameMisc_Minimap_SpamProtector" path="IngameMisc/IngameMisc_Minimap_SpamProtector.xml"/>
-  
+
   <AutomationSequence UID="4c5z9v7ii0xi4wau" packageName="IngameMisc_Minimap_Type_Basic_TacticalMinimap" path="IngameMisc/Minimap/IngameMisc_Minimap_Type_Basic_TacticalMinimap.xml"/>
   <AutomationSequence UID="o4hjk1s2v1zquf4g" packageName="IngameMisc_Minimap_Type_Basic_TacticalMinimapDOTS" path="IngameMisc/Minimap/IngameMisc_Minimap_Type_Basic_TacticalMinimapDOTS.xml"/>
   <AutomationSequence UID="6bh9t6dox4rw39j6" packageName="IngameMisc_Minimap_Type_Basic_TacticalMinimapSCOUT" path="IngameMisc/Minimap/IngameMisc_Minimap_Type_Basic_TacticalMinimapSCOUT.xml"/>
@@ -257,7 +257,6 @@
   <AutomationSequence UID="w1m2b13fv3r3mayc" packageName="IngameMisc_WOTtweaker_Environment_BlackSkyFogRemover" path="IngameMisc/IngameMisc_WOTtweaker/IngameMisc_WOTtweaker_Environment_BlackSkyFogRemover.xml"/>
   <AutomationSequence UID="tv323tdpmnyze2az" packageName="IngameMisc_WOTtweaker_disableDirt" path="IngameMisc/IngameMisc_WOTtweaker/IngameMisc_WOTtweaker_disableDirt.xml"/>
   <!-- Category Ingame Misc END -->
-  
 
   <!-- Category Garage Mods START -->
   <AutomationSequence UID="ksbf9er3h535v1vd" packageName="GarageMods_LittleHelperCollection" path="GarageMods/GarageMods_LittleHelperCollection.xml" />
@@ -268,8 +267,7 @@
   <AutomationSequence UID="v6z5w082j20ut74s" packageName="GarageMods_CrewExtended_Protanki" path="GarageMods/GarageMods_CrewExtended_Protanki.xml" />
   <AutomationSequence UID="b3l0yy9cwlp4n6eo" packageName="GarageMods_HangarMastery" path="GarageMods/GarageMods_HangarMastery.xml" />
   <!-- Category Garage Mods END   -->
-  
-  
+
   <!-- Category Garage Graphics START -->
   <AutomationSequence UID="w79wjdc0ctoptiq3" packageName="GarageGraphics_BattleResults_CustomWindow_HAWGDarthVader" path="GarageGraphics/BattleResults/GarageGraphics_BattleResults_CustomWindow_HAWGDarthVader.xml" />
   <AutomationSequence UID="3bxjig8k68ix4mfg" packageName="GarageGraphics_BattleResults_CustomWindow_HAWGGrim" path="GarageGraphics/BattleResults/GarageGraphics_BattleResults_CustomWindow_HAWGGrim.xml" />
@@ -352,5 +350,4 @@
   <AutomationSequence UID="qhd1ws0fqnnci6jo" packageName="TankSkinsMisc_ColoredPenetration_HAWGreg" path="TankSkinsMisc/TankSkinsMisc_ColoredPenetration_HAWGreg.xml"/>
   <AutomationSequence UID="36kg4s6gpkftihqn" packageName="TankSkinsMisc_ColoredPenetration_HAWGcolorblind" path="TankSkinsMisc/TankSkinsMisc_ColoredPenetration_HAWGcolorblind.xml"/>
   <!-- Category Task SKins Misc END   -->
-  
 </root.xml>
