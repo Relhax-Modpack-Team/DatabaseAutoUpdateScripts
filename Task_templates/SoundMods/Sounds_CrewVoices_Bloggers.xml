@@ -43,7 +43,7 @@
   <Task ID="compare_end" Command="compare_end"/>
 
   <!-- Upload the changes to the server -->
-  <Task ID="create_workdir_source_macro" Command="macro_create" MacroName="upload_zip_filename" MacroValue="{packageName}_{clientVersion}_{date}.zip"/>
+  <Task ID="create_upload_zip_filename_macro" Command="macro_create" MacroName="upload_zip_filename" MacroValue="{packageName}_{clientVersion}_{date}.zip"/>
   <Task ID="import_create_upload_zip" Command="import_task" RepoUrlPath="Task_templates/create_upload_zip.xml"/>
   </TaskDefinitions>
 </AutomationSequence>
