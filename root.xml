@@ -3,8 +3,6 @@
   <!-- The global macros definition file -->
   <GlobalMacros path="global_macros.xml" />
 
-  <!-- Categories specifeid here for each "group" of package automation scripts -->
-
   <!-- Category Dependencies START -->
 
   <!-- Subgroup XVM START -->
@@ -50,8 +48,6 @@
   <AutomationSequence UID="uyt8ljt5j7xzfuwx" packageName="LogicalDependency_MVI_HANGAR_CLEAR_ALL_noXVM" path="Dependencies/MVI/LogicalDependency_MVI_HANGAR_CLEAR_ALL_noXVM.xml" />
   <!-- Subgroup Icon Mirror Files END -->
 
-  <!-- Category Dependencies END  -->
-
   <!-- Category IN-BATTLE Start -->
   <!-- Category IN-BATTLE END -->
 
@@ -61,6 +57,8 @@
   <AutomationSequence UID="jj61rm2uccqvg8k0" packageName="XVMConfigBuilder_ClanIcons_fullEU" path="XVM/XVM_ClanIcons_EU.xml" />
   <AutomationSequence UID="qmunrpye6sk3rc9d" packageName="XVMConfigBuilder_ClanIcons_fullRU" path="XVM/XVM_ClanIcons_RU.xml" />
   <!-- Category Clan Icons END -->
+
+  <!-- Category Dependencies END  -->
 
   <!-- Category Crosshairs START -->
   <AutomationSequence UID="1asm9a5htwxzrfly" packageName="Crosshairs_ArcadeSniper_2DZoom" path="Crosshairs/Arcade_Sniper/Crosshairs_ArcadeSniper_2DZoom.xml" />
