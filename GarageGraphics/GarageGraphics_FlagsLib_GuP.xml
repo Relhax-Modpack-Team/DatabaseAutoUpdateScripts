@@ -2,33 +2,31 @@
 <AutomationSequence documentVersion="1.0">
   <!-- Specify macros here -->
   <Macros>
-    <Macro Name="download_url" Value="https://github.com/SEA-group/GIRLS-und-PANZER-UI/archive/refs/heads/master.zip"/>
   </Macros>
 
   <!-- Specify the tasks to run -->
   <TaskDefinitions>
-    <!-- create work dirs and macros -->
-    <Task ID="import_createWD" Command="import_task" RepoUrlPath="Task_templates/create_workDirs_macros.xml"/>
+    <!-- run base set of tasks for download GuP source files -->
+    <Task ID="import_GuP_Start" Command="import_task" RepoUrlPath="Task_templates/GarageGraphics/GarageGraphics_GuP.xml"/>
 
-    <!-- download the source zip file, which *could* implicitly creates the directories, if we didn't define them first -->
-    <Task ID="import_downloadSourceStatic" Command="import_task" RepoUrlPath="Task_templates/downloadSourceStatic.xml"/>   
-    
+    <!-- extract FlagsLib.swf from source -->
+    <Task ID="extract_source" Command="shell_exec" Filename="7z.exe" Wd="{working_folder_source}" Cmd="e {packageName}.zip -o&quot;{working_folder_package}\res_mods\versiondir\gui\flash&quot; FlagsLib.swf -r"/>
 
-    <!-- extract MLG.bnk from source and modpack -->
-    <Task ID="extract_source" Command="shell_exec" Filename="7z.exe" Wd="{working_folder_source}" Cmd="e {last_download_filename} -o{working_folder_package}\res_mods\versiondir\gui\flash FlagsLib.swf -r"/>
+    <!-- extract the modpack package -->
+    <Task ID="extract_modpack" Command="shell_exec" Filename="7z.exe" Wd="{working_folder_modpack}" Cmd="x {packageName}.zip"/>
 
-
-    <!-- Update modpack files -->
-    <!-- <Task ID="update_modpack" Command="directory_copy" DirectoryPath="{working_folder_source}\res_mods" SearchPattern="*" Recursive="true" DestinationPath="{working_folder_package}\res_mods"/> -->
-
-    <!-- create the new zip-->
-    <Task ID="create_zip" Command="shell_exec" Filename="7z.exe" Wd="{workDirectory}\package" Cmd="{7z_createFinalZip}"/>
+    <Task ID="compare_start" Command="compare_start"/>
+    <Task ID="compare_wotmod" Command="file_compare"
+      FileA="{working_folder_package}\res_mods\versiondir\gui\flash\FlagsLib.swf"
+      FileB="{working_folder_modpack}\res_mods\versiondir\gui\flash\FlagsLib.swf"/>
+    <Task ID="compare_end" Command="compare_end"/>
 
     <!-- update version field in database -->
-    <Task ID="update_package_version" Command="update_package_property" PropertyName="Version" PropertyValue="{clientVersion}" />
+    <Task ID="import_update_package_version_from_wgmods" Command="import_task" RepoUrlPath="Task_templates/update_package_version_from_wgmods.xml"/>
 
-    <!-- upload to the server -->
-    <Task ID="upload_zip" Command="package_upload" FilePath="{working_folder_package}\final.zip" ZipFileName="{packageName}_{clientVersion}_{date}.zip"/>
+    <!-- create new package zip and upload to the server -->
+    <Task ID="create_upload_zip_filename_macro" Command="macro_create" MacroName="upload_zip_filename" MacroValue="{packageName}_{clientVersion}_{date}.zip"/>
+    <Task ID="import_create_upload_zip" Command="import_task" RepoUrlPath="Task_templates/create_upload_zip.xml"/>
   </TaskDefinitions>
 
 </AutomationSequence>
