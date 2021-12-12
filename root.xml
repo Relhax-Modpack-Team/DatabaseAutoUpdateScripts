@@ -48,15 +48,12 @@
   <AutomationSequence UID="uyt8ljt5j7xzfuwx" packageName="LogicalDependency_MVI_HANGAR_CLEAR_ALL_noXVM" path="Dependencies/MVI/LogicalDependency_MVI_HANGAR_CLEAR_ALL_noXVM.xml" />
   <!-- Subgroup Icon Mirror Files END -->
 
-  <!-- Category IN-BATTLE Start -->
-  <!-- Category IN-BATTLE END -->
-
-  <!-- Category Clan Icons Start -->
+  <!-- Subgroup Clan Icons Start -->
   <AutomationSequence UID="3b12zp4f5odkrogc" packageName="XVMConfigBuilder_ClanIcons_fullASIA" path="XVM/XVM_ClanIcons_ASIA.xml" />
   <AutomationSequence UID="w8dgzl8vb9idgjrz" packageName="XVMConfigBuilder_ClanIcons_fullNA" path="XVM/XVM_ClanIcons_NA.xml" />
   <AutomationSequence UID="jj61rm2uccqvg8k0" packageName="XVMConfigBuilder_ClanIcons_fullEU" path="XVM/XVM_ClanIcons_EU.xml" />
   <AutomationSequence UID="qmunrpye6sk3rc9d" packageName="XVMConfigBuilder_ClanIcons_fullRU" path="XVM/XVM_ClanIcons_RU.xml" />
-  <!-- Category Clan Icons END -->
+  <!-- Subgroup Clan Icons END -->
 
   <!-- Category Dependencies END  -->
 
