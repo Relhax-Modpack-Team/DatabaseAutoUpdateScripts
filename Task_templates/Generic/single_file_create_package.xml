@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<AutomationSequence documentVersion="1.0">
+  <!-- single_file_create_package.xml
+    Author:  Willster419
+    Created: 2021-12-20
+    This sequence template does the following tasks:
+     - creates the new zip package with the source's file
+    Required macros:
+    {working_folder_package}       - The working folder of the newly created zip file package for the database
+  -->
+  <TaskDefinitions>
+    <Task ID="create_package_zip" Command="shell_exec" Filename="7z.exe" Wd="{working_folder_package}" Cmd="{7z_createFinalZip}"/>
+  </TaskDefinitions>
+</AutomationSequence>

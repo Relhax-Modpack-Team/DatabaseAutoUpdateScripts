@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<AutomationSequence documentVersion="1.0">
+  <!-- single_file_download_extract_modpack.xml
+    Author:  Willster419
+    Created: 2021-12-20
+    This sequence template does the following tasks:
+     - downloads the modpack zip file
+     - extracts the modpack zip file
+    Required macros:
+    {working_folder_modpack}       - The working folder of the modpack zip file and extraction processes
+    {file_name}                    - The name of the wotmod for BOTH the source and modpack
+  -->
+  <TaskDefinitions>
+    <!-- download and the modpack package -->
+    <Task ID="download_modpack" Command="package_download" FilePath="{working_folder_modpack}\{packageName}.zip"/>
+    <Task ID="extract_modpack" Command="shell_exec" Filename="7z.exe" Wd="{working_folder_modpack}" Cmd="e {packageName}.zip {file_name} -r"/>
+  </TaskDefinitions>
+</AutomationSequence>

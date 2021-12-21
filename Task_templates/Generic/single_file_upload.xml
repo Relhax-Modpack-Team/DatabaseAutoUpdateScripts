@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<AutomationSequence documentVersion="1.0">
+  <!-- single_file_upload.xml
+    Author:  Willster419
+    Created: 2021-12-20
+    This sequence template does the following tasks:
+     - uploads the new package to the server
+    Required macros:
+    {working_folder_package}       - The working folder of the newly created zip file package for the database
+  -->
+  <TaskDefinitions>
+    <!-- upload to the server -->
+    <Task ID="upload_zip" Command="package_upload" FilePath="{working_folder_package}\final.zip" ZipFileName="{packageName}_{clientVersion}_{date}.zip"/>
+  </TaskDefinitions>
+</AutomationSequence>

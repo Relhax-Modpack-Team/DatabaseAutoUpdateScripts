@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<AutomationSequence documentVersion="1.0">
+  <!-- single_fille_compare_file.xml
+    Author:  Willster419
+    Created: 2021-12-20
+    This sequence template does the following tasks:
+     - compares the modpack and source file
+    Required macros:
+    {working_folder_modpack}       - The working folder of the modpack zip file and extraction processes
+    {working_folder_source}        - The working folder of the source zip file and extracation processes
+  -->
+  <TaskDefinitions>
+    <!-- Compare the source and modpack files -->
+    <Task ID="compare_start" Command="compare_start"/>
+    <Task ID="compare_file" Command="file_compare" FileA="{working_folder_source}\{file_name}" FileB="{working_folder_modpack}\{file_name}"/>
+    <Task ID="compare_end" Command="compare_end"/>
+  </TaskDefinitions>
+</AutomationSequence>

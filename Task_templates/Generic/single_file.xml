@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<AutomationSequence documentVersion="1.0">
+  <!-- single_wotmod.xml
+    Author:  Willster419
+    Created: 2021-08-??
+    This sequence template does the following tasks:
+     - downloads the modpack zip file
+     - extracts the source from a specified path, with optional recursion argument
+     - extracts the modpack zip file
+     - compares the modpack and source wotmod file
+     - creates the final new zip package with the source's wotmod
+     - uploads the new package to the server
+    Required macros:
+    {working_folder_modpack}       - The working folder of the modpack zip file and extraction processes
+    {working_folder_source}        - The working folder of the source zip file and extracation processes
+    {working_folder_final}         - The working folder of the newly created zip file package for the database
+    {file_name}                    - The name of the wotmod for BOTH the source and modpack
+    {folder_path}                  - The path in the package zip file to create for the file
+  -->
+  <TaskDefinitions>
+    <!-- Import each part of the script -->
+    <Task ID="import_task_single_file_download_extract_modpack" Command="import_task" RepoUrlPath="Task_templates/Generic/single_file_download_extract_modpack.xml"/>
+    <Task ID="import_task_single_file_compare_file" Command="import_task" RepoUrlPath="Task_templates/Generic/single_file_compare_file.xml"/>
+    <Task ID="import_task_single_file_copy_source" Command="import_task" RepoUrlPath="Task_templates/Generic/single_file_copy_source.xml"/>
+    <Task ID="import_task_single_file_create_package" Command="import_task" RepoUrlPath="Task_templates/Generic/single_file_create_package.xml"/>
+    <Task ID="import_task_single_file_upload" Command="import_task" RepoUrlPath="Task_templates/Generic/single_file_upload.xml"/>
+  </TaskDefinitions>
+</AutomationSequence>
