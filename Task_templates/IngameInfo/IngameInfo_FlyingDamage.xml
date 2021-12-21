@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<AutomationSequence documentVersion="1.0">
+  <!-- IngameInfo_FlyingDamage.xml
+    Author:  Willster419
+    Created: 2021-12-20
+    This sequence template is for all FlyingDamage packages
+    Required macros:
+    {file_name}                    - The name of the wotmod for BOTH the source and modpack
+    {folder_path}                  - The path in the package zip file to create for the file
+    {source_path}                  - The path in the source archive file parsed by 7zip for getting to the file
+  -->
+  <TaskDefinitions>
+    <!-- create the working directories -->
+    <Task ID="import_task_create_workDirs_macros" Command="import_task" RepoUrlPath="Task_templates/create_workDirs_macros.xml"/>
+
+    <!-- create the rar source ext file extension macro -->
+    <Task ID="create_source_ext_macro" Command="macro_create" MacroName="source_ext" MacroValue="rar"/>
+
+    <!-- get the download url from the package property -->
+    <Task ID="get_download_url" Command="retrieve_package_property" PropertyName="DevURLList" TargetPackageUID="bt0ih3ysbi9k00pb" MacroSaveName="download_url" PropertyIndex="1"/>
+
+    <!-- run the task single_file_from_wotsite -->
+    <Task ID="import_single_file_from_wotsite" Command="import_task" RepoUrlPath="Task_templates/Generic/single_file_from_wotsite.xml"/>
+  </TaskDefinitions>
+</AutomationSequence>

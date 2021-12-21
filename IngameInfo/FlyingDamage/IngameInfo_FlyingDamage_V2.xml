@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<AutomationSequence documentVersion="1.0">
+  <!-- Specify macros here -->
+  <Macros>
+    <Macro Name="file_name" Value="advancedVehicleMarkers.json"/>
+    <Macro Name="folder_path" Value="mods\configs\andre.v"/>
+    <Macro Name="source_path" Value="VehicleMarkersV2\mods\configs\andre.v\"/>
+  </Macros>
+  <TaskDefinitions>
+    <Task ID="import_task_FlyingDamage" Command="import_task" RepoUrlPath="Task_templates/IngameInfo/IngameInfo_FlyingDamage.xml"/>
+  </TaskDefinitions>
+</AutomationSequence>
