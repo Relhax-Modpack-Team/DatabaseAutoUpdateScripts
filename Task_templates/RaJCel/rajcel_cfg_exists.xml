@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<AutomationSequence documentVersion="1.0">
+<!-- rajcel_cfg_exists.xml
+    Author:  Willster419
+    Created: 2021-12-22
+    This sequence template is a supplement for rajcel automation scripts, it is for making sure the json mod's config file exists
+
+    Required macros:
+    {working_folder_package}       - The working fodler of the final zip file package created to be uploaded
+    {mod_name}                     - The name of the mod, used in the wotmod name and config file/folder name
+  -->
+  <TaskDefinitions>
+    <Task ID="get_cfg" Command="directory_search" DirectoryPath="{working_folder_package}\mods\configs\rajcel\{mod_name}" SearchPattern="{mod_name}.json" Recursive="False" MacroPrefix="get_cfg"/>
+    <Task ID="check_cfg_exists" Command="macro_string_split_filename" MacroName="check_wotmod_exists" Index="0" SplitCharacters="." FilePath="{get_cfg_0}"/>
+  </TaskDefinitions>
+</AutomationSequence>

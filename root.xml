@@ -156,6 +156,7 @@
   <AutomationSequence UID="dhegovbg83frbt5w" packageName="DamagePanels_ZayazAngleIndicator" path="DamageLogsPanels/DamagePanels_ZayazAngleIndicator.xml"/>
   <AutomationSequence UID="q6lvwuih7z78b5cw" packageName="DamagePanels_ZayazRepairCenter" path="DamageLogsPanels/DamagePanels_ZayazRepairCenter.xml"/>
   <AutomationSequence UID="3vra4uoi7w0qbgkw" packageName="DamagePanels_ZayazRepairCenterAngleIndicator" path="DamageLogsPanels/DamagePanels_ZayazRepairCenterAngleIndicator.xml"/>
+  <AutomationSequence UID="fao569i7kn1d9z8l" packageName="DamagePanels_CenteralRepair_Rajcel" path="DamageLogsPanels/DamagePanels_CenteralRepair_Rajcel.xml"/>
   <!-- Category Damage Logs & Panels END -->
 
   <!-- Category Ingame Aim START -->
