@@ -7,14 +7,14 @@
 
     Required macros:
     {working_folder_modpack}       - The working folder of the modpack zip file and extraction processes
-    {working_folder_source}        - The working folder of the source zip file and extracation processes
+    {working_folder_package}       - The working folder of the final zip file package created to be uploaded
     {mod_name}                     - The name of the mod, used in the wotmod name and config file/folder name
   -->
   <TaskDefinitions>
     <!-- Compare config / inverse -->
     <!-- sequence should stop when there are changes to the cfg file -->
     <Task ID="compare_cfg" Command="file_compare_inverse"
-      FileA="{working_folder_source}\mods\configs\rajcel\{mod_name}\{mod_name}.json"
-      FileB="{working_folder_modpack}\mods\configs\rajcel\{mod_name}\{mod_name}.json"/>
+      FileA="{working_folder_modpack}\mods\configs\rajcel\{mod_name}\{mod_name}.json"
+      FileB="{working_folder_package}\mods\configs\rajcel\{mod_name}\{mod_name}.json"/>
   </TaskDefinitions>
 </AutomationSequence>
