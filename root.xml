@@ -193,6 +193,7 @@
   <AutomationSequence UID="bt0ih3ysbi9k00pb" packageName="IngameInfo_FlyingDamage" path="IngameInfo/FlyingDamage/IngameInfo_FlyingDamage.xml"/>
   <AutomationSequence UID="oi6wq34tae120cwa" packageName="IngameInfo_FlyingDamage_V1" path="IngameInfo/FlyingDamage/IngameInfo_FlyingDamage_V1.xml"/>
   <AutomationSequence UID="ixo4h6ub5y3rb5eo" packageName="IngameInfo_FlyingDamage_V2" path="IngameInfo/FlyingDamage/IngameInfo_FlyingDamage_V2.xml"/>
+  <AutomationSequence UID="3x30zumbr19ig50n" packageName="IngameInfo_HiddenParameters" path="IngameInfo/IngameInfo_HiddenParameters.xml"/>
 
   <AutomationSequence UID="n09woj0h8emhm0wt" packageName="IngameInfo_DamageIndicator_ApacheColorblindHAWG" path="IngameInfo/DamageIndicator/IngameInfo_DamageIndicator_ApacheColorblindHAWG.xml"/>
   <AutomationSequence UID="dxximfx7sz7xzik7" packageName="IngameInfo_DamageIndicator_ApacheHAWG" path="IngameInfo/DamageIndicator/IngameInfo_DamageIndicator_ApacheHAWG.xml"/>
