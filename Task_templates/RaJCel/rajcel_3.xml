@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<AutomationSequence documentVersion="1.0">
+<!-- rajcel_3.xml
+    Author:  Willster419
+    Created: 2021-12-22
+    This sequence template is part 3 for comparing and updating RaJCel mods.
+    - create the package
+    - upload the package
+
+    Required macros:
+    {working_folder_package}       - The working folder of the final package output
+    {upload_zip_filename}          - The name of the zipfile to exist on the server, without file extension
+  -->
+  <TaskDefinitions>
+    <!-- Verify the wotmod exists by trying to make a macro we won't use -->
+    <Task ID="get_wotmod" Command="directory_search" DirectoryPath="{working_folder_package}\mods\versiondir" SearchPattern="rajcel.{mod_name}.wotmod" Recursive="False" MacroPrefix="get_wotmod"/>
+    <Task ID="check_wotmod_exists" Command="macro_string_split_filename" MacroName="check_wotmod_exists" Index="0" SplitCharacters="." FilePath="{get_wotmod_0}"/>
+
+    <!-- Run task template to create zip and upload -->
+    <Task ID="import_task_create_upload_zip" Command="import_task" RepoUrlPath="Task_templates/create_upload_zip.xml"/>
+  </TaskDefinitions>
+</AutomationSequence>

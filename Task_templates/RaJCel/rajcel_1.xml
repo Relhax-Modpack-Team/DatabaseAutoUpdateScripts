@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<AutomationSequence documentVersion="1.0">
+<!-- rajcel_1.xml
+    Author:  Willster419
+    Created: 2021-12-21
+    This sequence template is part 1 for comparing and updating rajcel mods.
+    This part takes us down to starting a compare, and comparing the wotmod, cfg file, and language files.
+
+    Required macros:
+    {working_folder_modpack}       - The working folder of the modpack zip file and extraction processes
+    {working_folder_source}        - The working folder of the source zip file and extracation processes
+    {mod_name}                     - The name of the mod, used in the wotmod name and config file/folder name
+
+    Optional macros:
+    {additional_files}             - Any additional files to extract from source
+  -->
+  <TaskDefinitions>
+    <!-- Download the source file from wgmods -->
+    <Task ID="download_mod_source" Command="download_browser" Url="{download_url}" HtmlPath="{wgmods_xpath}" DestinationPath="{working_folder_source}\{packageName}.zip" WaitTimeMs="500" WaitCounts="6" BrowserHeight="0" BrowserWidth="0"/>
+
+    <!-- Download the package from the database -->
+    <Task ID="download_modpack" Command="package_download" FilePath="{working_folder_modpack}\{packageName}.zip"/>
+
+    <!-- Extract the source and modpack files. Because rajcel uses the wot root as his root in the source, we can directly output to the package directory -->
+    <Task ID="extract_source_wotmod" Command="shell_exec" Filename="7z.exe" Wd="{working_folder_source}"
+      Cmd="e {packageName}.zip -o&quot;{working_folder_package}\mods\versiondir&quot; mods\*\rajcel.{mod_name}.wotmod"/>
+
+    <Task ID="extract_source_other" Command="shell_exec" Filename="7z.exe" Wd="{working_folder_source}"
+      Cmd="x {packageName}.zip -o&quot;{working_folder_package}&quot; {additional_files}"/>
+
+    <Task ID="extract_modpack" Command="shell_exec" Filename="7z.exe" Wd="{working_folder_modpack}"
+      Cmd="x {packageName}.zip"/>
+
+    <!-- Start a compare session. We are essentially comparing:
+      - wotmod
+      - config (inverse)
+      - additional files
+      - language files (compare dir update mode) -->
+    <Task ID="compare_start" Command="compare_start"/>
+    <Task ID="compare_wotmod" Command="file_compare"
+      FileA="{working_folder_modpack}\mods\versiondir\rajcel.{mod_name}.wotmod"
+      FileB="{working_folder_package}\mods\versiondir\rajcel.{mod_name}.wotmod"/>
+  </TaskDefinitions>
+</AutomationSequence>

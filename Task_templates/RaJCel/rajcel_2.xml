@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<AutomationSequence documentVersion="1.0">
+<!-- rajcel_2.xml
+    Author:  Willster419
+    Created: 2021-12-21
+    This sequence template is part 2 for comparing and updating RaJCel mods.
+    This part picks up by stopping the compare, and ends at creating and uploading the zip file.
+    - extract patches from modpack to package, if exist
+    - create {upload_zip_filename} macro for later use in task <create_upload_zip>
+
+    Required macros:
+    {working_folder_modpack}       - The working folder of the modpack zip file and extraction processes
+    {working_folder_package}       - The working fodler of the final zip file package created to be uploaded
+  -->
+  <TaskDefinitions>
+    <Task ID="compare_end" Command="compare_end"/>
+
+    <!-- And dont' forgot to check for any patch files! If there are none to extract then 7z won't make a folder -->
+    <Task ID="extract_patches_if_exist" Command="shell_exec" Filename="7z.exe" Wd="{working_folder_modpack}" Cmd="e {packageName}.zip -o&quot;{working_folder_package}\_patch&quot; _patch/*.xml"/>
+
+    <!-- Create macro of the ftp server filename to use -->
+    <Task ID="create_ftp_file_macro" Command="macro_create" MacroName="upload_zip_filename" MacroValue="{packageName}_{clientVersion}_{date}"/>
+  </TaskDefinitions>
+</AutomationSequence>
