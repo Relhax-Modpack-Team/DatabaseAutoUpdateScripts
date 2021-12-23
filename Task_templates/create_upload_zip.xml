@@ -8,7 +8,7 @@
     This part picks up by stopping the compare.
 
     Required macros:
-    {working_folder_modpack}       - The working folder of the modpack zip file and extraction processes
+    {working_folder_package}       - The working folder of the final package output
     {upload_zip_filename}          - The name of the zipfile to exist on the server, without file extension
   -->
   <TaskDefinitions>
