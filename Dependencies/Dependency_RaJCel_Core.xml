@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<AutomationSequence documentVersion="1.0">
+  <!-- Specify macros here -->
+  <Macros>
+    <Macro Name="mod_name" Value="core"/>
+    <Macro Name="additional_files" Value="mods\configs\rajcel\{mod_name}.json"/>
+  </Macros>
+
+  <!-- Specify the tasks to run -->
+  <TaskDefinitions>
+    <!-- Create them there work dir macros -->
+    <Task ID="import_macro_create_work_dirs" Command="import_task" RepoUrlPath="Task_templates/create_workDirs_macros.xml"/>
+
+    <!-- Get the download url to use for checking for updates -->
+    <Task ID="get_download_url" Command="retrieve_package_property" PropertyName="DevURLList" TargetPackageUID="this" MacroSaveName="download_url" PropertyIndex="1"/>
+
+    <!-- Run rajcel tasks part 1-->
+    <Task ID="import_rajcel_1" Command="import_task" RepoUrlPath="Task_templates/RaJCel/rajcel_1.xml"/>
+
+    <!-- Compare the config file -->
+    <Task ID="compare_cfg" Command="file_compare_inverse"
+      FileA="{working_folder_modpack}\mods\configs\rajcel\{mod_name}.json"
+      FileB="{working_folder_package}\mods\configs\rajcel\{mod_name}.json"/>
+
+    <!-- Run rajcel tasks part 2 -->
+    <Task ID="import_rajcel_2" Command="import_task" RepoUrlPath="Task_templates/RaJCel/rajcel_2.xml"/>
+
+    <!-- Ensure config file exists -->
+    <Task ID="get_cfg" Command="directory_search" DirectoryPath="{working_folder_package}\mods\configs\rajcel" SearchPattern="{mod_name}.json" Recursive="False" MacroPrefix="get_cfg"/>
+    <Task ID="check_cfg_exists" Command="macro_string_split_filename" MacroName="check_wotmod_exists" Index="0" SplitCharacters="." FilePath="{get_cfg_0}"/>
+
+    <!-- Run rajcel tasks part 3 -->
+    <Task ID="import_rajcel_3" Command="import_task" RepoUrlPath="Task_templates/RaJCel/rajcel_3.xml"/>
+  </TaskDefinitions>
+</AutomationSequence>

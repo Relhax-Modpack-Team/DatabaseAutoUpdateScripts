@@ -34,6 +34,7 @@
   <!-- unfinished -->
   <!-- <AutomationSequence UID="5tjbkykag9506587" packageName="Dependency_P0LIR0ID_modsListApi" path="workDir/Dependency_P0LIR0ID_modsListApi.xml" /> -->
   <!-- <AutomationSequence UID="pldcs1mv9lrphm5k" packageName="Dependency_PY_PYmodsCore" path="workDir/Dependency_PY_PYmodsCore.xml" /> -->
+  <AutomationSequence UID="wp1zs4if31mxsqux" packageName="Dependency_RaJCel_Core" path="Dependencies/Dependency_RaJCel_Core.xml"/>
   <!-- Subgroup Standard END -->
   
   <!-- Subgroup Crosshairs START -->
