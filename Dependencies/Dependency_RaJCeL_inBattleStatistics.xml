@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<AutomationSequence documentVersion="1.0">
+  <!-- Specify macros here -->
+  <Macros>
+    <Macro Name="mod_name" Value="inBattleStatistics"/>
+    <Macro Name="additional_files" Value="mods\configs\rajcel\data\* mods\configs\rajcel\{mod_name}\*"/>
+  </Macros>
+
+  <!-- Specify the tasks to run -->
+  <TaskDefinitions>
+    <!-- Create them there work dir macros -->
+    <Task ID="import_macro_create_work_dirs" Command="import_task" RepoUrlPath="Task_templates/create_workDirs_macros.xml"/>
+
+    <!-- Get the download url to use for checking for updates -->
+    <Task ID="get_download_url" Command="retrieve_package_property" PropertyName="DevURLList" TargetPackageUID="this" MacroSaveName="download_url" PropertyIndex="1"/>
+
+    <!-- Run rajcel tasks part 1-->
+    <Task ID="import_rajcel_1" Command="import_task" RepoUrlPath="Task_templates/RaJCel/rajcel_1.xml"/>
+
+    <!-- Compare the config files -->
+    <Task ID="compare_config_files" Command="directory_compare_inverse" SearchPattern="*" Recursive="True"
+      DirectoryComparePathA="{working_folder_modpack}\mods\configs\rajcel\{mod_name}"
+      DirectoryComparePathB="{working_folder_package}\mods\configs\rajcel\{mod_name}"/>
+
+    <!-- Compare the data files -->
+    <Task ID="compare_data_files" Command="directory_compare_count" SearchPattern="*" Recursive="True"
+      DirectoryComparePathA="{working_folder_modpack}\mods\configs\rajcel\data"
+      DirectoryComparePathB="{working_folder_package}\mods\configs\rajcel\data"/>
+
+    <!-- Run rajcel tasks part 2 -->
+    <Task ID="import_rajcel_2" Command="import_task" RepoUrlPath="Task_templates/RaJCel/rajcel_2.xml"/>
+
+    <!-- Run rajcel tasks part 3 -->
+    <Task ID="import_rajcel_3" Command="import_task" RepoUrlPath="Task_templates/RaJCel/rajcel_3.xml"/>
+  </TaskDefinitions>
+</AutomationSequence>
