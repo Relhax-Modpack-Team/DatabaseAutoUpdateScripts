@@ -164,8 +164,10 @@
   <AutomationSequence UID="jm0usfegzl8mic1e" packageName="IngameAim_BattleAssistant" path="IngameAim/IngameAim_BattleAssistant.xml" />
   <AutomationSequence UID="fbvrxgqbbx07kt0m" packageName="IngameAim_DispersionIndicator_P0LIR0ID" path="IngameAim/IngameAim_DispersionIndicator_P0LIR0ID.xml" />
   <AutomationSequence UID="38iggbplcyqvzh3i" packageName="IngameAim_ServerReticle_Awfultanker" path="IngameAim/IngameAim_ServerReticle_Awfultanker.xml" />
+
   <AutomationSequence UID="lgh50ztb1ft3qcw3" packageName="IngameAim_SafeShot_OldSkool" path="IngameAim/IngameAim_SafeShot_OldSkool.xml"/>
   <AutomationSequence UID="au1did8dq1mvem8q" packageName="IngameAim_SafeShot_Champi" path="IngameAim/IngameAim_SafeShot_Champi.xml"/>
+
   <AutomationSequence UID="voxfbwmk4lr95os0" packageName="IngameAim_TargetArrow_Blue" path="IngameAim/TargetArrow/IngameAim_TargetArrow_Blue.xml"/>
   <AutomationSequence UID="8d4ujvsl3hjr50z0" packageName="IngameAim_TargetArrow_Green" path="IngameAim/TargetArrow/IngameAim_TargetArrow_Green.xml"/>
   <AutomationSequence UID="2sm1bzi4y0lghthd" packageName="IngameAim_TargetArrow_Purple" path="IngameAim/TargetArrow/IngameAim_TargetArrow_Purple.xml"/>
