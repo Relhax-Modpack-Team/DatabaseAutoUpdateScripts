@@ -261,6 +261,9 @@
   <AutomationSequence UID="2c8773kpadcaeihv" packageName="IngameMisc_WOTtweaker_Environment_BlackSky" path="IngameMisc/IngameMisc_WOTtweaker/IngameMisc_WOTtweaker_Environment_BlackSky.xml"/>
   <AutomationSequence UID="w1m2b13fv3r3mayc" packageName="IngameMisc_WOTtweaker_Environment_BlackSkyFogRemover" path="IngameMisc/IngameMisc_WOTtweaker/IngameMisc_WOTtweaker_Environment_BlackSkyFogRemover.xml"/>
   <AutomationSequence UID="tv323tdpmnyze2az" packageName="IngameMisc_WOTtweaker_disableDirt" path="IngameMisc/IngameMisc_WOTtweaker/IngameMisc_WOTtweaker_disableDirt.xml"/>
+
+  <!-- Seperated because it's not a HAWG mod -->
+  <AutomationSequence UID="4k0gyubs13axvl5q" packageName="IngameMisc_WOTtweaker_Environment_StarrySky" path="IngameMisc/IngameMisc_WOTtweaker/IngameMisc_WOTtweaker_Environment_StarrySky.xml"/>
   <!-- Category Ingame Misc END -->
 
   <!-- Category Garage Mods START -->
