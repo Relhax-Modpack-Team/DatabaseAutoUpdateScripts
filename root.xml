@@ -269,13 +269,18 @@
   <!-- Category Ingame Misc END -->
 
   <!-- Category Garage Mods START -->
-  <AutomationSequence UID="ksbf9er3h535v1vd" packageName="GarageMods_LittleHelperCollection" path="GarageMods/GarageMods_LittleHelperCollection.xml" />
-  <AutomationSequence UID="jzzwfqdgru1nbu48" packageName="GarageMods_ReplayManager" path="GarageMods/GarageMods_ReplayManager.xml" />
-  <AutomationSequence UID="7hjfw49664u06l3a" packageName="GarageMods_CrewAutoReturn_Oldskool" path="GarageMods/GarageMods_CrewAutoReturn_Oldskool.xml" />
   <AutomationSequence UID="lv4c9t0kxo3al2qz" packageName="GarageMods_ArmorInspector_protanki" path="GarageMods/GarageMods_ArmorInspector_protanki.xml" />
   <AutomationSequence UID="ykbrht6lxlvsleyz" packageName="GarageMods_ArmorInspector_wotinspector" path="GarageMods/GarageMods_ArmorInspector_wotinspector.xml" />
+  <!-- TODO: GarageMods_BattleHitsViewer -->
+  <AutomationSequence UID="7hjfw49664u06l3a" packageName="GarageMods_CrewAutoReturn_Oldskool" path="GarageMods/GarageMods_CrewAutoReturn_Oldskool.xml" />
+  <!-- TODO: GarageMods_CrewExtended_IzeBerg -->
   <AutomationSequence UID="v6z5w082j20ut74s" packageName="GarageMods_CrewExtended_Protanki" path="GarageMods/GarageMods_CrewExtended_Protanki.xml" />
   <AutomationSequence UID="b3l0yy9cwlp4n6eo" packageName="GarageMods_HangarMastery" path="GarageMods/GarageMods_HangarMastery.xml" />
+  <AutomationSequence UID="ksbf9er3h535v1vd" packageName="GarageMods_LittleHelperCollection" path="GarageMods/GarageMods_LittleHelperCollection.xml" />
+  <AutomationSequence UID="jzzwfqdgru1nbu48" packageName="GarageMods_ReplayManager" path="GarageMods/GarageMods_ReplayManager.xml" />
+  <!-- TODO: GarageMods_Seller -->
+  <!-- TODO: GarageMods_SimpleVehicleStats -->
+  <!-- TODO: GarageMods_VehicleXPextended -->
   <!-- Category Garage Mods END   -->
 
   <!-- Category Garage Graphics START -->
