@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<AutomationSequence documentVersion="1.0">
+  <!-- Specify macros here -->
+  <Macros>
+    <Macro Name="mod_name" Value="artyImpactRadius"/>
+    <Macro Name="wotmod_prefix" Value="de.champi.wot."/>
+    <Macro Name="additional_files" Value=" "/>
+  </Macros>
+
+  <!-- Specify the tasks to run -->
+  <TaskDefinitions>
+    <!-- Create them there work dir macros -->
+    <Task ID="import_macro_create_work_dirs" Command="import_task" RepoUrlPath="Task_templates/create_workDirs_macros.xml"/>
+
+    <!-- get the dev url for downloading the source -->
+    <Task ID="get_download_url" Command="retrieve_package_property" PropertyName="DevURLList" TargetPackageUID="this" MacroSaveName="package_url" PropertyIndex="0"/>
+
+    <!-- Download the source package -->
+    <Task ID="download_mod_source" Command="download_html" Url="{package_url}" HtmlPath="{wotsite_xpath}" DestinationPath="{working_folder_source}\{packageName}.rar"/>
+
+    <!-- Download the modpack package -->
+    <Task ID="import_downloadModpack_PackageNameZip" Command="import_task" RepoUrlPath="Task_templates/downloadModpack_PackageNameZip.xml"/>
+
+    <!-- Extract the source package directly to the package directory -->
+    <Task ID="extract_source_to_package_1" Command="shell_exec" Filename="7z.exe" Wd="{working_folder_source}"
+      Cmd="e {packageName}.rar -o&quot;{working_folder_package}\res_mods\versiondir\objects&quot; &quot;Расстояние до ближайшей цели 150м&quot;\objects\atac?.dds"/>
+    <Task ID="extract_source_to_package_2" Command="shell_exec" Filename="7z.exe" Wd="{working_folder_source}"
+      Cmd="e {packageName}.rar -o&quot;{working_folder_package}\res_mods\versiondir\scripts\client\gui\mods&quot; &quot;Расстояние до ближайшей цели 150м&quot;\scripts\client\gui\mods\mod_atac.*"/>
+
+    <!-- Extract the modpack package, keeping paths -->
+    <Task ID="extract_modpack_package" Command="shell_exec" Filename="7z.exe" Wd="{working_folder_modpack}"
+      Cmd="x {packageName}.zip res_mods\versiondir\objects\atac?.dds res_mods\versiondir\scripts\client\gui\mods\mod_atac.*"/>
+
+    <!-- Compare the files. Doing a compare this way doubles as making sure the files exist before creating the new zip -->
+    <Task ID="compare_start" Command="compare_start"/>
+    <Task ID="compare_dds_1" Command="file_compare"
+      FileA="{working_folder_modpack}\res_mods\versiondir\objects\atac1.dds"
+      FileB="{working_folder_package}\res_mods\versiondir\objects\atac1.dds"/>
+    <Task ID="compare_dds_2" Command="file_compare"
+      FileA="{working_folder_modpack}\res_mods\versiondir\objects\atac2.dds"
+      FileB="{working_folder_package}\res_mods\versiondir\objects\atac2.dds"/>
+    <Task ID="compare_script" Command="file_compare"
+      FileA="{working_folder_modpack}\res_mods\versiondir\scripts\client\gui\mods\mod_atac.pyc"
+      FileB="{working_folder_package}\res_mods\versiondir\scripts\client\gui\mods\mod_atac.pyc"/>
+    <Task ID="compare_config" Command="file_compare_inverse"
+      FileA="{working_folder_modpack}\res_mods\versiondir\scripts\client\gui\mods\mod_atac.xml"
+      FileB="{working_folder_package}\res_mods\versiondir\scripts\client\gui\mods\mod_atac.xml"/>
+    <Task ID="compare_end" Command="compare_end"/>
+
+    <!-- Run create zip and upload tasks -->
+    <Task ID="import_create_upload_zip" Command="import_task" RepoUrlPath="Task_templates/create_upload_zip.xml"/>
+  </TaskDefinitions>
+</AutomationSequence>

@@ -182,6 +182,7 @@
 
   <!-- Category Ingame Info START -->
   <AutomationSequence UID="ah3r2xjyteyt7xhm" packageName="IngameInfo_15mCircle" path="IngameInfo/IngameInfo_15mCircle.xml"/>
+  <AutomationSequence UID="wuu4xejdqk5020hr" packageName="IngameInfo_ATAC" path="IngameInfo/IngameInfo_ATAC.xml"/>
   <AutomationSequence UID="hxsbz0o3ni6eae4h" packageName="IngameInfo_DangerLights" path="IngameInfo/IngameInfo_DangerLights.xml"/>
   <AutomationSequence UID="4qcvi028h2edpw0y" packageName="IngameInfo_FinalShot" path="IngameInfo/IngameInfo_FinalShot.xml"/>
   <AutomationSequence UID="3r6bdbph41vrjucw" packageName="IngameInfo_ExpectedVehicleValues" path="IngameInfo/IngameInfo_ExpectedVehicleValues.xml"/>
