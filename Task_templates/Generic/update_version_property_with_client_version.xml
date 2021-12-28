@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<AutomationSequence documentVersion="1.0">
+  <!-- update_version_property_with_client_version.xml
+    Author:  Willster419
+    Created: 2021-12-28
+    Description: Updates the package's 'version' property with the current client version
+    Required macros: (none)
+  -->
+  <TaskDefinitions>
+    <Task ID="update_package_version" Command="update_package_property" PropertyName="Version" PropertyValue="{clientVersion}" TargetPackageUID="this"/>
+  </TaskDefinitions>
+</AutomationSequence>
