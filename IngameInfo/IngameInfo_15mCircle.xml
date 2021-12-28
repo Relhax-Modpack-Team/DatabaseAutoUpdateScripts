@@ -14,6 +14,8 @@
     <Task ID="get_download_url" Command="retrieve_package_property" PropertyName="DevURLList" TargetPackageUID="this" MacroSaveName="package_url" PropertyIndex="0"/>
     <!-- Import the create work dirs macros -->
     <Task ID="import_single_wotmod_from_wotsite" Command="import_task" RepoUrlPath="Task_templates/single_wotmod_from_wotsite.xml"/>
+    <!-- Update the package version property with the version of the current client -->
+    <Task ID="import_task_update_version_property_with_client_version" Command="import_task" RepoUrlPath="Task_templates/Generic/update_version_property_with_client_version.xml"/>
   </TaskDefinitions>
 
 </AutomationSequence>
