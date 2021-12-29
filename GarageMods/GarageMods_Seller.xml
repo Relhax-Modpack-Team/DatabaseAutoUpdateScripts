@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<AutomationSequence documentVersion="1.0">
+  <!-- Specify macros here -->
+  <Macros>
+    <Macro Name="dev_url_index" Value="1"/>
+    <Macro Name="wotmod_file" Value="seller.wotmod"/>
+    <Macro Name="config_file" Value="settings.json"/>
+    <Macro Name="inno_files_to_extract" Value="\{app\}\mods\*\{wotmod_file} \{app\}\mods\configs\seller\{config_file}"/>
+    <Macro Name="modpack_file_extract_list" Value="{config_file} {wotmod_file}"/>
+    <Macro Name="upload_zip_filename" Value="{packageName}_{clientVersion}_{date}"/>
+  </Macros>
+  <TaskDefinitions>
+    <!-- create the working directories -->
+    <Task ID="import_task_create_workDirs_macros" Command="import_task" RepoUrlPath="Task_templates/create_workDirs_macros.xml"/>
+
+    <!-- download and extract from the modpack files -->
+    <Task ID="import_task_download_extract_package_zip" Command="import_task" RepoUrlPath="Task_templates/download_extract_package_zip.xml"/>
+
+    <!-- download the protanki modpack and extract the same files, from source -->
+    <Task ID="import_task_inno_setup_extract_from_wgmods_direct_url" Command="import_task" RepoUrlPath="Task_templates/inno_setup_extract_from_wgmods.xml"/>
+
+    <!-- compare the wotmod and config files -->
+    <Task ID="compare_start" Command="compare_start"/>
+    <Task ID="compare_wotmod" Command="file_compare" FileA="{working_folder_source}\{wotmod_file}" FileB="{working_folder_modpack}\{wotmod_file}"/>
+    <Task ID="compare_wotmod" Command="file_compare" FileA="{working_folder_source}\{config_file}" FileB="{working_folder_modpack}\{config_file}"/>
+    <Task ID="compare_end" Command="compare_end"/>
+
+    <!-- copy the files to the final package location -->
+    <Task ID="create_source_dir_wotmod_post_compare" Command="create_directory" DirectoryPath="{working_folder_package}\mods\versiondir"/>
+    <Task ID="create_source_dir_config_post_compare" Command="create_directory" DirectoryPath="{working_folder_package}\mods\configs\seller"/>
+    <Task ID="copy_wotmod_to_package" Command="file_copy" SourceFilePath="{working_folder_source}\{wotmod_file}" DestinationFilePath="{working_folder_package}\mods\versiondir\{wotmod_file}"/>
+    <Task ID="copy_config_to_package" Command="file_copy" SourceFilePath="{working_folder_source}\{config_file}" DestinationFilePath="{working_folder_package}\mods\configs\seller\{config_file}"/>
+
+    <!-- Run task template to create zip and upload -->
+    <Task ID="import_task_create_upload_zip" Command="import_task" RepoUrlPath="Task_templates/create_upload_zip.xml"/>
+  </TaskDefinitions>
+</AutomationSequence>
