@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<AutomationSequence documentVersion="1.0">
+  <!-- Specify macros here -->
+  <Macros>
+    <Macro Name="file_path" Value="&quot;Версия от WGMods&quot;\mods\*\"/>
+    <Macro Name="file_name" Value="izeberg.crew_info.wotmod"/>
+    <Macro Name="mods_or_res_mods" Value="mods"/>
+    <Macro Name="source_extract_recursive" Value=""/>
+  </Macros>
+
+  <!-- Specify the tasks to run -->
+  <TaskDefinitions>
+    <!-- get the dev url for the to be imported task -->
+    <Task ID="get_download_url" Command="retrieve_package_property" PropertyName="DevURLList" TargetPackageUID="this" MacroSaveName="package_url" PropertyIndex="0"/>
+    <!-- Import the create work dirs macros -->
+    <Task ID="import_single_wotmod_from_wotsite" Command="import_task" RepoUrlPath="Task_templates/single_wotmod_from_wotsite.xml"/>
+  </TaskDefinitions>
+
+</AutomationSequence>
