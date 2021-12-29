@@ -395,7 +395,7 @@
   <AutomationSequence UID="4oqavzsjeibq4fxe" packageName="TankSkinsMisc_ColoredPenetration_protanki" path="TankSkinsMisc/TankSkinsMisc_ColoredPenetration_protanki.xml"/>
   <AutomationSequence UID="qhd1ws0fqnnci6jo" packageName="TankSkinsMisc_ColoredPenetration_HAWGreg" path="TankSkinsMisc/TankSkinsMisc_ColoredPenetration_HAWGreg.xml"/>
   <AutomationSequence UID="36kg4s6gpkftihqn" packageName="TankSkinsMisc_ColoredPenetration_HAWGcolorblind" path="TankSkinsMisc/TankSkinsMisc_ColoredPenetration_HAWGcolorblind.xml"/>
-  <!-- TODO: TankSkinsMisc_MarksOfExcellence_VA_HG-Skins-French -->
+  <AutomationSequence UID="s2adj7zaui7t2smg" packageName="TankSkinsMisc_MarksOfExcellence_VA_HG-Skins-French" path="TankSkinsMisc/TankSkinsMisc_MarksOfExcellence_VA_HG-Skins-French.xml"/>
   <!-- TODO: TankSkinsMisc_LimpidStickers -->
   <!-- TODO: TankSkinsMisc_Skinner_Polyacov_Yury -->
   <!-- TODO: TankSkinsMisc_Skinner_protanki -->
