@@ -280,7 +280,7 @@
   <AutomationSequence UID="jzzwfqdgru1nbu48" packageName="GarageMods_ReplayManager" path="GarageMods/GarageMods_ReplayManager.xml" />
   <AutomationSequence UID="x6b5fx5kfqp1y4jy" packageName="GarageMods_Seller" path="GarageMods/GarageMods_Seller.xml"/>
   <AutomationSequence UID="smju388up5fb6lxd" packageName="GarageMods_SimpleVehicleStats" path="GarageMods/GarageMods_SimpleVehicleStats.xml"/>
-  <!-- TODO: GarageMods_VehicleXPextended -->
+  <AutomationSequence UID="5bq9b7evo17t6x4d" packageName="GarageMods_VehicleXPextended" path="GarageMods/GarageMods_VehicleXPextended.xml"/>
   <!-- Category Garage Mods END   -->
 
   <!-- Category Garage Graphics START -->
