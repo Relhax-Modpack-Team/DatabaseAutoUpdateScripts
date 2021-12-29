@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<AutomationSequence documentVersion="1.0">
+  <!-- Specify macros here -->
+  <Macros>
+    <Macro Name="target_package_uid" Value="this"/>
+    <Macro Name="file_prefix" Value="tv.protanki.skinner"/>
+  </Macros>
+
+  <!-- Specify the tasks to run -->
+  <TaskDefinitions>
+    <!-- create the working directories -->
+    <Task ID="import_task_create_workDirs_macros" Command="import_task" RepoUrlPath="Task_templates/create_workDirs_macros.xml"/>
+
+    <!-- get the dev url (both) -->
+    <Task ID="get_download_url" Command="retrieve_package_property" PropertyName="DevURLList" TargetPackageUID="this" MacroSaveName="package_url_wotsite" PropertyIndex="1"/>
+
+    <!-- download the source package -->
+    <Task ID="download_mod_source" Command="download_html" Url="{package_url_wotsite}" HtmlPath="//a[contains(@class, 'btn-download') and contains(@href, 'esteta-2')]//@href" DestinationPath="{working_folder_source}\{packageName}.rar"/>
+
+    <!-- extract the source package -->
+    <Task ID="extract_source_wotmod_1" Command="shell_exec" Filename="7z.exe" Wd="{working_folder_source}" Cmd="e -o&quot;{working_folder_package}\mods\versiondir&quot; {packageName}.rar {file_prefix}_*.wotmod -r"/>
+    <Task ID="extract_source_cfg" Command="shell_exec" Filename="7z.exe" Wd="{working_folder_source}" Cmd="x -o&quot;{working_folder_package}&quot; {packageName}.rar skinner.json -r"/>
+    <Task ID="extract_source_tanks" Command="shell_exec" Filename="7z.exe" Wd="{working_folder_source}" Cmd="x -o&quot;{working_folder_package}&quot; {packageName}.rar res_mods\versiondir\vehicles\tv.protanki.skinner\*"/>
+
+    <!-- get the source version number -->
+    <Task ID="get_source_package_version_number_1" Command="directory_search" DirectoryPath="{working_folder_package}\mods\versiondir" SearchPattern="{file_prefix}_*.wotmod" Recursive="False" MacroPrefix="filename_results"/>
+    <Task ID="get_source_package_version_number_2" Command="macro_string_split_macro" MacroName="version_number_1" Index="0" SplitCharacters="{working_folder_package}\mods\versiondir\{file_prefix}_" InputText="{filename_results_0}"/>
+    <Task ID="get_source_package_version_number_3" Command="macro_string_split_macro" MacroName="version_number_2" Index="0" SplitCharacters=".wotmod" InputText="{version_number_1}"/>
+
+    <!-- get the modpack version number -->
+    <Task ID="get_modpack_package_version_number_1" Command="directory_search" DirectoryPath="{working_folder_modpack}\mods\versiondir" SearchPattern="{file_prefix}_*.wotmod" Recursive="False" MacroPrefix="filename_results_modpack"/>
+    <Task ID="get_modpack_package_version_number_2" Command="macro_string_split_macro" MacroName="version_number_modpack_1" Index="0" SplitCharacters="{working_folder_modpack}\mods\versiondir\{file_prefix}_" InputText="{filename_results_modpack_0}"/>
+    <Task ID="get_modpack_package_version_number_3" Command="macro_string_split_macro" MacroName="version_number_modpack_2" Index="0" SplitCharacters=".wotmod" InputText="{version_number_modpack_1}"/>
+
+    <!-- download and extract modpack -->
+    <Task ID="download_modpack" Command="package_download" FilePath="{working_folder_modpack}\{packageName}.zip"/>
+    <Task ID="extract_modpack" Command="shell_exec" Filename="7z.exe" Wd="{working_folder_modpack}" Cmd="x {packageName}.zip"/>
+
+    <!-- Compare the source and modpack files -->
+    <Task ID="compare_start" Command="compare_start"/>
+    <Task ID="compare_tanks" Command="file_compare" FileA="{working_folder_package}\mods\versiondir\{file_prefix}_{version_number_2}.wotmod" FileB="{working_folder_modpack}\mods\versiondir\{file_prefix}_{version_number_modpack_2}.wotmod"/>
+    <Task ID="compare_cfg" Command="file_compare" FileA="{working_folder_package}\mods\configs\protanki\skinner.json" FileB="{working_folder_modpack}\mods\configs\protanki\skinner.json"/>
+    <Task ID="compare_lang" Command="directory_compare_count" SearchPattern="*" Recursive="True"
+      DirectoryComparePathA="{working_folder_modpack}\res_mods\versiondir\vehicles\tv.protanki.skinner"
+      DirectoryComparePathB="{working_folder_package}\res_mods\versiondir\vehicles\tv.protanki.skinner"/>
+    <Task ID="compare_end" Command="compare_end"/>
+
+    <!-- Copy over the patch files -->
+    <Task ID="import_extract_patches" Command="import_task" RepoUrlPath="Task_templates/extract_patches_if_exist.xml"/>
+
+    <!-- Verify the patch file was copied over -->
+    <Task ID="verify_patch_exists" Command="file_exists" SourceFilePath="{working_folder_package}\_patch\vehicles_Estet_adding_packages.xml"/>
+
+    <!-- update version field in database -->
+    <Task ID="update_package_version" Command="update_package_property" PropertyName="Version" PropertyValue="{version_number_2}" TargetPackageUID="this"/>
+
+    <!-- Run task template to create zip and upload -->
+    <Task ID="import_task_create_upload_zip" Command="import_task" RepoUrlPath="Task_templates/create_upload_zip.xml"/>
+  </TaskDefinitions>
+
+</AutomationSequence>

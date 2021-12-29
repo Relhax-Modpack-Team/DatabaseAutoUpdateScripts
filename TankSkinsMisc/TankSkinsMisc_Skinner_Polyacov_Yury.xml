@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<AutomationSequence documentVersion="1.0">
+  <!-- Specify macros here -->
+  <Macros>
+    <Macro Name="target_package_uid" Value="this"/>
+  </Macros>
+
+  <!-- Specify the tasks to run -->
+  <TaskDefinitions>
+    <!-- create the working directories -->
+    <Task ID="import_task_create_workDirs_macros" Command="import_task" RepoUrlPath="Task_templates/create_workDirs_macros.xml"/>
+
+    <!-- get the dev url (both) -->
+    <Task ID="get_download_url" Command="retrieve_package_property" PropertyName="DevURLList" TargetPackageUID="this" MacroSaveName="package_url" PropertyIndex="0"/>
+    <Task ID="get_download_url" Command="retrieve_package_property" PropertyName="DevURLList" TargetPackageUID="this" MacroSaveName="package_url_wotsite" PropertyIndex="1"/>
+
+    <!-- download the source package -->
+    <Task ID="download_mod_source" Command="download_html" Url="{package_url_wotsite}" HtmlPath="//a[contains(@class, 'btn-download') and contains(@href, 'esteta-1')]//@href" DestinationPath="{working_folder_source}\{packageName}.rar"/>
+
+    <!-- extract the source package -->
+    <Task ID="extract_source_wotmod_1" Command="shell_exec" Filename="7z.exe" Wd="{working_folder_source}" Cmd="e -o&quot;{working_folder_package}\mods\versiondir&quot; {packageName}.rar vehicles_Estet.wotmod -r"/>
+    <Task ID="extract_source_wotmod_2" Command="shell_exec" Filename="7z.exe" Wd="{working_folder_source}" Cmd="e -o&quot;{working_folder_package}\mods\versiondir\PYmods&quot; {packageName}.rar Skinner.wotmod -r"/>
+    <Task ID="extract_source_cfg" Command="shell_exec" Filename="7z.exe" Wd="{working_folder_source}" Cmd="x -o&quot;{working_folder_package}&quot; {packageName}.rar Skinner.json *\Skinner\i18n\*.json -r"/>
+
+    <!-- download and extract modpack -->
+    <Task ID="download_modpack" Command="package_download" FilePath="{working_folder_modpack}\{packageName}.zip"/>
+    <Task ID="extract_modpack" Command="shell_exec" Filename="7z.exe" Wd="{working_folder_modpack}" Cmd="x {packageName}.zip"/>
+    <Task ID="extract_modpack_de_lang" Command="shell_exec" Filename="7z.exe" Wd="{working_folder_modpack}" Cmd="e -o&quot;{working_folder_package}\mods\configs\PYmods\Skinner\i18n&quot; {packageName}.zip mods\configs\PYmods\Skinner\i18n\de.json"/>
+    <Task ID="verify_de_lang_exists" Command="file_exists" SourceFilePath="{working_folder_package}\mods\configs\PYmods\Skinner\i18n\de.json"/>
+
+    <!-- Compare the source and modpack files -->
+    <Task ID="compare_start" Command="compare_start"/>
+    <Task ID="compare_tanks" Command="file_compare" FileA="{working_folder_package}\mods\versiondir\vehicles_Estet.wotmod" FileB="{working_folder_modpack}\mods\versiondir\vehicles_Estet.wotmod"/>
+    <Task ID="compare_skinner" Command="file_compare" FileA="{working_folder_package}\mods\versiondir\PYmods\Skinner.wotmod" FileB="{working_folder_modpack}\mods\versiondir\PYmods\Skinner.wotmod"/>
+    <Task ID="compare_cfg" Command="file_compare" FileA="{working_folder_package}\mods\configs\PYmods\Skinner\Skinner.json" FileB="{working_folder_modpack}\mods\configs\PYmods\Skinner\Skinner.json"/>
+    <Task ID="compare_lang" Command="directory_compare_count" SearchPattern="*.json" Recursive="False"
+      DirectoryComparePathA="{working_folder_modpack}\mods\configs\PYmods\Skinner\i18n"
+      DirectoryComparePathB="{working_folder_package}\mods\configs\PYmods\Skinner\i18n"/>
+    <Task ID="compare_end" Command="compare_end"/>
+
+    <!-- Copy over the patch files -->
+    <Task ID="import_extract_patches" Command="import_task" RepoUrlPath="Task_templates/extract_patches_if_exist.xml"/>
+
+    <!-- Verify the patch file was copied over -->
+    <Task ID="verify_patch_exists" Command="file_exists" SourceFilePath="{working_folder_package}\_patch\vehicles_Estet_adding_packages.xml"/>
+
+    <!-- update package version field with value from wgmods-->
+    <Task ID="import_tasks" Command="import_task" RepoUrlPath="Task_templates/update_package_version_from_wgmods.xml"/>
+
+    <!-- Run task template to create zip and upload -->
+    <Task ID="import_task_create_upload_zip" Command="import_task" RepoUrlPath="Task_templates/create_upload_zip.xml"/>
+  </TaskDefinitions>
+
+</AutomationSequence>

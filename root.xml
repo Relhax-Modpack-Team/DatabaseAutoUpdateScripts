@@ -397,7 +397,7 @@
   <AutomationSequence UID="36kg4s6gpkftihqn" packageName="TankSkinsMisc_ColoredPenetration_HAWGcolorblind" path="TankSkinsMisc/TankSkinsMisc_ColoredPenetration_HAWGcolorblind.xml"/>
   <AutomationSequence UID="s2adj7zaui7t2smg" packageName="TankSkinsMisc_MarksOfExcellence_VA_HG-Skins-French" path="TankSkinsMisc/TankSkinsMisc_MarksOfExcellence_VA_HG-Skins-French.xml"/>
   <AutomationSequence UID="p3efuwze8shluv4n" packageName="TankSkinsMisc_LimpidStickers" path="TankSkinsMisc/TankSkinsMisc_LimpidStickers.xml"/>
-  <!-- TODO: TankSkinsMisc_Skinner_Polyacov_Yury -->
-  <!-- TODO: TankSkinsMisc_Skinner_protanki -->
+  <AutomationSequence UID="ocfj3vu3n0rffhj5" packageName="TankSkinsMisc_Skinner_Polyacov_Yury" path="TankSkinsMisc/TankSkinsMisc_Skinner_Polyacov_Yury.xml"/>
+  <AutomationSequence UID="rk4cmmnlr3vel93a" packageName="TankSkinsMisc_Skinner_protanki" path="TankSkinsMisc/TankSkinsMisc_Skinner_protanki.xml"/>
   <!-- Category Task SKins Misc END   -->
 </root.xml>
