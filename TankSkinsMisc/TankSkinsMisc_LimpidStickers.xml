@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<AutomationSequence documentVersion="1.0">
+  <!-- Specify macros here -->
+  <Macros>
+    <Macro Name="file_prefix" Value="goofy67_LimpidStickers"/>
+    <Macro Name="file_name_7z" Value="{file_prefix}_*.wotmod"/>
+    <Macro Name="file_name" Value="{file_prefix}.wotmod"/>
+    <Macro Name="upload_zip_filename" Value="{packageName}_{clientVersion}_{date}"/>
+  </Macros>
+
+  <!-- Specify the tasks to run -->
+  <TaskDefinitions>
+    <!-- create the working directories -->
+    <Task ID="import_task_create_workDirs_macros" Command="import_task" RepoUrlPath="Task_templates/create_workDirs_macros.xml"/>
+
+    <!-- get the dev url -->
+    <Task ID="get_download_url" Command="retrieve_package_property" PropertyName="DevURLList" TargetPackageUID="this" MacroSaveName="package_url" PropertyIndex="0"/>
+
+    <!-- download the source package -->
+    <Task ID="download_mod_source" Command="download_browser" Url="{package_url}" HtmlPath="{wgmods_xpath}" DestinationPath="{working_folder_source}\{packageName}.zip" WaitTimeMs="500" WaitCounts="6" BrowserHeight="0" BrowserWidth="0"/>
+
+    <!-- extract source -->
+    <Task ID="extract_source" Command="shell_exec" Filename="7z.exe" Wd="{working_folder_source}" Cmd="e -o&quot;{working_folder_package}\mods\versiondir&quot; {packageName}.zip {file_name_7z}"/>
+
+    <!-- download and extract modpack -->
+    <Task ID="download_modpack" Command="package_download" FilePath="{working_folder_modpack}\{packageName}.zip"/>
+    <Task ID="extract_modpack" Command="shell_exec" Filename="7z.exe" Wd="{working_folder_modpack}" Cmd="e {packageName}.zip {file_name} -r"/>
+
+    <!-- get the source version number -->
+    <Task ID="get_source_package_version_number_1" Command="directory_search" DirectoryPath="{working_folder_package}\mods\versiondir" SearchPattern="{file_name_7z}" Recursive="False" MacroPrefix="filename_results"/>
+    <Task ID="get_source_package_version_number_2" Command="macro_string_split_macro" MacroName="version_number_1" Index="0" SplitCharacters="{working_folder_package}\mods\versiondir\{file_prefix}_" InputText="{filename_results_0}"/>
+    <Task ID="get_source_package_version_number_3" Command="macro_string_split_macro" MacroName="version_number_2" Index="0" SplitCharacters=".wotmod" InputText="{version_number_1}"/>
+
+    <!-- rename the source file to get rid of the version number in the name -->
+    <Task ID="rename_wotmod" Command="file_move" SourceFilePath="{working_folder_package}\mods\versiondir\{file_prefix}_{version_number_2}.wotmod" DestinationFilePath="{working_folder_package}\mods\versiondir\{file_name}"/>
+
+    <!-- Compare the source and modpack files -->
+    <Task ID="compare_start" Command="compare_start"/>
+    <Task ID="compare_file" Command="file_compare" FileA="{working_folder_package}\mods\versiondir\{file_name}" FileB="{working_folder_modpack}\{file_name}"/>
+    <Task ID="compare_end" Command="compare_end"/>
+
+    <!-- Copy over the patch files -->
+    <Task ID="import_extract_patches" Command="import_task" RepoUrlPath="Task_templates/extract_patches_if_exist.xml"/>
+
+    <!-- Verify the patch file was copied over -->
+    <Task ID="verify_patch_exists" Command="file_exists" SourceFilePath="{working_folder_package}\_patch\goofy67_LimpidStickers_vXX_adding_packages.xml"/>
+
+    <!-- Run task template to create zip and upload -->
+    <Task ID="import_task_create_upload_zip" Command="import_task" RepoUrlPath="Task_templates/create_upload_zip.xml"/>
+  </TaskDefinitions>
+
+</AutomationSequence>
