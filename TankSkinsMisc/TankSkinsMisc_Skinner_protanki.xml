@@ -12,7 +12,7 @@
     <Task ID="import_task_create_workDirs_macros" Command="import_task" RepoUrlPath="Task_templates/create_workDirs_macros.xml"/>
 
     <!-- get the dev url (both) -->
-    <Task ID="get_download_url" Command="retrieve_package_property" PropertyName="DevURLList" TargetPackageUID="this" MacroSaveName="package_url_wotsite" PropertyIndex="1"/>
+    <Task ID="get_download_url" Command="retrieve_package_property" PropertyName="DevURLList" TargetPackageUID="this" MacroSaveName="package_url_wotsite" PropertyIndex="0"/>
 
     <!-- download the source package -->
     <Task ID="download_mod_source" Command="download_html" Url="{package_url_wotsite}" HtmlPath="//a[contains(@class, 'btn-download') and contains(@href, 'esteta-2')]//@href" DestinationPath="{working_folder_source}\{packageName}.rar"/>
@@ -20,27 +20,36 @@
     <!-- extract the source package -->
     <Task ID="extract_source_wotmod_1" Command="shell_exec" Filename="7z.exe" Wd="{working_folder_source}" Cmd="e -o&quot;{working_folder_package}\mods\versiondir&quot; {packageName}.rar {file_prefix}_*.wotmod -r"/>
     <Task ID="extract_source_cfg" Command="shell_exec" Filename="7z.exe" Wd="{working_folder_source}" Cmd="x -o&quot;{working_folder_package}&quot; {packageName}.rar skinner.json -r"/>
-    <Task ID="extract_source_tanks" Command="shell_exec" Filename="7z.exe" Wd="{working_folder_source}" Cmd="x -o&quot;{working_folder_package}&quot; {packageName}.rar res_mods\versiondir\vehicles\tv.protanki.skinner\*"/>
+    <Task ID="extract_source_tanks" Command="shell_exec" Filename="7z.exe" Wd="{working_folder_source}" Cmd="x -o&quot;{working_folder_package}&quot; {packageName}.rar res_mods\*\vehicles\tv.protanki.skinner\*"/>
+
+    <!-- Get the version number for the res_mods folder used by the source -->
+    <Task ID="get_source_versiondir_1" Command="directory_search" DirectoryPath="{working_folder_package}\res_mods" SearchPattern="*" Recursive="True" MacroPrefix="versiondir_results"/>
+    <Task ID="get_source_versiondir_2" Command="macro_string_split_macro" MacroName="versiondir_1" Index="0" SplitCharacters="{working_folder_package}\res_mods\" InputText="{versiondir_results_9}"/>
+    <Task ID="get_source_versiondir_3" Command="macro_string_split_macro" MacroName="versiondir_2" Index="0" SplitCharacters="\" InputText="{versiondir_1}"/>
+
+    <!-- Move all the files to the new directory and delete the old one -->
+    <Task ID="move_files_versiondir" Command="directory_move" DirectoryPath="{working_folder_package}\res_mods\{versiondir_2}" SearchPattern="*" Recursive="True" DestinationPath="{working_folder_package}\res_mods\versiondir"/>
+    <Task ID="delete_old_version_dir" Command="directory_delete" DirectoryPath="{working_folder_package}\res_mods\{versiondir_2}" SearchPattern="*" Recursive="True" IncludeRootInSearch="True"/>
 
     <!-- get the source version number -->
     <Task ID="get_source_package_version_number_1" Command="directory_search" DirectoryPath="{working_folder_package}\mods\versiondir" SearchPattern="{file_prefix}_*.wotmod" Recursive="False" MacroPrefix="filename_results"/>
     <Task ID="get_source_package_version_number_2" Command="macro_string_split_macro" MacroName="version_number_1" Index="0" SplitCharacters="{working_folder_package}\mods\versiondir\{file_prefix}_" InputText="{filename_results_0}"/>
     <Task ID="get_source_package_version_number_3" Command="macro_string_split_macro" MacroName="version_number_2" Index="0" SplitCharacters=".wotmod" InputText="{version_number_1}"/>
 
+    <!-- download and extract modpack -->
+    <Task ID="download_modpack" Command="package_download" FilePath="{working_folder_modpack}\{packageName}.zip"/>
+    <Task ID="extract_modpack" Command="shell_exec" Filename="7z.exe" Wd="{working_folder_modpack}" Cmd="x {packageName}.zip"/>
+
     <!-- get the modpack version number -->
     <Task ID="get_modpack_package_version_number_1" Command="directory_search" DirectoryPath="{working_folder_modpack}\mods\versiondir" SearchPattern="{file_prefix}_*.wotmod" Recursive="False" MacroPrefix="filename_results_modpack"/>
     <Task ID="get_modpack_package_version_number_2" Command="macro_string_split_macro" MacroName="version_number_modpack_1" Index="0" SplitCharacters="{working_folder_modpack}\mods\versiondir\{file_prefix}_" InputText="{filename_results_modpack_0}"/>
     <Task ID="get_modpack_package_version_number_3" Command="macro_string_split_macro" MacroName="version_number_modpack_2" Index="0" SplitCharacters=".wotmod" InputText="{version_number_modpack_1}"/>
 
-    <!-- download and extract modpack -->
-    <Task ID="download_modpack" Command="package_download" FilePath="{working_folder_modpack}\{packageName}.zip"/>
-    <Task ID="extract_modpack" Command="shell_exec" Filename="7z.exe" Wd="{working_folder_modpack}" Cmd="x {packageName}.zip"/>
-
     <!-- Compare the source and modpack files -->
     <Task ID="compare_start" Command="compare_start"/>
     <Task ID="compare_tanks" Command="file_compare" FileA="{working_folder_package}\mods\versiondir\{file_prefix}_{version_number_2}.wotmod" FileB="{working_folder_modpack}\mods\versiondir\{file_prefix}_{version_number_modpack_2}.wotmod"/>
     <Task ID="compare_cfg" Command="file_compare" FileA="{working_folder_package}\mods\configs\protanki\skinner.json" FileB="{working_folder_modpack}\mods\configs\protanki\skinner.json"/>
-    <Task ID="compare_lang" Command="directory_compare_count" SearchPattern="*" Recursive="True"
+    <Task ID="compare_tanks" Command="directory_compare_count" SearchPattern="*" Recursive="True"
       DirectoryComparePathA="{working_folder_modpack}\res_mods\versiondir\vehicles\tv.protanki.skinner"
       DirectoryComparePathB="{working_folder_package}\res_mods\versiondir\vehicles\tv.protanki.skinner"/>
     <Task ID="compare_end" Command="compare_end"/>
