@@ -43,5 +43,8 @@
 
     <Macro Name="devurl_IngameInfo_DamageIndicator_HAWG" Value="https://wgmods.net/1683/"/>
     <Macro Name="wotmod_IngameInfo_DamageIndicator_HAWG" Value="Hawg_damageIndicator.wotmod"/>
+
+    <Macro Name="devurl_IngameMisc_Chatmods_RadialMenu_HAWG" Value="https://wgmods.net/5358/"/>
+    <Macro Name="wotmod_IngameMisc_Chatmods_RadialMenu_HAWG" Value="Hawg_radialMenu.wotmod"/>
   </Macros>
 </AutomationSequence>

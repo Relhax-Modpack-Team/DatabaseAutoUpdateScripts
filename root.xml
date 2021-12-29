@@ -232,6 +232,11 @@
   <AutomationSequence UID="yg5kyxsh4ibkbxuy" packageName="IngameMisc_UnderwaterTimer_V7" path="IngameMisc/UnderwaterTimer/IngameMisc_UnderwaterTimer_V7.xml"/>
   <AutomationSequence UID="46d63yjqneao8y39" packageName="IngameMisc_UnderwaterTimer_V10" path="IngameMisc/UnderwaterTimer/IngameMisc_UnderwaterTimer_V10.xml"/>
 
+  <AutomationSequence UID="nit6d3em9yjunfht" packageName="IngameMisc_Chatmods_RadialMenu_HawgBlue" path="IngameMisc/ChatMods/RadialMenu/IngameMisc_Chatmods_RadialMenu_HawgBlue.xml"/>
+  <AutomationSequence UID="e4irip6gn1amojwh" packageName="IngameMisc_Chatmods_RadialMenu_HawgGreen" path="IngameMisc/ChatMods/RadialMenu/IngameMisc_Chatmods_RadialMenu_HawgGreen.xml"/>
+  <AutomationSequence UID="rebfs60qea8bgdga" packageName="IngameMisc_Chatmods_RadialMenu_HawgPurple" path="IngameMisc/ChatMods/RadialMenu/IngameMisc_Chatmods_RadialMenu_HawgPurple.xml"/>
+  <AutomationSequence UID="q4948b86j4ezh8kk" packageName="IngameMisc_Chatmods_RadialMenu_HawgYellow" path="IngameMisc/ChatMods/RadialMenu/IngameMisc_Chatmods_RadialMenu_HawgYellow.xml"/>
+
   <AutomationSequence UID="px6jrz5us97tnnbb" packageName="IngameMisc_BetterVisibleFlatTrainWagons" path="IngameMisc/IngameMisc_BetterVisibleFlatTrainWagons.xml"/>
 
   <AutomationSequence UID="lwj26ht7rnt0j1wh" packageName="IngameMisc_Chatmods_FriendsMarker" path="IngameMisc/IngameMisc_Chatmods_FriendsMarker.xml"/>
