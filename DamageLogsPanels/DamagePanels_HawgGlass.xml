@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <AutomationSequence documentVersion="1.0">
   <Macros>
-    <Macro Name="file_path" Value="&quot;DamagePanel_\Type_2\1. Glass Original\&quot;"/>
+    <Macro Name="file_path" Value="&quot;DamagePanel_\Type_1\01. Glass-Original\&quot;"/>
   </Macros>
   <TaskDefinitions>
     <!-- import hawg macro lib -->
