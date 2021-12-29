@@ -391,7 +391,7 @@
   <AutomationSequence UID="rgg9scuztkonnscj" packageName="TankSkinsMisc_crashedTracks" path="TankSkinsMisc/TankSkinsMisc_crashedTracks.xml"/>
   <AutomationSequence UID="v15c8hy5g8x19o59" packageName="TankSkinsMisc_deadTanks" path="TankSkinsMisc/TankSkinsMisc_deadTanks.xml"/>
   <AutomationSequence UID="6pj0oqyvxb0n7pmb" packageName="TankSkinsMisc_Camo_TransparentCamouflage" path="TankSkinsMisc/TankSkinsMisc_Camo_TransparentCamouflage.xml"/>
-  <!-- TODO: TankSkinsMisc_ClanLogoRemover -->
+  <AutomationSequence UID="jepfwp4ww8t471ub" packageName="TankSkinsMisc_ClanLogoRemover" path="TankSkinsMisc/TankSkinsMisc_ClanLogoRemover.xml"/>
   <AutomationSequence UID="4oqavzsjeibq4fxe" packageName="TankSkinsMisc_ColoredPenetration_protanki" path="TankSkinsMisc/TankSkinsMisc_ColoredPenetration_protanki.xml"/>
   <AutomationSequence UID="qhd1ws0fqnnci6jo" packageName="TankSkinsMisc_ColoredPenetration_HAWGreg" path="TankSkinsMisc/TankSkinsMisc_ColoredPenetration_HAWGreg.xml"/>
   <AutomationSequence UID="36kg4s6gpkftihqn" packageName="TankSkinsMisc_ColoredPenetration_HAWGcolorblind" path="TankSkinsMisc/TankSkinsMisc_ColoredPenetration_HAWGcolorblind.xml"/>

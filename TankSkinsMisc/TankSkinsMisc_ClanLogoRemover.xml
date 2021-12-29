@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<AutomationSequence documentVersion="1.0">
+  <!-- Specify macros here -->
+  <Macros>
+    <Macro Name="file_path" Value="StranikS_Scan-mods-master\EmblemsOff\zip\"/>
+    <Macro Name="file_prefix" Value="mod.EmblemsOff"/>
+    <Macro Name="file_name" Value="{file_prefix}_*.wotmod"/>
+    <Macro Name="upload_zip_filename" Value="{packageName}_{clientVersion}_{date}"/>
+  </Macros>
+
+  <!-- Specify the tasks to run -->
+  <TaskDefinitions>
+    <!-- create the working directories -->
+    <Task ID="import_task_create_workDirs_macros" Command="import_task" RepoUrlPath="Task_templates/create_workDirs_macros.xml"/>
+
+    <!-- download source from his github -->
+    <Task ID="download_source" Command="download_static" Url="https://github.com/StranikS-Scan/StranikS_Scan-mods/archive/refs/heads/master.zip" DestinationPath="{working_folder_source}\{last_download_filename}"/>
+
+    <!-- extract source, only the emblems mod -->
+    <Task ID="extract_source" Command="shell_exec" Filename="7z.exe" Wd="{working_folder_source}" Cmd="e -o&quot;{working_folder_package}\mods\versiondir&quot; {last_download_filename} {file_path}{file_name}"/>
+
+    <!-- download and extract modpack -->
+    <Task ID="import_task_single_file_download_extract_modpack" Command="import_task" RepoUrlPath="Task_templates/Generic/single_file_download_extract_modpack.xml"/>
+
+    <!-- get the source version number -->
+    <Task ID="get_source_package_version_number_1" Command="directory_search" DirectoryPath="{working_folder_package}\mods\versiondir" SearchPattern="{file_name}" Recursive="False" MacroPrefix="filename_results"/>
+    <Task ID="get_source_package_version_number_2" Command="macro_string_split_macro" MacroName="version_number_1" Index="0" SplitCharacters="{working_folder_package}\mods\versiondir\{file_prefix}_" InputText="{filename_results_0}"/>
+    <Task ID="get_source_package_version_number_3" Command="macro_string_split_macro" MacroName="version_number_2" Index="0" SplitCharacters=".wotmod" InputText="{version_number_1}"/>
+
+    <!-- get the modpack version number -->
+    <Task ID="get_modpack_package_version_number_1" Command="directory_search" DirectoryPath="{working_folder_modpack}" SearchPattern="{file_name}" Recursive="False" MacroPrefix="filename_results_modpack"/>
+    <Task ID="get_modpack_package_version_number_2" Command="macro_string_split_macro" MacroName="version_number_modpack_1" Index="0" SplitCharacters="{working_folder_modpack}\{file_prefix}_" InputText="{filename_results_modpack_0}"/>
+    <Task ID="get_modpack_package_version_number_3" Command="macro_string_split_macro" MacroName="version_number_modpack_2" Index="0" SplitCharacters=".wotmod" InputText="{version_number_modpack_1}"/>
+
+    <!-- Compare the source and modpack files -->
+    <Task ID="compare_start" Command="compare_start"/>
+    <Task ID="compare_file" Command="file_compare" FileA="{working_folder_package}\mods\versiondir\{file_prefix}_{version_number_2}.wotmod" FileB="{working_folder_modpack}\{file_prefix}_{version_number_modpack_2}.wotmod"/>
+    <Task ID="compare_end" Command="compare_end"/>
+
+    <Task ID="update_package_version" Command="update_package_property" PropertyName="Version" PropertyValue="{version_number_2}" TargetPackageUID="this"/>
+
+    <!-- Run task template to create zip and upload -->
+    <Task ID="import_task_create_upload_zip" Command="import_task" RepoUrlPath="Task_templates/create_upload_zip.xml"/>
+  </TaskDefinitions>
+
+</AutomationSequence>
