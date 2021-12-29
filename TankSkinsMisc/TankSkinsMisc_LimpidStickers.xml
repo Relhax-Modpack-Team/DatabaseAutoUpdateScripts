@@ -45,6 +45,9 @@
     <!-- Verify the patch file was copied over -->
     <Task ID="verify_patch_exists" Command="file_exists" SourceFilePath="{working_folder_package}\_patch\goofy67_LimpidStickers_vXX_adding_packages.xml"/>
 
+    <!-- update version field in database -->
+    <Task ID="update_package_version" Command="update_package_property" PropertyName="Version" PropertyValue="{version_number_2}" TargetPackageUID="this"/>
+
     <!-- Run task template to create zip and upload -->
     <Task ID="import_task_create_upload_zip" Command="import_task" RepoUrlPath="Task_templates/create_upload_zip.xml"/>
   </TaskDefinitions>
