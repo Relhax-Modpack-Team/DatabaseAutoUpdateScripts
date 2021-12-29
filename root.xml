@@ -273,7 +273,7 @@
   <AutomationSequence UID="ykbrht6lxlvsleyz" packageName="GarageMods_ArmorInspector_wotinspector" path="GarageMods/GarageMods_ArmorInspector_wotinspector.xml" />
   <AutomationSequence UID="xm8jk9d1touggs54" packageName="GarageMods_BattleHitsViewer" path="GarageMods/GarageMods_BattleHitsViewer.xml"/>
   <AutomationSequence UID="7hjfw49664u06l3a" packageName="GarageMods_CrewAutoReturn_Oldskool" path="GarageMods/GarageMods_CrewAutoReturn_Oldskool.xml" />
-  <!-- TODO: GarageMods_CrewExtended_IzeBerg -->
+  <AutomationSequence UID="8am80idrarx2etm6" packageName="GarageMods_CrewExtended_IzeBerg" path="GarageMods/GarageMods_CrewExtended_IzeBerg.xml"/>
   <AutomationSequence UID="v6z5w082j20ut74s" packageName="GarageMods_CrewExtended_Protanki" path="GarageMods/GarageMods_CrewExtended_Protanki.xml" />
   <AutomationSequence UID="b3l0yy9cwlp4n6eo" packageName="GarageMods_HangarMastery" path="GarageMods/GarageMods_HangarMastery.xml" />
   <AutomationSequence UID="ksbf9er3h535v1vd" packageName="GarageMods_LittleHelperCollection" path="GarageMods/GarageMods_LittleHelperCollection.xml" />
