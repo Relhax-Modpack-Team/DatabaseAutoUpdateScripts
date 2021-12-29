@@ -2,8 +2,6 @@
 <AutomationSequence documentVersion="1.0">
   <!-- Specify macros here -->
   <Macros>
-    <Macro Name="file_path" Value="StranikS_Scan-mods-master\EmblemsOff\zip\"/>
-    <Macro Name="file_prefix" Value="mod.EmblemsOff"/>
     <Macro Name="file_name" Value="France_MOE.wotmod"/>
     <Macro Name="upload_zip_filename" Value="{packageName}_{clientVersion}_{date}"/>
   </Macros>
