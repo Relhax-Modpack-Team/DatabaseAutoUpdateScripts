@@ -22,13 +22,13 @@
     <Task ID="get_download_page_url" Command="retrieve_package_property" PropertyName="DevURLList" TargetPackageUID="{target_package_uid}" MacroSaveName="mediafire_download_folder" PropertyIndex="0"/>
 
     <!-- Get the MediaFire folder that contains the package we want to download. Note we can set the length and startIndex to -1 and 0 respectivly to effectivly get the entire string -->
-    <Task ID="get_folder_url_section" Command="macro_substring_browser" MacroName="mediafire_folder_name" Length="-1" StartIndex="0" Url="{mediafire_download_folder}" HtmlPath="{mediafire_xpath_folder}" WaitTimeMs="500" WaitCounts="6" BrowserHeight="3000" BrowserWidth="0"/>
+    <Task ID="get_folder_url_section" Command="macro_substring_browser" MacroName="mediafire_folder_name" Length="-1" StartIndex="0" Url="{mediafire_download_folder}" HtmlPath="{mediafire_xpath_folder}" BrowserEngine="WebView" WaitTimeMs="500" WaitCounts="6" BrowserHeight="3000" BrowserWidth="0"/>
 
     <!-- Create the macro to use for the folder that contains the files we want from MediaFire -->
     <Task ID="createmediafire_search_macro" Command="macro_create" MacroName="folder_with_files_mediafire" MacroValue="{mediafire_download_folder}{mediafire_folder_name}"/>
 
     <!--  Fetch source and ftp  -->
-    <Task ID="download_mod_source" Command="download_browser" Url="{folder_with_files_mediafire}" HtmlPath="{mediafire_xpath_file}" DestinationPath="{working_folder_source}\{packageName}_source.zip" WaitTimeMs="500" WaitCounts="6" BrowserHeight="3000" BrowserWidth="0"/>
+    <Task ID="download_mod_source" Command="download_browser" Url="{folder_with_files_mediafire}" HtmlPath="{mediafire_xpath_file}" DestinationPath="{working_folder_source}\{packageName}_source.zip" BrowserEngine="WebView" WaitTimeMs="500" WaitCounts="6" BrowserHeight="3000" BrowserWidth="0"/>
 
     <!-- download the modpack current zip file-->
     <Task ID="download_modpack" Command="package_download" FilePath="{working_folder_modpack}\{packageName}_ftp.zip"/>

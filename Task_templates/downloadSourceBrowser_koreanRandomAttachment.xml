@@ -6,6 +6,6 @@
 <!-- {last_download_filename} -->
 <AutomationSequence documentVersion="1.0">
   <TaskDefinitions>
-    <Task ID="download_source" Command="download_browser" Url="{download_url}" DestinationPath="{working_folder_source}\{last_download_filename}" HtmlPath="{koreanrandom_attachment_xpath}" WaitTimeMs="500" WaitCounts="6" BrowserHeight="0" BrowserWidth="0"/>
+    <Task ID="download_source" Command="download_browser" Url="{download_url}" DestinationPath="{working_folder_source}\{last_download_filename}" HtmlPath="{koreanrandom_attachment_xpath}" BrowserEngine="WebBrowser" WaitTimeMs="500" WaitCounts="6" BrowserHeight="0" BrowserWidth="0"/>
   </TaskDefinitions>
 </AutomationSequence>

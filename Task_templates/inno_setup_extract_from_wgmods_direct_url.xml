@@ -14,7 +14,7 @@
   -->
   <TaskDefinitions>
     <!-- download the source package -->
-    <Task ID="download_mod_source" Command="download_browser" Url="{download_url}" HtmlPath="{wgmods_xpath}" DestinationPath="{working_folder_source}\wot_modpack.exe" WaitTimeMs="500" WaitCounts="6" BrowserHeight="0" BrowserWidth="0"/>
+    <Task ID="download_mod_source" Command="download_browser" Url="{download_url}" HtmlPath="{wgmods_xpath}" DestinationPath="{working_folder_source}\wot_modpack.exe" BrowserEngine="WebBrowser" WaitTimeMs="500" WaitCounts="6" BrowserHeight="0" BrowserWidth="0"/>
     <Task ID="create_inno_setup_exe_macro" Command="macro_create" MacroName="inno_setup_exe" MacroValue="{working_folder_source}\wot_modpack.exe"/>
 
     <!-- import the rest of the process from single_wotmod -->
