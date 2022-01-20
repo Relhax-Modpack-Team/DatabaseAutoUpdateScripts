@@ -5,7 +5,6 @@
     <Macro Name="mct_commands" Value="/CTM-mod &quot;DD7744&quot;"/>
     <Macro Name="mct_wotmodModpack_name" Value="railway.wotmod"/>
     <Macro Name="wotmodPackageNameMCT" Value="railway"/>
-    <Macro Name="patchfileName" Value="railway_adding_packages.xml"/>
   </Macros>
   <TaskDefinitions>
     <Task ID="import_run_mct_from_command" Command="import_task" RepoUrlPath="Task_templates/run_mct_from_command.xml"/>

@@ -11,6 +11,7 @@
   <Macro Name="clanIcon_downloader_github_exe" Value="https://github.com/Relhax-Modpack-Team/WGClanIconDownload/releases/download/1.0.1.1/WoTClanIconDownloadConsole.exe"/>
   <Macro Name="antiMirror_github_exe" Value="https://github.com/Relhax-Modpack-Team/ZazerkalieProduce/releases/download/1.0.2.0/ZazerkalieProduce.exe"/>
   <Macro Name="flash_decompile_url" Value="https://github.com/Relhax-Modpack-Team/WoTTools/raw/master/Flash%20decompile/ffdec_11.3.0.zip"/>
+  <Macro Name="mct_url" Value="https://github.com/Relhax-Modpack-Team/RelhaxMCT/raw/master/MCTCreator/MCTCreator2.exe"/>
   <!-- <Macro Name="champi_xpath" Value="//div[div = &quot;Expected Vehicle Values&quot;]/a/@href"/> -->
   <Macro Name="champi_xpath" Value="//div[div = &quot;{champi_xpath_mod_name}&quot;]/a/@href"/>
   <!--
