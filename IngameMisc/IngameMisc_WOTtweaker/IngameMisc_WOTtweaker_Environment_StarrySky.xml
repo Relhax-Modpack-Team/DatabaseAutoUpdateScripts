@@ -12,7 +12,7 @@
     <!-- First get the download page from mediafire, then get the actual download url -->
     <Task ID="get_download_page_url" Command="retrieve_package_property" PropertyName="DevURLList" TargetPackageUID="this" MacroSaveName="wot_forms_url" PropertyIndex="0"/>
     <Task ID="get_mediafire_url" Command="macro_substring_browser" MacroName="mediafire_file_dl" Length="-1" StartIndex="0" Url="{wot_forms_url}"
-      HtmlPath="//a[@class = &quot;bbc_url&quot;]/@href" BrowserEngine="WebView" WaitTimeMs="500" WaitCounts="6" BrowserHeight="0" BrowserWidth="0"/>
+      HtmlPath="//a[@class = &quot;bbc_url&quot;]/@href" BrowserEngine="WebView" WaitTimeMs="2000" WaitCounts="6" BrowserHeight="0" BrowserWidth="0"/>
     <Task ID="download_mod_source" Command="download_html" Url="{mediafire_file_dl}" HtmlPath="//a[@id = &quot;downloadButton&quot;]/@href" DestinationPath="{working_folder_package}\mods\versiondir\{source_download_filename}"/>
 
     <!-- Download the package from the database -->
