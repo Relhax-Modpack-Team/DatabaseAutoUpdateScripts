@@ -37,7 +37,7 @@
   <AutomationSequence UID="wp1zs4if31mxsqux" packageName="Dependency_RaJCel_Core" path="Dependencies/Dependency_RaJCel_Core.xml"/>
   <AutomationSequence UID="9e8e03og3xees21w" packageName="Dependency_RaJCeL_inBattleStatistics" path="Dependencies/Dependency_RaJCeL_inBattleStatistics.xml"/>
   <!-- Subgroup Standard END -->
-  
+
   <!-- Subgroup Crosshairs START -->
   <AutomationSequence UID="7uc2cpqmy2ux8gy4" packageName="Dependency_Crosshairs_Protanki" path="Dependencies/Dependency_Crosshairs_Protanki.xml" />
   <!-- Subgroup Crosshairs END -->
@@ -183,22 +183,22 @@
   <!-- Category Ingame Info START -->
   <AutomationSequence UID="ah3r2xjyteyt7xhm" packageName="IngameInfo_15mCircle" path="IngameInfo/IngameInfo_15mCircle.xml"/>
   <AutomationSequence UID="wuu4xejdqk5020hr" packageName="IngameInfo_ATAC" path="IngameInfo/IngameInfo_ATAC.xml"/>
+  <AutomationSequence UID="8lyb8uwumkw5xpvv" packageName="IngameInfo_DebugPanel_oldskool" path="IngameInfo/IngameInfo_DebugPanel_oldskool.xml"/>
   <AutomationSequence UID="hxsbz0o3ni6eae4h" packageName="IngameInfo_DangerLights" path="IngameInfo/IngameInfo_DangerLights.xml"/>
   <AutomationSequence UID="4qcvi028h2edpw0y" packageName="IngameInfo_FinalShot" path="IngameInfo/IngameInfo_FinalShot.xml"/>
-  <AutomationSequence UID="3r6bdbph41vrjucw" packageName="IngameInfo_ExpectedVehicleValues" path="IngameInfo/IngameInfo_ExpectedVehicleValues.xml"/>
-  <AutomationSequence UID="jf9paludpndhr21p" packageName="IngameInfo_TankRatingColors" path="IngameInfo/IngameInfo_TankRatingColors.xml"/>
-  <AutomationSequence UID="ewheywwoz33rzjf4" packageName="IngameInfo_InBattleRating_Protanki" path="IngameInfo/IngameInfo_InBattleRating_Protanki.xml"/>
-  <AutomationSequence UID="chhsw0vni7x0c903" packageName="IngameInfo_RTAN_Protanki" path="IngameInfo/IngameInfo_RTAN_Protanki.xml"/>
-  <AutomationSequence UID="msak80oyaflkjz9l" packageName="IngameInfo_PlayersPanelPro" path="IngameInfo/IngameInfo_PlayersPanelPro.xml"/>
-  <AutomationSequence UID="8lyb8uwumkw5xpvv" packageName="IngameInfo_DebugPanel_oldskool" path="IngameInfo/IngameInfo_DebugPanel_oldskool.xml"/>
-  <AutomationSequence UID="my79ujmsxfzagayc" packageName="IngameInfo_EnemySpottedStatus_OldSkool" path="IngameInfo/IngameInfo_EnemySpottedStatus_OldSkool.xml"/>
-  <AutomationSequence UID="17azqxqn06baz884" packageName="IngameInfo_InBattleRating_OldSkool" path="IngameInfo/IngameInfo_InBattleRating_OldSkool.xml"/>
-  <AutomationSequence UID="elgpf2m074c3d6ip" packageName="IngameInfo_TankInfoPanel_OldSkool" path="IngameInfo/IngameInfo_TankInfoPanel_OldSkool.xml"/>
-  <AutomationSequence UID="ran4n2t1715ldipp" packageName="IngameInfo_TankInfoPanel_protanki" path="IngameInfo/IngameInfo_TankInfoPanel_protanki.xml"/>
   <AutomationSequence UID="bt0ih3ysbi9k00pb" packageName="IngameInfo_FlyingDamage" path="IngameInfo/FlyingDamage/IngameInfo_FlyingDamage.xml"/>
   <AutomationSequence UID="oi6wq34tae120cwa" packageName="IngameInfo_FlyingDamage_V1" path="IngameInfo/FlyingDamage/IngameInfo_FlyingDamage_V1.xml"/>
   <AutomationSequence UID="ixo4h6ub5y3rb5eo" packageName="IngameInfo_FlyingDamage_V2" path="IngameInfo/FlyingDamage/IngameInfo_FlyingDamage_V2.xml"/>
+  <AutomationSequence UID="msak80oyaflkjz9l" packageName="IngameInfo_PlayersPanelPro" path="IngameInfo/IngameInfo_PlayersPanelPro.xml"/>
+  <AutomationSequence UID="my79ujmsxfzagayc" packageName="IngameInfo_EnemySpottedStatus_OldSkool" path="IngameInfo/IngameInfo_EnemySpottedStatus_OldSkool.xml"/>
+  <AutomationSequence UID="jf9paludpndhr21p" packageName="IngameInfo_TankRatingColors" path="IngameInfo/IngameInfo_TankRatingColors.xml"/>
+  <AutomationSequence UID="17azqxqn06baz884" packageName="IngameInfo_InBattleRating_OldSkool" path="IngameInfo/IngameInfo_InBattleRating_OldSkool.xml"/>
+  <AutomationSequence UID="ewheywwoz33rzjf4" packageName="IngameInfo_InBattleRating_Protanki" path="IngameInfo/IngameInfo_InBattleRating_Protanki.xml"/>
+  <AutomationSequence UID="3r6bdbph41vrjucw" packageName="IngameInfo_ExpectedVehicleValues" path="IngameInfo/IngameInfo_ExpectedVehicleValues.xml"/>
+  <AutomationSequence UID="chhsw0vni7x0c903" packageName="IngameInfo_RTAN_Protanki" path="IngameInfo/IngameInfo_RTAN_Protanki.xml"/>
   <AutomationSequence UID="3x30zumbr19ig50n" packageName="IngameInfo_HiddenParameters" path="IngameInfo/IngameInfo_HiddenParameters.xml"/>
+  <AutomationSequence UID="elgpf2m074c3d6ip" packageName="IngameInfo_TankInfoPanel_OldSkool" path="IngameInfo/IngameInfo_TankInfoPanel_OldSkool.xml"/>
+  <AutomationSequence UID="ran4n2t1715ldipp" packageName="IngameInfo_TankInfoPanel_protanki" path="IngameInfo/IngameInfo_TankInfoPanel_protanki.xml"/>
 
   <AutomationSequence UID="n09woj0h8emhm0wt" packageName="IngameInfo_DamageIndicator_ApacheColorblindHAWG" path="IngameInfo/DamageIndicator/IngameInfo_DamageIndicator_ApacheColorblindHAWG.xml"/>
   <AutomationSequence UID="dxximfx7sz7xzik7" packageName="IngameInfo_DamageIndicator_ApacheHAWG" path="IngameInfo/DamageIndicator/IngameInfo_DamageIndicator_ApacheHAWG.xml"/>
