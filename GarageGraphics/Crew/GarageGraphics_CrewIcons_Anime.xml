@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<AutomationSequence documentVersion="1.0">
+  <Macros>
+    <Macro Name="file_name" Value="crew_icons_anime_v1.wotmod"/>
+    <Macro Name="folder_path" Value="mods\versiondir"/>
+  </Macros>
+  <TaskDefinitions>
+    <!-- Create them there work dir macros -->
+    <Task ID="import_macro_create_work_dirs" Command="import_task" RepoUrlPath="Task_templates/create_workDirs_macros.xml"/>
+
+    <!-- Import task to create macro download_url, using index 0 of this package's DevUrl array -->
+    <Task ID="import_macro_create_download_url" Command="import_task" RepoUrlPath="Task_templates/getDownloadUrl_THISindex0.xml"/>
+
+    <!-- download the source package -->
+    <Task ID="download_mod_source" Command="download_html" Url="{package_url}" HtmlPath="{wotsite_xpath}" DestinationPath="{working_folder_source}\{packageName}.zip"/>
+
+    <!-- extract the source -->
+    <Task ID="extract_source" Command="shell_exec" Filename="7z.exe" Wd="{working_folder_source}" Cmd="e {packageName}.zip {file_name} -r"/>
+
+    <!-- import tasks to download and extract the package -->
+    <Task ID="import_task_single_file" Command="import_task" RepoUrlPath="Task_templates/Generic/single_file.xml"/>
+  </TaskDefinitions>
+</AutomationSequence>

@@ -313,6 +313,8 @@
   <AutomationSequence UID="oflyyk5s8kw38poa" packageName="GarageGraphics_Carousel_LED_USA" path="GarageGraphics/Carousel/LED/GarageGraphics_Carousel_LED_USA.xml" />
   <AutomationSequence UID="87gz6n7c1wjsj6kn" packageName="GarageGraphics_Carousel_LED_Yellow" path="GarageGraphics/Carousel/LED/GarageGraphics_Carousel_LED_Yellow.xml" />
 
+  <AutomationSequence UID="vl03uve3hvfvhi9p" packageName="GarageGraphics_CrewIcons_Anime" path="GarageGraphics/Crew/GarageGraphics_CrewIcons_Anime.xml"/>
+
   <AutomationSequence UID="3xrm9bdv6612jmpc" packageName="GarageGraphics_BattleResults_OnBattleResults" path="GarageGraphics/GarageGraphics_BattleResults_OnBattleResults.xml"/>
   <AutomationSequence UID="xb8u1f3d1p3suf7p" packageName="GarageGraphics_BattleResults_Unanonymizer" path="GarageGraphics/GarageGraphics_BattleResults_Unanonymizer.xml"/>
 
