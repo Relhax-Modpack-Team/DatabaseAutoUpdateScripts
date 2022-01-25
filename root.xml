@@ -261,16 +261,16 @@
 
   <AutomationSequence UID="ocfhqnv3chhb5k9x" packageName="IngameMisc_smartRepair" path="IngameMisc/IngameMisc_smartRepair.xml"/>
 
-  <AutomationSequence UID="515aq1xuq26uhjdg" packageName="IngameMisc_WOTtweaker_SkyBoxes_ClearSky" path="IngameMisc/IngameMisc_WOTtweaker/IngameMisc_WOTtweaker_SkyBoxes_ClearSky.xml"/>
-  <AutomationSequence UID="vntcs9j60a5gyrrl" packageName="IngameMisc_WOTtweaker_SkyBoxes_BlueSky" path="IngameMisc/IngameMisc_WOTtweaker/IngameMisc_WOTtweaker_SkyBoxes_BlueSky.xml"/>
-  <AutomationSequence UID="kj1bdhpt8d6fggo1" packageName="IngameMisc_WOTtweaker_SkyBoxes_NightfallSky" path="IngameMisc/IngameMisc_WOTtweaker/IngameMisc_WOTtweaker_SkyBoxes_NightfallSky.xml"/>
-  <AutomationSequence UID="ecfavcf10g7c46bg" packageName="IngameMisc_WOTtweaker_Environment_FogRemover" path="IngameMisc/IngameMisc_WOTtweaker/IngameMisc_WOTtweaker_Environment_FogRemover.xml"/>
-  <AutomationSequence UID="2c8773kpadcaeihv" packageName="IngameMisc_WOTtweaker_Environment_BlackSky" path="IngameMisc/IngameMisc_WOTtweaker/IngameMisc_WOTtweaker_Environment_BlackSky.xml"/>
-  <AutomationSequence UID="w1m2b13fv3r3mayc" packageName="IngameMisc_WOTtweaker_Environment_BlackSkyFogRemover" path="IngameMisc/IngameMisc_WOTtweaker/IngameMisc_WOTtweaker_Environment_BlackSkyFogRemover.xml"/>
-  <AutomationSequence UID="tv323tdpmnyze2az" packageName="IngameMisc_WOTtweaker_disableDirt" path="IngameMisc/IngameMisc_WOTtweaker/IngameMisc_WOTtweaker_disableDirt.xml"/>
+  <AutomationSequence UID="515aq1xuq26uhjdg" packageName="IngameMisc_WOTtweaker_SkyBoxes_ClearSky" path="IngameMisc/WOTtweaker/IngameMisc_WOTtweaker_SkyBoxes_ClearSky.xml"/>
+  <AutomationSequence UID="vntcs9j60a5gyrrl" packageName="IngameMisc_WOTtweaker_SkyBoxes_BlueSky" path="IngameMisc/WOTtweaker/IngameMisc_WOTtweaker_SkyBoxes_BlueSky.xml"/>
+  <AutomationSequence UID="kj1bdhpt8d6fggo1" packageName="IngameMisc_WOTtweaker_SkyBoxes_NightfallSky" path="IngameMisc/WOTtweaker/IngameMisc_WOTtweaker_SkyBoxes_NightfallSky.xml"/>
+  <AutomationSequence UID="ecfavcf10g7c46bg" packageName="IngameMisc_WOTtweaker_Environment_FogRemover" path="IngameMisc/WOTtweaker/IngameMisc_WOTtweaker_Environment_FogRemover.xml"/>
+  <AutomationSequence UID="2c8773kpadcaeihv" packageName="IngameMisc_WOTtweaker_Environment_BlackSky" path="IngameMisc/WOTtweaker/IngameMisc_WOTtweaker_Environment_BlackSky.xml"/>
+  <AutomationSequence UID="w1m2b13fv3r3mayc" packageName="IngameMisc_WOTtweaker_Environment_BlackSkyFogRemover" path="IngameMisc/WOTtweaker/IngameMisc_WOTtweaker_Environment_BlackSkyFogRemover.xml"/>
+  <AutomationSequence UID="tv323tdpmnyze2az" packageName="IngameMisc_WOTtweaker_disableDirt" path="IngameMisc/WOTtweaker/IngameMisc_WOTtweaker_disableDirt.xml"/>
 
   <!-- Seperated because it's not a HAWG mod -->
-  <AutomationSequence UID="4k0gyubs13axvl5q" packageName="IngameMisc_WOTtweaker_Environment_StarrySky" path="IngameMisc/IngameMisc_WOTtweaker/IngameMisc_WOTtweaker_Environment_StarrySky.xml"/>
+  <AutomationSequence UID="4k0gyubs13axvl5q" packageName="IngameMisc_WOTtweaker_Environment_StarrySky" path="IngameMisc/WOTtweaker/IngameMisc_WOTtweaker_Environment_StarrySky.xml"/>
   <!-- Category Ingame Misc END -->
 
   <!-- Category Garage Mods START -->
