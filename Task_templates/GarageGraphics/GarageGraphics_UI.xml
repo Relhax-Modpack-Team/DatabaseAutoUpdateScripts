@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<AutomationSequence documentVersion="1.0">
+  <!-- GarageGraphics_UI.xml
+    Author:  Willster419
+    Created: 2021-12-05
+    This sequence template handles the downloading of the GuP mod from the wgmods source (the github version is no longer maintained as of this file's creation)
+    NOTE: We manually create a wotmod now because that way we can use load_order.xml to avoid file load conflicts
+    Required macros:
+    {package_url}        - dev url to use for the macro_substring_browser task (imported task update_package_version_from_wgmods.xml)
+    {target_package_uid} - the target package to update the Version property (used for imported task update_package_version_from_wgmods.xml)
+   -->
+  <TaskDefinitions>
+    <!-- create work dirs and macros -->
+    <Task ID="import_createWD" Command="import_task" RepoUrlPath="Task_templates/create_workDirs_macros.xml"/>
+
+    <!-- Create macro to be used later for updating this package's version (used for imported task update_package_version_from_wgmods.xml) -->
+    <Task ID="create_package_to_update_macro" Command="macro_create" MacroName="target_package_uid" MacroValue="this"/>
+
+    <!-- Get the download url for this package (wgmods) -->
+    <Task ID="get_download_url" Command="retrieve_package_property" PropertyName="DevURLList" TargetPackageUID="{target_package_uid}" MacroSaveName="download_url" PropertyIndex="0"/>
+
+    <!-- dev url to use for the macro_substring_browser task (imported task update_package_version_from_wgmods.xml) -->
+    <Task ID="create_package_url_macro" Command="macro_create" MacroName="package_url" MacroValue="{download_url}"/>
+
+    <!-- Download the source from wgmods. It will be a res_mods -->
+    <Task ID="download_source" Command="download_browser" Url="{download_url}" DestinationPath="{working_folder_source}\{packageName}.rar" HtmlPath="{wgmods_xpath}" WaitTimeMs="500" WaitCounts="6" BrowserHeight="0" BrowserWidth="0"/>
+
+    <!-- Download modpack package. It will be a wotmod created by us -->
+    <Task ID="download_modpack" Command="package_download" FilePath="{working_folder_modpack}\{packageName}.zip"/>
+
+    <!-- extract source -->
+    <!-- -x is to exclude files from being added -->
+    <!-- https://sevenzip.osdn.jp/chm/cmdline/switches/exclude.htm -->
+    <Task ID="extract_source" Command="shell_exec" Filename="7z.exe" Wd="{working_folder_source}" Cmd="x {packageName}.rar -otmp\res -x!说明.txt -x!日志log.txt -r"/>
+
+    <!-- extract the modpack package to get the wotmod -->
+    <Task ID="extract_modpack_for_wotmod" Command="shell_exec" Filename="7z.exe" Wd="{working_folder_modpack}" Cmd="e {packageName}.zip GarageGraphics_UI.wotmod -r"/>
+
+    <!-- extract the modpack wotmod to get the res_mods source to match the source files -->
+    <Task ID="extract_modpack_for_files" Command="shell_exec" Filename="7z.exe" Wd="{working_folder_modpack}" Cmd="x GarageGraphics_UI.wotmod -otmp"/>
+
+    <!-- Compare source and destination. If the number of files is different, then log it as a needed update -->
+    <Task ID="compare_start" Command="compare_start"/>
+    <Task ID="compare_all_files" Command="directory_compare_count" SearchPattern="*" Recursive="True"
+      DirectoryComparePathA="{working_folder_modpack}\tmp"
+      DirectoryComparePathB="{working_folder_source}\tmp"/>
+    <Task ID="compare_end" Command="compare_end"/>
+
+    <!-- update version field in database -->
+    <Task ID="import_update_package_version_from_wgmods" Command="import_task" RepoUrlPath="Task_templates/update_package_version_from_wgmods.xml"/>
+
+    <!-- create the new wotmod package -->
+    <Task ID="create_wotmod" Command="shell_exec" Filename="7z.exe" Wd="{working_folder_source}\tmp" Cmd="a -tzip -mx=0 -r GarageGraphics_UI.wotmod"/>
+
+    <!-- copy the new created wotmod to the package directory -->
+    <Task ID="copy_created_wotmod_to_package" Command="file_copy" SourceFilePath="{working_folder_source}\tmp\GarageGraphics_UI.wotmod" DestinationFilePath="{working_folder_package}\mods\versiondir\GarageGraphics_UI.wotmod"/>
+
+    <!-- create new package zip and upload to the server -->
+    <Task ID="create_upload_zip_filename_macro" Command="macro_create" MacroName="upload_zip_filename" MacroValue="{packageName}_{clientVersion}_{date}"/>
+    <Task ID="import_create_upload_zip" Command="import_task" RepoUrlPath="Task_templates/create_upload_zip.xml"/>
+  </TaskDefinitions>
+</AutomationSequence>

@@ -335,16 +335,6 @@
   <AutomationSequence UID="j2tpgjp2e4jddymn" packageName="GarageGraphics_GameExitScreens_V4_1_4_Horsemen_of_the_Apocalypse" path="GarageGraphics/GameExitScreens/GarageGraphics_GameExitScreens_V4_1_4_Horsemen_of_the_Apocalypse.xml"/>
   <AutomationSequence UID="o5olnvfbpqoomsm2" packageName="GarageGraphics_GameExitScreens_V4_10_Leviathan" path="GarageGraphics/GameExitScreens/GarageGraphics_GameExitScreens_V4_10_Leviathan.xml"/>
 
-  <AutomationSequence UID="ntfgi7r1nr6iw633" packageName="GarageGraphics_FlagsLib_GuP" path="GarageGraphics/FlagsLib/GarageGraphics_FlagsLib_GuP.xml" />
-  <AutomationSequence UID="7laip9tmg3s77mzg" packageName="GarageGraphics_FlagsLib_HAWGSmallBottom" path="GarageGraphics/FlagsLib/GarageGraphics_FlagsLib_HAWGSmallBottom.xml" />
-  <AutomationSequence UID="12quc2y0ftniag5u" packageName="GarageGraphics_FlagsLib_HAWGFull" path="GarageGraphics/FlagsLib/GarageGraphics_FlagsLib_HAWGFull.xml" />
-  <AutomationSequence UID="uw33hanlh70p7bsg" packageName="GarageGraphics_FlagsLib_HAWGBigTop" path="GarageGraphics/FlagsLib/GarageGraphics_FlagsLib_HAWGBigTop.xml" />
-  <AutomationSequence UID="ndpdyx45ai9elqav" packageName="GarageGraphics_FlagsLib_HAWGNoFlags" path="GarageGraphics/FlagsLib/GarageGraphics_FlagsLib_HAWGNoFlags.xml" />
-  <AutomationSequence UID="jvtvkufcmorkcdup" packageName="GarageGraphics_FlagsLib_HAWGSmallEmblems" path="GarageGraphics/FlagsLib/GarageGraphics_FlagsLib_HAWGSmallEmblems.xml" />
-  <AutomationSequence UID="epsrjnjp168z9vsr" packageName="GarageGraphics_FlagsLib_HAWGFullEmblems" path="GarageGraphics/FlagsLib/GarageGraphics_FlagsLib_HAWGFullEmblems.xml" />
-  <AutomationSequence UID="jegg5da9j0fkd84j" packageName="GarageGraphics_FlagsLib_HAWGWTE100" path="GarageGraphics/FlagsLib/GarageGraphics_FlagsLib_HAWGWTE100.xml" />
-  <AutomationSequence UID="4b2wpcf6apz91k5s" packageName="GarageGraphics_FlagsLib_HAWGSteelHunterEmblems" path="GarageGraphics/FlagsLib/GarageGraphics_FlagsLib_HAWGSteelHunterEmblems.xml" />
-
   <AutomationSequence UID="d6pyq0jwcf87wemw" packageName="GarageGraphics_LobbyHeader_PersonalReserve_Aqua" path="GarageGraphics/LobbyHeader/GarageGraphics_LobbyHeader_PersonalReserve_Aqua.xml" />
   <AutomationSequence UID="7k76i49f7yax7749" packageName="GarageGraphics_LobbyHeader_PersonalReserve_Blue" path="GarageGraphics/LobbyHeader/GarageGraphics_LobbyHeader_PersonalReserve_Blue.xml" />
   <AutomationSequence UID="b5w8x9dltmjbt3xz" packageName="GarageGraphics_LobbyHeader_PersonalReserve_Yellow" path="GarageGraphics/LobbyHeader/GarageGraphics_LobbyHeader_PersonalReserve_Yellow.xml" />
@@ -369,7 +359,18 @@
   <AutomationSequence UID="zjgblhkc9meergm1" packageName="GarageGraphics_Loading_Animation_16CowGirl" path="GarageGraphics/LoadingAnimation/GarageGraphics_Loading_Animation_16CowGirl.xml"/>
   <AutomationSequence UID="6m4xllgv329l2lbe" packageName="GarageGraphics_Loading_Animation_17FireBall" path="GarageGraphics/LoadingAnimation/GarageGraphics_Loading_Animation_17FireBall.xml"/>
 
-  <AutomationSequence UID="wgze5olfl2k7rxv8" packageName="GarageGraphics_UI_GIRLSundPANZER" path="GarageGraphics/UI/GarageGraphics_UI_GIRLSundPANZER.xml" />
+  <AutomationSequence UID="ntfgi7r1nr6iw633" packageName="GarageGraphics_FlagsLib_GuP" path="GarageGraphics/FlagsLib/GarageGraphics_FlagsLib_GuP.xml" />
+  <AutomationSequence UID="7laip9tmg3s77mzg" packageName="GarageGraphics_FlagsLib_HAWGSmallBottom" path="GarageGraphics/FlagsLib/GarageGraphics_FlagsLib_HAWGSmallBottom.xml" />
+  <AutomationSequence UID="12quc2y0ftniag5u" packageName="GarageGraphics_FlagsLib_HAWGFull" path="GarageGraphics/FlagsLib/GarageGraphics_FlagsLib_HAWGFull.xml" />
+  <AutomationSequence UID="uw33hanlh70p7bsg" packageName="GarageGraphics_FlagsLib_HAWGBigTop" path="GarageGraphics/FlagsLib/GarageGraphics_FlagsLib_HAWGBigTop.xml" />
+  <AutomationSequence UID="ndpdyx45ai9elqav" packageName="GarageGraphics_FlagsLib_HAWGNoFlags" path="GarageGraphics/FlagsLib/GarageGraphics_FlagsLib_HAWGNoFlags.xml" />
+  <AutomationSequence UID="jvtvkufcmorkcdup" packageName="GarageGraphics_FlagsLib_HAWGSmallEmblems" path="GarageGraphics/FlagsLib/GarageGraphics_FlagsLib_HAWGSmallEmblems.xml" />
+  <AutomationSequence UID="epsrjnjp168z9vsr" packageName="GarageGraphics_FlagsLib_HAWGFullEmblems" path="GarageGraphics/FlagsLib/GarageGraphics_FlagsLib_HAWGFullEmblems.xml" />
+  <AutomationSequence UID="jegg5da9j0fkd84j" packageName="GarageGraphics_FlagsLib_HAWGWTE100" path="GarageGraphics/FlagsLib/GarageGraphics_FlagsLib_HAWGWTE100.xml" />
+  <AutomationSequence UID="4b2wpcf6apz91k5s" packageName="GarageGraphics_FlagsLib_HAWGSteelHunterEmblems" path="GarageGraphics/FlagsLib/GarageGraphics_FlagsLib_HAWGSteelHunterEmblems.xml" />
+
+  <AutomationSequence UID="wgze5olfl2k7rxv8" packageName="GarageGraphics_UI_GIRLSundPANZER" path="GarageGraphics/UI/GarageGraphics_UI_GIRLSundPANZER.xml"/>
+  <AutomationSequence UID="k2zbtoi5lmyhghq5" packageName="GarageGraphics_UI_Genshin" path="GarageGraphics/UI/GarageGraphics_UI_Genshin.xml"/>
   <!-- Category Garage Graphics END   -->
 
   <!-- Category Statistics START -->
