@@ -301,6 +301,9 @@
   <AutomationSequence UID="6fp6t959eymw8um0" packageName="GarageGraphics_BattleResults_TankIcon_BeachParty" path="GarageGraphics/BattleResults/GarageGraphics_BattleResults_TankIcon_BeachParty.xml" />
   <AutomationSequence UID="j4wl19badued86tz" packageName="GarageGraphics_BattleResults_TankIcon_NationFlag" path="GarageGraphics/BattleResults/GarageGraphics_BattleResults_TankIcon_NationFlag.xml" />
 
+  <AutomationSequence UID="3xrm9bdv6612jmpc" packageName="GarageGraphics_BattleResults_OnBattleResults" path="GarageGraphics/GarageGraphics_BattleResults_OnBattleResults.xml"/>
+  <AutomationSequence UID="xb8u1f3d1p3suf7p" packageName="GarageGraphics_BattleResults_Unanonymizer" path="GarageGraphics/GarageGraphics_BattleResults_Unanonymizer.xml"/>
+
   <AutomationSequence UID="xzzpvqe4zqlm4toq" packageName="GarageGraphics_Carousel_LED_Aqua" path="GarageGraphics/Carousel/LED/GarageGraphics_Carousel_LED_Aqua.xml" />
   <AutomationSequence UID="hsur3thps27bf9l3" packageName="GarageGraphics_Carousel_LED_Blue" path="GarageGraphics/Carousel/LED/GarageGraphics_Carousel_LED_Blue.xml" />
   <AutomationSequence UID="ovid3wd9mi1iqeag" packageName="GarageGraphics_Carousel_LED_BlueRedStripes" path="GarageGraphics/Carousel/LED/GarageGraphics_Carousel_LED_BlueRedStripes.xml" />
@@ -315,10 +318,22 @@
 
   <AutomationSequence UID="vl03uve3hvfvhi9p" packageName="GarageGraphics_CrewIcons_Anime" path="GarageGraphics/Crew/GarageGraphics_CrewIcons_Anime.xml"/>
 
-  <AutomationSequence UID="3xrm9bdv6612jmpc" packageName="GarageGraphics_BattleResults_OnBattleResults" path="GarageGraphics/GarageGraphics_BattleResults_OnBattleResults.xml"/>
-  <AutomationSequence UID="xb8u1f3d1p3suf7p" packageName="GarageGraphics_BattleResults_Unanonymizer" path="GarageGraphics/GarageGraphics_BattleResults_Unanonymizer.xml"/>
+  <AutomationSequence UID="ujcw6slib49kja8t" packageName="GarageGraphics_GameExitScreens_V1_7_Hell_Cat" path="GarageGraphics/GameExitScreens/GarageGraphics_GameExitScreens_V1_7_Hell_Cat.xml"/>
+  <AutomationSequence UID="57qlm1l8s7c5hbqw" packageName="GarageGraphics_GameExitScreens_V1_15_Storm" path="GarageGraphics/GameExitScreens/GarageGraphics_GameExitScreens_V1_15_Storm.xml"/>
+  <AutomationSequence UID="iww0u0s9r45nhnxw" packageName="GarageGraphics_GameExitScreens_V1_16_Tank_Fire" path="GarageGraphics/GameExitScreens/GarageGraphics_GameExitScreens_V1_16_Tank_Fire.xml"/>
+  <AutomationSequence UID="cbe7m4hsmn6csgf9" packageName="GarageGraphics_GameExitScreens_V1_17_Tanks" path="GarageGraphics/GameExitScreens/GarageGraphics_GameExitScreens_V1_17_Tanks.xml"/>
+  <AutomationSequence UID="p0kmu4otljzusrm8" packageName="GarageGraphics_GameExitScreens_V1_18_The_March" path="GarageGraphics/GameExitScreens/GarageGraphics_GameExitScreens_V1_18_The_March.xml"/>
 
-  <AutomationSequence UID="wgze5olfl2k7rxv8" packageName="GarageGraphics_UI_GIRLSundPANZER" path="GarageGraphics/GarageGraphics_UI_GIRLSundPANZER.xml" />
+  <AutomationSequence UID="0oya9coi2n2fqs4b" packageName="GarageGraphics_GameExitScreens_V2_Canada" path="GarageGraphics/GameExitScreens/GarageGraphics_GameExitScreens_V2_Canada.xml"/>
+  <AutomationSequence UID="rkgyhimnqejccdq0" packageName="GarageGraphics_GameExitScreens_V2_Germany" path="GarageGraphics/GameExitScreens/GarageGraphics_GameExitScreens_V2_Germany.xml"/>
+  <AutomationSequence UID="k0vxc2imh0kpikfi" packageName="GarageGraphics_GameExitScreens_V2_USA" path="GarageGraphics/GameExitScreens/GarageGraphics_GameExitScreens_V2_USA.xml"/>
+
+  <AutomationSequence UID="ollzs8ns4ot35h78" packageName="GarageGraphics_GameExitScreens_V3_3_Fire_Gates" path="GarageGraphics/GameExitScreens/GarageGraphics_GameExitScreens_V3_3_Fire_Gates.xml"/>
+  <AutomationSequence UID="fh4n0elwrg9zr2tx" packageName="GarageGraphics_GameExitScreens_V3_8_Ground_War" path="GarageGraphics/GameExitScreens/GarageGraphics_GameExitScreens_V3_8_Ground_War.xml"/>
+  <AutomationSequence UID="mks90hhglv4726ia" packageName="GarageGraphics_GameExitScreens_V3_10_Tiger_P" path="GarageGraphics/GameExitScreens/GarageGraphics_GameExitScreens_V3_10_Tiger_P.xml"/>
+
+  <AutomationSequence UID="j2tpgjp2e4jddymn" packageName="GarageGraphics_GameExitScreens_V4_1_4_Horsemen_of_the_Apocalypse" path="GarageGraphics/GameExitScreens/GarageGraphics_GameExitScreens_V4_1_4_Horsemen_of_the_Apocalypse.xml"/>
+  <AutomationSequence UID="o5olnvfbpqoomsm2" packageName="GarageGraphics_GameExitScreens_V4_10_Leviathan" path="GarageGraphics/GameExitScreens/GarageGraphics_GameExitScreens_V4_10_Leviathan.xml"/>
 
   <AutomationSequence UID="ntfgi7r1nr6iw633" packageName="GarageGraphics_FlagsLib_GuP" path="GarageGraphics/GarageGraphics_FlagsLib_GuP.xml" />
   <AutomationSequence UID="7laip9tmg3s77mzg" packageName="GarageGraphics_FlagsLib_HAWGSmallBottom" path="GarageGraphics/FlagsLib/GarageGraphics_FlagsLib_HAWGSmallBottom.xml" />
@@ -353,6 +368,8 @@
   <AutomationSequence UID="jbbctkmw3y132wie" packageName="GarageGraphics_Loading_Animation_15GhostBusters" path="GarageGraphics/LoadingAnimation/GarageGraphics_Loading_Animation_15GhostBusters.xml"/>
   <AutomationSequence UID="zjgblhkc9meergm1" packageName="GarageGraphics_Loading_Animation_16CowGirl" path="GarageGraphics/LoadingAnimation/GarageGraphics_Loading_Animation_16CowGirl.xml"/>
   <AutomationSequence UID="6m4xllgv329l2lbe" packageName="GarageGraphics_Loading_Animation_17FireBall" path="GarageGraphics/LoadingAnimation/GarageGraphics_Loading_Animation_17FireBall.xml"/>
+
+  <AutomationSequence UID="wgze5olfl2k7rxv8" packageName="GarageGraphics_UI_GIRLSundPANZER" path="GarageGraphics/GarageGraphics_UI_GIRLSundPANZER.xml" />
   <!-- Category Garage Graphics END   -->
 
   <!-- Category Statistics START -->
