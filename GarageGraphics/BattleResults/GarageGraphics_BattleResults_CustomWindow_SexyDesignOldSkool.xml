@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<AutomationSequence documentVersion="1.0">
+  <Macros>
+    <Macro Name="file_name" Value="oldskool.sexyResults.wotmod"/>
+    <Macro Name="folder_path" Value="mods\versiondir\oldskool"/>
+  </Macros>
+  <TaskDefinitions>
+    <!-- Create them there work dir macros -->
+    <Task ID="import_macro_create_work_dirs" Command="import_task" RepoUrlPath="Task_templates/create_workDirs_macros.xml"/>
+
+    <!-- download from one of the promod mirrors -->
+    <Task ID="download_source" Command="download_static" Url="{promod_mirror_1}/sexy.zip" DestinationPath="{working_folder_source}\{packageName}.zip"/>
+
+    <!-- extract the source -->
+    <Task ID="extract_source" Command="shell_exec" Filename="7z.exe" Wd="{working_folder_source}" Cmd="e {packageName}.zip {file_name} -r"/>
+
+    <!-- import tasks to download and extract the package -->
+    <Task ID="import_task_single_file" Command="import_task" RepoUrlPath="Task_templates/Generic/single_file.xml"/>
+  </TaskDefinitions>
+</AutomationSequence>
