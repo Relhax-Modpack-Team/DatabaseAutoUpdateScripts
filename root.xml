@@ -297,6 +297,10 @@
   <AutomationSequence UID="eza7yp8amcli1nxi" packageName="GarageGraphics_BattleResults_CustomWindow_HAWGSkulls" path="GarageGraphics/BattleResults/GarageGraphics_BattleResults_CustomWindow_HAWGSkulls.xml" />
   <AutomationSequence UID="s8dyu3d5q3yhll7a" packageName="GarageGraphics_BattleResults_CustomWindow_SexyDesignOldSkool" path="GarageGraphics/BattleResults/GarageGraphics_BattleResults_CustomWindow_SexyDesignOldSkool.xml"/>
 
+  <AutomationSequence UID="c18z25fqjfk6w14m" packageName="GarageGraphics_BattleResults_TankIcon_NationEmblem" path="GarageGraphics/BattleResults/GarageGraphics_BattleResults_TankIcon_NationEmblem.xml" />
+  <AutomationSequence UID="6fp6t959eymw8um0" packageName="GarageGraphics_BattleResults_TankIcon_BeachParty" path="GarageGraphics/BattleResults/GarageGraphics_BattleResults_TankIcon_BeachParty.xml" />
+  <AutomationSequence UID="j4wl19badued86tz" packageName="GarageGraphics_BattleResults_TankIcon_NationFlag" path="GarageGraphics/BattleResults/GarageGraphics_BattleResults_TankIcon_NationFlag.xml" />
+
   <AutomationSequence UID="xzzpvqe4zqlm4toq" packageName="GarageGraphics_Carousel_LED_Aqua" path="GarageGraphics/Carousel/LED/GarageGraphics_Carousel_LED_Aqua.xml" />
   <AutomationSequence UID="hsur3thps27bf9l3" packageName="GarageGraphics_Carousel_LED_Blue" path="GarageGraphics/Carousel/LED/GarageGraphics_Carousel_LED_Blue.xml" />
   <AutomationSequence UID="ovid3wd9mi1iqeag" packageName="GarageGraphics_Carousel_LED_BlueRedStripes" path="GarageGraphics/Carousel/LED/GarageGraphics_Carousel_LED_BlueRedStripes.xml" />
@@ -308,10 +312,6 @@
   <AutomationSequence UID="4mqxqh37e8aex9sy" packageName="GarageGraphics_Carousel_LED_Red" path="GarageGraphics/Carousel/LED/GarageGraphics_Carousel_LED_Red.xml" />
   <AutomationSequence UID="oflyyk5s8kw38poa" packageName="GarageGraphics_Carousel_LED_USA" path="GarageGraphics/Carousel/LED/GarageGraphics_Carousel_LED_USA.xml" />
   <AutomationSequence UID="87gz6n7c1wjsj6kn" packageName="GarageGraphics_Carousel_LED_Yellow" path="GarageGraphics/Carousel/LED/GarageGraphics_Carousel_LED_Yellow.xml" />
-
-  <AutomationSequence UID="c18z25fqjfk6w14m" packageName="GarageGraphics_BattleResults_TankIcon_NationEmblem" path="GarageGraphics/BattleResults/GarageGraphics_BattleResults_TankIcon_NationEmblem.xml" />
-  <AutomationSequence UID="6fp6t959eymw8um0" packageName="GarageGraphics_BattleResults_TankIcon_BeachParty" path="GarageGraphics/BattleResults/GarageGraphics_BattleResults_TankIcon_BeachParty.xml" />
-  <AutomationSequence UID="j4wl19badued86tz" packageName="GarageGraphics_BattleResults_TankIcon_NationFlag" path="GarageGraphics/BattleResults/GarageGraphics_BattleResults_TankIcon_NationFlag.xml" />
 
   <AutomationSequence UID="3xrm9bdv6612jmpc" packageName="GarageGraphics_BattleResults_OnBattleResults" path="GarageGraphics/GarageGraphics_BattleResults_OnBattleResults.xml"/>
   <AutomationSequence UID="xb8u1f3d1p3suf7p" packageName="GarageGraphics_BattleResults_Unanonymizer" path="GarageGraphics/GarageGraphics_BattleResults_Unanonymizer.xml"/>
