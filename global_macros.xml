@@ -12,8 +12,11 @@
   <Macro Name="antiMirror_github_exe" Value="https://github.com/Relhax-Modpack-Team/ZazerkalieProduce/releases/download/1.0.2.0/ZazerkalieProduce.exe"/>
   <Macro Name="flash_decompile_url" Value="https://github.com/Relhax-Modpack-Team/WoTTools/raw/master/Flash%20decompile/ffdec_11.3.0.zip"/>
   <Macro Name="mct_url" Value="https://github.com/Relhax-Modpack-Team/RelhaxMCT/raw/master/MCTCreator/MCTCreator2.exe"/>
+  <Macro Name="promod_mirror_1" Value="https://promod.reidarty.de/promod/{clientVersion}"/>
+
   <!-- <Macro Name="champi_xpath" Value="//div[div = &quot;Expected Vehicle Values&quot;]/a/@href"/> -->
   <Macro Name="champi_xpath" Value="//div[div = &quot;{champi_xpath_mod_name}&quot;]/a/@href"/>
+
   <!--
     based on a combination of the xpaths above and from the relhax gui patch:
     <path>/audio_mods.xml/events/event[name = &quot;enemy_sighted_for_team&quot;]</path>
@@ -24,6 +27,7 @@
   <Macro Name="7z_createFinalZip" Value="a -tzip -mx=9 -r final.zip"/>
   <Macro Name="mediafire_xpath_folder" Value="//a[contains(@class, 'thumbnailClickArea') and contains(@title, '{folder_name_search}')]//@href"/>
   <Macro Name="mediafire_xpath_file" Value="//a[contains(@class, 'filetype_column') and contains(@href, '{zip_file_name_search}')]//@href"/>
+
   <!-- https://stackoverflow.com/questions/26640746/xpath-syntax-for-and-not-contains -->
   <!-- this xpath works in browser and html modes -->
   <Macro Name="xvm_stable_xpath" Value="//a[contains(text(), '(archive)') and not(contains(text(), 'TEST'))]/@href"/>
