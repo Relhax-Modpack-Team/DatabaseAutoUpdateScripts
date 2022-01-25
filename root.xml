@@ -297,6 +297,18 @@
   <AutomationSequence UID="eza7yp8amcli1nxi" packageName="GarageGraphics_BattleResults_CustomWindow_HAWGSkulls" path="GarageGraphics/BattleResults/GarageGraphics_BattleResults_CustomWindow_HAWGSkulls.xml" />
   <AutomationSequence UID="s8dyu3d5q3yhll7a" packageName="GarageGraphics_BattleResults_CustomWindow_SexyDesignOldSkool" path="GarageGraphics/BattleResults/GarageGraphics_BattleResults_CustomWindow_SexyDesignOldSkool.xml"/>
 
+  <AutomationSequence UID="xzzpvqe4zqlm4toq" packageName="GarageGraphics_Carousel_LED_Aqua" path="GarageGraphics/Carousel/LED/GarageGraphics_Carousel_LED_Aqua.xml" />
+  <AutomationSequence UID="hsur3thps27bf9l3" packageName="GarageGraphics_Carousel_LED_Blue" path="GarageGraphics/Carousel/LED/GarageGraphics_Carousel_LED_Blue.xml" />
+  <AutomationSequence UID="ovid3wd9mi1iqeag" packageName="GarageGraphics_Carousel_LED_BlueRedStripes" path="GarageGraphics/Carousel/LED/GarageGraphics_Carousel_LED_BlueRedStripes.xml" />
+  <AutomationSequence UID="8odebzfuguo72u6s" packageName="GarageGraphics_Carousel_LED_Green" path="GarageGraphics/Carousel/LED/GarageGraphics_Carousel_LED_Green.xml" />
+  <AutomationSequence UID="fr10b2bda9iedzv5" packageName="GarageGraphics_Carousel_LED_GreenPurpleStripes" path="GarageGraphics/Carousel/LED/GarageGraphics_Carousel_LED_GreenPurpleStripes.xml" />
+  <AutomationSequence UID="sg7fj2he96bwda35" packageName="GarageGraphics_Carousel_LED_HE" path="GarageGraphics/Carousel/LED/GarageGraphics_Carousel_LED_HE.xml" />
+  <AutomationSequence UID="tyd9b93hy47tz8av" packageName="GarageGraphics_Carousel_LED_Orange" path="GarageGraphics/Carousel/LED/GarageGraphics_Carousel_LED_Orange.xml" />
+  <AutomationSequence UID="xj2bqe7nksg7l52l" packageName="GarageGraphics_Carousel_LED_Purple" path="GarageGraphics/Carousel/LED/GarageGraphics_Carousel_LED_Purple.xml" />
+  <AutomationSequence UID="4mqxqh37e8aex9sy" packageName="GarageGraphics_Carousel_LED_Red" path="GarageGraphics/Carousel/LED/GarageGraphics_Carousel_LED_Red.xml" />
+  <AutomationSequence UID="oflyyk5s8kw38poa" packageName="GarageGraphics_Carousel_LED_USA" path="GarageGraphics/Carousel/LED/GarageGraphics_Carousel_LED_USA.xml" />
+  <AutomationSequence UID="87gz6n7c1wjsj6kn" packageName="GarageGraphics_Carousel_LED_Yellow" path="GarageGraphics/Carousel/LED/GarageGraphics_Carousel_LED_Yellow.xml" />
+
   <AutomationSequence UID="c18z25fqjfk6w14m" packageName="GarageGraphics_BattleResults_TankIcon_NationEmblem" path="GarageGraphics/BattleResults/GarageGraphics_BattleResults_TankIcon_NationEmblem.xml" />
   <AutomationSequence UID="6fp6t959eymw8um0" packageName="GarageGraphics_BattleResults_TankIcon_BeachParty" path="GarageGraphics/BattleResults/GarageGraphics_BattleResults_TankIcon_BeachParty.xml" />
   <AutomationSequence UID="j4wl19badued86tz" packageName="GarageGraphics_BattleResults_TankIcon_NationFlag" path="GarageGraphics/BattleResults/GarageGraphics_BattleResults_TankIcon_NationFlag.xml" />
@@ -319,18 +331,6 @@
   <AutomationSequence UID="d6pyq0jwcf87wemw" packageName="GarageGraphics_LobbyHeader_PersonalReserve_Aqua" path="GarageGraphics/LobbyHeader/GarageGraphics_LobbyHeader_PersonalReserve_Aqua.xml" />
   <AutomationSequence UID="7k76i49f7yax7749" packageName="GarageGraphics_LobbyHeader_PersonalReserve_Blue" path="GarageGraphics/LobbyHeader/GarageGraphics_LobbyHeader_PersonalReserve_Blue.xml" />
   <AutomationSequence UID="b5w8x9dltmjbt3xz" packageName="GarageGraphics_LobbyHeader_PersonalReserve_Yellow" path="GarageGraphics/LobbyHeader/GarageGraphics_LobbyHeader_PersonalReserve_Yellow.xml" />
-
-  <AutomationSequence UID="xzzpvqe4zqlm4toq" packageName="GarageGraphics_Carousel_LED_Aqua" path="GarageGraphics/Carousel/LED/GarageGraphics_Carousel_LED_Aqua.xml" />
-  <AutomationSequence UID="hsur3thps27bf9l3" packageName="GarageGraphics_Carousel_LED_Blue" path="GarageGraphics/Carousel/LED/GarageGraphics_Carousel_LED_Blue.xml" />
-  <AutomationSequence UID="ovid3wd9mi1iqeag" packageName="GarageGraphics_Carousel_LED_BlueRedStripes" path="GarageGraphics/Carousel/LED/GarageGraphics_Carousel_LED_BlueRedStripes.xml" />
-  <AutomationSequence UID="8odebzfuguo72u6s" packageName="GarageGraphics_Carousel_LED_Green" path="GarageGraphics/Carousel/LED/GarageGraphics_Carousel_LED_Green.xml" />
-  <AutomationSequence UID="fr10b2bda9iedzv5" packageName="GarageGraphics_Carousel_LED_GreenPurpleStripes" path="GarageGraphics/Carousel/LED/GarageGraphics_Carousel_LED_GreenPurpleStripes.xml" />
-  <AutomationSequence UID="sg7fj2he96bwda35" packageName="GarageGraphics_Carousel_LED_HE" path="GarageGraphics/Carousel/LED/GarageGraphics_Carousel_LED_HE.xml" />
-  <AutomationSequence UID="tyd9b93hy47tz8av" packageName="GarageGraphics_Carousel_LED_Orange" path="GarageGraphics/Carousel/LED/GarageGraphics_Carousel_LED_Orange.xml" />
-  <AutomationSequence UID="xj2bqe7nksg7l52l" packageName="GarageGraphics_Carousel_LED_Purple" path="GarageGraphics/Carousel/LED/GarageGraphics_Carousel_LED_Purple.xml" />
-  <AutomationSequence UID="4mqxqh37e8aex9sy" packageName="GarageGraphics_Carousel_LED_Red" path="GarageGraphics/Carousel/LED/GarageGraphics_Carousel_LED_Red.xml" />
-  <AutomationSequence UID="oflyyk5s8kw38poa" packageName="GarageGraphics_Carousel_LED_USA" path="GarageGraphics/Carousel/LED/GarageGraphics_Carousel_LED_USA.xml" />
-  <AutomationSequence UID="87gz6n7c1wjsj6kn" packageName="GarageGraphics_Carousel_LED_Yellow" path="GarageGraphics/Carousel/LED/GarageGraphics_Carousel_LED_Yellow.xml" />
 
   <AutomationSequence UID="41mz8jvqozsix6cp" packageName="GarageGraphics_Loading_Animation_Red" path="GarageGraphics/LoadingAnimation/GarageGraphics_Loading_Animation_Red.xml"/>
   <AutomationSequence UID="87e8x83t6c82lu4w" packageName="GarageGraphics_Loading_Animation_Blue" path="GarageGraphics/LoadingAnimation/GarageGraphics_Loading_Animation_Blue.xml"/>
