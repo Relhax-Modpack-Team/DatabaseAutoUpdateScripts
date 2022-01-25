@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<AutomationSequence documentVersion="1.0">
+  <!-- GarageGraphics_MedalsEffect.xml
+    Author:  Willster419
+    Created: 2022-01-25
+    This sequence template handles the downloading of the GuP mod from the wgmods source (the github version is no longer maintained as of this file's creation)
+    NOTE: We manually create a wotmod now because that way we can use load_order.xml to avoid file load conflicts
+    Required macros:
+    {xpath}              - the xpath to use to get the tabbed source file from the wotsite xpath
+   -->
+  <TaskDefinitions>
+    <!-- create work dirs and macros -->
+    <Task ID="import_createWD" Command="import_task" RepoUrlPath="Task_templates/create_workDirs_macros.xml"/>
+
+    <!-- Get the download url for this package (wgmods) -->
+    <Task ID="get_download_url" Command="retrieve_package_property" PropertyName="DevURLList" TargetPackageUID="this" MacroSaveName="download_url" PropertyIndex="0"/>
+
+    <!-- Download the source from wgmods. It will be a res_mods -->
+    <Task ID="download_source" Command="download_html" Url="{download_url}" DestinationPath="{working_folder_source}\{packageName}.rar" HtmlPath="{xpath}"/>
+
+    <!-- Download modpack package. It will be a wotmod created by us -->
+    <Task ID="download_modpack" Command="package_download" FilePath="{working_folder_modpack}\{packageName}.zip"/>
+
+    <!-- extract source -->
+    <Task ID="extract_source" Command="shell_exec" Filename="7z.exe" Wd="{working_folder_source}" Cmd="x {packageName}.rar -o&quot;{working_folder_package}\res_mods\versiondir\&quot; -r gui\*"/>
+
+    <!-- extract the modpack wotmod to get the res_mods source to match the source files -->
+    <Task ID="extract_modpack" Command="shell_exec" Filename="7z.exe" Wd="{working_folder_modpack}" Cmd="x {packageName}.zip"/>
+
+    <!-- Compare source and destination. If the number of files is different, then log it as a needed update -->
+    <Task ID="compare_start" Command="compare_start"/>
+    <Task ID="compare_all_files" Command="directory_compare_count" SearchPattern="*" Recursive="True"
+      DirectoryComparePathA="{working_folder_modpack}\res_mods\versiondir\"
+      DirectoryComparePathB="{working_folder_package}\res_mods\versiondir\"/>
+    <Task ID="compare_end" Command="compare_end"/>
+
+    <!-- create new package zip and upload to the server -->
+    <Task ID="create_upload_zip_filename_macro" Command="macro_create" MacroName="upload_zip_filename" MacroValue="{packageName}_{clientVersion}_{date}"/>
+    <Task ID="import_create_upload_zip" Command="import_task" RepoUrlPath="Task_templates/create_upload_zip.xml"/>
+  </TaskDefinitions>
+</AutomationSequence>

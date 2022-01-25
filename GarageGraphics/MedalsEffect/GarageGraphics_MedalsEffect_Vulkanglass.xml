@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<AutomationSequence documentVersion="1.0">
+  <!-- Specify macros here -->
+  <Macros>
+    <Macro Name="xpath" Value="//dd[contains(@id, 'ctab4')]/div/div/div/a/@href"/>
+  </Macros>
+
+  <!-- Specify the tasks to run -->
+  <TaskDefinitions>
+    <!-- run base set of tasks for medals effect source files -->
+    <Task ID="import_UI" Command="import_task" RepoUrlPath="Task_templates/GarageGraphics/GarageGraphics_MedalsEffect.xml"/>
+  </TaskDefinitions>
+
+</AutomationSequence>
