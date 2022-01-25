@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<AutomationSequence documentVersion="1.0">
+  <Macros>
+    <Macro Name="file_path" Value="&quot;Beach_Party_Login_\&quot;"/>
+    <Macro Name="file_name" Value="Hawg_Login_Sparks.wotmod"/>
+    <Macro Name="mods_or_res_mods" Value="mods"/>
+    <Macro Name="source_extract_recursive" Value=""/>
+  </Macros>
+  <TaskDefinitions>
+    <!-- Get the download url for this package (wgmods) -->
+    <Task ID="get_download_url" Command="retrieve_package_property" PropertyName="DevURLList" TargetPackageUID="this" MacroSaveName="package_url" PropertyIndex="0"/>
+    <Task ID="create_package_to_update_macro" Command="macro_create" MacroName="target_package_uid" MacroValue="this"/>
+
+    <!-- import tasks -->
+    <Task ID="import_tasks" Command="import_task" RepoUrlPath="Task_templates/single_wotmod_from_wgmods.xml"/>
+    <Task ID="import_tasks" Command="import_task" RepoUrlPath="Task_templates/update_package_version_from_wgmods.xml"/>
+  </TaskDefinitions>
+</AutomationSequence>

@@ -359,6 +359,8 @@
   <AutomationSequence UID="zjgblhkc9meergm1" packageName="GarageGraphics_Loading_Animation_16CowGirl" path="GarageGraphics/LoadingAnimation/GarageGraphics_Loading_Animation_16CowGirl.xml"/>
   <AutomationSequence UID="6m4xllgv329l2lbe" packageName="GarageGraphics_Loading_Animation_17FireBall" path="GarageGraphics/LoadingAnimation/GarageGraphics_Loading_Animation_17FireBall.xml"/>
 
+  <AutomationSequence UID="pmtgimmqgh8p4q3m" packageName="GarageGraphics_Loading_LoginBackground_Picture_BeachParty" path="GarageGraphics/LoginBackground/GarageGraphics_Loading_LoginBackground_Picture_BeachParty.xml"/>
+
   <AutomationSequence UID="j8qe21nv03w4aaae" packageName="GarageGraphics_MedalsEffect_Glass" path="GarageGraphics/MedalsEffect/GarageGraphics_MedalsEffect_Glass.xml"/>
   <AutomationSequence UID="30kfa4pgtfjtlq6q" packageName="GarageGraphics_MedalsEffect_Vulkanglass" path="GarageGraphics/MedalsEffect/GarageGraphics_MedalsEffect_Vulkanglass.xml"/>
 
