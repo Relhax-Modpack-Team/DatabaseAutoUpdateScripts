@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<AutomationSequence documentVersion="1.0">
+  <!-- GarageGraphics_HangarDesign_HellingerMinimal.xml
+    Author:  Willster419
+    Created: 2022-01-25
+    This sequence template handles the automation of the minimal hangar mod
+    Required macros:
+    {source_path}              - the file path in the source archive to get the source files from
+   -->
+  <TaskDefinitions>
+    <!-- create work dirs and macros -->
+    <Task ID="import_createWD" Command="import_task" RepoUrlPath="Task_templates/create_workDirs_macros.xml"/>
+
+    <!-- Get the download url for this package (wgmods) -->
+    <Task ID="get_download_url" Command="retrieve_package_property" PropertyName="DevURLList" TargetPackageUID="this" MacroSaveName="package_url" PropertyIndex="0"/>
+
+    <!-- Create {target_package_uid} macro for task update_package_version_from_wgmods.xml -->
+    <Task ID="create_package_to_update_macro" Command="macro_create" MacroName="target_package_uid" MacroValue="0vpgr68lclxkh250"/>
+
+    <!-- Download the source from wgmods -->
+    <Task ID="download_source" Command="download_browser" Url="{package_url}" DestinationPath="{working_folder_source}\{packageName}.zip" HtmlPath="{wgmods_xpath}" WaitTimeMs="500" WaitCounts="6" BrowserHeight="0" BrowserWidth="0"/>
+
+    <!-- Download modpack package -->
+    <Task ID="download_modpack" Command="package_download" FilePath="{working_folder_modpack}\{packageName}.zip"/>
+
+    <!-- extract source wotmod -->
+    <Task ID="extract_source_wotmod" Command="shell_exec" Filename="7z.exe" Wd="{working_folder_source}"
+      Cmd="e {packageName}.zip -o&quot;{working_folder_package}\mods\versiondir\&quot; {source_path}mods\*\HELL.HMHM.v2.wotmod"/>
+
+    <!-- extract source config -->
+    <Task ID="extract_source_config" Command="shell_exec" Filename="7z.exe" Wd="{working_folder_source}"
+      Cmd="e {packageName}.zip -o&quot;{working_folder_package}\mods\configs\&quot; {source_path}mods\configs\hangar_replace.json"/>
+
+    <!-- extract the modpack -->
+    <Task ID="extract_modpack" Command="shell_exec" Filename="7z.exe" Wd="{working_folder_modpack}" Cmd="x {packageName}.zip"/>
+
+    <!-- Compare source and destination. If the number of files is different, then log it as a needed update -->
+    <Task ID="compare_start" Command="compare_start"/>
+    <Task ID="compare_wotmod" Command="file_compare" FileA="{working_folder_package}\mods\versiondir\HELL.HMHM.v2.wotmod" FileB="{working_folder_modpack}\mods\versiondir\HELL.HMHM.v2.wotmod"/>
+    <Task ID="compare_config" Command="file_compare" FileA="{working_folder_package}\mods\configs\hangar_replace.json" FileB="{working_folder_modpack}\mods\configs\hangar_replace.json"/>
+    <Task ID="compare_end" Command="compare_end"/>
+
+    <!-- update version property -->
+    <Task ID="import_tasks" Command="import_task" RepoUrlPath="Task_templates/update_package_version_from_wgmods.xml"/>
+
+    <!-- create new package zip and upload to the server -->
+    <Task ID="create_upload_zip_filename_macro" Command="macro_create" MacroName="upload_zip_filename" MacroValue="{packageName}_{mod_version_from_wgmods}_{clientVersion}_{date}"/>
+    <Task ID="import_create_upload_zip" Command="import_task" RepoUrlPath="Task_templates/create_upload_zip.xml"/>
+  </TaskDefinitions>
+</AutomationSequence>

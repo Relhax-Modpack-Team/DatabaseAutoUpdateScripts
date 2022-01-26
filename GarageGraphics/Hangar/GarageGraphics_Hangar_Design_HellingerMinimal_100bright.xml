@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<AutomationSequence documentVersion="1.0">
+  <Macros>
+    <Macro Name="source_path" Value="&quot;100%_bright\&quot;"/>
+  </Macros>
+  <TaskDefinitions>
+    <!-- import task to run minimal hangar update script -->
+    <Task ID="import_tasks" Command="import_task" RepoUrlPath="Task_templates/GarageGraphics/GarageGraphics_HangarDesign_HellingerMinimal.xml"/>
+  </TaskDefinitions>
+</AutomationSequence>

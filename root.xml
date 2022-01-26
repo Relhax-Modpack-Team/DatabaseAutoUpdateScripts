@@ -336,6 +336,10 @@
   <AutomationSequence UID="o5olnvfbpqoomsm2" packageName="GarageGraphics_GameExitScreens_V4_10_Leviathan" path="GarageGraphics/GameExitScreens/GarageGraphics_GameExitScreens_V4_10_Leviathan.xml"/>
 
   <AutomationSequence UID="6h88z2i2h2vv59nn" packageName="GarageGraphics_Hangar_Design_CustomizationHangar" path="GarageGraphics/Hangar/GarageGraphics_Hangar_Design_CustomizationHangar.xml"/>
+  <AutomationSequence UID="p92975knaehkhpj0" packageName="GarageGraphics_Hangar_Design_HellingerMinimal_100bright" path="GarageGraphics/Hangar/GarageGraphics_Hangar_Design_HellingerMinimal_100bright.xml"/>
+  <AutomationSequence UID="dkwvz5embhp2hec0" packageName="GarageGraphics_Hangar_Design_HellingerMinimal_100norm" path="GarageGraphics/Hangar/GarageGraphics_Hangar_Design_HellingerMinimal_100norm.xml"/>
+  <AutomationSequence UID="xcqw78g74tbrsu8d" packageName="GarageGraphics_Hangar_Design_HellingerMinimal_200bright" path="GarageGraphics/Hangar/GarageGraphics_Hangar_Design_HellingerMinimal_200bright.xml"/>
+  <AutomationSequence UID="knkhz9a65xj9si1d" packageName="GarageGraphics_Hangar_Design_HellingerMinimal_200norm" path="GarageGraphics/Hangar/GarageGraphics_Hangar_Design_HellingerMinimal_200norm.xml"/>
 
   <AutomationSequence UID="d6pyq0jwcf87wemw" packageName="GarageGraphics_LobbyHeader_PersonalReserve_Aqua" path="GarageGraphics/LobbyHeader/GarageGraphics_LobbyHeader_PersonalReserve_Aqua.xml" />
   <AutomationSequence UID="7k76i49f7yax7749" packageName="GarageGraphics_LobbyHeader_PersonalReserve_Blue" path="GarageGraphics/LobbyHeader/GarageGraphics_LobbyHeader_PersonalReserve_Blue.xml" />
