@@ -10,7 +10,6 @@
     {mod_name}                     - The name of the mod, used in the wotmod name and config file/folder name
   -->
   <TaskDefinitions>
-    <Task ID="get_cfg" Command="directory_search" DirectoryPath="{working_folder_package}\mods\configs\rajcel\{mod_name}" SearchPattern="{mod_name}.json" Recursive="False" MacroPrefix="get_cfg"/>
-    <Task ID="check_cfg_exists" Command="macro_string_split_filename" MacroName="check_cfg_exists" Index="0" SplitCharacters="." FilePath="{get_cfg_0}"/>
+    <Task ID="verify_cfg_exists" Command="file_exists" SourceFilePath="{working_folder_package}\mods\configs\rajcel\{mod_name}\{mod_name}.json"/>
   </TaskDefinitions>
 </AutomationSequence>
