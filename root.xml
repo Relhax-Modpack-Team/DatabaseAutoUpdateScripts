@@ -223,6 +223,27 @@
   <!-- Category Ingame Misc START -->
   <AutomationSequence UID="7wzzo4l6crzqn2ig" packageName="IngameMisc_BattleHints_PersonalMissionsInDetail" path="IngameMisc/IngameMisc_BattleHints_PersonalMissionsInDetail.xml"/>
 
+  <AutomationSequence UID="ldw79hubzlo4ypo3" packageName="IngameMisc_BaseCap_Circles_Colors_RedWhite" path="IngameMisc/BaseCap/Circles/IngameMisc_BaseCap_Circles_Colors_RedWhite.xml"/>
+  <AutomationSequence UID="y22mhg0cyhhmy1v3" packageName="IngameMisc_BaseCap_Circles_Colors_BlueWhite" path="IngameMisc/BaseCap/Circles/IngameMisc_BaseCap_Circles_Colors_BlueWhite.xml"/>
+  <AutomationSequence UID="sgkt9kqut0ibaudg" packageName="IngameMisc_BaseCap_Circles_Colors_Red" path="IngameMisc/BaseCap/Circles/IngameMisc_BaseCap_Circles_Colors_Red.xml"/>
+  <AutomationSequence UID="55q8hkwvsxbta5lg" packageName="IngameMisc_BaseCap_Circles_Colors_Blue" path="IngameMisc/BaseCap/Circles/IngameMisc_BaseCap_Circles_Colors_Blue.xml"/>
+  <AutomationSequence UID="8qgaxp01flk7w2d5" packageName="IngameMisc_BaseCap_Circles_Colors_WhiteBlack" path="IngameMisc/BaseCap/Circles/IngameMisc_BaseCap_Circles_Colors_WhiteBlack.xml"/>
+  <AutomationSequence UID="34xiotqka4mw7vvi" packageName="IngameMisc_BaseCap_Circles_Colors_Yellow" path="IngameMisc/BaseCap/Circles/IngameMisc_BaseCap_Circles_Colors_Yellow.xml"/>
+  <AutomationSequence UID="aacmk3zvjf4ogohx" packageName="IngameMisc_BaseCap_Circles_Countries_Canada" path="IngameMisc/BaseCap/Circles/IngameMisc_BaseCap_Circles_Countries_Canada.xml"/>
+  <AutomationSequence UID="16v9s9x067lk292n" packageName="IngameMisc_BaseCap_Circles_Countries_Germany" path="IngameMisc/BaseCap/Circles/IngameMisc_BaseCap_Circles_Countries_Germany.xml"/>
+  <AutomationSequence UID="ggy0nn1vayxkm6df" packageName="IngameMisc_BaseCap_Circles_Countries_USA" path="IngameMisc/BaseCap/Circles/IngameMisc_BaseCap_Circles_Countries_USA.xml"/>
+
+  <AutomationSequence UID="7bgovt00xqeg8ry4" packageName="IngameMisc_BaseCap_Flags_HAWG001" path="IngameMisc/BaseCap/Flags/IngameMisc_BaseCap_Flags_HAWG001.xml"/>
+  <AutomationSequence UID="r4bp3v2lr105k8vh" packageName="IngameMisc_BaseCap_Flags_HAWG004" path="IngameMisc/BaseCap/Flags/IngameMisc_BaseCap_Flags_HAWG004.xml"/>
+  <AutomationSequence UID="i0ucb10qeth16sg7" packageName="IngameMisc_BaseCap_Flags_HAWG009" path="IngameMisc/BaseCap/Flags/IngameMisc_BaseCap_Flags_HAWG009.xml"/>
+  <AutomationSequence UID="cebj35q99cjrhlyk" packageName="IngameMisc_BaseCap_Flags_HAWG010" path="IngameMisc/BaseCap/Flags/IngameMisc_BaseCap_Flags_HAWG010.xml"/>
+  <AutomationSequence UID="p3iyb5wa88b8hx5j" packageName="IngameMisc_BaseCap_Flags_HAWG011" path="IngameMisc/BaseCap/Flags/IngameMisc_BaseCap_Flags_HAWG011.xml"/>
+  <AutomationSequence UID="2sodj42b754qh9dj" packageName="IngameMisc_BaseCap_Flags_HAWG012" path="IngameMisc/BaseCap/Flags/IngameMisc_BaseCap_Flags_HAWG012.xml"/>
+  <AutomationSequence UID="dh22yd20o87bfaum" packageName="IngameMisc_BaseCap_Flags_HAWG020" path="IngameMisc/BaseCap/Flags/IngameMisc_BaseCap_Flags_HAWG020.xml"/>
+  <AutomationSequence UID="fnshdm65t1aydw8a" packageName="IngameMisc_BaseCap_Flags_HAWG063" path="IngameMisc/BaseCap/Flags/IngameMisc_BaseCap_Flags_HAWG063.xml"/>
+  <AutomationSequence UID="qb56tu6ua4djbxqc" packageName="IngameMisc_BaseCap_Flags_HAWG071" path="IngameMisc/BaseCap/Flags/IngameMisc_BaseCap_Flags_HAWG071.xml"/>
+  <AutomationSequence UID="jsk5of2u1rexh4fu" packageName="IngameMisc_BaseCap_Flags_HAWG089" path="IngameMisc/BaseCap/Flags/IngameMisc_BaseCap_Flags_HAWG089.xml"/>
+
   <AutomationSequence UID="paxp2g7wycyybnvy" packageName="IngameMisc_PreBattleTimer_Aqua" path="IngameMisc/PrebattleTimer/IngameMisc_PreBattleTimer_Aqua.xml"/>
   <AutomationSequence UID="welc2j3gsss5mskb" packageName="IngameMisc_PreBattleTimer_Blue" path="IngameMisc/PrebattleTimer/IngameMisc_PreBattleTimer_Blue.xml"/>
   <AutomationSequence UID="93rraj9hroknm4ra" packageName="IngameMisc_PreBattleTimer_Green" path="IngameMisc/PrebattleTimer/IngameMisc_PreBattleTimer_Green.xml"/>

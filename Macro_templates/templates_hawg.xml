@@ -52,5 +52,11 @@
     <Macro Name="devurl_GarageGraphics_GameExitScreens_V3_HAWG" Value="https://wgmods.net/2884/"/>
     <Macro Name="devurl_GarageGraphics_GameExitScreens_V4_HAWG" Value="https://wgmods.net/2897/"/>
     <Macro Name="wotmod_GarageGraphics_GameExitScreens_HAWG" Value="Hawg_Exit.wotmod"/>
+
+    <Macro Name="devurl_IngameMisc_BaseCap_Circles_HAWG" Value="https://wgmods.net/2043/"/>
+    <Macro Name="wotmod_IngameMisc_BaseCap_Circles_HAWG" Value="Hawg_capCircle.wotmod"/>
+
+    <Macro Name="devurl_IngameMisc_BaseCap_Flags_HAWG" Value="https://wgmods.net/2043/"/>
+    <Macro Name="wotmod_IngameMisc_BaseCap_Flags_HAWG" Value="Hawgs_wg_emblem.wotmod"/>
   </Macros>
 </AutomationSequence>
