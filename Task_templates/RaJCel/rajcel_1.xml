@@ -9,6 +9,7 @@
     Required macros:
     {working_folder_modpack}       - The working folder of the modpack zip file and extraction processes
     {working_folder_source}        - The working folder of the source zip file and extracation processes
+    {working_folder_package}       - The working folder of the final zip file package created to be uploaded
     {mod_name}                     - The name of the mod, used in the wotmod name and config file/folder name
 
     Optional macros:
