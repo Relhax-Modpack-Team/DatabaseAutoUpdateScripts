@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<AutomationSequence documentVersion="1.0">
+  <Macros>
+    <Macro Name="source_path" Value="&quot;Премиумные_Premium\Без подложки\v-1\&quot;"/>
+    <Macro Name="wotmod_filename" Value="icons_prem.TPblHbl4_78.wotmod"/>
+  </Macros>
+  <TaskDefinitions>
+    <!-- import task to run minimal hangar update script -->
+    <Task ID="import_tasks" Command="import_task" RepoUrlPath="Task_templates/ContourTankIcons/TankIcons_Carousel_Premium_TPblHbl4.xml"/>
+  </TaskDefinitions>
+</AutomationSequence>

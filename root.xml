@@ -138,6 +138,8 @@
 
   <!-- <AutomationSequence UID="2mbvcocccfyw2cxl" packageName="TankIcons_Carousel_Premium_elektrosmoker" path="ContourTankIcons/TankIcons_Carousel_Premium_elektrosmoker.xml"/> -->
   <!-- <AutomationSequence UID="moltt0zns0nhm5z9" packageName="TankIcons_TechTree_elektrosmoker" path="ContourTankIcons/TankIcons_TechTree_elektrosmoker.xml"/> -->
+  <AutomationSequence UID="whiojkbxeh5jby3m" packageName="TankIcons_Carousel_Premium_TPblHbl4_78GoldV1" path="ContourTankIcons/TankIcons_Carousel_Premium_TPblHbl4_78GoldV1.xml"/>
+  <AutomationSequence UID="grdifn7d1mspmwfu" packageName="TankIcons_Carousel_Premium_TPblHbl4_78GoldV3" path="ContourTankIcons/TankIcons_Carousel_Premium_TPblHbl4_78GoldV3.xml"/>
   <!-- Category Contour & Tank Icons END -->
 
   <!-- Category Damage Logs & Panels START -->

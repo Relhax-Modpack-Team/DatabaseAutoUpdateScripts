@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<AutomationSequence documentVersion="1.0">
+  <!-- TankIcons_Carousel_Premium_TPblHbl4.xml
+    Author:  Willster419
+    Created: 2022-01-26
+    This sequence template handles the downloading of the GuP mod from the wgmods source (the github version is no longer maintained as of this file's creation)
+    NOTE: We manually create a wotmod now because that way we can use load_order.xml to avoid file load conflicts
+    Required macros:
+    {wotmod_filename}    - the name of the wotmod
+   -->
+  <TaskDefinitions>
+    <!-- create work dirs and macros -->
+    <Task ID="import_createWD" Command="import_task" RepoUrlPath="Task_templates/create_workDirs_macros.xml"/>
+
+    <!-- Get the download url for this package (wgmods) -->
+    <Task ID="get_download_url" Command="retrieve_package_property" PropertyName="DevURLList" TargetPackageUID="this" MacroSaveName="download_url" PropertyIndex="0"/>
+
+    <!-- Download the source from wgmods -->
+    <Task ID="download_mod_source" Command="download_html" Url="{download_url}" HtmlPath="{wotsite_xpath}" DestinationPath="{working_folder_source}\{packageName}.rar"/>
+
+    <!-- Download modpack package. It will be a wotmod created by us -->
+    <Task ID="download_modpack" Command="package_download" FilePath="{working_folder_modpack}\{packageName}.zip"/>
+
+    <!-- extract source -->
+    <!-- -x is to exclude files from being added -->
+    <!-- https://sevenzip.osdn.jp/chm/cmdline/switches/exclude.htm -->
+    <Task ID="extract_source_for_wotmod" Command="shell_exec" Filename="7z.exe" Wd="{working_folder_source}" Cmd="e {packageName}.rar {source_path}{wotmod_filename}"/>
+    <Task ID="extract_source_for_files" Command="shell_exec" Filename="7z.exe" Wd="{working_folder_source}" Cmd="x {wotmod_filename} -otmp meta.xml res\gui\maps\icons\vehicle\*.png"/>
+
+    <!-- extract the modpack package to get the wotmod -->
+    <Task ID="extract_modpack_for_wotmod" Command="shell_exec" Filename="7z.exe" Wd="{working_folder_modpack}" Cmd="e {packageName}.zip {wotmod_filename} -r"/>>
+
+    <!-- extract the modpack wotmod to get the res_mods source to match the source files -->
+    <Task ID="extract_modpack_for_files" Command="shell_exec" Filename="7z.exe" Wd="{working_folder_modpack}" Cmd="x {wotmod_filename} -otmp meta.xml res\gui\maps\icons\vehicle\*.png"/>
+
+    <!-- Compare source and destination. If the number of files is different, then log it as a needed update -->
+    <Task ID="compare_start" Command="compare_start"/>
+    <Task ID="compare_metadata" Command="file_compare"
+      FileA="{working_folder_modpack}\tmp\meta.xml"
+      FileB="{working_folder_source}\tmp\meta.xml"/>
+    <Task ID="compare_all_files" Command="directory_compare_count" SearchPattern="*.png" Recursive="False"
+      DirectoryComparePathA="{working_folder_modpack}\tmp\res\gui\maps\icons\vehicle"
+      DirectoryComparePathB="{working_folder_source}\tmp\res\gui\maps\icons\vehicle"/>
+    <Task ID="compare_end" Command="compare_end"/>
+
+    <!-- update version field in database -->
+    <Task ID="update_package_version" Command="update_package_property" PropertyName="Version" PropertyValue="{clientVersion}" TargetPackageUID="this"/>
+
+    <!-- create the new wotmod package -->
+    <Task ID="create_wotmod" Command="shell_exec" Filename="7z.exe" Wd="{working_folder_source}\tmp" Cmd="a -tzip -mx=0 -r {wotmod_filename}"/>
+
+    <!-- copy the new created wotmod to the package directory -->
+    <Task ID="copy_created_wotmod_to_package" Command="file_copy" SourceFilePath="{working_folder_source}\tmp\{wotmod_filename}" DestinationFilePath="{working_folder_package}\mods\versiondir\{wotmod_filename}"/>
+
+    <!-- create new package zip and upload to the server -->
+    <Task ID="create_upload_zip_filename_macro" Command="macro_create" MacroName="upload_zip_filename" MacroValue="{packageName}_{clientVersion}_{date}"/>
+    <Task ID="import_create_upload_zip" Command="import_task" RepoUrlPath="Task_templates/create_upload_zip.xml"/>
+  </TaskDefinitions>
+</AutomationSequence>
