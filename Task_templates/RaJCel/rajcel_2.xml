@@ -15,9 +15,6 @@
   <TaskDefinitions>
     <Task ID="compare_end" Command="compare_end"/>
 
-    <!-- And dont' forgot to check for any patch files! If there are none to extract then 7z won't make a folder -->
-    <Task ID="extract_patches_if_exist" Command="shell_exec" Filename="7z.exe" Wd="{working_folder_modpack}" Cmd="e {packageName}.zip -o&quot;{working_folder_package}\_patch&quot; _patch/*.xml"/>
-
     <!-- Create macro of the ftp server filename to use -->
     <Task ID="create_ftp_file_macro" Command="macro_create" MacroName="upload_zip_filename" MacroValue="{packageName}_{clientVersion}_{date}"/>
   </TaskDefinitions>
