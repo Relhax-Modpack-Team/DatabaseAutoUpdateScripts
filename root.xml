@@ -244,28 +244,14 @@
   <AutomationSequence UID="qb56tu6ua4djbxqc" packageName="IngameMisc_BaseCap_Flags_HAWG071" path="IngameMisc/BaseCap/Flags/IngameMisc_BaseCap_Flags_HAWG071.xml"/>
   <AutomationSequence UID="jsk5of2u1rexh4fu" packageName="IngameMisc_BaseCap_Flags_HAWG089" path="IngameMisc/BaseCap/Flags/IngameMisc_BaseCap_Flags_HAWG089.xml"/>
 
-  <AutomationSequence UID="paxp2g7wycyybnvy" packageName="IngameMisc_PreBattleTimer_Aqua" path="IngameMisc/PrebattleTimer/IngameMisc_PreBattleTimer_Aqua.xml"/>
-  <AutomationSequence UID="welc2j3gsss5mskb" packageName="IngameMisc_PreBattleTimer_Blue" path="IngameMisc/PrebattleTimer/IngameMisc_PreBattleTimer_Blue.xml"/>
-  <AutomationSequence UID="93rraj9hroknm4ra" packageName="IngameMisc_PreBattleTimer_Green" path="IngameMisc/PrebattleTimer/IngameMisc_PreBattleTimer_Green.xml"/>
-  <AutomationSequence UID="3h9y2nz0m7mcyx9o" packageName="IngameMisc_PreBattleTimer_Orange" path="IngameMisc/PrebattleTimer/IngameMisc_PreBattleTimer_Orange.xml"/>
-  <AutomationSequence UID="0zaeip7meg1j9pd0" packageName="IngameMisc_PreBattleTimer_Yellow" path="IngameMisc/PrebattleTimer/IngameMisc_PreBattleTimer_Yellow.xml"/>
+  <AutomationSequence UID="px6jrz5us97tnnbb" packageName="IngameMisc_BetterVisibleFlatTrainWagons" path="IngameMisc/IngameMisc_BetterVisibleFlatTrainWagons.xml"/>
 
-  <AutomationSequence UID="aiallqkdn4oj75zx" packageName="IngameMisc_UnderwaterTimer_V1" path="IngameMisc/UnderwaterTimer/IngameMisc_UnderwaterTimer_V1.xml"/>
-  <AutomationSequence UID="imj4hav99un0mj7a" packageName="IngameMisc_UnderwaterTimer_V2" path="IngameMisc/UnderwaterTimer/IngameMisc_UnderwaterTimer_V2.xml"/>
-  <AutomationSequence UID="5w86s2tcah0vz5yd" packageName="IngameMisc_UnderwaterTimer_V3" path="IngameMisc/UnderwaterTimer/IngameMisc_UnderwaterTimer_V3.xml"/>
-  <AutomationSequence UID="yg5kyxsh4ibkbxuy" packageName="IngameMisc_UnderwaterTimer_V7" path="IngameMisc/UnderwaterTimer/IngameMisc_UnderwaterTimer_V7.xml"/>
-  <AutomationSequence UID="46d63yjqneao8y39" packageName="IngameMisc_UnderwaterTimer_V10" path="IngameMisc/UnderwaterTimer/IngameMisc_UnderwaterTimer_V10.xml"/>
+  <AutomationSequence UID="lwj26ht7rnt0j1wh" packageName="IngameMisc_Chatmods_FriendsMarker" path="IngameMisc/IngameMisc_Chatmods_FriendsMarker.xml"/>
 
   <AutomationSequence UID="nit6d3em9yjunfht" packageName="IngameMisc_Chatmods_RadialMenu_HawgBlue" path="IngameMisc/ChatMods/RadialMenu/IngameMisc_Chatmods_RadialMenu_HawgBlue.xml"/>
   <AutomationSequence UID="e4irip6gn1amojwh" packageName="IngameMisc_Chatmods_RadialMenu_HawgGreen" path="IngameMisc/ChatMods/RadialMenu/IngameMisc_Chatmods_RadialMenu_HawgGreen.xml"/>
   <AutomationSequence UID="rebfs60qea8bgdga" packageName="IngameMisc_Chatmods_RadialMenu_HawgPurple" path="IngameMisc/ChatMods/RadialMenu/IngameMisc_Chatmods_RadialMenu_HawgPurple.xml"/>
   <AutomationSequence UID="q4948b86j4ezh8kk" packageName="IngameMisc_Chatmods_RadialMenu_HawgYellow" path="IngameMisc/ChatMods/RadialMenu/IngameMisc_Chatmods_RadialMenu_HawgYellow.xml"/>
-
-  <AutomationSequence UID="px6jrz5us97tnnbb" packageName="IngameMisc_BetterVisibleFlatTrainWagons" path="IngameMisc/IngameMisc_BetterVisibleFlatTrainWagons.xml"/>
-
-  <AutomationSequence UID="lwj26ht7rnt0j1wh" packageName="IngameMisc_Chatmods_FriendsMarker" path="IngameMisc/IngameMisc_Chatmods_FriendsMarker.xml"/>
-
-  <AutomationSequence UID="lp7nnb2rbopkpr28" packageName="IngameMisc_Minimap_SpamProtector" path="IngameMisc/IngameMisc_Minimap_SpamProtector.xml"/>
 
   <AutomationSequence UID="4c5z9v7ii0xi4wau" packageName="IngameMisc_Minimap_Type_Basic_TacticalMinimap" path="IngameMisc/Minimap/IngameMisc_Minimap_Type_Basic_TacticalMinimap.xml"/>
   <AutomationSequence UID="o4hjk1s2v1zquf4g" packageName="IngameMisc_Minimap_Type_Basic_TacticalMinimapDOTS" path="IngameMisc/Minimap/IngameMisc_Minimap_Type_Basic_TacticalMinimapDOTS.xml"/>
@@ -283,7 +269,21 @@
   <AutomationSequence UID="1xdmf806ic2veb6w" packageName="IngameMisc_Minimap_TargetIcon_Type2_White" path="IngameMisc/Minimap/IngameMisc_Minimap_TargetIcon_Type2_White.xml"/>
   <AutomationSequence UID="emj1n767h9vdemdv" packageName="IngameMisc_Minimap_TargetIcon_Type2_Yellow" path="IngameMisc/Minimap/IngameMisc_Minimap_TargetIcon_Type2_Yellow.xml"/>
 
+  <AutomationSequence UID="lp7nnb2rbopkpr28" packageName="IngameMisc_Minimap_SpamProtector" path="IngameMisc/IngameMisc_Minimap_SpamProtector.xml"/>
+
+  <AutomationSequence UID="paxp2g7wycyybnvy" packageName="IngameMisc_PreBattleTimer_Aqua" path="IngameMisc/PrebattleTimer/IngameMisc_PreBattleTimer_Aqua.xml"/>
+  <AutomationSequence UID="welc2j3gsss5mskb" packageName="IngameMisc_PreBattleTimer_Blue" path="IngameMisc/PrebattleTimer/IngameMisc_PreBattleTimer_Blue.xml"/>
+  <AutomationSequence UID="93rraj9hroknm4ra" packageName="IngameMisc_PreBattleTimer_Green" path="IngameMisc/PrebattleTimer/IngameMisc_PreBattleTimer_Green.xml"/>
+  <AutomationSequence UID="3h9y2nz0m7mcyx9o" packageName="IngameMisc_PreBattleTimer_Orange" path="IngameMisc/PrebattleTimer/IngameMisc_PreBattleTimer_Orange.xml"/>
+  <AutomationSequence UID="0zaeip7meg1j9pd0" packageName="IngameMisc_PreBattleTimer_Yellow" path="IngameMisc/PrebattleTimer/IngameMisc_PreBattleTimer_Yellow.xml"/>
+
   <AutomationSequence UID="ocfhqnv3chhb5k9x" packageName="IngameMisc_smartRepair" path="IngameMisc/IngameMisc_smartRepair.xml"/>
+
+  <AutomationSequence UID="aiallqkdn4oj75zx" packageName="IngameMisc_UnderwaterTimer_V1" path="IngameMisc/UnderwaterTimer/IngameMisc_UnderwaterTimer_V1.xml"/>
+  <AutomationSequence UID="imj4hav99un0mj7a" packageName="IngameMisc_UnderwaterTimer_V2" path="IngameMisc/UnderwaterTimer/IngameMisc_UnderwaterTimer_V2.xml"/>
+  <AutomationSequence UID="5w86s2tcah0vz5yd" packageName="IngameMisc_UnderwaterTimer_V3" path="IngameMisc/UnderwaterTimer/IngameMisc_UnderwaterTimer_V3.xml"/>
+  <AutomationSequence UID="yg5kyxsh4ibkbxuy" packageName="IngameMisc_UnderwaterTimer_V7" path="IngameMisc/UnderwaterTimer/IngameMisc_UnderwaterTimer_V7.xml"/>
+  <AutomationSequence UID="46d63yjqneao8y39" packageName="IngameMisc_UnderwaterTimer_V10" path="IngameMisc/UnderwaterTimer/IngameMisc_UnderwaterTimer_V10.xml"/>
 
   <AutomationSequence UID="515aq1xuq26uhjdg" packageName="IngameMisc_WOTtweaker_SkyBoxes_ClearSky" path="IngameMisc/WOTtweaker/IngameMisc_WOTtweaker_SkyBoxes_ClearSky.xml"/>
   <AutomationSequence UID="vntcs9j60a5gyrrl" packageName="IngameMisc_WOTtweaker_SkyBoxes_BlueSky" path="IngameMisc/WOTtweaker/IngameMisc_WOTtweaker_SkyBoxes_BlueSky.xml"/>
