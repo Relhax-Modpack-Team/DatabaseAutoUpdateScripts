@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<AutomationSequence documentVersion="1.0">
+<!-- compare_lang_files.xml
+    Author:  Willster419
+    Created: 2021-12-01
+    This sequence template is for comparing n number of language files.
+    Required macros:
+    {lang_dir_a}                   - The directory path to the language files to compare for directory A
+    {lang_dir_b}                   - The directory path to the language files to compare for directory B
+    {lang_ext}                     - The extension of language files to compare
+  -->
+  <TaskDefinitions>
+    <Task ID="compare_start" Command="compare_start"/>
+    <Task ID="compare_contour_icons" Command="directory_compare_count" SearchPattern="*.{lang_ext}" Recursive="False"
+      DirectoryComparePathA="{lang_dir_a}"
+      DirectoryComparePathB="{lang_dir_b}"/>
+    <Task ID="compare_end" Command="compare_end"/>
+  </TaskDefinitions>
+</AutomationSequence>
