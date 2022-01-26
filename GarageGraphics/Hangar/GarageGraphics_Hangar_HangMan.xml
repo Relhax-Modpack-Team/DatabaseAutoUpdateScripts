@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<AutomationSequence documentVersion="1.0">
+  <Macros>
+  </Macros>
+  <TaskDefinitions>
+    <!-- import tasks -->
+    <Task ID="import_macro_create_tasks" Command="import_task" RepoUrlPath="Task_templates/create_workDirs_macros.xml"/>
+
+    <!-- Get the download url for this package (wgmods) -->
+    <Task ID="get_download_url" Command="retrieve_package_property" PropertyName="DevURLList" TargetPackageUID="this" MacroSaveName="package_url" PropertyIndex="2"/>
+    <Task ID="get_download_url" Command="retrieve_package_property" PropertyName="DevURLList" TargetPackageUID="this" MacroSaveName="package_url_config" PropertyIndex="0"/>
+
+    <!-- Create {target_package_uid} macro for task update_package_version_from_wgmods.xml -->
+    <Task ID="create_package_to_update_macro" Command="macro_create" MacroName="target_package_uid" MacroValue="this"/>
+
+    <!-- download the source package wotmod -->
+    <Task ID="download_mod_source_wotmod" Command="download_browser" Url="{package_url}" HtmlPath="{wgmods_xpath}" DestinationPath="{working_folder_source}\{packageName}_wotmod.zip"
+      BrowserEngine="WebBrowser" WaitTimeMs="500" WaitCounts="6" BrowserHeight="0" BrowserWidth="0"/>
+
+    <!-- download the source package wotmod -->
+    <Task ID="download_mod_source_config" Command="download_html" Url="{package_url_config}" DestinationPath="{working_folder_source}\{packageName}_config.zip"
+      HtmlPath="//a[contains(@href, 'config') and contains(text(), 'here')]//@href"/>
+
+    <!-- download and extract modpack single file -->
+    <Task ID="download_modpack" Command="package_download" FilePath="{working_folder_modpack}\{packageName}.zip"/>
+    <Task ID="extract_modpack" Command="shell_exec" Filename="7z.exe" Wd="{working_folder_modpack}" Cmd="x {packageName}.zip"/>
+
+    <!-- extract the source package wotmod -->
+    <Task ID="extract_source_wotmod" Command="shell_exec" Filename="7z.exe" Wd="{working_folder_source}"
+      Cmd="e {packageName}_wotmod.zip -o&quot;{working_folder_package}\mods\versiondir&quot; goofy67_HangMan_*.wotmod"/>
+
+    <!-- and then then config -->
+    <Task ID="extract_source_config" Command="shell_exec" Filename="7z.exe" Wd="{working_folder_source}"
+      Cmd="x {packageName}_config.zip -o&quot;{working_folder_package}\mods&quot;"/>
+
+    <!-- get the version of the source -->
+    <!-- use a directory search wildcard to get the name, then use a string split on just the filename (it will drop the path), then get the version part -->
+    <Task ID="get_filename_source_1" Command="directory_search" DirectoryPath="{working_folder_package}\mods\versiondir" SearchPattern="goofy67_HangMan_*.wotmod" Recursive="False" MacroPrefix="get_source_results"/>
+    <Task ID="get_filename_source_2" Command="macro_string_split_filename" MacroName="source_version_1" Index="2" SplitCharacters="_" FilePath="{get_source_results_0}"/>
+    <Task ID="get_filename_source_3" Command="macro_string_split_macro" MacroName="source_version_2" Index="0" SplitCharacters=".wotmod" InputText="{source_version_1}"/>
+
+    <!-- get the version of the modpack -->
+    <Task ID="get_filename_modpack_1" Command="directory_search" DirectoryPath="{working_folder_modpack}\mods\versiondir" SearchPattern="goofy67_HangMan_*.wotmod" Recursive="False" MacroPrefix="get_modpack_results"/>
+    <Task ID="get_filename_modpack_2" Command="macro_string_split_filename" MacroName="modpack_version_1" Index="2" SplitCharacters="_" FilePath="{get_modpack_results_0}"/>
+    <Task ID="get_filename_modpack_3" Command="macro_string_split_macro" MacroName="modpack_version_2" Index="0" SplitCharacters=".wotmod" InputText="{modpack_version_1}"/>
+
+    <!-- run comparisons on wotmod and config -->
+    <Task ID="compare_start" Command="compare_start"/>
+    <!-- Compare file 1 -->
+    <Task ID="compare_wotmod" Command="file_compare"
+      FileA="{working_folder_modpack}\mods\versiondir\goofy67_HangMan_{modpack_version_2}.wotmod"
+      FileB="{working_folder_package}\mods\versiondir\goofy67_HangMan_{source_version_2}.wotmod"/>
+    <!-- Compare config / inverse -->
+    <!-- sequence should stop when there are changes to the cfg file -->
+    <Task ID="compare_config" Command="directory_compare_inverse" SearchPattern="*" Recursive="True"
+      DirectoryComparePathA="{working_folder_modpack}\mods\configs"
+      DirectoryComparePathB="{working_folder_package}\mods\configs"/>
+    <Task ID="compare_end" Command="compare_end"/>
+
+    <!-- import task update the version field with wgmods entry -->
+    <Task ID="import_tasks" Command="import_task" RepoUrlPath="Task_templates/update_package_version_from_wgmods.xml"/>
+
+    <!-- Verify the patch file was copied over -->
+    <Task ID="verify_wotmod_exists" Command="file_exists" SourceFilePath="{working_folder_package}\mods\versiondir\goofy67_HangMan_{source_version_2}.wotmod"/>
+    <Task ID="verify_a_config_file_exists" Command="file_exists" SourceFilePath="{working_folder_package}\mods\configs\HangMan\HangMan.json"/>
+
+    <!-- create new package zip and upload to the server -->
+    <Task ID="create_upload_zip_filename_macro" Command="macro_create" MacroName="upload_zip_filename" MacroValue="{packageName}_{source_version_2}_{clientVersion}_{date}"/>
+    <Task ID="import_create_upload_zip" Command="import_task" RepoUrlPath="Task_templates/create_upload_zip.xml"/>
+  </TaskDefinitions>
+</AutomationSequence>
