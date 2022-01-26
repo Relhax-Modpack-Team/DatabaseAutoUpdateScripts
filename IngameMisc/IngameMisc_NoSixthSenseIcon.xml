@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<AutomationSequence documentVersion="1.0">
+  <!-- Specify macros here -->
+  <Macros>
+    <Macro Name="upload_zip_filename" Value="{packageName}_{clientVersion}_{date}"/>
+  </Macros>
+
+  <!-- Specify the tasks to run -->
+  <TaskDefinitions>
+
+    <!-- import tasks -->
+    <Task ID="import_createWorkDirs" Command="import_task" RepoUrlPath="Task_templates/create_workDirs_macros.xml"/>
+
+    <!-- import tasks -->
+    <Task ID="import_getUrl" Command="import_task" RepoUrlPath="Task_templates/getDownloadUrl_THISindex0.xml"/>
+
+    <!-- Get the MediaFire folder that contains the package we want to download. Note we can set the length and startIndex to -1 and 0 respectivly to effectivly get the entire string -->
+    <Task ID="get_url_relative_path" Command="macro_substring_html" MacroName="relative_url_path" Length="-1" StartIndex="0" Url="{download_url}"
+      HtmlPath="//a[contains(@class, 'more') and contains(@href, 'NoSense')]/@href"/>
+
+    <!-- create the macro to use for the full download. create it by combining the base url for the website and the xpath result -->
+    <Task ID="create_download_url_macro" Command="macro_create" MacroName="download_url_full" MacroValue="{awefultanker_url_base}{relative_url_path}"/>
+
+    <!-- download the source package -->
+    <Task ID="download_mod_source" Command="download_static" Url="{download_url_full}" DestinationPath="{working_folder_source}\{packageName}.zip"/>
+
+    <!-- import task to download the package url from the ftp database -->
+    <Task ID="import_dlModpack" Command="import_task" RepoUrlPath="Task_templates/downloadModpack_PackageNameZip.xml"/>
+
+    <!-- extract the source package -->
+    <Task ID="extract_source" Command="shell_exec" Filename="7z.exe" Wd="{working_folder_source}"
+      Cmd="e {packageName}.zip -o&quot;{working_folder_package}\res_mods\versiondir\scripts\client\gui\mods&quot; -r mod_AT_NoSense.pyc AT_NoSense_config.json NoSense.dds"/>
+
+    <!-- extract the modpack package -->
+    <Task ID="extract_modpack" Command="shell_exec" Filename="7z.exe" Wd="{working_folder_modpack}" Cmd="x {packageName}.zip"/>
+
+    <Task ID="compare_start" Command="compare_start"/>
+    <!-- compare script -->
+    <Task ID="compare_python_script" Command="file_compare"
+      FileA="{working_folder_package}\res_mods\versiondir\scripts\client\gui\mods\mod_AT_NoSense.pyc"
+      FileB="{working_folder_modpack}\res_mods\versiondir\scripts\client\gui\mods\mod_AT_NoSense.pyc"/>
+    <Task ID="compare_dds" Command="file_compare"
+      FileA="{working_folder_package}\res_mods\versiondir\scripts\client\gui\mods\NoSense.dds"
+      FileB="{working_folder_modpack}\res_mods\versiondir\scripts\client\gui\mods\NoSense.dds"/>
+    <Task ID="compare_config" Command="file_compare"
+      FileA="{working_folder_package}\res_mods\versiondir\scripts\client\gui\mods\AT_NoSense_config.json"
+      FileB="{working_folder_modpack}\res_mods\versiondir\scripts\client\gui\mods\AT_NoSense_config.json"/>
+    <Task ID="compare_end" Command="compare_end"/>
+
+    <!-- Run create zip and upload tasks -->
+    <Task ID="import_create_upload_zip" Command="import_task" RepoUrlPath="Task_templates/create_upload_zip.xml"/>
+  </TaskDefinitions>
+
+</AutomationSequence>

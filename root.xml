@@ -278,6 +278,9 @@
 
   <AutomationSequence UID="lp7nnb2rbopkpr28" packageName="IngameMisc_Minimap_SpamProtector" path="IngameMisc/IngameMisc_Minimap_SpamProtector.xml"/>
 
+  <AutomationSequence UID="5i2oud5c40b907yl" packageName="IngameMisc_NoRankedBadge" path="IngameMisc/IngameMisc_NoRankedBadge.xml"/>
+  <AutomationSequence UID="i7933dbd3x4r0j6l" packageName="IngameMisc_NoSixthSenseIcon" path="IngameMisc/IngameMisc_NoSixthSenseIcon.xml"/>
+
   <AutomationSequence UID="paxp2g7wycyybnvy" packageName="IngameMisc_PreBattleTimer_Aqua" path="IngameMisc/PrebattleTimer/IngameMisc_PreBattleTimer_Aqua.xml"/>
   <AutomationSequence UID="welc2j3gsss5mskb" packageName="IngameMisc_PreBattleTimer_Blue" path="IngameMisc/PrebattleTimer/IngameMisc_PreBattleTimer_Blue.xml"/>
   <AutomationSequence UID="93rraj9hroknm4ra" packageName="IngameMisc_PreBattleTimer_Green" path="IngameMisc/PrebattleTimer/IngameMisc_PreBattleTimer_Green.xml"/>
