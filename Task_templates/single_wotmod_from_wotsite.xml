@@ -10,6 +10,7 @@
     Required macros:
     {package_url}                  - The download url of the wotsite website to download from
     {file_path}                    - The path to the wotmod inside the source zip file
+    {file_name}                    - The name of the wotmod for BOTH the source and modpack
     {source_extract_recursive}     - The optional recursive argument to use when extracting the source wotmod. set as " " (with space) to disable
     NOTE: see single_wotmod import task for more required macros
   -->
