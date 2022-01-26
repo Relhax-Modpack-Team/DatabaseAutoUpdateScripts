@@ -5,6 +5,7 @@
     <Macro Name="mod_name" Value="artyImpactRadius"/>
     <Macro Name="wotmod_prefix" Value="de.champi.wot."/>
     <Macro Name="additional_files" Value=" "/>
+    <Macro Name="upload_zip_filename" Value="{packageName}_{clientVersion}_{date}"/>
   </Macros>
 
   <!-- Specify the tasks to run -->
