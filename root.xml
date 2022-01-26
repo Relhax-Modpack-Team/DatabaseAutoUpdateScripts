@@ -247,6 +247,7 @@
   <AutomationSequence UID="px6jrz5us97tnnbb" packageName="IngameMisc_BetterVisibleFlatTrainWagons" path="IngameMisc/IngameMisc_BetterVisibleFlatTrainWagons.xml"/>
 
   <AutomationSequence UID="lwj26ht7rnt0j1wh" packageName="IngameMisc_Chatmods_FriendsMarker" path="IngameMisc/ChatMods/IngameMisc_Chatmods_FriendsMarker.xml"/>
+  <AutomationSequence UID="ylqhegz8qklhjd4g" packageName="IngameMisc_Chatmods_FriendsNotifier" path="IngameMisc/ChatMods/IngameMisc_Chatmods_FriendsNotifier.xml"/>
 
   <AutomationSequence UID="nit6d3em9yjunfht" packageName="IngameMisc_Chatmods_RadialMenu_HawgBlue" path="IngameMisc/ChatMods/RadialMenu/IngameMisc_Chatmods_RadialMenu_HawgBlue.xml"/>
   <AutomationSequence UID="e4irip6gn1amojwh" packageName="IngameMisc_Chatmods_RadialMenu_HawgGreen" path="IngameMisc/ChatMods/RadialMenu/IngameMisc_Chatmods_RadialMenu_HawgGreen.xml"/>
