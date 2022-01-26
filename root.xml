@@ -4,7 +4,6 @@
   <GlobalMacros path="global_macros.xml" />
 
   <!-- Category Dependencies START -->
-
   <!-- Subgroup XVM START -->
   <!-- nightly -->
   <AutomationSequence UID="vxb6fqgbg3p0hfv9" packageName="LogicalDependency_XVM_Main_Nightly" path="Dependencies/XVM/LogicalDependency_XVM_Main_Nightly.xml" />
@@ -56,7 +55,6 @@
   <AutomationSequence UID="jj61rm2uccqvg8k0" packageName="XVMConfigBuilder_ClanIcons_fullEU" path="XVM/XVM_ClanIcons_EU.xml" />
   <AutomationSequence UID="qmunrpye6sk3rc9d" packageName="XVMConfigBuilder_ClanIcons_fullRU" path="XVM/XVM_ClanIcons_RU.xml" />
   <!-- Subgroup Clan Icons END -->
-
   <!-- Category Dependencies END  -->
 
   <!-- Category Crosshairs START -->
@@ -344,6 +342,7 @@
   <AutomationSequence UID="dkwvz5embhp2hec0" packageName="GarageGraphics_HangarDesign_HellingerMinimal_100norm" path="GarageGraphics/Hangar/GarageGraphics_Hangar_Design_HellingerMinimal_100norm.xml"/>
   <AutomationSequence UID="xcqw78g74tbrsu8d" packageName="GarageGraphics_HangarDesign_HellingerMinimal_200bright" path="GarageGraphics/Hangar/GarageGraphics_Hangar_Design_HellingerMinimal_200bright.xml"/>
   <AutomationSequence UID="knkhz9a65xj9si1d" packageName="GarageGraphics_HangarDesign_HellingerMinimal_200norm" path="GarageGraphics/Hangar/GarageGraphics_Hangar_Design_HellingerMinimal_200norm.xml"/>
+  <!-- unfinished -->
   <!-- <AutomationSequence UID="wm4tgukwggsbfcme" packageName="GarageGraphics_HangarDesign_MikuV1Rework" path="GarageGraphics/Hangar/GarageGraphics_Hangar_Design_MikuV1Rework.xml"/> -->
 
   <AutomationSequence UID="d6pyq0jwcf87wemw" packageName="GarageGraphics_LobbyHeader_PersonalReserve_Aqua" path="GarageGraphics/LobbyHeader/GarageGraphics_LobbyHeader_PersonalReserve_Aqua.xml" />
