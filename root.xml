@@ -221,6 +221,8 @@
   <!-- Category Ingame Info END -->
 
   <!-- Category Ingame Misc START -->
+  <AutomationSequence UID="7wzzo4l6crzqn2ig" packageName="IngameMisc_BattleHints_PersonalMissionsInDetail" path="IngameMisc/IngameMisc_BattleHints_PersonalMissionsInDetail.xml"/>
+
   <AutomationSequence UID="paxp2g7wycyybnvy" packageName="IngameMisc_PreBattleTimer_Aqua" path="IngameMisc/PrebattleTimer/IngameMisc_PreBattleTimer_Aqua.xml"/>
   <AutomationSequence UID="welc2j3gsss5mskb" packageName="IngameMisc_PreBattleTimer_Blue" path="IngameMisc/PrebattleTimer/IngameMisc_PreBattleTimer_Blue.xml"/>
   <AutomationSequence UID="93rraj9hroknm4ra" packageName="IngameMisc_PreBattleTimer_Green" path="IngameMisc/PrebattleTimer/IngameMisc_PreBattleTimer_Green.xml"/>
