@@ -305,6 +305,8 @@
 
   <!-- Seperated because it's not a HAWG mod -->
   <AutomationSequence UID="4k0gyubs13axvl5q" packageName="IngameMisc_WOTtweaker_Environment_StarrySky" path="IngameMisc/WOTtweaker/IngameMisc_WOTtweaker_Environment_StarrySky.xml"/>
+
+  <AutomationSequence UID="0idzdc050hw4q0rv" packageName="IngameMisc_WGradio" path="IngameMisc/IngameMisc_WGradio.xml"/>
   <!-- Category Ingame Misc END -->
 
   <!-- Category Garage Mods START -->

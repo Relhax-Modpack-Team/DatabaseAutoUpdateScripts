@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<AutomationSequence documentVersion="1.0">
+  <Macros>
+  </Macros>
+  <TaskDefinitions>
+    <!-- import tasks -->
+    <Task ID="import_macro_create_work_dirs" Command="import_task" RepoUrlPath="Task_templates/create_workDirs_macros.xml"/>
+
+    <!-- get the dev url for the to be imported task -->
+    <Task ID="get_download_url" Command="retrieve_package_property" PropertyName="DevURLList" TargetPackageUID="this" MacroSaveName="package_url" PropertyIndex="0"/>
+
+    <!-- download the source package -->
+    <Task ID="download_mod_source" Command="download_browser" Url="{package_url}" HtmlPath="{wgmods_xpath}" DestinationPath="{working_folder_source}\{packageName}.zip"
+      BrowserEngine="WebBrowser" WaitTimeMs="500" WaitCounts="6" BrowserHeight="0" BrowserWidth="0"/>
+
+    <!-- download and extract the modpack package -->
+    <Task ID="import_downloadModpack" Command="import_task" RepoUrlPath="Task_templates/downloadModpack_PackageNameZip.xml"/>
+    <Task ID="extract_modpack_1" Command="shell_exec" Filename="7z.exe" Wd="{working_folder_modpack}"
+      Cmd="e {packageName}.zip poliroid.wgfmradio_*.wotmod net.wargaming.wgfmradio_translations.wotmod -r"/>
+
+    <!-- extract the source package -->
+    <Task ID="extract_source" Command="shell_exec" Filename="7z.exe" Wd="{working_folder_source}"
+      Cmd="e {packageName}.zip poliroid.wgfmradio_*.wotmod -r"/>
+
+    <!-- get the modpack and source wotmod names from file -->
+    <Task ID="get_wotmod_name_source_1" Command="directory_search" DirectoryPath="{working_folder_source}" SearchPattern="poliroid.wgfmradio_*.wotmod" Recursive="False" MacroPrefix="filename_results_source"/>
+    <!-- we can set the length and startIndex to -1 and 0 respectivly to effectivly get the entire string -->
+    <Task ID="get_wotmod_name_source_2" Command="macro_substring_filename" MacroName="file_name_source" Length="-1" StartIndex="0" FilePath="{filename_results_source_0}"/>
+
+    <Task ID="get_wotmod_name_modpack_1" Command="directory_search" DirectoryPath="{working_folder_modpack}" SearchPattern="poliroid.wgfmradio_*.wotmod" Recursive="False" MacroPrefix="filename_results_modpack"/>
+    <Task ID="get_wotmod_name_modpack_2" Command="macro_substring_filename" MacroName="file_name_modpack" Length="-1" StartIndex="0" FilePath="{filename_results_modpack_0}"/>
+
+    <!-- get the version of the package from the wotmod (source) -->
+    <Task ID="get_version_1" Command="macro_string_split_macro" MacroName="version_source_0" Index="1" SplitCharacters="_" InputText="{file_name_source}"/>
+    <Task ID="get_version_2" Command="macro_string_split_macro" MacroName="version_source" Index="0" SplitCharacters=".wotmod" InputText="{version_source_0}"/>
+
+    <!-- extract the ru lang file from source and modpack -->
+    <Task ID="extract_lang_source" Command="shell_exec" Filename="7z.exe" Wd="{working_folder_source}"
+      Cmd="e {file_name_source} res\mods\net.wargaming.wgfmradio\text\ru.yml"/>
+    <Task ID="extract_lang_modpack" Command="shell_exec" Filename="7z.exe" Wd="{working_folder_modpack}"
+      Cmd="e {file_name_modpack} res\mods\net.wargaming.wgfmradio\text\ru.yml"/>
+
+    <!-- compare the wotmod -->
+    <Task ID="compare_start" Command="compare_start"/>
+    <Task ID="compare_wotmod" Command="file_compare"
+      FileA="{working_folder_source}\{file_name_source}"
+      FileB="{working_folder_modpack}\{file_name_modpack}"/>
+
+    <!-- compare the lang file, if it's different it means that we need to stop and compensate in the custom translations file -->
+    <Task ID="compare_wotmod" Command="file_compare_inverse"
+      FileA="{working_folder_source}\ru.yml"
+      FileB="{working_folder_modpack}\ru.yml"/>
+    <Task ID="compare_end" Command="compare_end"/>
+
+    <!-- copy source wotmod and custom translations to package directory -->
+    <Task ID="copy_wotmod" Command="file_copy" SourceFilePath="{working_folder_source}\{file_name_source}" DestinationFilePath="{working_folder_package}\mods\versiondir\{file_name_source}"/>
+    <Task ID="copy_wotmod" Command="file_copy"
+      SourceFilePath="{working_folder_modpack}\net.wargaming.wgfmradio_translations.wotmod"
+      DestinationFilePath="{working_folder_package}\mods\versiondir\net.wargaming.wgfmradio_translations.wotmod"/>
+
+    <!-- update version field in database -->
+    <Task ID="import_update_package_version_from_wgmods" Command="import_task" RepoUrlPath="Task_templates/update_package_version_from_wgmods.xml"/>
+
+    <!-- create zip and upload -->
+    <Task ID="create_upload_zip_filename_macro" Command="macro_create" MacroName="upload_zip_filename" MacroValue="{packageName}_{version_source}_{clientVersion}_{date}"/>
+    <Task ID="import_create_upload_zip" Command="import_task" RepoUrlPath="Task_templates/create_upload_zip.xml"/>
+  </TaskDefinitions>
+</AutomationSequence>
