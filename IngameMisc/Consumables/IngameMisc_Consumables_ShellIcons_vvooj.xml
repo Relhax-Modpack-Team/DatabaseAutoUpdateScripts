@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<AutomationSequence documentVersion="1.0">
+  <Macros>
+    <Macro Name="file_path" Value=""/>
+    <Macro Name="file_name" Value="letter_shell_icons.wotmod"/>
+    <Macro Name="mods_or_res_mods" Value="mods"/>
+  </Macros>
+  <TaskDefinitions>
+    <!-- import tasks -->
+    <Task ID="import_macro_create_tasks" Command="import_task" RepoUrlPath="Task_templates/macro_create_work_dirs.xml"/>
+
+    <!-- get the dev url for the to be imported task -->
+    <Task ID="get_download_url" Command="retrieve_package_property" PropertyName="DevURLList" TargetPackageUID="this" MacroSaveName="package_url" PropertyIndex="0"/>
+
+    <!-- download the source package -->
+    <Task ID="download_mod_source" Command="download_browser" Url="{package_url}" HtmlPath="{wgmods_xpath}" DestinationPath="{working_folder_source}\{file_name}"
+      BrowserEngine="WebBrowser" WaitTimeMs="500" WaitCounts="6" BrowserHeight="0" BrowserWidth="0"/>
+
+    <!-- import tasks -->
+    <Task ID="import_tasks" Command="import_task" RepoUrlPath="Task_templates/single_wotmod.xml"/>
+  </TaskDefinitions>
+</AutomationSequence>

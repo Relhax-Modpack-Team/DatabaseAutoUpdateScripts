@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<AutomationSequence documentVersion="1.0">
+  <Macros>
+    <Macro Name="file_path" Value=""/>
+    <Macro Name="file_name" Value="letter_shell_icons.wotmod"/>
+    <Macro Name="source_extract_recursive" Value="-r"/>
+    <Macro Name="mods_or_res_mods" Value="mods"/>
+  </Macros>
+  <TaskDefinitions>
+    <!-- get the dev url for the to be imported task -->
+    <Task ID="get_download_url" Command="retrieve_package_property" PropertyName="DevURLList" TargetPackageUID="this" MacroSaveName="package_url" PropertyIndex="1"/>
+    <!-- import tasks -->
+    <Task ID="import_tasks" Command="import_task" RepoUrlPath="Task_templates/single_wotmod_from_wgmods.xml"/>
+  </TaskDefinitions>
+</AutomationSequence>
