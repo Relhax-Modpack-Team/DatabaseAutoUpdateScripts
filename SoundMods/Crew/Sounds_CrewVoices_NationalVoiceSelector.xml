@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<AutomationSequence documentVersion="1.0">
+  <Macros>
+    <Macro Name="file_name" Value="main_sound_modes.xml"/>
+    <Macro Name="folder_path" Value="res_mods\versiondir\gui\soundModes"/>
+  </Macros>
+  <TaskDefinitions>
+    <!-- import tasks -->
+    <Task ID="import_macro_create_tasks" Command="import_task" RepoUrlPath="Task_templates/create_workDirs_macros.xml"/>
+
+    <!-- get download url -->
+    <Task ID="import_macro_getdlurl" Command="import_task" RepoUrlPath="Task_templates/getDownloadUrl_THISindex0.xml"/>
+
+    <!-- download the source package -->
+    <Task ID="download_mod_source" Command="download_browser" Url="{download_url}" HtmlPath="{wgmods_xpath}" DestinationPath="{working_folder_source}\{packageName}.zip"
+      BrowserEngine="WebBrowser" WaitTimeMs="500" WaitCounts="6" BrowserHeight="0" BrowserWidth="0"/>
+
+    <!-- extract wotmod from source and modpack. note that the file_path macro has the slash to connect to file_name -->
+    <Task ID="extract_source" Command="shell_exec" Filename="7z.exe" Wd="{working_folder_source}" Cmd="e {packageName}.zip {file_name} -r"/>
+
+    <!-- run single_file template tasks -->
+    <Task ID="import_task_single_file_download_extract_modpack" Command="import_task" RepoUrlPath="Task_templates/Generic/single_file_download_extract_modpack.xml"/>
+    <Task ID="import_task_single_file_compare_file" Command="import_task" RepoUrlPath="Task_templates/Generic/single_file_compare_file.xml"/>
+    <Task ID="import_task_single_file_copy_source" Command="import_task" RepoUrlPath="Task_templates/Generic/single_file_copy_source.xml"/>
+    <Task ID="import_task_single_file_create_package" Command="import_task" RepoUrlPath="Task_templates/Generic/single_file_create_package.xml"/>
+
+    <!-- update version field with version name/number from wgmods -->
+    <Task ID="import_task_update_package_version_from_wgmods" Command="import_task" RepoUrlPath="Task_templates/update_package_version_from_wgmods.xml"/>
+
+    <Task ID="import_task_single_file_upload" Command="import_task" RepoUrlPath="Task_templates/Generic/single_file_upload.xml"/>
+  </TaskDefinitions>
+</AutomationSequence>

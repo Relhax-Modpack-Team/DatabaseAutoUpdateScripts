@@ -432,6 +432,8 @@
   <!-- Category Statistics END   -->
 
   <!-- Category Sound Mods START -->
+  <AutomationSequence UID="vn16e6dyqcencac7" packageName="Sounds_CrewVoices_NationalVoiceSelector" path="SoundMods/Crew/Sounds_CrewVoices_NationalVoiceSelector.xml"/>
+
   <AutomationSequence UID="5y8x80pd3dugtdu5" packageName="Sounds_CrewVoices_Bloggers_BB20_amway" path="SoundMods/WG/Sounds_CrewVoices_Bloggers_BB20_amway.xml"/>
   <AutomationSequence UID="inechzve29mxtp14" packageName="Sounds_CrewVoices_Bloggers_BB20_AwesomeEpicGuys" path="SoundMods/WG/Sounds_CrewVoices_Bloggers_BB20_AwesomeEpicGuys.xml"/>
   <AutomationSequence UID="c1wk83lxxson4iji" packageName="Sounds_CrewVoices_Bloggers_BB20_DezGamez" path="SoundMods/WG/Sounds_CrewVoices_Bloggers_BB20_DezGamez.xml"/>
