@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<AutomationSequence documentVersion="1.0">
+  <Macros>
+    <Macro Name="file_name" Value="voiceover.bnk"/>
+    <Macro Name="folder_path" Value="res_mods\versiondir\gui\soundModes"/>
+  </Macros>
+  <TaskDefinitions>
+    <!-- import task to create work dirs and macros -->
+    <Task ID="import_macro_create_tasks" Command="import_task" RepoUrlPath="Task_templates/create_workDirs_macros.xml"/>
+
+    <!-- get the download url from the package -->
+    <Task ID="get_download_page_url" Command="retrieve_package_property" PropertyName="DevURLList" TargetPackageUID="this" MacroSaveName="wot_forms_url" PropertyIndex="0"/>
+
+    <!-- Download the source package -->
+    <!-- First get the download page from mediafire, is leads us to a google drive link.
+         sauce: https://www.graytechnical.com/blog/how-to-easily-create-direct-download-links-from-google-drive/ -->
+    <Task ID="get_google_drive_url_1" Command="macro_substring_browser" MacroName="google_drive_link" Length="-1" StartIndex="0" Url="{wot_forms_url}"
+      HtmlPath="//a[contains(@class, 'bbc_url') and contains(@href, 'drive.google.com')]//@href" BrowserEngine="WebView" WaitTimeMs="2000" WaitCounts="6" BrowserHeight="0" BrowserWidth="0"/>
+
+    <!-- now we need to string split to get just the file id -->
+    <Task ID="get_google_drive_url_2" Command="macro_string_split_macro" MacroName="google_drive_id_0" Index="0" SplitCharacters="https://drive.google.com/file/d/" InputText="{google_drive_link}"/>
+    <Task ID="get_google_drive_url_3" Command="macro_string_split_macro" MacroName="google_drive_id_1" Index="0" SplitCharacters="/view" InputText="{google_drive_id_0}"/>
+    <Task ID="create_google_drive_direct_download" Command="macro_create" MacroName="google_drive_download_url" MacroValue="https://drive.google.com/uc?id={google_drive_id_1}&amp;export=download"/>
+
+    <!-- now we can actually download the source -->
+    <Task ID="download_mod_source" Command="download_static" Url="{google_drive_download_url}" DestinationPath="{working_folder_source}\{packageName}.zip"/>
+
+    <!-- extract wotmod from source and modpack. note that the file_path macro has the slash to connect to file_name -->
+    <Task ID="extract_source" Command="shell_exec" Filename="7z.exe" Wd="{working_folder_source}" Cmd="e {packageName}.zip {file_name} -r"/>
+
+    <!-- run single_file template tasks -->
+    <Task ID="import_task_single_file_download_extract_modpack" Command="import_task" RepoUrlPath="Task_templates/Generic/single_file_download_extract_modpack.xml"/>
+    <Task ID="import_task_single_file_compare_file" Command="import_task" RepoUrlPath="Task_templates/Generic/single_file_compare_file.xml"/>
+    <Task ID="import_task_single_file_copy_source" Command="import_task" RepoUrlPath="Task_templates/Generic/single_file_copy_source.xml"/>
+    <Task ID="import_task_single_file_create_package" Command="import_task" RepoUrlPath="Task_templates/Generic/single_file_create_package.xml"/>
+
+    <Task ID="import_task_single_file_upload" Command="import_task" RepoUrlPath="Task_templates/Generic/single_file_upload.xml"/>
+  </TaskDefinitions>
+</AutomationSequence>

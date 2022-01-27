@@ -462,6 +462,7 @@
   <AutomationSequence UID="ylwrbbt0bs859pa2" packageName="Sounds_CrewVoices_Bloggers_BB21_Yusha" path="SoundMods/WG/Sounds_CrewVoices_Bloggers_BB21_Yusha.xml"/>
 
   <AutomationSequence UID="eojespwjhjwplsic" packageName="Sounds_CrewVoices_GER_CompanyOfHeroes" path="SoundMods/Crew/Sounds_CrewVoices_GER_CompanyOfHeroes.xml"/>
+  <AutomationSequence UID="6i49wen878exczxx" packageName="Sounds_CrewVoices_GER_dieZwei" path="SoundMods/Crew/Sounds_CrewVoices_GER_dieZwei.xml"/>
 
   <AutomationSequence UID="lc9q6q6m1kl6dukc" packageName="Sounds_Engines_WarMod" path="SoundMods/Engines/Sounds_Engines_WarMod.xml" />
   <AutomationSequence UID="tq4dhn2b8t8k80pc" packageName="Sounds_Guns_WarMod" path="SoundMods/Guns/Sounds_Guns_WarMod.xml" />
