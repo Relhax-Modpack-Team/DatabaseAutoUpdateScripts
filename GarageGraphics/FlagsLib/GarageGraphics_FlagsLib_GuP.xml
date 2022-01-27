@@ -6,11 +6,26 @@
 
   <!-- Specify the tasks to run -->
   <TaskDefinitions>
-    <!-- run base set of tasks for download GuP source files -->
-    <Task ID="import_GuP_Start" Command="import_task" RepoUrlPath="Task_templates/GarageGraphics/GarageGraphics_GuP.xml"/>
+    <!-- create work dirs and macros -->
+    <Task ID="import_createWD" Command="import_task" RepoUrlPath="Task_templates/create_workDirs_macros.xml"/>
+
+    <!-- Create macro to be used later for updating this package's version (used for imported task update_package_version_from_wgmods.xml) -->
+    <Task ID="create_package_to_update_macro" Command="macro_create" MacroName="target_package_uid" MacroValue="this"/>
+
+    <!-- Get the download url for this package (wgmods) -->
+    <Task ID="get_download_url" Command="retrieve_package_property" PropertyName="DevURLList" TargetPackageUID="{target_package_uid}" MacroSaveName="download_url" PropertyIndex="1"/>
+
+    <!-- dev url to use for the macro_substring_browser task (imported task update_package_version_from_wgmods.xml) -->
+    <Task ID="create_package_url_macro" Command="macro_create" MacroName="package_url" MacroValue="{download_url}"/>
+
+    <!-- Download the source from wgmods. It will be a res_mods -->
+    <Task ID="download_source" Command="download_browser" Url="{download_url}" DestinationPath="{working_folder_source}\{packageName}.rar" HtmlPath="{wgmods_xpath}" WaitTimeMs="500" WaitCounts="6" BrowserHeight="0" BrowserWidth="0"/>
+
+    <!-- Download modpack package. It will be a wotmod created by us -->
+    <Task ID="download_modpack" Command="package_download" FilePath="{working_folder_modpack}\{packageName}.zip"/>
 
     <!-- extract FlagsLib.swf from source -->
-    <Task ID="extract_source" Command="shell_exec" Filename="7z.exe" Wd="{working_folder_source}" Cmd="e {packageName}.zip -o&quot;{working_folder_package}\res_mods\versiondir\gui\flash&quot; FlagsLib.swf -r"/>
+    <Task ID="extract_source" Command="shell_exec" Filename="7z.exe" Wd="{working_folder_source}" Cmd="e {packageName}.rar -o&quot;{working_folder_package}\res_mods\versiondir\gui\flash&quot; FlagsLib.swf -r"/>
 
     <!-- extract the modpack package -->
     <Task ID="extract_modpack" Command="shell_exec" Filename="7z.exe" Wd="{working_folder_modpack}" Cmd="x {packageName}.zip"/>
