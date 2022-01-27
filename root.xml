@@ -475,6 +475,9 @@
   <AutomationSequence UID="3cr2ulf20qmfkfs7" packageName="Sounds_CrewVoices_ENG_Basic_Sabaton" path="SoundMods/WG/Sounds_CrewVoices_ENG_Basic_Sabaton.xml"/>
 
   <AutomationSequence UID="lc9q6q6m1kl6dukc" packageName="Sounds_Engines_WarMod" path="SoundMods/Engines/Sounds_Engines_WarMod.xml" />
+
+  <AutomationSequence UID="452eyztnmg7uk2p0" packageName="Sounds_Extras_BetterTimer" path="SoundMods/Sounds_Extras_BetterTimer.xml"/>
+
   <AutomationSequence UID="tq4dhn2b8t8k80pc" packageName="Sounds_Guns_WarMod" path="SoundMods/Guns/Sounds_Guns_WarMod.xml" />
   <!-- Category Sound Mods END   -->
 

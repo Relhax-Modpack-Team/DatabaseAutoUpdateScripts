@@ -2,7 +2,7 @@
 <AutomationSequence documentVersion="1.0">
   <!-- Specify macros here -->
   <Macros>
-    <Macro Name="package_folder_path" Value="TODO"/>
+    <Macro Name="package_folder_path" Value="cel_21_en"/>
   </Macros>
 
   <!-- Specify the tasks to run -->
