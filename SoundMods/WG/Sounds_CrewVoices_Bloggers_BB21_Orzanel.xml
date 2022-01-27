@@ -2,12 +2,12 @@
 <AutomationSequence documentVersion="1.0">
   <!-- Specify macros here -->
   <Macros>
-    <Macro Name="package_folder_path" Value="Yusha"/>
+    <Macro Name="package_folder_path" Value="bloggers\BB21_Orzanel"/>
   </Macros>
 
   <!-- Specify the tasks to run -->
   <TaskDefinitions>
     <!-- run main blogger voice mod task -->
-    <Task ID="import_macro_create_tasks" Command="import_task" RepoUrlPath="Task_templates/SoundMods/Sounds_CrewVoices_Bloggers.xml"/>
+    <Task ID="import_macro_create_tasks" Command="import_task" RepoUrlPath="Task_templates/SoundMods/Sounds_CrewVoices_WG.xml"/>
   </TaskDefinitions>
 </AutomationSequence>

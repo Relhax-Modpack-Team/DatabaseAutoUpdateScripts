@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <AutomationSequence documentVersion="1.0">
-<!-- Sounds_CrewVoices_Bloggers.xml
+<!-- Sounds_CrewVoices_WG.xml
     Author:  Willster419
     Created: 2021-12-05
     This sequence template contains the entire process for updating all blogger voice files
@@ -20,12 +20,9 @@
 
   <!-- Extract the source (game) sound files to the package directory -->
   <Task ID="extract_modpack" Command="shell_exec" Filename="7z.exe" Wd="{working_folder_modpack}"
-    Cmd="e {clientPath}\res\packages\audioww-part1.pkg -o&quot;{working_folder_package}\res_mods\versiondir\audioww&quot; audioww\bloggers\{package_folder_path}"/>
+    Cmd="e {clientPath}\res\packages\audioww-part1.pkg -o&quot;{working_folder_package}\res_mods\versiondir\audioww\&quot; audioww\{package_folder_path}\*"/>
   <Task ID="extract_modpack" Command="shell_exec" Filename="7z.exe" Wd="{working_folder_modpack}"
-    Cmd="e {clientPath}\res\packages\audioww-part2.pkg -o&quot;{working_folder_package}\res_mods\versiondir\audioww&quot; audioww\bloggers\{package_folder_path}"/>
-
-  <!-- Delete the extra folder that gets created -->
-  <Task ID="delete_extra_directory" Command="directory_delete" DirectoryPath="{working_folder_package}\res_mods\versiondir\audioww\{package_folder_path}" SearchPattern="*" Recursive="True" IncludeRootInSearch="True"/>
+    Cmd="e {clientPath}\res\packages\audioww-part2.pkg -o&quot;{working_folder_package}\res_mods\versiondir\audioww\&quot; audioww\{package_folder_path}\*"/>
 
   <!-- Compare the two files -->
   <Task ID="compare_start" Command="compare_start"/>
@@ -40,6 +37,7 @@
     FileA="{working_folder_package}\res_mods\versiondir\audioww\voiceover.bnk"
     FileB="{working_folder_modpack}\res_mods\versiondir\audioww\voiceover.bnk"/>
 
+  <!-- End comparison -->
   <Task ID="compare_end" Command="compare_end"/>
 
   <!-- Upload the changes to the server -->
