@@ -480,6 +480,8 @@
   <AutomationSequence UID="3cr2ulf20qmfkfs7" packageName="Sounds_CrewVoices_ENG_Basic_Sabaton" path="SoundMods/WG/Sounds_CrewVoices_ENG_Basic_Sabaton.xml"/>
   <AutomationSequence UID="019rn6wyeq3vguig" packageName="Sounds_CrewVoices_ENG_Basic_MightyJingles" path="SoundMods/Crew/Sounds_CrewVoices_ENG_Basic_MightyJingles.xml"/>
 
+  <AutomationSequence UID="tmgrvr2fa4y2ujpv" packageName="Sounds_CrewVoices_ITA_Basic_Buffon" path="SoundMods/WG/Sounds_CrewVoices_ITA_Basic_Buffon.xml"/>
+
   <AutomationSequence UID="lc9q6q6m1kl6dukc" packageName="Sounds_Engines_WarMod" path="SoundMods/Engines/Sounds_Engines_WarMod.xml" />
 
   <AutomationSequence UID="452eyztnmg7uk2p0" packageName="Sounds_Extras_BetterTimer" path="SoundMods/Sounds_Extras_BetterTimer.xml"/>
