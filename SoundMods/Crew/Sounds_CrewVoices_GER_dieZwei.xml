@@ -2,7 +2,7 @@
 <AutomationSequence documentVersion="1.0">
   <Macros>
     <Macro Name="file_name" Value="voiceover.bnk"/>
-    <Macro Name="folder_path" Value="res_mods\versiondir\gui\soundModes"/>
+    <Macro Name="folder_path" Value="res_mods\versiondir\audioww"/>
   </Macros>
   <TaskDefinitions>
     <!-- import task to create work dirs and macros -->
