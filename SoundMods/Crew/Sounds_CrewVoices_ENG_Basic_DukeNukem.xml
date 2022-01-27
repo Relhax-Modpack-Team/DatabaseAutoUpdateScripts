@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <AutomationSequence documentVersion="1.0">
   <Macros>
-    <Macro Name="file_name" Value="oldskool.sound.crews.bud.spencer.wotmod"/>
+    <Macro Name="file_name" Value="oldskool.sound.crews.duke.eng.wotmod"/>
     <Macro Name="folder_path" Value="mods\versiondir"/>
   </Macros>
   <TaskDefinitions>
@@ -9,7 +9,7 @@
     <Task ID="import_macro_create_tasks" Command="import_task" RepoUrlPath="Task_templates/create_workDirs_macros.xml"/>
 
     <!-- now we can actually download the source -->
-    <Task ID="download_mod_source" Command="download_static" Url="{promod_mirror_1}/soundmods/crews/budspencer.zip" DestinationPath="{working_folder_source}\{packageName}.zip"/>
+    <Task ID="download_mod_source" Command="download_static" Url="{promod_mirror_1}/soundmods/crews/duke_en.zip" DestinationPath="{working_folder_source}\{packageName}.zip"/>
 
     <!-- extract wotmod from source and modpack. note that the file_path macro has the slash to connect to file_name -->
     <Task ID="extract_source" Command="shell_exec" Filename="7z.exe" Wd="{working_folder_source}" Cmd="e {packageName}.zip {file_name} -r"/>
