@@ -467,12 +467,18 @@
   <AutomationSequence UID="820ljtm2b3yfwl0p" packageName="Sounds_CrewVoices_GER_Siegfried" path="SoundMods/Crew/Sounds_CrewVoices_GER_Siegfried.xml"/>
   <AutomationSequence UID="qaya4hpt1k0moft9" packageName="Sounds_CrewVoices_GER_SpencerHill" path="SoundMods/Crew/Sounds_CrewVoices_GER_SpencerHill.xml"/>
 
-  <!-- <AutomationSequence UID="h0mztmlcnz7a2c4u" packageName="Sounds_CrewVoices_ENG_Basic_Chuck" path="SoundMods/WG/Sounds_CrewVoices_ENG_Basic_Chuck.xml"/> -->
+  <AutomationSequence UID="534muim7qd86poiw" packageName="Sounds_CrewVoices_ENG_Basic_MontyPython" path="SoundMods/Crew/Sounds_CrewVoices_ENG_Basic_MontyPython.xml"/>
+  <AutomationSequence UID="isb13it8p90op0pw" packageName="Sounds_CrewVoices_ENG_Basic_Minions" path="SoundMods/Crew/Sounds_CrewVoices_ENG_Basic_Minions.xml"/>
+  <AutomationSequence UID="pwzo2lpsjpuv05e8" packageName="Sounds_CrewVoices_ENG_Basic_SteelFoxes" path="SoundMods/Crew/Sounds_CrewVoices_ENG_Basic_SteelFoxes.xml"/>
+  <AutomationSequence UID="h0mztmlcnz7a2c4u" packageName="Sounds_CrewVoices_ENG_Basic_Chuck" path="SoundMods/WG/Sounds_CrewVoices_ENG_Basic_Chuck.xml"/>
   <AutomationSequence UID="8bawzcbajd3igr56" packageName="Sounds_CrewVoices_ENG_Basic_DukeNukem" path="SoundMods/Crew/Sounds_CrewVoices_ENG_Basic_DukeNukem.xml"/>
   <AutomationSequence UID="7js7vqq4bmv3uz9x" packageName="Sounds_CrewVoices_ENG_Basic_giJoeCobra" path="SoundMods/WG/Sounds_CrewVoices_ENG_Basic_giJoeCobra.xml"/>
   <AutomationSequence UID="va8534zwjodoldwt" packageName="Sounds_CrewVoices_ENG_Basic_giJoeDuke" path="SoundMods/WG/Sounds_CrewVoices_ENG_Basic_giJoeDuke.xml"/>
+  <AutomationSequence UID="i98g7u0p37537pb1" packageName="Sounds_CrewVoices_ENG_Basic_Julie" path="SoundMods/Crew/Sounds_CrewVoices_ENG_Basic_Julie.xml"/>
+  <AutomationSequence UID="h8soo61gk186w38p" packageName="Sounds_CrewVoices_ENG_Basic_Romanians" path="SoundMods/Crew/Sounds_CrewVoices_ENG_Basic_Romanians.xml"/>
   <AutomationSequence UID="u1akssnz7kgi1pjz" packageName="Sounds_CrewVoices_ENG_Basic_Offspring" path="SoundMods/WG/Sounds_CrewVoices_ENG_Basic_Offspring.xml"/>
   <AutomationSequence UID="3cr2ulf20qmfkfs7" packageName="Sounds_CrewVoices_ENG_Basic_Sabaton" path="SoundMods/WG/Sounds_CrewVoices_ENG_Basic_Sabaton.xml"/>
+  <AutomationSequence UID="019rn6wyeq3vguig" packageName="Sounds_CrewVoices_ENG_Basic_MightyJingles" path="SoundMods/Crew/Sounds_CrewVoices_ENG_Basic_MightyJingles.xml"/>
 
   <AutomationSequence UID="lc9q6q6m1kl6dukc" packageName="Sounds_Engines_WarMod" path="SoundMods/Engines/Sounds_Engines_WarMod.xml" />
 

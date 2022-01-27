@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<AutomationSequence documentVersion="1.0">
+<!-- Sounds_CrewVoices_niserius.xml
+    Author:  Willster419
+    Created: 2022-01-27
+    This sequence template contains the entire process for updating all niserius voice files
+
+    Required macros:
+    {file_name}            - The name of the wotmod
+    {folder_path}          - The path to copy the wotmod to
+    {xpath}                - The xpath to use on his website to get the mediafire download url
+  -->
+  <TaskDefinitions>
+    <!-- import task to create work dirs and macros -->
+    <Task ID="import_macro_create_tasks" Command="import_task" RepoUrlPath="Task_templates/create_workDirs_macros.xml"/>
+
+    <!-- get download url -->
+    <Task ID="get_download_url" Command="retrieve_package_property" PropertyName="DevURLList" TargetPackageUID="this" MacroSaveName="package_url" PropertyIndex="1"/>
+
+    <!-- download the source package -->
+    <Task ID="get_mediafire_url" Command="macro_substring_browser" MacroName="mediafire_file_dl" Length="-1" StartIndex="0" Url="{package_url}"
+      HtmlPath="{xpath}" BrowserEngine="WebBrowser" WaitTimeMs="500" WaitCounts="6" BrowserHeight="0" BrowserWidth="0"/>
+    <Task ID="download_mod_source" Command="download_html" Url="{mediafire_file_dl}" HtmlPath="{mediafire_xpath_download_page}" DestinationPath="{working_folder_source}\{file_name}"/>
+
+    <!-- run single_file template tasks -->
+    <Task ID="import_task_single_file_download_extract_modpack" Command="import_task" RepoUrlPath="Task_templates/Generic/single_file_download_extract_modpack.xml"/>
+    <!-- <Task ID="import_task_single_file_compare_file" Command="import_task" RepoUrlPath="Task_templates/Generic/single_file_compare_file.xml"/> -->
+    <Task ID="import_task_single_file_copy_source" Command="import_task" RepoUrlPath="Task_templates/Generic/single_file_copy_source.xml"/>
+    <Task ID="import_task_single_file_create_package" Command="import_task" RepoUrlPath="Task_templates/Generic/single_file_create_package.xml"/>
+
+    <Task ID="import_task_single_file_upload" Command="import_task" RepoUrlPath="Task_templates/Generic/single_file_upload.xml"/>
+  </TaskDefinitions>
+</AutomationSequence>

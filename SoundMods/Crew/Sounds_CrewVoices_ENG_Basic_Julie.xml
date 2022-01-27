@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<AutomationSequence documentVersion="1.0">
+  <Macros>
+    <Macro Name="file_name" Value="Julie_voice.wotmod"/>
+    <Macro Name="folder_path" Value="mods\versiondir"/>
+    <Macro Name="xpath" Value="//a[contains(@href, 'Julie')]//@href"/>
+  </Macros>
+  <TaskDefinitions>
+    <!-- import task to run niserius sound mods -->
+    <Task ID="import_niserius" Command="import_task" RepoUrlPath="Task_templates/SoundMods/Sounds_CrewVoices_niserius.xml"/>
+  </TaskDefinitions>
+</AutomationSequence>
