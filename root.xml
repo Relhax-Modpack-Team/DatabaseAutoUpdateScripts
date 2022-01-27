@@ -463,6 +463,9 @@
 
   <AutomationSequence UID="eojespwjhjwplsic" packageName="Sounds_CrewVoices_GER_CompanyOfHeroes" path="SoundMods/Crew/Sounds_CrewVoices_GER_CompanyOfHeroes.xml"/>
   <AutomationSequence UID="6i49wen878exczxx" packageName="Sounds_CrewVoices_GER_dieZwei" path="SoundMods/Crew/Sounds_CrewVoices_GER_dieZwei.xml"/>
+  <AutomationSequence UID="xenx4kldvzvtzkim" packageName="Sounds_CrewVoices_GER_DukeNukem" path="SoundMods/Crew/Sounds_CrewVoices_GER_DukeNukem.xml"/>
+  <AutomationSequence UID="820ljtm2b3yfwl0p" packageName="Sounds_CrewVoices_GER_Siegfried" path="SoundMods/Crew/Sounds_CrewVoices_GER_Siegfried.xml"/>
+  <AutomationSequence UID="qaya4hpt1k0moft9" packageName="Sounds_CrewVoices_GER_SpencerHill" path="SoundMods/Crew/Sounds_CrewVoices_GER_SpencerHill.xml"/>
 
   <AutomationSequence UID="lc9q6q6m1kl6dukc" packageName="Sounds_Engines_WarMod" path="SoundMods/Engines/Sounds_Engines_WarMod.xml" />
   <AutomationSequence UID="tq4dhn2b8t8k80pc" packageName="Sounds_Guns_WarMod" path="SoundMods/Guns/Sounds_Guns_WarMod.xml" />
