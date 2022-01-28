@@ -20,8 +20,8 @@
     <!-- Then you get something like this: -->
     <!-- https://drive.google.com/uc?id=1ZNPXp2QhO5NjwAV50ges-hedSSgYOg1u&export=download -->
     <!-- now we need to get the new href again and create ANOTHER macro -->
-    <Task ID="get_google_drive_url_4" Command="macro_substring_browser" MacroName="google_drive_link_direct" Length="-1" StartIndex="0" Url="{google_drive_download_part}"
-      HtmlPath="//a[contains(@id, 'uc-download-link') and contains(@href, '{google_drive_id_0}')]//@href" BrowserEngine="WebBrowser" WaitTimeMs="500" WaitCounts="3" BrowserHeight="0" BrowserWidth="0"/>
+    <Task ID="get_google_drive_url_4" Command="macro_substring_html" MacroName="google_drive_link_direct" Length="-1" StartIndex="0" Url="{google_drive_download_part}"
+      HtmlPath="//a[contains(@id, 'uc-download-link') and contains(@href, '{google_drive_id_0}')]//@href"/>
     <Task ID="get_google_drive_url_5" Command="macro_create" MacroName="google_drive_download_url" MacroValue="https://drive.google.com{google_drive_link_direct}"/>
     <!-- https://drive.google.com/uc?export=download&confirm=_nvs&id=1ZNPXp2QhO5NjwAV50ges-hedSSgYOg1u -->
   </TaskDefinitions>
