@@ -20,7 +20,7 @@
     <Task ID="extract_modpack" Command="shell_exec" Filename="7z.exe" Wd="{working_folder_modpack}" Cmd="e {packageName}.zip *EMMC*.wotmod -r"/>
 
     <!-- get the name of the modpack one -->
-    <Task ID="get_wotmod_name_1" Command="directory_search" DirectoryPath="{working_folder_source}" SearchPattern="*EMMC*.wotmod" Recursive="False" MacroPrefix="filename_results"/>
+    <Task ID="get_wotmod_name_1" Command="directory_search" DirectoryPath="{working_folder_modpack}" SearchPattern="*EMMC*.wotmod" Recursive="False" MacroPrefix="filename_results"/>
     <!-- we can set the length and startIndex to -1 and 0 respectivly to effectivly get the entire string -->
     <Task ID="get_wotmod_name_2" Command="macro_substring_filename" MacroName="file_name_modpack" Length="-1" StartIndex="0" FilePath="{filename_results_0}"/>
 
