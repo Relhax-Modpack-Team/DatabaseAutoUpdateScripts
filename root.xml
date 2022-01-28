@@ -492,11 +492,11 @@
   <AutomationSequence UID="by4pnina7sywco5o" packageName="Sounds_Guns_Ed76na" path="SoundMods/Guns/Sounds_Guns_Ed76na.xml"/>
 
   <AutomationSequence UID="4rwipuyxneq0z2zx" packageName="Sounds_Music_EpicIII" path="SoundMods/Music/Sounds_Music_EpicIII.xml"/>
-  <AutomationSequence UID="oh011por1uo4duz8" packageName="Sounds_Music_FastFurious" path="SoundMods/Music/Sounds_Music_FastFurious.xml"/>
+  <!-- <AutomationSequence UID="oh011por1uo4duz8" packageName="Sounds_Music_FastFurious" path="SoundMods/Music/Sounds_Music_FastFurious.xml"/> -->
   <AutomationSequence UID="okqjxw0igqcpajw9" packageName="Sounds_Music_GuP" path="SoundMods/Music/Sounds_Music_GuP.xml"/>
-  <AutomationSequence UID="nzu79i2ocvs7qxsh" packageName="Sounds_Music_NewRock" path="SoundMods/Music/Sounds_Music_NewRock.xml"/>
-  <AutomationSequence UID="z6dphyogixrpavha" packageName="Sounds_Music_StarWars" path="SoundMods/Music/Sounds_Music_StarWars.xml"/>
-  <AutomationSequence UID="8au29sqcv6btoawk" packageName="Sounds_Music_TSFH" path="SoundMods/Music/Sounds_Music_TSFH.xml"/>
+  <!-- <AutomationSequence UID="nzu79i2ocvs7qxsh" packageName="Sounds_Music_NewRock" path="SoundMods/Music/Sounds_Music_NewRock.xml"/> -->
+  <!-- <AutomationSequence UID="z6dphyogixrpavha" packageName="Sounds_Music_StarWars" path="SoundMods/Music/Sounds_Music_StarWars.xml"/> -->
+  <!-- <AutomationSequence UID="8au29sqcv6btoawk" packageName="Sounds_Music_TSFH" path="SoundMods/Music/Sounds_Music_TSFH.xml"/> -->
   <!-- Category Sound Mods END   -->
 
   <!-- Category 6thSense START -->
