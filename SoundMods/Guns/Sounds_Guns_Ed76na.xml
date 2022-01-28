@@ -2,6 +2,8 @@
 <AutomationSequence documentVersion="1.0">
   <Macros>
     <Macro Name="extract_dir" Value="extracted"/>
+    <Macro Name="target_package_uid" Value="this"/>
+    <Macro Name="package_url" Value="{download_url}"/>
   </Macros>
   <TaskDefinitions>
     <!-- import task to create work dirs and macros -->
@@ -47,6 +49,9 @@
       FileA="{working_folder_source}\{extract_dir}\mods\configs\PYmods\SoundEventInjector\configs\SicFunzler_Shot_effects.json"
       FileB="{working_folder_modpack}\mods\configs\PYmods\SoundEventInjector\configs\SicFunzler_Shot_effects.json"/>
     <Task ID="compare_end" Command="compare_end"/>
+
+    <!-- update version field with version name/number from wgmods -->
+    <Task ID="import_task_update_package_version_from_wgmods" Command="import_task" RepoUrlPath="Task_templates/update_package_version_from_wgmods.xml"/>
 
     <!-- copy results to package directory -->
     <Task ID="copy_wotmod_SicFunzler_Gun_sounds" Command="file_copy"
