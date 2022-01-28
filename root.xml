@@ -484,10 +484,12 @@
   <AutomationSequence UID="2l63akvtilnd0gm8" packageName="Sounds_CrewVoices_Chinese919" path="SoundMods/Crew/Sounds_CrewVoices_Chinese919.xml"/>
 
   <AutomationSequence UID="lc9q6q6m1kl6dukc" packageName="Sounds_Engines_WarMod" path="SoundMods/Engines/Sounds_Engines_WarMod.xml" />
+  <AutomationSequence UID="5dmxfmdt2b0lnhm2" packageName="Sounds_Engines_Ed76na" path="SoundMods/Engines/Sounds_Engines_Ed76na.xml"/>
 
   <AutomationSequence UID="452eyztnmg7uk2p0" packageName="Sounds_Extras_BetterTimer" path="SoundMods/Sounds_Extras_BetterTimer.xml"/>
 
-  <AutomationSequence UID="tq4dhn2b8t8k80pc" packageName="Sounds_Guns_WarMod" path="SoundMods/Guns/Sounds_Guns_WarMod.xml" />
+  <AutomationSequence UID="tq4dhn2b8t8k80pc" packageName="Sounds_Guns_WarMod" path="SoundMods/Guns/Sounds_Guns_WarMod.xml"/>
+  <AutomationSequence UID="by4pnina7sywco5o" packageName="Sounds_Guns_Ed76na" path="SoundMods/Guns/Sounds_Guns_Ed76na.xml"/>
 
   <AutomationSequence UID="4rwipuyxneq0z2zx" packageName="Sounds_Music_EpicIII" path="SoundMods/Music/Sounds_Music_EpicIII.xml"/>
   <AutomationSequence UID="oh011por1uo4duz8" packageName="Sounds_Music_FastFurious" path="SoundMods/Music/Sounds_Music_FastFurious.xml"/>

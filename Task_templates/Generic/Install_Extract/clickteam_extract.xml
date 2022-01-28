@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<AutomationSequence documentVersion="1.0">
+  <!-- clickteam_extract.xml
+    Author:  Willster419
+    Created: 2022-01-27
+    This sequence template does the following tasks:
+     - downloads the clickteam extracter from github
+     - extracts the exe and required dlls
+     - runs the unpacker utility, extracting to a specific directory
+    Required macros:
+    {working_folder_source}        - The working folder of the source zip file and extracation processes
+    {clickteam_exe}                - The macro that represents the complete path to the clickteam setup exe to extract
+    {extract_dir}                  - The directory to extract the installer to
+  -->
+  <TaskDefinitions>
+    <!-- download the inno setup extracter from our github -->
+    <Task ID="download_cicdec" Command="download_static" Url="https://github.com/Relhax-Modpack-Team/WoTTools/raw/master/Clickteam%20Installer%20Unpacker/cicdec.zip" DestinationPath="{working_folder_source}\cicdec.zip"/>
+
+    <!-- extract the clickteam setup executable -->
+    <Task ID="extract_cicdec_exe" Command="shell_exec" Filename="7z.exe" Wd="{working_folder_source}" Cmd="e cicdec.zip *.exe *.dll"/>
+
+    <!-- extract the clickteam setup executable -->
+    <Task ID="extract_files_inside_inno_exe" Command="shell_exec" Filename="{working_folder_source}\cicdec.exe" Wd="{working_folder_source}" Cmd="&quot;{clickteam_exe}&quot; {extract_dir}"/>
+  </TaskDefinitions>
+</AutomationSequence>
