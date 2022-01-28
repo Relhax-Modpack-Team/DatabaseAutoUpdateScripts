@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<AutomationSequence documentVersion="1.0">
+<!-- get_google_drive_dl_with_virus_notice.xml
+    Author:  Willster419
+    Created: 2022-01-27
+    This sequence template contains the entire process for getting a google drive direct link when the download is larger
+    then google can scan for viruses.
+
+    Required macros:
+    {google_drive_link}            - The url to the google drive folder, with the 'open' style url
+
+    Output macros:
+    {google_drive_download_url}    - The download url to use to download the file directly
+  -->
+  <TaskDefinitions>
+    <!-- now we need to string split to get just the file id -->
+    <!-- https://drive.google.com/open?id=1ZNPXp2QhO5NjwAV50ges-hedSSgYOg1u -->
+    <Task ID="get_google_drive_url_2" Command="macro_string_split_macro" MacroName="google_drive_id_0" Index="0" SplitCharacters="https://drive.google.com/open?id=" InputText="{google_drive_link}"/>
+    <Task ID="get_google_drive_url_3" Command="macro_create" MacroName="google_drive_download_part" MacroValue="https://drive.google.com/uc?id={google_drive_id_0}&amp;export=download"/>
+    <!-- Then you get something like this: -->
+    <!-- https://drive.google.com/uc?id=1ZNPXp2QhO5NjwAV50ges-hedSSgYOg1u&export=download -->
+    <!-- now we need to get the new href again and create ANOTHER macro -->
+    <Task ID="get_google_drive_url_4" Command="macro_substring_browser" MacroName="google_drive_link_direct" Length="-1" StartIndex="0" Url="{google_drive_download_part}"
+      HtmlPath="//a[contains(@id, 'uc-download-link') and contains(@href, '{google_drive_id_0}')]//@href" BrowserEngine="WebBrowser" WaitTimeMs="500" WaitCounts="3" BrowserHeight="0" BrowserWidth="0"/>
+    <Task ID="get_google_drive_url_5" Command="macro_create" MacroName="google_drive_download_url" MacroValue="https://drive.google.com{google_drive_link_direct}"/>
+    <!-- https://drive.google.com/uc?export=download&confirm=_nvs&id=1ZNPXp2QhO5NjwAV50ges-hedSSgYOg1u -->
+  </TaskDefinitions>
+</AutomationSequence>

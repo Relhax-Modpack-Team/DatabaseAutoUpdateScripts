@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<AutomationSequence documentVersion="1.0">
+  <Macros>
+    <Macro Name="file_name" Value="*.bnk"/>
+    <Macro Name="folder_path" Value="res_mods\versiondir\gui\soundModes"/>
+    <Macro Name="target_package_uid" Value="this"/>
+    <Macro Name="package_url" Value="{download_url}"/>
+  </Macros>
+  <TaskDefinitions>
+    <!-- import tasks -->
+    <Task ID="import_macro_create_tasks" Command="import_task" RepoUrlPath="Task_templates/create_workDirs_macros.xml"/>
+
+    <!-- get download url -->
+    <Task ID="import_macro_getdlurl" Command="import_task" RepoUrlPath="Task_templates/getDownloadUrl_THISindex0.xml"/>
+
+    <!-- download the source package -->
+    <Task ID="download_mod_source" Command="download_browser" Url="{download_url}" HtmlPath="{wgmods_xpath}" DestinationPath="{working_folder_source}\{packageName}.zip"
+      BrowserEngine="WebBrowser" WaitTimeMs="500" WaitCounts="6" BrowserHeight="0" BrowserWidth="0"/>
+
+    <!-- extract wotmod from source and modpack. note that the file_path macro has the slash to connect to file_name -->
+    <Task ID="extract_source" Command="shell_exec" Filename="7z.exe" Wd="{working_folder_source}" Cmd="e -o&quot;{working_folder_package}\res_mods\versiondir\audioww&quot; {packageName}.zip {file_name} -r"/>
+
+    <!-- run single_file template tasks -->
+    <Task ID="import_task_single_file_download_extract_modpack" Command="import_task" RepoUrlPath="Task_templates/Generic/single_file_download_extract_modpack.xml"/>
+
+    <!-- compare the directories for bnk files. should be the same, error if not -->
+    <Task ID="compare_banks" Command="directory_compare" SearchPattern="*.bnk" Recursive="False"
+      DirectoryComparePathA="{working_folder_modpack}"
+      DirectoryComparePathB="{working_folder_package}\res_mods\versiondir\audioww"/>
+    <Task ID="compare_end" Command="compare_end"/>
+
+    <!-- update version field with version name/number from wgmods -->
+    <Task ID="import_task_update_package_version_from_wgmods" Command="import_task" RepoUrlPath="Task_templates/update_package_version_from_wgmods.xml"/>
+
+    <Task ID="import_task_single_file_create_package" Command="import_task" RepoUrlPath="Task_templates/Generic/single_file_create_package.xml"/>
+
+    <Task ID="import_task_single_file_upload" Command="import_task" RepoUrlPath="Task_templates/Generic/single_file_upload.xml"/>
+  </TaskDefinitions>
+</AutomationSequence>
