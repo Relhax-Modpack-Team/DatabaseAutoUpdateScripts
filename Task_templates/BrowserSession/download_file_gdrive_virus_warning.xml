@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<AutomationSequence documentVersion="1.0">
+  <!-- download_file_gdrive_virus_warning.xml
+    Author:  Willster419
+    Created: 2022-01-27
+    This sequence template contains the browser session process for getting a google drive direct link when the download is larger
+    then google can scan for viruses.
+
+    Required macros:
+    {google_drive_link}            - The url to the google drive folder, with the 'open' style url
+    {google_drive_link_prefix}     - The prefix used for the given link to the file (ex. https://drive.google.com/open?id=)
+    {gdrive_dl_filepath}           - The relative or absolute filepath to use for the download
+  -->
+  <TaskDefinitions>
+    <!-- now we need to string split to get just the file id -->
+    <!-- https://drive.google.com/open?id=1ZNPXp2QhO5NjwAV50ges-hedSSgYOg1u -->
+    <Task ID="get_google_drive_url_2" Command="macro_string_split_macro" MacroName="google_drive_id_0" Index="0" SplitCharacters="{google_drive_link_prefix}" InputText="{google_drive_link}"/>
+    <Task ID="get_google_drive_url_3" Command="macro_create" MacroName="google_drive_download_part" MacroValue="https://drive.google.com/uc?id={google_drive_id_0}&amp;export=download"/>
+
+    <!-- Then you get something like this: -->
+    <!-- https://drive.google.com/uc?id=1ZNPXp2QhO5NjwAV50ges-hedSSgYOg1u&export=download -->
+    <!-- now we need to create a browser session to get the new href again and create ANOTHER macro -->
+    <Task ID="browser_session_start" Command="browser_session_start" Browser="WebClient"/>
+
+    <!-- set browser headers -->
+    <Task ID="import_task_set_headers_embedded_ie" Command="import_task" RepoUrlPath="Task_templates/BrowserSession/set_headers_embedded_ie.xml"/>
+
+    <!-- navigate to the given export download url. it will give us some cookies and have a href definition in the download button that we need -->
+    <Task ID="get_gdrive_download" Command="browser_session_get_request" ParseResult="True" HtmlPath="//a[contains(@id, 'uc-download-link') and contains(@href, '{google_drive_id_0}')]//@href"
+      WriteHtmlResult="True" MacroName ="google_drive_link_direct" Url="{google_drive_download_part}"/>
+    <Task ID="get_google_drive_url_5" Command="macro_create" MacroName="google_drive_download_url" MacroValue="https://drive.google.com{google_drive_link_direct}"/>
+
+    <!-- now you have something like this, an export=download with the confirm cookie and in the GET request now we can download the file -->
+    <!-- https://drive.google.com/uc?export=download&confirm=_nvs&id=1ZNPXp2QhO5NjwAV50ges-hedSSgYOg1u -->
+    <Task ID="get_google_drive_download_file" Command="browser_session_download_file" Url="{google_drive_download_url}" DestinationPath="{gdrive_dl_filepath}"/>
+  </TaskDefinitions>
+</AutomationSequence>
