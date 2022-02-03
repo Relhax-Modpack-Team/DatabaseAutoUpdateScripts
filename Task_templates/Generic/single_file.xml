@@ -13,7 +13,7 @@
     Required macros:
     {working_folder_modpack}       - The working folder of the modpack zip file and extraction processes
     {working_folder_source}        - The working folder of the source zip file and extracation processes
-    {working_folder_final}         - The working folder of the newly created zip file package for the database
+    {working_folder_package}       - The working folder of the newly created zip file package for the database
     {file_name}                    - The name of the wotmod for BOTH the source and modpack
     {folder_path}                  - The path in the package zip file to create for the file
   -->
