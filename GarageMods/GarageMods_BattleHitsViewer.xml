@@ -13,7 +13,7 @@
     <!-- import task: create work dirs and macros -->
     <Task ID="import_createWorkDirs" Command="import_task" RepoUrlPath="Task_templates/create_workDirs_macros.xml"/>
 
-    <!-- get the MediaFire folder that contains the package we want to download. Note we can set the length and startIndex to -1 and 0 respectivly,
+    <!-- get the json response. Note we can set the length and startIndex to -1 and 0 respectivly,
          and HtmlPath to / to effectivly get the entire string, and the entire root document which in this case is the json response -->
     <Task ID="get_url_relative_path" Command="macro_substring_html" MacroName="json_response" Length="-1" StartIndex="0" Url="https://gitlab.com/api/v4/projects/26506974/releases" HtmlPath="/"/>
 
