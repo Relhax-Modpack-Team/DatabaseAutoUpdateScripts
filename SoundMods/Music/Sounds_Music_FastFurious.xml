@@ -4,6 +4,8 @@
     <Macro Name="file_name" Value="music_interactive.wotmod"/>
     <Macro Name="folder_path" Value="mods\versiondir\audioww"/>
     <Macro Name="package_url" Value="{download_url}"/>
+    <Macro Name="google_drive_link_prefix" Value="https://drive.google.com/open?id="/>
+    <Macro Name="gdrive_dl_filepath" Value="{working_folder_source}\{packageName}.rar"/>
   </Macros>
   <TaskDefinitions>
     <!-- import task to create work dirs and macros -->
@@ -19,10 +21,7 @@
       HtmlPath="{wotsite_xpath}"/>
 
     <!-- import getting google drive download url -->
-    <Task ID="import_get_google_drive_dl_with_virus_notice" Command="import_task" RepoUrlPath="Task_templates/SoundMods/get_google_drive_dl_with_virus_notice.xml"/>
-
-    <!-- now we can actually download the source -->
-    <Task ID="download_mod_source" Command="download_static" Url="{google_drive_download_url}" DestinationPath="{working_folder_source}\{packageName}.rar"/>
+    <Task ID="import_task_download_file_gdrive_virus_warning" Command="import_task" RepoUrlPath="Task_templates/BrowserSession/download_file_gdrive_virus_warning.xml"/>
 
     <!-- extract wotmod from source and modpack. note that the file_path macro has the slash to connect to file_name -->
     <Task ID="extract_source" Command="shell_exec" Filename="7z.exe" Wd="{working_folder_source}" Cmd="e {packageName}.rar {file_name} -r"/>
