@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<AutomationSequence documentVersion="1.0">
+  <!-- set_headers_embedded_ie.xml
+    Author:  Willster419
+    Created: 2022-02-02
+    This sequence template sets the given web browser session's headers to mimic the WebBrowser embedded IE engine (Trident)
+    At the time of this writing, these are the headers used. It assumes that the browser session has already been started
+  -->
+  <TaskDefinitions>
+    <Task ID="set_header_accept" Command="browser_session_set_header" Name="Accept" Value="image/gif, image/jpeg, image/pjpeg, application/x-ms-application, application/xaml+xml, application/x-ms-xbap, */*"/>
+    <Task ID="set_header_language" Command="browser_session_set_header" Name="Accept-Language" Value="en-US"/>
+    <Task ID="set_header_cpu" Command="browser_session_set_header" Name="Ua-Cpu" Value="AMD64"/>
+    <Task ID="set_header_encoding" Command="browser_session_set_header" Name="Accept-Encoding" Value="gzip, deflate"/>
+    <Task ID="set_header_user_agent" Command="browser_session_set_header" Name="User-Agent" Value="Mozilla/5.0 (Windows NT 6.2; Win64; x64; Trident/7.0; rv:11.0) like Gecko"/>
+  </TaskDefinitions>
+</AutomationSequence>

@@ -20,6 +20,7 @@
   <AutomationSequence UID="q18no0oyqapvgiz4" packageName="Dependency_XVM_XC_gunPen" path="Dependencies/XVM/Dependency_XVM_XC_gunPen.xml" />
   <AutomationSequence UID="lhlph8q71wnqdey0" packageName="Dependency_XVM_XC_speed" path="Dependencies/XVM/Dependency_XVM_XC_speed.xml" />
   <AutomationSequence UID="4a7xos55e5uzv2o2" packageName="Dependency_XVM_XC_elevation" path="Dependencies/XVM/Dependency_XVM_XC_elevation.xml" />
+  <AutomationSequence UID="rfcmvsox9b47s7zm" packageName="Dependency_XVM_PY_aiming" path="Dependencies/XVM/PY/Dependency_XVM_PY_aiming.xml"/>
   <!-- Subgroup XVM END -->
 
   <!-- Subgroup GUI API START -->

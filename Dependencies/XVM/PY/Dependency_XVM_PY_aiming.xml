@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<AutomationSequence documentVersion="1.0">
+  <!-- Specify macros here -->
+  <Macros>
+    <Macro Name="file_name" Value="aiming.py"/>
+    <Macro Name="folder_path" Value="{working_folder_package}\res_mods\configs\xvm\py_macro"/>
+    <Macro Name="kr_username" Value="{userfield_1}"/>
+    <Macro Name="kr_password" Value="{userfield_2}"/>
+    <Macro Name="kr_forum_url" Value="{download_url}"/>
+    <Macro Name="kr_attachment_id" Value="153770"/>
+    <Macro Name="kr_dl_filepath" Value="{working_folder_source}\{file_name}"/>
+  </Macros>
+  <TaskDefinitions>
+    <!-- create work dirs and macros -->
+    <Task ID="import_createWD" Command="import_task" RepoUrlPath="Task_templates/create_workDirs_macros.xml"/>
+
+    <!-- get dl-url -->
+    <Task ID="import_getDLUrl" Command="import_task" RepoUrlPath="Task_templates/getDownloadUrl_THISindex0.xml"/>
+
+    <!-- tasks to get the source file -->
+    <Task ID="import_source_download_kr" Command="import_task" RepoUrlPath="Task_templates/BrowserSession/download_attachment_from_KR.xml"/>
+
+    <!-- import tasks for single_file to update the mod -->
+    <Task ID="import_task_single_file_download_extract_modpack" Command="import_task" RepoUrlPath="Task_templates/Generic/single_file_download_extract_modpack.xml"/>
+    <Task ID="import_task_single_file_compare_file" Command="import_task" RepoUrlPath="Task_templates/Generic/single_file_compare_file.xml"/>
+    <Task ID="import_task_single_file_copy_source" Command="import_task" RepoUrlPath="Task_templates/Generic/single_file_copy_source.xml"/>
+    <Task ID="import_task_single_file_create_package" Command="import_task" RepoUrlPath="Task_templates/Generic/single_file_create_package.xml"/>
+    <Task ID="import_task_single_file_upload" Command="import_task" RepoUrlPath="Task_templates/Generic/single_file_upload.xml"/>
+  </TaskDefinitions>
+</AutomationSequence>

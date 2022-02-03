@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<AutomationSequence documentVersion="1.0">
+  <!-- download_attachment_from_KR.xml
+    Author:  Willster419
+    Created: 2022-02-02
+    This sequence template handles a browser session to login and navigate to the KR page with the attachment, then downloads it
+    Required macros:
+    {kr_username}                  - Email associated with the KR account to use for login, set in the automation's user fields
+    {kr_password}                  - Password associated with the KR account to use for login, set in the automation's user fields
+    {kr_forum_url}                 - The page where the attachment is located
+    {kr_attachment_id}             - The attachment id of the file to download
+    {kr_dl_filepath}               - The path and name of the file to download
+  -->
+  <TaskDefinitions>
+    <Task ID="browser_session_start" Command="browser_session_start" Browser="WebClient"/>
+    <!-- set browser headers -->
+    <Task ID="import_task_set_headers_embedded_ie" Command="import_task" RepoUrlPath="Task_templates/BrowserSession/set_headers_embedded_ie.xml"/>
+
+    <!-- navigate to the KR login page -->
+    <Task ID="KR_get_login_page" Command="browser_session_get_request" ParseResult="True" HtmlPath="//input[contains(@type, 'hidden') and contains(@name, 'csrfKey')]//@value"
+      WriteHtmlResult="True" MacroName ="csrfKey" Url="https://koreanrandom.com/forum/login/"/>
+
+    <!-- post login details -->
+    <Task ID="KR_post_login_page" Command="browser_session_post_request" ParseResult="False" HtmlPath="" WriteHtmlResult="" MacroName="" Url="https://koreanrandom.com/forum/login/" ContentType="application/x-www-form-urlencoded"
+      PostData="csrfKey={csrfKey}&amp;auth={kr_username}&amp;password={kr_password}&amp;_processLogin=usernamepassword&amp;_processLogin=usernamepassword"/>
+
+    <!-- Load the dev url page to get the attachment from -->
+    <Task ID="KR_get_dl_page" Command="browser_session_get_request" ParseResult="True" HtmlPath="//a[@data-fileid = '{kr_attachment_id}']//@href"
+      WriteHtmlResult="True" MacroName ="attachment_url" Url="{kr_forum_url}"/>
+    
+    <!-- download the attachemnt -->
+    <Task ID="kr_download_attachment" Command="browser_session_download_file" Url="{attachment_url}" DestinationPath="{kr_dl_filepath}"/>
+    <Task ID="browser_session_end" Command="browser_session_end"/>
+  </TaskDefinitions>
+</AutomationSequence>
