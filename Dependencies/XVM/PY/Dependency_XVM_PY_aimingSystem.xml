@@ -2,12 +2,12 @@
 <AutomationSequence documentVersion="1.0">
   <!-- Specify macros here -->
   <Macros>
-    <Macro Name="file_name" Value="aiming.py"/>
+    <Macro Name="file_name" Value="aimingSystem.py"/>
     <Macro Name="folder_path" Value="res_mods\configs\xvm\py_macro"/>
     <Macro Name="kr_username" Value="{userfield_1}"/>
     <Macro Name="kr_password" Value="{userfield_2}"/>
     <Macro Name="kr_forum_url" Value="{download_url}"/>
-    <Macro Name="kr_attachment_id" Value="153770"/>
+    <Macro Name="kr_attachment_id" Value="154195"/>
     <Macro Name="kr_dl_filepath" Value="{working_folder_source}\{file_name}"/>
   </Macros>
   <TaskDefinitions>

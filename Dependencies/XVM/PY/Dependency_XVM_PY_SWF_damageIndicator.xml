@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<AutomationSequence documentVersion="1.0">
+  <!-- Specify macros here -->
+  <Macros>
+    <Macro Name="file_name" Value="damage_indicator.py"/>
+    <Macro Name="folder_path" Value="res_mods\configs\xvm\py_macro"/>
+    <Macro Name="dl_from_pkg_target_package_uid" Value="this"/>
+    <Macro Name="dl_from_pkg_macro_save_name" Value="download_url"/>
+    <Macro Name="dl_from_pkg_index" Value="0"/>
+    <Macro Name="kr_username" Value="{userfield_1}"/>
+    <Macro Name="kr_password" Value="{userfield_2}"/>
+    <Macro Name="kr_forum_url" Value="{download_url}"/>
+    <Macro Name="kr_attachment_id" Value="155286"/>
+    <Macro Name="kr_dl_filepath" Value="{working_folder_source}\{file_name}"/>
+  </Macros>
+  <TaskDefinitions>
+    <!-- create work dirs and macros -->
+    <Task ID="import_createWD" Command="import_task" RepoUrlPath="Task_templates/create_workDirs_macros.xml"/>
+
+    <!-- get dl-url -->
+    <Task ID="import_getDLUrl" Command="import_task" RepoUrlPath="Task_templates/Generic/get_download_url_from_package.xml"/>
+
+    <!-- tasks to get the source file (file 1) -->
+    <Task ID="import_source_download_kr" Command="import_task" RepoUrlPath="Task_templates/BrowserSession/download_attachment_from_KR.xml"/>
+
+    <!-- import tasks for single_file to update the mod (file 1)-->
+    <Task ID="import_task_single_file_download_extract_modpack" Command="import_task" RepoUrlPath="Task_templates/Generic/single_file_download_extract_modpack.xml"/>
+    <Task ID="import_task_single_file_compare_file" Command="import_task" RepoUrlPath="Task_templates/Generic/single_file_compare_file.xml"/>
+    <Task ID="import_task_single_file_copy_source" Command="import_task" RepoUrlPath="Task_templates/Generic/single_file_copy_source.xml"/>
+
+    <!-- create new macros for file 2 -->
+    <Task ID="create_macro_file_name" Command="macro_create" MacroName="file_name" MacroValue="battleDamageIndicatorApp.swf"/>
+    <Task ID="create_macro_folder_path" Command="macro_create" MacroName="folder_path" MacroValue="res_mods\versiondir\gui\flash"/>
+    <Task ID="create_macro_kr_dl_filepath" Command="macro_create" MacroName="kr_dl_filepath" MacroValue="{working_folder_source}\{file_name}"/>
+    <Task ID="create_macro_kr_attachment_id" Command="macro_create" MacroName="kr_attachment_id" MacroValue="156574"/>
+
+    <!-- tasks to get the source file (file 2) -->
+    <Task ID="import_source_download_kr" Command="import_task" RepoUrlPath="Task_templates/BrowserSession/download_attachment_from_KR.xml"/>
+
+    <!-- import tasks for single_file to update the mod (file 2)-->
+    <Task ID="import_task_single_file_download_extract_modpack" Command="import_task" RepoUrlPath="Task_templates/Generic/single_file_download_extract_modpack.xml"/>
+    <Task ID="import_task_single_file_compare_file" Command="import_task" RepoUrlPath="Task_templates/Generic/single_file_compare_file.xml"/>
+    <Task ID="import_task_single_file_copy_source" Command="import_task" RepoUrlPath="Task_templates/Generic/single_file_copy_source.xml"/>
+
+    <Task ID="import_task_single_file_create_package" Command="import_task" RepoUrlPath="Task_templates/Generic/single_file_create_package.xml"/>
+    <Task ID="import_task_single_file_upload" Command="import_task" RepoUrlPath="Task_templates/Generic/single_file_upload.xml"/>
+  </TaskDefinitions>
+</AutomationSequence>

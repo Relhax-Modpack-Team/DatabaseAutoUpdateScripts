@@ -2,12 +2,15 @@
 <AutomationSequence documentVersion="1.0">
   <!-- Specify macros here -->
   <Macros>
-    <Macro Name="file_name" Value="aiming.py"/>
+    <Macro Name="file_name" Value="markerPosition.py"/>
     <Macro Name="folder_path" Value="res_mods\configs\xvm\py_macro"/>
+    <Macro Name="dl_from_pkg_target_package_uid" Value="this"/>
+    <Macro Name="dl_from_pkg_macro_save_name" Value="download_url"/>
+    <Macro Name="dl_from_pkg_index" Value="0"/>
     <Macro Name="kr_username" Value="{userfield_1}"/>
     <Macro Name="kr_password" Value="{userfield_2}"/>
     <Macro Name="kr_forum_url" Value="{download_url}"/>
-    <Macro Name="kr_attachment_id" Value="153770"/>
+    <Macro Name="kr_attachment_id" Value="153771"/>
     <Macro Name="kr_dl_filepath" Value="{working_folder_source}\{file_name}"/>
   </Macros>
   <TaskDefinitions>
@@ -15,7 +18,7 @@
     <Task ID="import_createWD" Command="import_task" RepoUrlPath="Task_templates/create_workDirs_macros.xml"/>
 
     <!-- get dl-url -->
-    <Task ID="import_getDLUrl" Command="import_task" RepoUrlPath="Task_templates/getDownloadUrl_THISindex0.xml"/>
+    <Task ID="import_getDLUrl" Command="import_task" RepoUrlPath="Task_templates/Generic/get_download_url_from_package.xml"/>
 
     <!-- tasks to get the source file -->
     <Task ID="import_source_download_kr" Command="import_task" RepoUrlPath="Task_templates/BrowserSession/download_attachment_from_KR.xml"/>

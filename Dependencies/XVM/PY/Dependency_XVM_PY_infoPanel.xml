@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<AutomationSequence documentVersion="1.0">
+  <!-- Specify macros here -->
+  <Macros>
+    <Macro Name="file_name" Value="infoPanel.py"/>
+    <Macro Name="folder_path" Value="res_mods\configs\xvm\py_macro"/>
+    <Macro Name="dl_filepath" Value="{working_folder_source}\{file_name}"/>
+    <Macro Name="dl_from_pkg_target_package_uid" Value="this"/>
+    <Macro Name="dl_from_pkg_macro_save_name" Value="download_url"/>
+    <Macro Name="dl_from_pkg_index" Value="1"/>
+  </Macros>
+  <TaskDefinitions>
+    <!-- create work dirs and macros -->
+    <Task ID="import_createWD" Command="import_task" RepoUrlPath="Task_templates/create_workDirs_macros.xml"/>
+
+    <!-- get dl-url -->
+    <Task ID="import_getDLUrl" Command="import_task" RepoUrlPath="Task_templates/Generic/get_download_url_from_package.xml"/>
+
+    <!-- download py file -->
+    <Task ID="download_source" Command="download_static" Url="{download_url}" DestinationPath="{dl_filepath}"/>
+
+    <!-- import tasks for single_file to update the mod (file 1)-->
+    <Task ID="import_task_single_file_download_extract_modpack" Command="import_task" RepoUrlPath="Task_templates/Generic/single_file_download_extract_modpack.xml"/>
+    <Task ID="import_task_single_file_compare_file" Command="import_task" RepoUrlPath="Task_templates/Generic/single_file_compare_file.xml"/>
+    <Task ID="import_task_single_file_copy_source" Command="import_task" RepoUrlPath="Task_templates/Generic/single_file_copy_source.xml"/>
+
+    <!-- create new macros for file 2 -->
+    <Task ID="create_macro_file_name" Command="macro_create" MacroName="file_name" MacroValue="info_panel_data.py"/>
+    <Task ID="create_macro_folder_path" Command="macro_create" MacroName="folder_path" MacroValue="res_mods\configs\xvm\py_macro\xvm"/>
+    <Task ID="create_macro_kr_dl_filepath" Command="macro_create" MacroName="dl_filepath" MacroValue="{working_folder_source}\{file_name}"/>
+    <Task ID="create_macro_kr_attachment_id" Command="macro_create" MacroName="dl_from_pkg_index" MacroValue="1"/>
+
+    <!-- download py file -->
+    <Task ID="download_source" Command="download_static" Url="{download_url}" DestinationPath="{dl_filepath}"/>
+
+    <!-- import tasks for single_file to update the mod (file 2)-->
+    <Task ID="import_task_single_file_download_extract_modpack" Command="import_task" RepoUrlPath="Task_templates/Generic/single_file_download_extract_modpack.xml"/>
+    <Task ID="import_task_single_file_compare_file" Command="import_task" RepoUrlPath="Task_templates/Generic/single_file_compare_file.xml"/>
+    <Task ID="import_task_single_file_copy_source" Command="import_task" RepoUrlPath="Task_templates/Generic/single_file_copy_source.xml"/>
+
+    <Task ID="import_task_single_file_create_package" Command="import_task" RepoUrlPath="Task_templates/Generic/single_file_create_package.xml"/>
+    <Task ID="import_task_single_file_upload" Command="import_task" RepoUrlPath="Task_templates/Generic/single_file_upload.xml"/>
+  </TaskDefinitions>
+</AutomationSequence>

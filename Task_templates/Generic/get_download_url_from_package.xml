@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<AutomationSequence documentVersion="1.0">
+  <!-- get_download_url_from_package.xml
+    Author:  Willster419
+    Created: 2022-02-03
+    This sequence template is for getting a dev url at a given index, using a given package UID as the target
+    Required macros:
+    {dl_from_pkg_target_package_uid} - The package to get the devUrl from based on it's package UID
+    {dl_from_pkg_macro_save_name}    - The name of the macro to create
+    {dl_from_pkg_index}              - The index to use for getting the dev url
+  -->
+  <TaskDefinitions>
+    <Task ID="get_download_url" Command="retrieve_package_property" PropertyName="DevURLList" TargetPackageUID="{dl_from_pkg_target_package_uid}" MacroSaveName="{dl_from_pkg_macro_save_name}" PropertyIndex="{dl_from_pkg_index}"/>
+  </TaskDefinitions>
+</AutomationSequence>

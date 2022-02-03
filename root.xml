@@ -20,7 +20,27 @@
   <AutomationSequence UID="q18no0oyqapvgiz4" packageName="Dependency_XVM_XC_gunPen" path="Dependencies/XVM/Dependency_XVM_XC_gunPen.xml" />
   <AutomationSequence UID="lhlph8q71wnqdey0" packageName="Dependency_XVM_XC_speed" path="Dependencies/XVM/Dependency_XVM_XC_speed.xml" />
   <AutomationSequence UID="4a7xos55e5uzv2o2" packageName="Dependency_XVM_XC_elevation" path="Dependencies/XVM/Dependency_XVM_XC_elevation.xml" />
+
   <AutomationSequence UID="rfcmvsox9b47s7zm" packageName="Dependency_XVM_PY_aiming" path="Dependencies/XVM/PY/Dependency_XVM_PY_aiming.xml"/>
+  <AutomationSequence UID="mtutnweg3u5x30hz" packageName="Dependency_XVM_PY_aimingSystem" path="Dependencies/XVM/PY/Dependency_XVM_PY_aimingSystem.xml"/>
+  <AutomationSequence UID="twifm0a0ya04f46c" packageName="Dependency_XVM_PY_AssistLog" path="Dependencies/XVM/PY/Dependency_XVM_PY_AssistLog.xml"/>
+  <AutomationSequence UID="6louvzg1x6smfgdc" packageName="Dependency_XVM_PY_battleEfficiency" path="Dependencies/XVM/PY/Dependency_XVM_PY_battleEfficiency.xml"/>
+  <AutomationSequence UID="pejv22imqiebqw9o" packageName="Dependency_XVM_PY_beginBattle" path="Dependencies/XVM/PY/Dependency_XVM_PY_beginBattle.xml"/>
+  <AutomationSequence UID="23qaa1onpf7sq8ho" packageName="Dependency_XVM_PY_borderColor" path="Dependencies/XVM/PY/Dependency_XVM_PY_borderColor.xml"/>
+  <AutomationSequence UID="xh7i25e6ky9i11z1" packageName="Dependency_XVM_PY_boosters" path="Dependencies/XVM/PY/Dependency_XVM_PY_boosters.xml"/>
+  <AutomationSequence UID="96ewa4k7ju101c61" packageName="Dependency_XVM_PY_chancePenetration" path="Dependencies/XVM/PY/Dependency_XVM_PY_chancePenetration.xml"/>
+  <AutomationSequence UID="ndq5abca8ppenmkr" packageName="Dependency_XVM_PY_displayingItems" path="Dependencies/XVM/PY/Dependency_XVM_PY_displayingItems.xml"/>
+  <AutomationSequence UID="02wkiaib7miwnxrr" packageName="Dependency_XVM_PY_SWF_damageIndicator" path="Dependencies/XVM/PY/Dependency_XVM_PY_SWF_damageIndicator.xml"/>
+  <AutomationSequence UID="dr3zqapc6iaen9yq" packageName="Dependency_XVM_PY_debugPanel" path="Dependencies/XVM/PY/Dependency_XVM_PY_debugPanel.xml"/>
+  <AutomationSequence UID="76l6idev11c3y2g4" packageName="Dependency_XVM_PY_fragCorrelationBar" path="Dependencies/XVM/PY/Dependency_XVM_PY_fragCorrelationBar.xml"/>
+  <AutomationSequence UID="43foy6edbdr4ltii" packageName="Dependency_XVM_PY_hideBattleChat" path="Dependencies/XVM/PY/Dependency_XVM_PY_hideBattleChat.xml"/>
+  <AutomationSequence UID="ryf7qghgudzsaidg" packageName="Dependency_XVM_PY_infoPanel" path="Dependencies/XVM/PY/Dependency_XVM_PY_infoPanel.xml"/>
+  <AutomationSequence UID="bra8yjj1oplhly9t" packageName="Dependency_XVM_PY_markerPosition" path="Dependencies/XVM/PY/Dependency_XVM_PY_markerPosition.xml"/>
+  <AutomationSequence UID="2ntw6ph6bg2d7jvj" packageName="Dependency_XVM_PY_myHP" path="Dependencies/XVM/PY/Dependency_XVM_PY_myHP.xml"/>
+  <AutomationSequence UID="4v0czh09s71bq7nv" packageName="Dependency_XVM_PY_playerMarker" path="Dependencies/XVM/PY/Dependency_XVM_PY_playerMarker.xml"/>
+  <AutomationSequence UID="sxpin06c9h25izg8" packageName="Dependency_XVM_PY_quicklyLeave" path="Dependencies/XVM/PY/Dependency_XVM_PY_quicklyLeave.xml"/>
+  <AutomationSequence UID="z4ucmrpr4phkibyv" packageName="Dependency_XVM_PY_repairControl" path="Dependencies/XVM/PY/Dependency_XVM_PY_repairControl.xml"/>
+  <AutomationSequence UID="as701zphksk5gcgx" packageName="Dependency_XVM_PY_statistics" path="Dependencies/XVM/PY/Dependency_XVM_PY_statistics.xml"/>
   <!-- Subgroup XVM END -->
 
   <!-- Subgroup GUI API START -->
