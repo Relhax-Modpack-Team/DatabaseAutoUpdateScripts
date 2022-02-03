@@ -27,7 +27,7 @@
     <!-- Load the dev url page to get the attachment from -->
     <Task ID="KR_get_dl_page" Command="browser_session_get_request" ParseResult="True" HtmlPath="//a[@data-fileid = '{kr_attachment_id}']//@href"
       WriteHtmlResult="True" MacroName ="attachment_url" Url="{kr_forum_url}"/>
-    
+
     <!-- download the attachemnt -->
     <Task ID="kr_download_attachment" Command="browser_session_download_file" Url="{attachment_url}" DestinationPath="{kr_dl_filepath}"/>
     <Task ID="browser_session_end" Command="browser_session_end"/>
