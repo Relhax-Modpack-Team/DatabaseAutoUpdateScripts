@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<AutomationSequence documentVersion="1.0">
+  <!-- Specify macros here -->
+  <Macros>
+    <Macro Name="file_prefix" Value="poliroid.modslistapi"/>
+    <!-- file_name used in the single_file tasks for 7zip extraction -->
+    <Macro Name="file_name" Value="{file_prefix}_*.wotmod"/>
+  </Macros>
+
+  <!-- Specify the tasks to run -->
+  <TaskDefinitions>
+    <!-- import task: create work dirs and macros -->
+    <Task ID="import_createWorkDirs" Command="import_task" RepoUrlPath="Task_templates/create_workDirs_macros.xml"/>
+
+    <!-- get the json response. Note we can set the length and startIndex to -1 and 0 respectivly,
+         and HtmlPath to / to effectivly get the entire string, and the entire root document which in this case is the json response -->
+    <Task ID="get_url_relative_path" Command="macro_substring_html" MacroName="json_response" Length="-1" StartIndex="0" Url="https://gitlab.com/api/v4/projects/26509092/releases" HtmlPath="/"/>
+
+    <!-- create the macro to use for the full download. create it by combining the base url for the website and the xpath result -->
+    <Task ID="create_download_url_macro" Command="macro_string_input_macro_json" MacroName="json_parsed_result" InputMacroName="json_response" Jsonpath="$[0].assets.links[0].url"/>
+
+    <!-- download the source package -->
+    <Task ID="download_mod_source" Command="download_static" Url="{json_parsed_result}" DestinationPath="{working_folder_package}\mods\versiondir\{last_download_filename}"/>
+
+    <!-- import task to download and extract the package url from the ftp database -->
+    <Task ID="import_task_download_modpack" Command="import_task" RepoUrlPath="Task_templates/downloadModpack_PackageNameZip.xml"/>
+
+    <!-- extract the modpack package -->
+    <Task ID="extract_modpack" Command="shell_exec" Filename="7z.exe" Wd="{working_folder_modpack}" Cmd="x {packageName}.zip"/>
+
+    <!-- get the source version number -->
+    <Task ID="get_source_package_version_number_1" Command="directory_search" DirectoryPath="{working_folder_package}\mods\versiondir" SearchPattern="{file_name}" Recursive="False" MacroPrefix="filename_results"/>
+    <Task ID="get_source_package_version_number_2" Command="macro_string_split_macro" MacroName="version_number_1" Index="0" SplitCharacters="{working_folder_package}\mods\versiondir\{file_prefix}_" InputText="{filename_results_0}"/>
+    <Task ID="get_source_package_version_number_3" Command="macro_string_split_macro" MacroName="version_number_2" Index="0" SplitCharacters=".wotmod" InputText="{version_number_1}"/>
+
+    <!-- get the modpack version number -->
+    <Task ID="get_modpack_package_version_number_1" Command="directory_search" DirectoryPath="{working_folder_modpack}\mods\versiondir" SearchPattern="{file_name}" Recursive="False" MacroPrefix="filename_results_modpack"/>
+    <Task ID="get_modpack_package_version_number_2" Command="macro_string_split_macro" MacroName="version_number_modpack_1" Index="0" SplitCharacters="{working_folder_modpack}\mods\versiondir\{file_prefix}_" InputText="{filename_results_modpack_0}"/>
+    <Task ID="get_modpack_package_version_number_3" Command="macro_string_split_macro" MacroName="version_number_modpack_2" Index="0" SplitCharacters=".wotmod" InputText="{version_number_modpack_1}"/>
+
+    <Task ID="compare_start" Command="compare_start"/>
+    <!-- Compare wotmod and config file -->
+    <Task ID="compare_wotmod" Command="file_compare"
+      FileA="{working_folder_modpack}\mods\versiondir\{file_prefix}_{version_number_modpack_2}.wotmod"
+      FileB="{working_folder_package}\mods\versiondir\{file_prefix}_{version_number_2}.wotmod"/>
+    <Task ID="compare_end" Command="compare_end"/>
+
+    <!-- Create macro of the ftp server filename to use -->
+    <Task ID="create_ftp_file_macro" Command="macro_create" MacroName="upload_zip_filename" MacroValue="{packageName}_v{version_number_2}_{clientVersion}_{date}"/>
+
+    <!-- Run create zip and upload tasks -->
+    <Task ID="import_create_upload_zip" Command="import_task" RepoUrlPath="Task_templates/create_upload_zip.xml"/>
+  </TaskDefinitions>
+
+</AutomationSequence>
