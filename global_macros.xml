@@ -18,7 +18,6 @@
   <!-- this xpath works in browser mode only -->
   <Macro Name="koreanrandom_attachment_xpath" Value="//a[contains(span, '{koreanrandom_attachment_name}')]/@href"/>
 
-
   <!-- urls -->
   <Macro Name="awefultanker_url_base" Value="https://awfultanker.torvox.eu/"/>
   <Macro Name="clanIcon_downloader_github_exe" Value="https://github.com/Relhax-Modpack-Team/WGClanIconDownload/releases/download/1.0.1.1/WoTClanIconDownloadConsole.exe"/>
@@ -27,6 +26,7 @@
   <Macro Name="mct_url" Value="https://github.com/Relhax-Modpack-Team/RelhaxMCT/raw/master/MCTCreator/MCTCreator2.exe"/>
   <Macro Name="promod_mirror_1" Value="https://promod.reidarty.de/promod/{clientVersion}"/>
 
+  <!-- 7z package creation -->
   <!--
     based on a combination of the xpaths above and from the relhax gui patch:
     <path>/audio_mods.xml/events/event[name = &quot;enemy_sighted_for_team&quot;]</path>
