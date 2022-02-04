@@ -30,7 +30,7 @@
     <!-- download the source package -->
     <Task ID="download_mod_source" Command="download_html" Url="{package_url}" HtmlPath="{wotsite_xpath}" DestinationPath="{working_folder_source}\{extract_package_source}"/>
 
-    <!-- extract wotmod from source and modpack. note that the file_path macro has the slash to connect to file_name -->
+    <!-- import task that will extract source -->
     <Task ID="import_task_extract_package_source" Command="import_task" RepoUrlPath="Task_templates/Generic/extract_package.xml"/>
 
     <!-- download and extract the modpack version -->
