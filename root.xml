@@ -142,29 +142,32 @@
   <!-- Category Crosshairs END -->
 
   <!-- Category Contour & Tank Icons START -->
-  <AutomationSequence UID="alpqtgizv83szkpm" packageName="ContourIcons_Pogs_Clear_SIMPLE" path="ContourTankIcons/ContourIcons_Pogs_Clear_SIMPLE.xml" />
-  <AutomationSequence UID="4z6xlj8iqr5iad70" packageName="ContourIcons_Pogs_Clear_MAX" path="ContourTankIcons/ContourIcons_Pogs_Clear_MAX.xml" />
-  <AutomationSequence UID="hodctjejpoxzapez" packageName="ContourIcons_Pogs_Clear_MAXFsr" path="ContourTankIcons/ContourIcons_Pogs_Clear_MAXFsr.xml"/>
-  <AutomationSequence UID="udjr1ikkpkqha0lz" packageName="ContourIcons_Pogs_Clear_MaxFsrVr" path="ContourTankIcons/ContourIcons_Pogs_Clear_MaxFsrVr.xml" />
-  <AutomationSequence UID="os1ytma3j3r7lt3c" packageName="ContourIcons_Pogs_Clear_MaxFsrVrRld" path="ContourTankIcons/ContourIcons_Pogs_Clear_MaxFsrVrRld.xml" />
-  <AutomationSequence UID="e6es9lm5iwc6lhic" packageName="ContourIcons_Pogs_DaMatz" path="ContourTankIcons/ContourIcons_Pogs_DaMatz.xml"/>
+  <AutomationSequence UID="alpqtgizv83szkpm" packageName="ContourIcons_Pogs_Clear_SIMPLE" path="ContourTankIcons/ContourIcons/ContourIcons_Pogs_Clear_SIMPLE.xml" />
+  <AutomationSequence UID="4z6xlj8iqr5iad70" packageName="ContourIcons_Pogs_Clear_MAX" path="ContourTankIcons/ContourIcons/ContourIcons_Pogs_Clear_MAX.xml" />
+  <AutomationSequence UID="hodctjejpoxzapez" packageName="ContourIcons_Pogs_Clear_MAXFsr" path="ContourTankIcons/ContourIcons/ContourIcons_Pogs_Clear_MAXFsr.xml"/>
+  <AutomationSequence UID="udjr1ikkpkqha0lz" packageName="ContourIcons_Pogs_Clear_MaxFsrVr" path="ContourTankIcons/ContourIcons/ContourIcons_Pogs_Clear_MaxFsrVr.xml" />
+  <AutomationSequence UID="os1ytma3j3r7lt3c" packageName="ContourIcons_Pogs_Clear_MaxFsrVrRld" path="ContourTankIcons/ContourIcons/ContourIcons_Pogs_Clear_MaxFsrVrRld.xml" />
+  <AutomationSequence UID="e6es9lm5iwc6lhic" packageName="ContourIcons_Pogs_DaMatz" path="ContourTankIcons/ContourIcons/ContourIcons_Pogs_DaMatz.xml"/>
 
   <!-- unfinished -->
-  <!-- <AutomationSequence UID="finweabekvucb31b" packageName="ContourIcons_APCRNOOB_Standard" path="ContourTankIcons/ContourIcons_APCRNOOB_Standard.xml"/> -->
-  <!-- <AutomationSequence UID="mmbied7yebokm7qo" packageName="ContourIcons_APCRNOOB_miniV2" path="ContourTankIcons/ContourIcons_APCRNOOB_miniV2.xml"/> -->
-  <!-- <AutomationSequence UID="b0ocucj0d39jmv4n" packageName="ContourIcons_Aslain" path="ContourTankIcons/ContourIcons_Aslain.xml"/> -->
-  <!-- <AutomationSequence UID="vsjd2ell6fw8yb00" packageName="ContourIcons_Blackspy_Original" path="ContourTankIcons/ContourIcons_Blackspy_Original.xml"/> -->
-  <!-- <AutomationSequence UID="p60luib41yxx94id" packageName="ContourIcons_Blackspy_Yasha" path="ContourTankIcons/ContourIcons_Blackspy_Yasha.xml"/> -->
-  <!-- <AutomationSequence UID="infkp273tlybfb7v" packageName="ContourIcons_elektrosmoker" path="ContourTankIcons/ContourIcons_elektrosmoker.xml"/> -->
-  <!-- <AutomationSequence UID="81se51k5rejbfymu" packageName="ContourIcons_HARDicons" path="ContourTankIcons/ContourIcons_HARDicons.xml"/> -->
-  <!-- <AutomationSequence UID="1p5n7f095xe97ugx" packageName="ContourIcons_J1mB0_ReWorked" path="ContourTankIcons/ContourIcons_J1mB0_ReWorked.xml"/> -->
-  <!-- <AutomationSequence UID="nuyqw3hjg7qvg7ah" packageName="ContourIcons_TheIllusion_BIG" path="ContourTankIcons/ContourIcons_TheIllusion_BIG.xml"/> -->
-  <!-- <AutomationSequence UID="0j5542nkf3jcgjig" packageName="ContourIcons_TheIllusion_SMALL" path="ContourTankIcons/ContourIcons_TheIllusion_SMALL.xml"/> -->
+  <!-- <AutomationSequence UID="finweabekvucb31b" packageName="ContourIcons_APCRNOOB_Standard" path="ContourTankIcons/ContourIcons/ContourIcons_APCRNOOB_Standard.xml"/> -->
+  <!-- <AutomationSequence UID="mmbied7yebokm7qo" packageName="ContourIcons_APCRNOOB_miniV2" path="ContourTankIcons/ContourIcons/ContourIcons_APCRNOOB_miniV2.xml"/> -->
+  <!-- <AutomationSequence UID="b0ocucj0d39jmv4n" packageName="ContourIcons_Aslain" path="ContourTankIcons/ContourIcons/ContourIcons_Aslain.xml"/> -->
+  <!-- <AutomationSequence UID="vsjd2ell6fw8yb00" packageName="ContourIcons_Blackspy_Original" path="ContourTankIcons/ContourIcons/ContourIcons_Blackspy_Original.xml"/> -->
+  <!-- <AutomationSequence UID="p60luib41yxx94id" packageName="ContourIcons_Blackspy_Yasha" path="ContourTankIcons/ContourIcons/ContourIcons_Blackspy_Yasha.xml"/> -->
+  <!-- <AutomationSequence UID="infkp273tlybfb7v" packageName="ContourIcons_elektrosmoker" path="ContourTankIcons/ContourIcons/ContourIcons_elektrosmoker.xml"/> -->
+  <!-- <AutomationSequence UID="81se51k5rejbfymu" packageName="ContourIcons_HARDicons" path="ContourTankIcons/ContourIcons/ContourIcons_HARDicons.xml"/> -->
+  <!-- <AutomationSequence UID="1p5n7f095xe97ugx" packageName="ContourIcons_J1mB0_ReWorked" path="ContourTankIcons/ContourIcons/ContourIcons_J1mB0_ReWorked.xml"/> -->
+  <!-- <AutomationSequence UID="nuyqw3hjg7qvg7ah" packageName="ContourIcons_TheIllusion_BIG" path="ContourTankIcons/ContourIcons/ContourIcons_TheIllusion_BIG.xml"/> -->
+  <!-- <AutomationSequence UID="0j5542nkf3jcgjig" packageName="ContourIcons_TheIllusion_SMALL" path="ContourTankIcons/ContourIcons/ContourIcons_TheIllusion_SMALL.xml"/> -->
 
-  <!-- <AutomationSequence UID="2mbvcocccfyw2cxl" packageName="TankIcons_Carousel_Premium_elektrosmoker" path="ContourTankIcons/TankIcons_Carousel_Premium_elektrosmoker.xml"/> -->
-  <!-- <AutomationSequence UID="moltt0zns0nhm5z9" packageName="TankIcons_TechTree_elektrosmoker" path="ContourTankIcons/TankIcons_TechTree_elektrosmoker.xml"/> -->
-  <AutomationSequence UID="whiojkbxeh5jby3m" packageName="TankIcons_Carousel_Premium_TPblHbl4_78GoldV1" path="ContourTankIcons/TankIcons_Carousel_Premium_TPblHbl4_78GoldV1.xml"/>
-  <AutomationSequence UID="grdifn7d1mspmwfu" packageName="TankIcons_Carousel_Premium_TPblHbl4_78GoldV3" path="ContourTankIcons/TankIcons_Carousel_Premium_TPblHbl4_78GoldV3.xml"/>
+  <!-- <AutomationSequence UID="2mbvcocccfyw2cxl" packageName="TankIcons_Carousel_Premium_elektrosmoker" path="ContourTankIcons/TankIcons/TankIcons_Carousel_Premium_elektrosmoker.xml"/> -->
+  <!-- <AutomationSequence UID="moltt0zns0nhm5z9" packageName="TankIcons_TechTree_elektrosmoker" path="ContourTankIcons/TankIcons/TankIcons_TechTree_elektrosmoker.xml"/> -->
+  <AutomationSequence UID="whiojkbxeh5jby3m" packageName="TankIcons_Carousel_Premium_TPblHbl4_78GoldV1" path="ContourTankIcons/TankIcons/TankIcons_Carousel_Premium_TPblHbl4_78GoldV1.xml"/>
+  <AutomationSequence UID="grdifn7d1mspmwfu" packageName="TankIcons_Carousel_Premium_TPblHbl4_78GoldV3" path="ContourTankIcons/TankIcons/TankIcons_Carousel_Premium_TPblHbl4_78GoldV3.xml"/>
+  <!-- in progress, may need to use FTP instead -->
+  <!-- <AutomationSequence UID="76wcztbnvk859zlo" packageName="TankIcons_TechTree_AslainColoredV1" path="ContourTankIcons/TankIcons/TankIcons_TechTree_AslainColoredV1.xml"/> -->
+  <!-- <AutomationSequence UID="kv3r7shouh0m9bso" packageName="TankIcons_TechTree_AslainColoredV2" path="ContourTankIcons/TankIcons/TankIcons_TechTree_AslainColoredV2.xml"/> -->
   <!-- Category Contour & Tank Icons END -->
 
   <!-- Category Damage Logs & Panels START -->
