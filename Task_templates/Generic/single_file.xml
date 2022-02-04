@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <AutomationSequence documentVersion="1.0">
-  <!-- single_wotmod.xml
+  <!-- single_file.xml
     Author:  Willster419
-    Created: 2021-08-??
+    Created: 2021-??-??
     This sequence template does the following tasks:
      - downloads the modpack zip file
      - extracts the source from a specified path, with optional recursion argument
