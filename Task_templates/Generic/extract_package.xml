@@ -5,6 +5,7 @@
     Created: 2022-02-02
     This sequence template is only for using 7zip to extract a package
     Required macros:
+    {extract_package_wd}           - The work directory to perform the 7z command in
     {extract_package_7z_operation} - The 7zip operation to perform
     {extract_package_source}       - The path to the zip/rar/7z file to extract entries from
     {extract_package_options_pre}  - Command line options before the list of entries in the archive to extract
