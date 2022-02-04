@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<AutomationSequence documentVersion="1.0">
+  <!-- Specify macros here -->
+  <Macros>
+    <Macro Name="download_url_list" Value="http://repo.flr.one/WoT/"/>
+    <Macro Name="file_list_xpath" Value="(//a[contains(text(), 'ColoredTechTreeIcons_v1_TIM')])[last()]/@href"/>
+    <Macro Name="package_source" Value="{packageName}.7z"/>
+    <Macro Name="source_extract_folder_path" Value="res_mods\versiondir\gui\maps\icons\vehicle\small"/>
+    <Macro Name="source_extract_arg" Value="{file_name_prefix}{version_modpack_0}"/>
+  </Macros>
+  <TaskDefinitions>
+    <!-- create work dirs and macros -->
+    <Task ID="import_createWD" Command="import_task" RepoUrlPath="Task_templates/create_workDirs_macros.xml"/>
+
+    <!-- get the latest file that aslain has created -->
+    <Task ID="get_url_relative_path" Command="macro_substring_html" MacroName="latest_file" Length="-1" StartIndex="0" Url="{download_url_list}" HtmlPath="{file_list_xpath}"/>
+
+    <!-- download the source package -->
+    <Task ID="download_mod_source" Command="download_static" Url="{download_url_list}{latest_file}" DestinationPath="{working_folder_source}\{package_source}"/>
+
+    <!-- import task to update contour/tank icons-->
+    <Task ID="import_task_contour_tank_icons_base" Command="import_task" RepoUrlPath="Task_templates/ContourTankIcons/Contour_Tank_Icons_base.xml"/>
+  </TaskDefinitions>
+</AutomationSequence>
