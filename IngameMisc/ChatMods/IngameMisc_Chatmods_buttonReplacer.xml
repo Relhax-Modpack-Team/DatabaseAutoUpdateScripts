@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<AutomationSequence documentVersion="1.0">
+  <!-- Specify macros here -->
+  <Macros>
+    <Macro Name="dl_from_pkg_target_package_uid" Value="this"/>
+    <Macro Name="dl_from_pkg_macro_save_name" Value="download_url"/>
+    <Macro Name="dl_from_pkg_index" Value="0"/>
+    <Macro Name="yandex_dl_filepath" Value="{working_folder_source}\{packageName}.zip"/>
+    <Macro Name="upload_zip_filename" Value="{packageName}_{clientVersion}_{date}"/>
+  </Macros>
+  <TaskDefinitions>
+    <!-- create work dirs and macros -->
+    <Task ID="import_createWD" Command="import_task" RepoUrlPath="Task_templates/create_workDirs_macros.xml"/>
+
+    <!-- get dl-url -->
+    <Task ID="import_getDLUrl" Command="import_task" RepoUrlPath="Task_templates/Generic/get_download_url_from_package.xml"/>
+
+    <!-- get the download url from the kr forum page -->
+    <!-- Download the source package -->
+    <Task ID="get_download_url" Command="macro_substring_html" MacroName="yandex_drive_link" Length="-1" StartIndex="0" Url="{download_url}"
+      HtmlPath="//div[contains(p[1], 'Написал несколько модиков')]/div[4]/div[2]/p[contains(text(), 'Собственно сам скрипт:')]/a[contains(text(), 'ЯндексДиск')]/@href"/>
+
+    <!-- import getting download from yandex -->
+    <Task ID="import_task_download_yandex" Command="import_task" RepoUrlPath="Task_templates/BrowserSession/download_yandex.xml"/>
+
+    <!-- extract source wotmod (get rid of the version number in the dir) -->
+    <Task ID="extract_source_wotmod" Command="shell_exec" Filename="7z.exe" Wd="{working_folder_source}"
+      Cmd="e {packageName}.zip mods\*\PYmods\ButtonReplacer.wotmod mods\*\PYmods\i18n_Loader.wotmod -o&quot;{working_folder_package}\mods\versiondir\PYmods&quot;"/>
+
+    <!-- extract source config -->
+    <Task ID="extract_source_cfg" Command="shell_exec" Filename="7z.exe" Wd="{working_folder_source}"
+      Cmd="x {packageName}.zip mods\configs\PYmods\ButtonReplacer\* -o&quot;{working_folder_package}&quot;"/>
+
+    <!-- download the modpack file -->
+    <Task ID="download_modpack" Command="package_download" FilePath="{working_folder_modpack}\{packageName}.zip"/>
+
+    <!-- extract the modpack file keeping paths-->
+    <Task ID="extract_modpack" Command="shell_exec" Filename="7z.exe" Wd="{working_folder_modpack}" Cmd="x {packageName}.zip"/>
+
+    <Task ID="compare_start" Command="compare_start"/>
+    <Task ID="compare_wotmod_ButtonReplacer" Command="file_compare"
+      FileA="{working_folder_package}\mods\versiondir\PYmods\ButtonReplacer.wotmod"
+      FileB="{working_folder_modpack}\mods\versiondir\PYmods\ButtonReplacer.wotmod"/>
+    <Task ID="compare_wotmod_i18n_Loader" Command="file_compare"
+      FileA="{working_folder_package}\mods\versiondir\PYmods\i18n_Loader.wotmod"
+      FileB="{working_folder_modpack}\mods\versiondir\PYmods\i18n_Loader.wotmod"/>
+    <Task ID="compare_cfg" Command="file_compare"
+      FileA="{working_folder_package}\mods\configs\PYmods\ButtonReplacer\ButtonReplacer.json"
+      FileB="{working_folder_modpack}\mods\configs\PYmods\ButtonReplacer\ButtonReplacer.json"/>
+    <Task ID="compare_language_files" Command="directory_compare_count" SearchPattern="*.json" Recursive="False"
+      DirectoryComparePathA="{working_folder_package}\mods\configs\PYmods\ButtonReplacer\i18n"
+      DirectoryComparePathB="{working_folder_modpack}\mods\configs\PYmods\ButtonReplacer\i18n"/>
+    <Task ID="compare_end" Command="compare_end"/>
+
+    <!-- create and upload the final zip -->
+    <Task ID="import_task_create_upload_package" Command="import_task" RepoUrlPath="Task_templates/create_upload_zip.xml"/>
+  </TaskDefinitions>
+</AutomationSequence>
