@@ -33,5 +33,6 @@
     <!-- now you have something like this, an export=download with the confirm cookie and in the GET request now we can download the file -->
     <!-- https://drive.google.com/uc?export=download&confirm=_nvs&id=1ZNPXp2QhO5NjwAV50ges-hedSSgYOg1u -->
     <Task ID="get_google_drive_download_file" Command="browser_session_download_file" Url="{google_drive_download_url}" DestinationPath="{gdrive_dl_filepath}"/>
+    <Task ID="browser_session_end" Command="browser_session_end"/>
   </TaskDefinitions>
 </AutomationSequence>
