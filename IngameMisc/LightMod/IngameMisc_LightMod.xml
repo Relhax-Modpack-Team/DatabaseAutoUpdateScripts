@@ -6,7 +6,7 @@
     <Macro Name="dl_from_pkg_macro_save_name" Value="download_url"/>
     <Macro Name="dl_from_pkg_index" Value="0"/>
     <Macro Name="yandex_dl_filepath" Value="{working_folder_source}\{packageName}.zip"/>
-    <Macro Name="upload_zip_filename" Value="{packageName}_v{version_source}_{clientVersion}_{date}"/>
+    <Macro Name="upload_zip_filename" Value="{packageName}_{clientVersion}_{date}"/>
   </Macros>
   <TaskDefinitions>
     <!-- create work dirs and macros -->
