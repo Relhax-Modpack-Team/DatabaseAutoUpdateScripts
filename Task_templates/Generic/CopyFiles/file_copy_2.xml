@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<AutomationSequence documentVersion="1.0">
+  <!-- file_copy_2.xml
+    Author:  Willster419
+    Created: 2022-02-04
+    This sequence template copies two files
+    Required macros:
+    {file_copy_1_source}           - The full path of the source of file 1
+    {file_copy_1_dest}             - The full path of the destination of file 1
+    {file_copy_2_source}           - The full path of the source of file 2
+    {file_copy_2_dest}             - The full path of the destination of file 2
+  -->
+  <TaskDefinitions>
+    <!-- Copy file 1 -->
+    <Task ID="copy_file_1" Command="file_copy" SourceFilePath="{file_copy_1_source}" DestinationFilePath="{file_copy_1_dest}"/>
+    <!-- Copy file 2 -->
+    <Task ID="copy_file_2" Command="file_copy" SourceFilePath="{file_copy_2_source}" DestinationFilePath="{file_copy_2_dest}"/>
+  </TaskDefinitions>
+</AutomationSequence>
