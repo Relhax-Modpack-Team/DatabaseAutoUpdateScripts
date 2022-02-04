@@ -62,6 +62,10 @@
   <AutomationSequence UID="7uc2cpqmy2ux8gy4" packageName="Dependency_Crosshairs_Protanki" path="Dependencies/Dependency_Crosshairs_Protanki.xml" />
   <!-- Subgroup Crosshairs END -->
 
+  <!-- Subgroup Soundmods START -->
+  <AutomationSequence UID="j0vkk5ce44tfsfnx" packageName="Dependency_Sounds_SoundEventInjector" path="Dependencies/Dependency_Sounds_SoundEventInjector.xml"/>
+  <!-- Subgroup Soundmods END -->
+
   <!-- Subgroup Icon Mirror Files START -->
   <AutomationSequence UID="a6y6dhrkqvba4d0k" packageName="LogicalDependency_MVI_BATTLE_CLEAR_noXVM" path="Dependencies/MVI/LogicalDependency_MVI_BATTLE_CLEAR_noXVM.xml" />
   <AutomationSequence UID="xhss5hljrzit42tk" packageName="LogicalDependency_MVI_BATTLE_noXVM" path="Dependencies/MVI/LogicalDependency_MVI_BATTLE_noXVM.xml" />
