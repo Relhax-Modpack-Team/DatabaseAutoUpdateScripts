@@ -9,7 +9,6 @@
     {working_folder_modpack}       - The working folder of the modpack zip file and extraction processes
     {working_folder_source}        - The working folder of the source zip file and extracation processes
     {compare_file_1}               - The name of the first file to compare
-    {compare_file_config}          - The name of the configuration file to compare
   -->
   <TaskDefinitions>
     <Task ID="compare_start" Command="compare_start"/>
