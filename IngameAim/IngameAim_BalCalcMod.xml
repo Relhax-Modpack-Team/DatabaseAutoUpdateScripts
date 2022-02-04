@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<AutomationSequence documentVersion="1.0">
+  <!-- Specify macros here -->
+  <Macros>
+    <Macro Name="file_name" Value="{packageName}.zip"/>
+    <Macro Name="file_name_py" Value="mod_BalCalcMod.pyc"/>
+    <Macro Name="file_name_cfg" Value="BalCalc.xml"/>
+    <Macro Name="folder_path" Value="res_mods\versiondir\scripts\client\gui\mods"/>
+    <!-- get download url from package task -->
+    <Macro Name="dl_from_pkg_target_package_uid" Value="this"/>
+    <Macro Name="dl_from_pkg_macro_save_name" Value="download_url"/>
+    <Macro Name="dl_from_pkg_index" Value="0"/>
+    <!-- download attachment from kr task -->
+    <Macro Name="kr_username" Value="{userfield_1}"/>
+    <Macro Name="kr_password" Value="{userfield_2}"/>
+    <Macro Name="kr_forum_url" Value="{download_url}"/>
+    <Macro Name="kr_attachment_id" Value="155429"/>
+    <Macro Name="kr_dl_filepath" Value="{working_folder_source}\{file_name}"/>
+    <!-- extract task -->
+    <Macro Name="extract_package_wd" Value="{working_folder_source}"/>
+    <Macro Name="extract_package_7z_operation" Value="e"/>
+    <Macro Name="extract_package_source" Value="{file_name}"/>
+    <Macro Name="extract_package_filelist" Value="{file_name_py} {file_name_cfg}"/>
+    <Macro Name="extract_package_options_post" Value="-r"/>
+    <!-- file copy task -->
+    <Macro Name="file_copy_1_source" Value="{working_folder_source}\{file_name_py}"/>
+    <Macro Name="file_copy_1_dest" Value="{working_folder_package}\{folder_path}\{file_name_py}"/>
+    <Macro Name="file_copy_2_source" Value="{working_folder_source}\{file_name_cfg}"/>
+    <Macro Name="file_copy_2_dest" Value="{working_folder_package}\{folder_path}\{file_name_cfg}"/>
+    <!-- compare task -->
+    <Macro Name="compare_file_1" Value="{file_name_py}"/>
+    <Macro Name="compare_file_config" Value="{file_name_cfg}"/>
+    <!-- create/upload zip task -->
+    <Macro Name="upload_zip_filename" Value="{packageName}_{clientVersion}_{date}"/>
+  </Macros>
+  <TaskDefinitions>
+    <!-- create work dirs and macros -->
+    <Task ID="import_createWD" Command="import_task" RepoUrlPath="Task_templates/create_workDirs_macros.xml"/>
+
+    <!-- get dl-url -->
+    <Task ID="import_getDLUrl" Command="import_task" RepoUrlPath="Task_templates/Generic/get_download_url_from_package.xml"/>
+
+    <!-- tasks to get the source file (file 1) -->
+    <Task ID="import_source_download_kr" Command="import_task" RepoUrlPath="Task_templates/BrowserSession/download_attachment_from_KR.xml"/>
+
+    <!-- import task that will extract source -->
+    <Task ID="import_task_extract_package_source" Command="import_task" RepoUrlPath="Task_templates/Generic/extract_package.xml"/>
+
+    <!-- download and extract modpack -->
+    <Task ID="download_modpack" Command="package_download" FilePath="{working_folder_modpack}\{file_name}"/>
+    <Task ID="extract_modpack" Command="shell_exec" Filename="7z.exe" Wd="{working_folder_modpack}" Cmd="e {file_name} {extract_package_filelist} -r"/>
+
+    <!-- compare the two files-->
+    <Task ID="import_task_single_file_compare_file" Command="import_task" RepoUrlPath="Task_templates/CompareFilesWithConfig/compare_files_config_1.xml"/>
+
+    <!-- copy the two files -->
+    <Task ID="import_task_single_file_compare_file" Command="import_task" RepoUrlPath="Task_templates/Generic/CopyFiles/file_copy_2.xml"/>
+
+    <Task ID="import_create_upload_zip" Command="import_task" RepoUrlPath="Task_templates/create_upload_zip.xml"/>
+  </TaskDefinitions>
+</AutomationSequence>
