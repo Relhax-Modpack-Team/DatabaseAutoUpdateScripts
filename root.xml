@@ -285,8 +285,15 @@
   <AutomationSequence UID="t2y72r2i0zbsrviv" packageName="IngameMisc_Consumables_EquipmentIcons_LegionLost" path="IngameMisc/Consumables/IngameMisc_Consumables_EquipmentIcons_LegionLost.xml"/>
   <AutomationSequence UID="ofg1ideiu1ewn1da" packageName="IngameMisc_Consumables_ShellIcons_LegionLost" path="IngameMisc/Consumables/IngameMisc_Consumables_ShellIcons_LegionLost.xml"/>
   <AutomationSequence UID="kxhuax0norsoef3l" packageName="IngameMisc_Consumables_ShellIcons_vvooj" path="IngameMisc/Consumables/IngameMisc_Consumables_ShellIcons_vvooj.xml"/>
-  
+
   <AutomationSequence UID="ougqxj046exqgtr1" packageName="IngameMisc_interfaceScaling_goofy67" path="IngameMisc/IngameMisc_interfaceScaling_goofy67.xml"/>
+
+  <AutomationSequence UID="9vx9lk588l88vewf" packageName="IngameMisc_LightMod" path="IngameMisc/LightMod/IngameMisc_LightMod.xml"/>
+  <AutomationSequence UID="4afhdovr349y67es" packageName="IngameMisc_LightMod_LampLights" path="IngameMisc/LightMod/IngameMisc_LightMod_LampLights.xml"/>
+  <AutomationSequence UID="gzlwln1s212f6jls" packageName="IngameMisc_LightMod_LampLights_CarPack" path="IngameMisc/LightMod/IngameMisc_LightMod_LampLights_CarPack.xml"/>
+  <AutomationSequence UID="tosbtm7t1xux6vss" packageName="IngameMisc_LightMod_LampLights_Flashlight" path="IngameMisc/LightMod/IngameMisc_LightMod_LampLights_Flashlight.xml"/>
+  <AutomationSequence UID="n29ilqxcwgwnhna5" packageName="IngameMisc_LightMod_LampLights_BottomNeon" path="IngameMisc/LightMod/IngameMisc_LightMod_LampLights_BottomNeon.xml"/>
+  <AutomationSequence UID="0rgxtq3cvdo4hzh5" packageName="IngameMisc_LightMod_LampLights_TargetLight" path="IngameMisc/LightMod/IngameMisc_LightMod_LampLights_TargetLight.xml"/>
 
   <AutomationSequence UID="4c5z9v7ii0xi4wau" packageName="IngameMisc_Minimap_Type_Basic_TacticalMinimap" path="IngameMisc/Minimap/IngameMisc_Minimap_Type_Basic_TacticalMinimap.xml"/>
   <AutomationSequence UID="o4hjk1s2v1zquf4g" packageName="IngameMisc_Minimap_Type_Basic_TacticalMinimapDOTS" path="IngameMisc/Minimap/IngameMisc_Minimap_Type_Basic_TacticalMinimapDOTS.xml"/>

@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<AutomationSequence documentVersion="1.0">
+  <!-- Specify macros here -->
+  <Macros>
+    <!-- 9vx9lk588l88vewf = IngameMisc_LightMod -->
+    <Macro Name="dl_from_pkg_target_package_uid" Value="9vx9lk588l88vewf"/>
+    <Macro Name="dl_from_pkg_macro_save_name" Value="download_url"/>
+    <Macro Name="dl_from_pkg_index" Value="0"/>
+    <Macro Name="yandex_dl_filepath" Value="{working_folder_source}\{packageName}.zip"/>
+    <Macro Name="upload_zip_filename" Value="{packageName}_v{version_source}_{clientVersion}_{date}"/>
+  </Macros>
+  <TaskDefinitions>
+    <!-- create work dirs and macros -->
+    <Task ID="import_createWD" Command="import_task" RepoUrlPath="Task_templates/create_workDirs_macros.xml"/>
+
+    <!-- get dl-url -->
+    <Task ID="import_getDLUrl" Command="import_task" RepoUrlPath="Task_templates/Generic/get_download_url_from_package.xml"/>
+
+    <!-- get the download url from the kr forum page -->
+    <!-- Download the source package -->
+    <Task ID="get_download_url" Command="macro_substring_html" MacroName="yandex_drive_link" Length="-1" StartIndex="0" Url="{download_url}"
+      HtmlPath="//div[contains(p[1]/strong, 'Сам скрипт')]/div[4]/div[2]/p/a[contains(text(), 'ЯндексДиск')]/@href"/>
+
+    <!-- import getting download from yandex -->
+    <Task ID="import_task_download_yandex" Command="import_task" RepoUrlPath="Task_templates/BrowserSession/download_yandex.xml"/>
+
+    <!-- extract source config -->
+    <Task ID="extract_source_cfg" Command="shell_exec" Filename="7z.exe" Wd="{working_folder_source}"
+      Cmd="x {packageName}.zip mods\configs\* -o&quot;{working_folder_package}&quot;"/>
+
+    <!-- import task to finish the update process (it will handle modpack download/extract, compare and package upload) -->
+    <Task ID="import_task_IngameMisc_LightMod" Command="import_task" RepoUrlPath="Task_templates/IngameMisc/IngameMisc_LightMod.xml"/>
+  </TaskDefinitions>
+</AutomationSequence>

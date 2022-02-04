@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<AutomationSequence documentVersion="1.0">
+  <!-- IngameMisc_LightMod.xml
+    Author:  Willster419
+    Created: 2022-02-04
+    This sequence template handles the update process of the lightmod packages after download and extract of the source
+    (download/extract modpack, compare, package & upload)
+    Required macros:
+    {working_folder_modpack}       - The working folder of the modpack zip file and extraction processes
+    {working_folder_package}       - The working folder of the newly created zip file package for the database
+    {upload_zip_filename}          - The name of the zipfile to exist on the server, without file extension
+  -->
+  <TaskDefinitions>
+    <!-- download the modpack file -->
+    <Task ID="download_modpack" Command="package_download" FilePath="{working_folder_modpack}\{packageName}.zip"/>
+
+    <!-- extract the modpack file keeping paths-->
+    <Task ID="extract_modpack" Command="shell_exec" Filename="7z.exe" Wd="{working_folder_modpack}" Cmd="x {packageName}.zip"/>
+
+    <Task ID="compare_start" Command="compare_start"/>
+    <Task ID="compare_data" Command="directory_compare" SearchPattern="*" Recursive="True"
+      DirectoryComparePathA="{working_folder_package}\mods"
+      DirectoryComparePathB="{working_folder_modpack}\mods"/>
+    <Task ID="compare_end" Command="compare_end"/>
+
+    <!-- create and upload the final zip -->
+    <Task ID="import_task_create_upload_package" Command="import_task" RepoUrlPath="Task_templates/create_upload_zip.xml"/>
+  </TaskDefinitions>
+</AutomationSequence>
