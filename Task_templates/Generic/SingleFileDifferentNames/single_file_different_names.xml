@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<AutomationSequence documentVersion="1.0">
+  <!-- single_file_different_names.xml
+    Author:  Willster419
+    Created: 2022-02-03
+    This sequence template is based on <single_file>, but handles the case if the modpack and source (new) filenames are different (eg. the wotmod has a version number in it)
+    It behaves functionally the same, but uses different templates eithor modified from <single_file> versions or completly different
+    Required macros:
+    {working_folder_modpack}       - The working folder of the modpack zip file and extraction processes
+    {working_folder_source}        - The working folder of the source zip file and extracation processes
+    {working_folder_package}       - The working folder of the newly created zip file package for the database
+    {file_name_modpack}            - The name of the file for the modpack
+    {file_name_source}             - The name of the file for the source and package/final zip
+    {folder_path_package}          - The path in the package zip file to create for the file
+    {file_search_modpack}          - The search term to use in 7z and in file search for the modpack file
+    {file_search_source}           - The search term to use in 7z and in file search for the source file
+    {upload_zip_filename}          - The name of the zipfile to exist on the server, without file extension
+  -->
+  <TaskDefinitions>
+    <!-- Import each part of the script -->
+    <Task ID="import_task_single_file_dn_download_extract_modpack" Command="import_task" RepoUrlPath="Task_templates/Generic/SingleFileDifferentNames/single_file_different_names_download_extract_modpack.xml"/>
+    <!-- if single_file names are dynamic (eg. version number), user takes this step to define {file_name_modpack} and {file_name_source} -->
+    <Task ID="import_task_single_file_dn_compare_file" Command="import_task" RepoUrlPath="Task_templates/Generic/SingleFileDifferentNames/single_file_different_names_compare_file.xml"/>
+    <Task ID="import_task_single_file_dn_copy_source" Command="import_task" RepoUrlPath="Task_templates/Generic/SingleFileDifferentNames/single_file_different_names_copy_source.xml"/>
+    <Task ID="import_task_create_upload_package" Command="import_task" RepoUrlPath="Task_templates/create_upload_zip.xml"/>
+  </TaskDefinitions>
+</AutomationSequence>

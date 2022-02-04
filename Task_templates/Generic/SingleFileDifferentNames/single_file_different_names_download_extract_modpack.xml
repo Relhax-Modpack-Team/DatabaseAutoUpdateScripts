@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<AutomationSequence documentVersion="1.0">
+  <!-- single_file_different_names_download_extract_modpack.xml
+    Author:  Willster419
+    Created: 2022-02-03
+    This sequence template does the following tasks:
+     - downloads the modpack zip file
+     - extracts the modpack zip file
+    Required macros:
+    {working_folder_modpack}       - The working folder of the modpack zip file and extraction processes
+    {file_search_modpack}          - The search term to use in 7z and in file search for the modpack file
+  -->
+  <TaskDefinitions>
+    <!-- download and the modpack package -->
+    <Task ID="download_modpack" Command="package_download" FilePath="{working_folder_modpack}\{packageName}.zip"/>
+    <Task ID="extract_modpack" Command="shell_exec" Filename="7z.exe" Wd="{working_folder_modpack}" Cmd="e {packageName}.zip {file_search_modpack} -r"/>
+  </TaskDefinitions>
+</AutomationSequence>

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<AutomationSequence documentVersion="1.0">
+  <!-- single_file_different_names_copy_source.xml
+    Author:  Willster419
+    Created: 2022-02-03
+    This sequence template does the following tasks:
+     - copies the source's file to the package's folder path and filename
+    Required macros:
+    {working_folder_source}        - The working folder of the source zip file and extracation processes
+    {working_folder_package}       - The working folder of the newly created zip file package for the database
+    {file_name_source}             - The name of the file for the source and package/final zip
+    {folder_path_package}          - The path in the package zip file to create for the file
+  -->
+  <TaskDefinitions>
+    <!-- Create new folder path for final package -->
+    <Task ID="create_folderpath_final" Command="create_directory" DirectoryPath="{working_folder_package}\{folder_path}"/>
+
+    <!-- Update modpack files -->
+    <Task ID="copy_source_to_final" Command="file_copy" SourceFilePath="{working_folder_source}\{file_name_source}" DestinationFilePath="{working_folder_package}\{folder_path}\{file_name_source}"/>
+  </TaskDefinitions>
+</AutomationSequence>
