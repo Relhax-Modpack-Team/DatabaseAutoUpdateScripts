@@ -46,6 +46,7 @@
   <!-- Subgroup GUI API START -->
   <AutomationSequence UID="8bhv4wcpn1quvd5v" packageName="Dependency_CHAMPi_settingsGUI" path="Dependencies/Dependency_CHAMPi_settingsGUI.xml" />
   <AutomationSequence UID="ypupkvormubtv1ju" packageName="Dependency_Gambiter_GUIflash" path="Dependencies/Dependency_Gambiter_GUIflash.xml" />
+  <AutomationSequence UID="iipqsxqbf6xi6hg7" packageName="Dependency_IzeBerg_modsSettingsApi" path="Dependencies/Dependency_IzeBerg_modsSettingsApi.xml"/>
   <AutomationSequence UID="5tjbkykag9506587" packageName="Dependency_P0LIR0ID_modsListApi" path="Dependencies/Dependency_P0LIR0ID_modsListApi.xml" />
   <!-- Subgroup GUI API END -->
 

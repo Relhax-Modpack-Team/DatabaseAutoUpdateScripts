@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<AutomationSequence documentVersion="1.0">
+  <!-- Specify macros here -->
+  <Macros>
+    <Macro Name="file_name_prefix" Value="izeberg.modsettingsapi_"/>
+    <Macro Name="file_search_all" Value="{file_name_prefix}*.wotmod"/>
+    <Macro Name="dl_filepath" Value="{working_folder_source}\{file_name}"/>
+    <!-- points to Crosshairs_gunConstraints -->
+    <Macro Name="dl_from_pkg_target_package_uid" Value="vqsv678trj8n0m4y"/>
+    <Macro Name="dl_from_pkg_macro_save_name" Value="package_url"/>
+    <Macro Name="dl_from_pkg_index" Value="0"/>
+    <Macro Name="extract_package_wd" Value="{working_folder_source}"/>
+    <Macro Name="extract_package_7z_operation" Value="e"/>
+    <Macro Name="extract_package_source" Value="{packageName}.rar"/>
+    <Macro Name="extract_package_filelist" Value="&quot;Версия от ПРОТанки&quot;\mods\*\{file_search_all}"/>
+    <Macro Name="folder_path_package" Value="mods\versiondir"/>
+    <Macro Name="file_name_modpack" Value="{file_name_prefix}{version_modpack_0}"/>
+    <Macro Name="file_name_source" Value="{file_name_prefix}{version_source_0}"/>
+    <Macro Name="file_search_modpack" Value="{file_search_all}"/>
+    <Macro Name="file_search_source" Value="{file_search_all}"/>
+    <Macro Name="upload_zip_filename" Value="{packageName}_v{version_source}_{clientVersion}_{date}"/>
+  </Macros>
+  <TaskDefinitions>
+    <!-- create work dirs and macros -->
+    <Task ID="import_createWD" Command="import_task" RepoUrlPath="Task_templates/create_workDirs_macros.xml"/>
+
+    <!-- get dl-url -->
+    <Task ID="import_getDLUrl" Command="import_task" RepoUrlPath="Task_templates/Generic/get_download_url_from_package.xml"/>
+
+    <!-- download the source package -->
+    <Task ID="download_mod_source" Command="download_html" Url="{package_url}" HtmlPath="{wotsite_xpath}" DestinationPath="{working_folder_source}\{extract_package_source}"/>
+
+    <!-- extract wotmod from source and modpack. note that the file_path macro has the slash to connect to file_name -->
+    <Task ID="import_task_extract_package_source" Command="import_task" RepoUrlPath="Task_templates/Generic/extract_package.xml"/>
+
+    <!-- download and extract the modpack version -->
+    <Task ID="import_task_single_file_dn_download_extract_modpack" Command="import_task" RepoUrlPath="Task_templates/Generic/SingleFileDifferentNames/single_file_different_names_download_extract_modpack.xml"/>
+
+    <!-- get the modpack and source wotmod names from file -->
+    <Task ID="get_wotmod_name_source_1" Command="directory_search" DirectoryPath="{working_folder_source}" SearchPattern="{file_search_all}" Recursive="False" MacroPrefix="filename_results_source"/>
+    <!-- NOTE: we can set the length and startIndex to -1 and 0 respectivly to effectivly get the entire string -->
+    <Task ID="get_wotmod_name_source_2" Command="macro_substring_filename" MacroName="file_name_source" Length="-1" StartIndex="0" FilePath="{filename_results_source_0}"/>
+
+    <Task ID="get_wotmod_name_modpack_1" Command="directory_search" DirectoryPath="{working_folder_modpack}" SearchPattern="{file_search_all}" Recursive="False" MacroPrefix="filename_results_modpack"/>
+    <Task ID="get_wotmod_name_modpack_2" Command="macro_substring_filename" MacroName="file_name_modpack" Length="-1" StartIndex="0" FilePath="{filename_results_modpack_0}"/>
+
+    <!-- get the version of the package from the wotmod (source) -->
+    <Task ID="get_version_source_1" Command="macro_string_split_macro" MacroName="version_source_0" Index="1" SplitCharacters="_" InputText="{file_name_source}"/>
+    <Task ID="get_version_source_2" Command="macro_string_split_macro" MacroName="version_source" Index="0" SplitCharacters=".wotmod" InputText="{version_source_0}"/>
+
+    <!-- get the version of the package from the wotmod (source) -->
+    <Task ID="get_version_modpack_1" Command="macro_string_split_macro" MacroName="version_modpack_0" Index="1" SplitCharacters="_" InputText="{file_name_modpack}"/>
+
+    <!-- import tasks for single_file to update the mod -->
+    <Task ID="import_task_single_file_dn_compare_file" Command="import_task" RepoUrlPath="Task_templates/Generic/SingleFileDifferentNames/single_file_different_names_compare_file.xml"/>
+    <Task ID="update_package_version" Command="update_package_property" PropertyName="Version" PropertyValue="{version_source}" TargetPackageUID="this"/>
+    <Task ID="import_task_single_file_dn_copy_source" Command="import_task" RepoUrlPath="Task_templates/Generic/SingleFileDifferentNames/single_file_different_names_copy_source.xml"/>
+    <Task ID="import_task_single_file_upload" Command="import_task" RepoUrlPath="Task_templates/Generic/single_file_upload.xml"/>
+  </TaskDefinitions>
+</AutomationSequence>
