@@ -2,44 +2,57 @@
 <AutomationSequence documentVersion="1.0">
   <!-- Specify macros here -->
   <Macros>
-    <Macro Name="file_name" Value="assist_log.py"/>
-    <Macro Name="folder_path" Value="res_mods\configs\xvm\py_macro"/>
+    <Macro Name="file_name_1" Value="assist_log.py"/>
+    <Macro Name="file_name_2" Value="assistLog.py"/>
+    <!-- get download url from package -->
+    <Macro Name="dl_from_pkg_target_package_uid" Value="this"/>
+    <Macro Name="dl_from_pkg_macro_save_name" Value="download_url"/>
+    <Macro Name="dl_from_pkg_index" Value="0"/>
+    <!-- download attachment from kr -->
     <Macro Name="kr_username" Value="{userfield_1}"/>
     <Macro Name="kr_password" Value="{userfield_2}"/>
     <Macro Name="kr_forum_url" Value="{download_url}"/>
     <Macro Name="kr_attachment_id" Value="133059"/>
-    <Macro Name="kr_dl_filepath" Value="{working_folder_source}\{file_name}"/>
+    <Macro Name="kr_dl_filepath" Value="{working_folder_source}\{file_name_1}"/>
+    <!-- download extract modpack -->
+    <Macro Name="file_search_modpack" Value="{file_name_1} {file_name_2}"/>
+    <!-- compare -->
+    <Macro Name="compare_file_1" Value="{file_name_1}"/>
+    <Macro Name="compare_file_2" Value="{file_name_2}"/>
+    <!-- copy -->
+    <Macro Name="file_copy_1_source" Value="{working_folder_source}\{file_name_1}"/>
+    <Macro Name="file_copy_1_dest" Value="{working_folder_package}\res_mods\configs\xvm\py_macro\{file_name_1}"/>
+    <Macro Name="file_copy_2_source" Value="{working_folder_source}\{file_name_2}"/>
+    <Macro Name="file_copy_2_dest" Value="{working_folder_package}\res_mods\configs\xvm\py_macro\xvm\{file_name_2}"/>
+    <!-- create/upload zip task -->
+    <Macro Name="upload_zip_filename" Value="{packageName}_{clientVersion}_{date}"/>
   </Macros>
   <TaskDefinitions>
     <!-- create work dirs and macros -->
     <Task ID="import_createWD" Command="import_task" RepoUrlPath="Task_templates/create_workDirs_macros.xml"/>
 
     <!-- get dl-url -->
-    <Task ID="import_getDLUrl" Command="import_task" RepoUrlPath="Task_templates/getDownloadUrl_THISindex0.xml"/>
+    <Task ID="import_getDLUrl" Command="import_task" RepoUrlPath="Task_templates/Generic/get_download_url_from_package.xml"/>
 
     <!-- tasks to get the source file (file 1) -->
     <Task ID="import_source_download_kr" Command="import_task" RepoUrlPath="Task_templates/BrowserSession/download_attachment_from_KR.xml"/>
 
-    <!-- import tasks for single_file to update the mod (file 1)-->
-    <Task ID="import_task_single_file_download_extract_modpack" Command="import_task" RepoUrlPath="Task_templates/Generic/single_file_download_extract_modpack.xml"/>
-    <Task ID="import_task_single_file_compare_file" Command="import_task" RepoUrlPath="Task_templates/Generic/single_file_compare_file.xml"/>
-    <Task ID="import_task_single_file_copy_source" Command="import_task" RepoUrlPath="Task_templates/Generic/single_file_copy_source.xml"/>
-
     <!-- create new macros for file 2 -->
-    <Task ID="create_macro_file_name" Command="macro_create" MacroName="file_name" MacroValue="assistLog.py"/>
-    <Task ID="create_macro_folder_path" Command="macro_create" MacroName="folder_path" MacroValue="{working_folder_package}\res_mods\configs\xvm\py_macro\xvm"/>
-    <Task ID="create_macro_kr_dl_filepath" Command="macro_create" MacroName="kr_dl_filepath" MacroValue="{working_folder_source}\{file_name}"/>
+    <Task ID="create_macro_kr_dl_filepath" Command="macro_create" MacroName="kr_dl_filepath" MacroValue="{working_folder_source}\{file_name_2}"/>
     <Task ID="create_macro_kr_attachment_id" Command="macro_create" MacroName="kr_attachment_id" MacroValue="156337"/>
 
     <!-- tasks to get the source file (file 2) -->
     <Task ID="import_source_download_kr" Command="import_task" RepoUrlPath="Task_templates/BrowserSession/download_attachment_from_KR.xml"/>
 
-    <!-- import tasks for single_file to update the mod (file 2)-->
-    <Task ID="import_task_single_file_download_extract_modpack" Command="import_task" RepoUrlPath="Task_templates/Generic/single_file_download_extract_modpack.xml"/>
-    <Task ID="import_task_single_file_compare_file" Command="import_task" RepoUrlPath="Task_templates/Generic/single_file_compare_file.xml"/>
-    <Task ID="import_task_single_file_copy_source" Command="import_task" RepoUrlPath="Task_templates/Generic/single_file_copy_source.xml"/>
+    <!-- import tasks for single_file to update the mod (file 1)-->
+    <Task ID="import_task_download_extract_modpack" Command="import_task" RepoUrlPath="Task_templates/Generic/SingleFileDifferentNames/single_file_different_names_download_extract_modpack.xml"/>
 
-    <Task ID="import_task_single_file_create_package" Command="import_task" RepoUrlPath="Task_templates/Generic/single_file_create_package.xml"/>
-    <Task ID="import_task_single_file_upload" Command="import_task" RepoUrlPath="Task_templates/Generic/single_file_upload.xml"/>
+    <!-- compare the two files-->
+    <Task ID="import_task_single_file_compare_file" Command="import_task" RepoUrlPath="Task_templates/CompareFiles/compare_files_2.xml"/>
+
+    <!-- copy the two files -->
+    <Task ID="import_task_single_file_compare_file" Command="import_task" RepoUrlPath="Task_templates/Generic/CopyFiles/file_copy_2.xml"/>
+
+    <Task ID="import_create_upload_zip" Command="import_task" RepoUrlPath="Task_templates/create_upload_zip.xml"/>
   </TaskDefinitions>
 </AutomationSequence>
