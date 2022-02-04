@@ -51,8 +51,8 @@
   <!-- Subgroup GUI API END -->
 
   <!-- Subgroup Standard START -->
-  <AutomationSequence UID="ex0ocsm6tio4kknh" packageName="Dependency_PMOD" path="Dependencies/Dependency_PMOD.xml" />
   <AutomationSequence UID="cw7xk1guapz8hayk" packageName="Dependency_OldSkool_modsCore" path="Dependencies/Dependency_OldSkool_modsCore.xml" />
+  <AutomationSequence UID="ex0ocsm6tio4kknh" packageName="Dependency_PMOD" path="Dependencies/Dependency_PMOD.xml" />
   <AutomationSequence UID="pldcs1mv9lrphm5k" packageName="Dependency_PY_PYmodsCore" path="Dependencies/Dependency_PY_PYmodsCore.xml" />
   <AutomationSequence UID="wp1zs4if31mxsqux" packageName="Dependency_RaJCel_Core" path="Dependencies/Dependency_RaJCel_Core.xml"/>
   <AutomationSequence UID="9e8e03og3xees21w" packageName="Dependency_RaJCeL_inBattleStatistics" path="Dependencies/Dependency_RaJCeL_inBattleStatistics.xml"/>
