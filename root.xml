@@ -286,6 +286,8 @@
   <AutomationSequence UID="ofg1ideiu1ewn1da" packageName="IngameMisc_Consumables_ShellIcons_LegionLost" path="IngameMisc/Consumables/IngameMisc_Consumables_ShellIcons_LegionLost.xml"/>
   <AutomationSequence UID="kxhuax0norsoef3l" packageName="IngameMisc_Consumables_ShellIcons_vvooj" path="IngameMisc/Consumables/IngameMisc_Consumables_ShellIcons_vvooj.xml"/>
 
+  <AutomationSequence UID="hfiaqz89gz7up77x" packageName="IngameMisc_FirstPersonView" path="IngameMisc/IngameMisc_FirstPersonView.xml"/>
+
   <AutomationSequence UID="ougqxj046exqgtr1" packageName="IngameMisc_interfaceScaling_goofy67" path="IngameMisc/IngameMisc_interfaceScaling_goofy67.xml"/>
 
   <AutomationSequence UID="9vx9lk588l88vewf" packageName="IngameMisc_LightMod" path="IngameMisc/LightMod/IngameMisc_LightMod.xml"/>
