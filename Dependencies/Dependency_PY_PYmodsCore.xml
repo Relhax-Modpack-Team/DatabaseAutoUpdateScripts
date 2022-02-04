@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<AutomationSequence documentVersion="1.0">
+  <!-- Specify macros here -->
+  <Macros>
+    <Macro Name="file_name" Value="OpenModsCore.wotmod"/>
+    <Macro Name="folder_path" Value="mods\versiondir"/>
+    <Macro Name="dl_from_pkg_target_package_uid" Value="this"/>
+    <Macro Name="dl_from_pkg_macro_save_name" Value="download_url"/>
+    <Macro Name="dl_from_pkg_index" Value="0"/>
+    <Macro Name="yandex_dl_filepath" Value="{working_folder_source}\{packageName}.zip"/>
+  </Macros>
+  <TaskDefinitions>
+    <!-- create work dirs and macros -->
+    <Task ID="import_createWD" Command="import_task" RepoUrlPath="Task_templates/create_workDirs_macros.xml"/>
+
+    <!-- get download url -->
+    <Task ID="import_getDLUrl" Command="import_task" RepoUrlPath="Task_templates/Generic/get_download_url_from_package.xml"/>
+
+    <!-- Download the source package -->
+    <Task ID="get_download_url" Command="macro_substring_html" MacroName="yandex_drive_link" Length="-1" StartIndex="0" Url="{download_url}"
+      HtmlPath="//div[contains(p[4]/span/strong, 'BanksLoader')]/div[4]/div[2]/p/a[contains(text(), 'ЯндексДиск')]/@href"/>
+
+    <!-- import getting download from yandex -->
+    <Task ID="import_task_download_yandex" Command="import_task" RepoUrlPath="Task_templates/BrowserSession/download_yandex.xml"/>
+
+    <!-- extract wotmod from source and modpack. note that the file_path macro has the slash to connect to file_name -->
+    <Task ID="extract_source" Command="shell_exec" Filename="7z.exe" Wd="{working_folder_source}" Cmd="e {packageName}.zip {file_name} -r"/>
+
+    <!-- run single_file template tasks -->
+    <Task ID="import_task_single_file_download_extract_modpack" Command="import_task" RepoUrlPath="Task_templates/Generic/single_file_download_extract_modpack.xml"/>
+    <Task ID="import_task_single_file_compare_file" Command="import_task" RepoUrlPath="Task_templates/Generic/single_file_compare_file.xml"/>
+    <Task ID="import_task_single_file_copy_source" Command="import_task" RepoUrlPath="Task_templates/Generic/single_file_copy_source.xml"/>
+    <Task ID="import_task_single_file_create_package" Command="import_task" RepoUrlPath="Task_templates/Generic/single_file_create_package.xml"/>
+
+    <Task ID="import_task_single_file_upload" Command="import_task" RepoUrlPath="Task_templates/Generic/single_file_upload.xml"/>
+  </TaskDefinitions>
+</AutomationSequence>

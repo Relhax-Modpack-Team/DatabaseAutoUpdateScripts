@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<AutomationSequence documentVersion="1.0">
+  <!-- download_yandex.xml
+    Author:  Willster419
+    Created: 2022-01-27
+    This sequence template contains the browser session process for getting a google drive direct link when the download is larger
+    then google can scan for viruses.
+
+    Required macros:
+    {yandex_drive_link}            - The url to the yandex download (ex. https://yadi.sk/d/vZMXQdJ4xLpvU)
+    {yandex_dl_filepath}           - The relative or absolute filepath to use for the download
+  -->
+  <TaskDefinitions>
+    <!-- Create a browser session. For some reason Yandex will block the WebClient thinking it's a bot,
+         but allows the HttpClient witout issue. Lol. -->
+    <Task ID="browser_session_start" Command="browser_session_start" Browser="HttpClient"/>
+
+    <!-- set browser headers -->
+    <Task ID="import_task_set_headers_embedded_ie" Command="import_task" RepoUrlPath="Task_templates/BrowserSession/set_headers_embedded_ie.xml"/>
+
+    <!-- navigate to the given download url. It will give us some cookies and have a href definition in the download button that we need -->
+    <Task ID="get_yandex_download" Command="browser_session_get_request" ParseResult="True" HtmlPath="{yandex_xpath}"
+      WriteHtmlResult="True" MacroName ="yandex_link_direct" Url="{yandex_drive_link}"/>
+    <Task ID="create_yandex_direct_download_url" Command="macro_create" MacroName="yandex_direct_download_url" MacroValue="{yandex_prefix}{yandex_link_direct}"/>
+
+    <!-- now you have something like this, an export=download with the confirm cookie and in the GET request now we can download the file -->
+    <!-- https://drive.google.com/uc?export=download&confirm=_nvs&id=1ZNPXp2QhO5NjwAV50ges-hedSSgYOg1u -->
+    <Task ID="get_google_drive_download_file" Command="browser_session_download_file" Url="{yandex_direct_download_url}" DestinationPath="{yandex_dl_filepath}"/>
+    <Task ID="browser_session_end" Command="browser_session_end"/>
+  </TaskDefinitions>
+</AutomationSequence>

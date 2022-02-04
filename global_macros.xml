@@ -4,7 +4,7 @@
   <Macro Name="wgmods_xpath" Value="//a[contains(@class, 'ModDetails_hidden')]/@href"/>
   <Macro Name="wgmods_xpath_version" Value="//div[contains(@class, 'ModDetails_labels')]/div/@title"/>
   <Macro Name="wotsite_xpath" Value="//a[contains(@class, 'btn-download')]/@href"/>
-  <Macro Name="yadisk_xpath" Value="//a[contains(@class, 'button download-file-button')]/@href"/>
+  <Macro Name="yandex_xpath" Value="//a[contains(@class, 'button download-file-button') and contains(text(), 'Download file')]/@href"/>
   <Macro Name="gdrive_xpath" Value="//a[contains(@class, 'gb_3 gb_4 gb_9d gb_3c')]/@href"/>
   <Macro Name="wotspeak_xpath" Value="//a[contains(@class, 'down_new')]/@href"/>
   <Macro Name="awfultanker_xpath" Value="//a[contains(@class, 'download')]/@href"/>
@@ -25,6 +25,7 @@
   <Macro Name="flash_decompile_url" Value="https://github.com/Relhax-Modpack-Team/WoTTools/raw/master/Flash%20decompile/ffdec_11.3.0.zip"/>
   <Macro Name="mct_url" Value="https://github.com/Relhax-Modpack-Team/RelhaxMCT/raw/master/MCTCreator/MCTCreator2.exe"/>
   <Macro Name="promod_mirror_1" Value="https://promod.reidarty.de/promod/{clientVersion}"/>
+  <Macro Name="yandex_prefix" Value="https://disk.yandex.com"/>
 
   <!-- 7z package creation -->
   <!--
