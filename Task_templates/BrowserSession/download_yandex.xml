@@ -2,9 +2,8 @@
 <AutomationSequence documentVersion="1.0">
   <!-- download_yandex.xml
     Author:  Willster419
-    Created: 2022-01-27
-    This sequence template contains the browser session process for getting a google drive direct link when the download is larger
-    then google can scan for viruses.
+    Created: 2022-02-03
+    This sequence template contains the browser session process for getting a yandex disk direct download.
 
     Required macros:
     {yandex_drive_link}            - The url to the yandex download (ex. https://yadi.sk/d/vZMXQdJ4xLpvU)
@@ -12,7 +11,7 @@
   -->
   <TaskDefinitions>
     <!-- Create a browser session. For some reason Yandex will block the WebClient thinking it's a bot,
-         but allows the HttpClient witout issue. Lol. -->
+         but allows the HttpClient without issue. Lol. -->
     <Task ID="browser_session_start" Command="browser_session_start" Browser="HttpClient"/>
 
     <!-- set browser headers -->
@@ -23,8 +22,7 @@
       WriteHtmlResult="True" MacroName ="yandex_link_direct" Url="{yandex_drive_link}"/>
     <Task ID="create_yandex_direct_download_url" Command="macro_create" MacroName="yandex_direct_download_url" MacroValue="{yandex_prefix}{yandex_link_direct}"/>
 
-    <!-- now you have something like this, an export=download with the confirm cookie and in the GET request now we can download the file -->
-    <!-- https://drive.google.com/uc?export=download&confirm=_nvs&id=1ZNPXp2QhO5NjwAV50ges-hedSSgYOg1u -->
+    <!-- then we have the cookies, we need to just download the file from the href parsed above -->
     <Task ID="get_google_drive_download_file" Command="browser_session_download_file" Url="{yandex_direct_download_url}" DestinationPath="{yandex_dl_filepath}"/>
     <Task ID="browser_session_end" Command="browser_session_end"/>
   </TaskDefinitions>
