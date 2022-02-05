@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<AutomationSequence documentVersion="1.0">
+  <!-- Specify macros here -->
+  <Macros>
+    <Macro Name="dl_from_pkg_target_package_uid" Value="this"/>
+    <Macro Name="dl_from_pkg_macro_save_name" Value="download_url"/>
+    <Macro Name="dl_from_pkg_index" Value="0"/>
+    <Macro Name="dl_link" Value="{download_url}/download"/>
+    <Macro Name="dl_full" Value="{curseforge_prefix}{dl_part}"/>
+    <Macro Name="upload_zip_filename" Value="{packageName}_{clientVersion}_{date}"/>
+  </Macros>
+  <TaskDefinitions>
+    <!-- create work dirs and macros -->
+    <Task ID="import_createWD" Command="import_task" RepoUrlPath="Task_templates/create_workDirs_macros.xml"/>
+
+    <!-- get dl-url -->
+    <Task ID="import_getDLUrl" Command="import_task" RepoUrlPath="Task_templates/Generic/get_download_url_from_package.xml"/>
+
+    <!-- import getting download from curseforge -->
+    <Task ID="get_full_download_url" Command="macro_substring_browser" MacroName="dl_part" Length="-1" StartIndex="0" Url="{dl_link}"
+      HtmlPath="{curseforge_xpath}" BrowserEngine="WebBrowser" WaitTimeMs="500" WaitCounts="6" BrowserHeight="0" BrowserWidth="0"/>
+    <!-- <Task ID="download_mod_source" Command="download_static" Url="{dl_full}" DestinationPath="{working_folder_source}\{packageName}.zip"/> -->
+    <!-- Create a browser session -->
+    <Task ID="browser_session_start" Command="browser_session_start" Browser="HttpClient"/>
+
+    <!-- set browser headers -->
+    <Task ID="import_task_set_headers_embedded_ie" Command="import_task" RepoUrlPath="Task_templates/BrowserSession/set_headers_embedded_ie.xml"/>
+
+    <!-- then we have the cookies, we need to just download the file from the href parsed above -->
+    <Task ID="download_file" Command="browser_session_download_file" Url="{dl_full}" DestinationPath="{working_folder_source}\{packageName}.zip"/>
+    <Task ID="browser_session_end" Command="browser_session_end"/>
+
+    <!-- extract source (get rid of the version number in the dir) -->
+    <Task ID="extract_source_wotmod" Command="shell_exec" Filename="7z.exe" Wd="{working_folder_source}"
+      Cmd="e {packageName}.zip res_mods\*\scripts\client\gui\mods\mod_ElkRDA.pyc -o&quot;{working_folder_package}\res_mods\versiondir\scripts\client\gui\mods&quot;"/>
+
+    <!-- extract source config -->
+    <Task ID="extract_source_cfg" Command="shell_exec" Filename="7z.exe" Wd="{working_folder_source}"
+      Cmd="x {packageName}.zip res_mods\configs\* -o&quot;{working_folder_package}&quot;"/>
+
+    <!-- download the modpack file -->
+    <Task ID="download_modpack" Command="package_download" FilePath="{working_folder_modpack}\{packageName}.zip"/>
+
+    <!-- extract the modpack file keeping paths-->
+    <Task ID="extract_modpack" Command="shell_exec" Filename="7z.exe" Wd="{working_folder_modpack}" Cmd="x {packageName}.zip"/>
+
+    <Task ID="compare_start" Command="compare_start"/>
+    <Task ID="compare_script" Command="file_compare"
+      FileA="{working_folder_package}\res_mods\versiondir\scripts\client\gui\mods\mod_ElkRDA.pyc"
+      FileB="{working_folder_modpack}\res_mods\versiondir\scripts\client\gui\mods\mod_ElkRDA.pyc"/>
+    <Task ID="compare_text" Command="file_compare_inverse"
+      FileA="{working_folder_package}\res_mods\configs\ElkRDA.json"
+      FileB="{working_folder_modpack}\res_mods\configs\ElkRDA.json"/>
+    <Task ID="compare_cfg" Command="file_compare"
+      FileA="{working_folder_package}\res_mods\configs\ElkRDA.txt"
+      FileB="{working_folder_modpack}\res_mods\configs\ElkRDA.txt"/>
+    <!-- doing a directory compare makes sure there's no new files -->
+    <Task ID="compare_language_files" Command="directory_compare" SearchPattern="*" Recursive="True"
+      DirectoryComparePathA="{working_folder_package}\res_mods"
+      DirectoryComparePathB="{working_folder_modpack}\res_mods"/>
+    <Task ID="compare_end" Command="compare_end"/>
+
+    <!-- create and upload the final zip -->
+    <Task ID="import_task_create_upload_package" Command="import_task" RepoUrlPath="Task_templates/create_upload_zip.xml"/>
+  </TaskDefinitions>
+</AutomationSequence>

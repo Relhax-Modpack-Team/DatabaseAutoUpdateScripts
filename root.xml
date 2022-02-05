@@ -275,6 +275,8 @@
   <AutomationSequence UID="px6jrz5us97tnnbb" packageName="IngameMisc_BetterVisibleFlatTrainWagons" path="IngameMisc/IngameMisc_BetterVisibleFlatTrainWagons.xml"/>
 
   <AutomationSequence UID="u01fzbv24wc3whbr" packageName="IngameMisc_Chatmods_buttonReplacer" path="IngameMisc/ChatMods/IngameMisc_Chatmods_buttonReplacer.xml"/>
+  <!-- can't download from curseforge -->
+  <!-- <AutomationSequence UID="7p7u7a133s5lwsir" packageName="IngameMisc_Chatmods_elkrda" path="IngameMisc/ChatMods/IngameMisc_Chatmods_elkrda.xml"/> -->
   <AutomationSequence UID="lwj26ht7rnt0j1wh" packageName="IngameMisc_Chatmods_FriendsMarker" path="IngameMisc/ChatMods/IngameMisc_Chatmods_FriendsMarker.xml"/>
   <AutomationSequence UID="ylqhegz8qklhjd4g" packageName="IngameMisc_Chatmods_FriendsNotifier" path="IngameMisc/ChatMods/IngameMisc_Chatmods_FriendsNotifier.xml"/>
 
