@@ -2,30 +2,47 @@
 <AutomationSequence documentVersion="1.0">
   <Macros>
     <Macro Name="custom_url" Value="https://m.vk.com/talliepo"/>
+    <Macro Name="yandex_dl_filepath" Value="{working_folder_source}\{packageName}.zip"/>
+    <Macro Name="upload_zip_filename" Value="{packageName}_{clientVersion}_{date}"/>
   </Macros>
   <TaskDefinitions>
+    <!-- NOTE: this script creates long directory paths and may produce errors about files not existing. You may need to run this from a folder directly from your drive's root -->
     <!-- import tasks -->
     <Task ID="import_macro_create_tasks" Command="import_task" RepoUrlPath="Task_templates/create_workDirs_macros.xml"/>
 
     <!-- Get the MediaFire folder that contains the package we want to download. Note we can set the length and startIndex to -1 and 0 respectivly to effectivly get the entire string -->
-    <Task ID="get_url_to_dl_site" Command="macro_substring_html" MacroName="yandisk_url" Length="-1" StartIndex="0" Url="{custom_url}"
+    <Task ID="get_url_to_dl_site" Command="macro_substring_html" MacroName="yandex_drive_link" Length="-1" StartIndex="0" Url="{custom_url}"
       HtmlPath="//div[contains(@class, 'wall_item')]/div[contains(@class, 'wi_body')]/div/a[contains(@href, 'yandex')]"/>
 
-    <!-- download the source package -->
-    <Task ID="download_mod_source" Command="download_browser" Url="{yandisk_url}" HtmlPath="{yadisk_xpath}" DestinationPath="{working_folder_source}\{packageName}.zip"
-      BrowserEngine="WebBrowser" WaitTimeMs="500" WaitCounts="6" BrowserHeight="0" BrowserWidth="0"/>
+    <!-- import getting download from yandex -->
+    <Task ID="import_task_download_yandex" Command="import_task" RepoUrlPath="Task_templates/BrowserSession/download_yandex_2.xml"/>
 
-    <!-- import task download and extract modpack single file -->
-    <Task ID="import_task_single_file_download_extract_modpack" Command="import_task" RepoUrlPath="Task_templates/Generic/single_file_download_extract_modpack.xml"/>
+    <!-- extract source. it will have a weird folder inside it -->
+    <Task ID="extract_source_wotmod" Command="shell_exec" Filename="7z.exe" Wd="{working_folder_source}"
+      Cmd="x {packageName}.zip *&quot;(Main modification files)&quot;\* -o&quot;{working_folder_package}\res_mods\versiondir&quot;"/>
 
-    <!-- import task compare single file -->
-    <Task ID="import_task_single_file_compare_file" Command="import_task" RepoUrlPath="Task_templates/Generic/single_file_compare_file.xml"/>
+    <!-- get the werid part of the name of the (Main modification files) folder -->
+    <Task ID="get_werid_folder_name_1" Command="directory_search" DirectoryPath="{working_folder_package}\res_mods\versiondir" SearchPattern="*" Recursive="True" MacroPrefix="filename_results_source"/>
+    <Task ID="get_werid_folder_name_2" Command="macro_string_split_macro" MacroName="folder_name_0" Index="0" SplitCharacters="{working_folder_package}\res_mods\versiondir\" InputText="{filename_results_source_0}"/>
+    <Task ID="get_werid_folder_name_3" Command="macro_string_split_macro" MacroName="folder_name" Index="0" SplitCharacters="\" InputText="{folder_name_0}"/>
 
-    <!-- import task copy single file to source given specific path from macro {folder_path} -->
-    <Task ID="import_task_single_file_copy_source" Command="import_task" RepoUrlPath="Task_templates/Generic/single_file_copy_source.xml"/>
+    <!-- move all the files out to the package directory -->
+    <Task ID="move_files_versiondir" Command="directory_move" DirectoryPath="{working_folder_package}\res_mods\versiondir\{folder_name}" SearchPattern="*" Recursive="True" DestinationPath="{working_folder_package}\res_mods\versiondir"/>
+    <Task ID="delete_old_version_dir" Command="directory_delete" DirectoryPath="{working_folder_package}\res_mods\versiondir\{folder_name}" SearchPattern="*" Recursive="True" IncludeRootInSearch="True"/>
+
+    <!-- download the modpack file -->
+    <Task ID="download_modpack" Command="package_download" FilePath="{working_folder_modpack}\{packageName}.zip"/>
+
+    <!-- extract the modpack file keeping paths-->
+    <Task ID="extract_modpack" Command="shell_exec" Filename="7z.exe" Wd="{working_folder_modpack}" Cmd="x {packageName}.zip"/>
+
+    <Task ID="compare_start" Command="compare_start"/>
+    <Task ID="compare_language_files" Command="directory_compare_count" SearchPattern="*" Recursive="True"
+      DirectoryComparePathA="{working_folder_package}\res_mods\versiondir"
+      DirectoryComparePathB="{working_folder_modpack}\res_mods\versiondir"/>
+    <Task ID="compare_end" Command="compare_end"/>
 
     <!-- create new package zip and upload to the server -->
-    <Task ID="create_upload_zip_filename_macro" Command="macro_create" MacroName="upload_zip_filename" MacroValue="{packageName}_{mod_version_from_wgmods}_{clientVersion}_{date}"/>
     <Task ID="import_create_upload_zip" Command="import_task" RepoUrlPath="Task_templates/create_upload_zip.xml"/>
   </TaskDefinitions>
 </AutomationSequence>

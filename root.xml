@@ -420,8 +420,7 @@
   <AutomationSequence UID="dkwvz5embhp2hec0" packageName="GarageGraphics_HangarDesign_HellingerMinimal_100norm" path="GarageGraphics/Hangar/GarageGraphics_Hangar_Design_HellingerMinimal_100norm.xml"/>
   <AutomationSequence UID="xcqw78g74tbrsu8d" packageName="GarageGraphics_HangarDesign_HellingerMinimal_200bright" path="GarageGraphics/Hangar/GarageGraphics_Hangar_Design_HellingerMinimal_200bright.xml"/>
   <AutomationSequence UID="knkhz9a65xj9si1d" packageName="GarageGraphics_HangarDesign_HellingerMinimal_200norm" path="GarageGraphics/Hangar/GarageGraphics_Hangar_Design_HellingerMinimal_200norm.xml"/>
-  <!-- unfinished -->
-  <!-- <AutomationSequence UID="wm4tgukwggsbfcme" packageName="GarageGraphics_HangarDesign_MikuV1Rework" path="GarageGraphics/Hangar/GarageGraphics_Hangar_Design_MikuV1Rework.xml"/> -->
+  <AutomationSequence UID="wm4tgukwggsbfcme" packageName="GarageGraphics_HangarDesign_MikuV1Rework" path="GarageGraphics/Hangar/GarageGraphics_Hangar_Design_MikuV1Rework.xml"/>
 
   <AutomationSequence UID="d6pyq0jwcf87wemw" packageName="GarageGraphics_LobbyHeader_PersonalReserve_Aqua" path="GarageGraphics/LobbyHeader/GarageGraphics_LobbyHeader_PersonalReserve_Aqua.xml" />
   <AutomationSequence UID="7k76i49f7yax7749" packageName="GarageGraphics_LobbyHeader_PersonalReserve_Blue" path="GarageGraphics/LobbyHeader/GarageGraphics_LobbyHeader_PersonalReserve_Blue.xml" />

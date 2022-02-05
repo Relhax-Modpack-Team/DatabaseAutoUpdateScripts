@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<AutomationSequence documentVersion="1.0">
+  <!-- download_yandex_2.xml
+    Author:  Willster419
+    Created: 2022-02-04
+    This sequence template contains the browser session process for getting a yandex disk direct download. Uses the second xpath macro
+
+    Required macros:
+    {yandex_drive_link}            - The url to the yandex download (ex. https://disk.yandex.ru/d/PsvkIhYqhIF2ag)
+    {yandex_dl_filepath}           - The relative or absolute filepath to use for the download
+  -->
+  <TaskDefinitions>
+    <!-- Create a browser session. For some reason Yandex will block the WebClient thinking it's a bot,
+         but allows the HttpClient without issue. Lol. -->
+    <Task ID="browser_session_start" Command="browser_session_start" Browser="HttpClient"/>
+
+    <!-- set browser headers -->
+    <Task ID="import_task_set_headers_embedded_ie" Command="import_task" RepoUrlPath="Task_templates/BrowserSession/set_headers_embedded_ie.xml"/>
+
+    <!-- navigate to the given download url. It will give us some cookies and have a href definition in the download button that we need -->
+    <Task ID="get_yandex_download" Command="browser_session_get_request" ParseResult="True" HtmlPath="{yandex_xpath_2}"
+      WriteHtmlResult="True" MacroName ="yandex_link_direct" Url="{yandex_drive_link}"/>
+    <Task ID="create_yandex_direct_download_url" Command="macro_create" MacroName="yandex_direct_download_url" MacroValue="{yandex_prefix_2}{yandex_link_direct}"/>
+
+    <!-- then we have the cookies, we need to just download the file from the href parsed above -->
+    <Task ID="get_google_drive_download_file" Command="browser_session_download_file" Url="{yandex_direct_download_url}" DestinationPath="{yandex_dl_filepath}"/>
+    <Task ID="browser_session_end" Command="browser_session_end"/>
+  </TaskDefinitions>
+</AutomationSequence>
