@@ -24,16 +24,21 @@
     <!-- extract the installer of which contains the source files -->
     <Task ID="import_task_clickteam_extract" Command="import_task" RepoUrlPath="Task_templates/Generic/Install_Extract/clickteam_extract.xml"/>
 
+    <!-- get file paths for wotmods -->
+    <Task ID="SicFunzler_Gun_sounds" Command="directory_search" DirectoryPath="{working_folder_source}\{extract_dir}" SearchPattern="*SicFunzler_Gun_sounds.wotmod" Recursive="True" MacroPrefix="SicFunzler_Gun_sounds"/>
+    <Task ID="SicFunzler_Hits" Command="directory_search" DirectoryPath="{working_folder_source}\{extract_dir}" SearchPattern="*SicFunzler_Hits.wotmod" Recursive="True" MacroPrefix="SicFunzler_Hits"/>
+    <Task ID="SicFunzler_Reload" Command="directory_search" DirectoryPath="{working_folder_source}\{extract_dir}" SearchPattern="*SicFunzler_Reload.wotmod" Recursive="True" MacroPrefix="SicFunzler_Reload"/>
+
     <!-- Compare the source and modpack files -->
     <Task ID="compare_start" Command="compare_start"/>
     <Task ID="compare_wotmod_SicFunzler_Gun_sounds" Command="file_compare"
-      FileA="{working_folder_source}\{extract_dir}\-Sound\SicFunzler_Gun_sounds.wotmod"
+      FileA="{SicFunzler_Gun_sounds_0}"
       FileB="{working_folder_modpack}\mods\versiondir\SicFunzler-Sound\SicFunzler_Gun_sounds.wotmod"/>
     <Task ID="compare_wotmod_SicFunzler_Hits" Command="file_compare"
-      FileA="{working_folder_source}\{extract_dir}\-Sound\SicFunzler_Hits.wotmod"
+      FileA="{SicFunzler_Hits_0}"
       FileB="{working_folder_modpack}\mods\versiondir\SicFunzler-Sound\SicFunzler_Hits.wotmod"/>
     <Task ID="compare_wotmod_SicFunzler_Reload" Command="file_compare"
-      FileA="{working_folder_source}\{extract_dir}\-Sound\SicFunzler_Reload.wotmod"
+      FileA="{SicFunzler_Reload_0}"
       FileB="{working_folder_modpack}\mods\versiondir\SicFunzler-Sound\SicFunzler_Reload.wotmod"/>
 
     <Task ID="compare_config_SicFunzler_Gun_effects" Command="file_compare"
@@ -55,13 +60,13 @@
 
     <!-- copy results to package directory -->
     <Task ID="copy_wotmod_SicFunzler_Gun_sounds" Command="file_copy"
-      SourceFilePath="{working_folder_source}\{extract_dir}\-Sound\SicFunzler_Gun_sounds.wotmod"
+      SourceFilePath="{SicFunzler_Gun_sounds_0}"
       DestinationFilePath="{working_folder_package}\mods\versiondir\SicFunzler-Sound\SicFunzler_Gun_sounds.wotmod"/>
     <Task ID="copy_wotmod_SicFunzler_Hits" Command="file_copy"
-      SourceFilePath="{working_folder_source}\{extract_dir}\-Sound\SicFunzler_Hits.wotmod"
+      SourceFilePath="{SicFunzler_Hits_0}"
       DestinationFilePath="{working_folder_package}\mods\versiondir\SicFunzler-Sound\SicFunzler_Hits.wotmod"/>
     <Task ID="copy_wotmod_SicFunzler_Reload" Command="file_copy"
-      SourceFilePath="{working_folder_source}\{extract_dir}\-Sound\SicFunzler_Reload.wotmod"
+      SourceFilePath="{SicFunzler_Reload_0}"
       DestinationFilePath="{working_folder_package}\mods\versiondir\SicFunzler-Sound\SicFunzler_Reload.wotmod"/>
 
     <Task ID="copy_config_SicFunzler_Gun_effects" Command="file_copy"

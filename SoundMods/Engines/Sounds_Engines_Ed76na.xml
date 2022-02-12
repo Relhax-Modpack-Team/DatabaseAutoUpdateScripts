@@ -24,10 +24,13 @@
     <!-- extract the installer of which contains the source files -->
     <Task ID="import_task_clickteam_extract" Command="import_task" RepoUrlPath="Task_templates/Generic/Install_Extract/clickteam_extract.xml"/>
 
+    <!-- get file paths for wotmods -->
+    <Task ID="get_SicFunzler_Engines" Command="directory_search" DirectoryPath="{working_folder_source}\{extract_dir}" SearchPattern="*SicFunzler_Engines.wotmod" Recursive="True" MacroPrefix="get_SicFunzler_Engines"/>
+
     <!-- Compare the source and modpack files -->
     <Task ID="compare_start" Command="compare_start"/>
     <Task ID="compare_wotmod" Command="file_compare"
-      FileA="{working_folder_source}\{extract_dir}\-Sound\SicFunzler_Engines.wotmod"
+      FileA="{get_SicFunzler_Engines_0}"
       FileB="{working_folder_modpack}\mods\versiondir\SicFunzler-Sound\SicFunzler_Engines.wotmod"/>
     <Task ID="compare_config" Command="file_compare"
       FileA="{working_folder_source}\{extract_dir}\mods\configs\PYmods\SoundEventInjector\configs\SicFunzler_Engines.json"
@@ -39,7 +42,7 @@
 
     <!-- copy results to package directory -->
     <Task ID="copy_wotmod" Command="file_copy"
-      SourceFilePath="{working_folder_source}\{extract_dir}\-Sound\SicFunzler_Engines.wotmod"
+      SourceFilePath="{get_SicFunzler_Engines_0}"
       DestinationFilePath="{working_folder_package}\mods\versiondir\SicFunzler-Sound\SicFunzler_Engines.wotmod"/>
     <Task ID="copy_config" Command="file_copy"
       SourceFilePath="{working_folder_source}\{extract_dir}\mods\configs\PYmods\SoundEventInjector\configs\SicFunzler_Engines.json"
