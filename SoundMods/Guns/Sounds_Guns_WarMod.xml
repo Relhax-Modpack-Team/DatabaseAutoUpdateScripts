@@ -12,6 +12,9 @@
     <!-- import tasks -->
     <Task ID="import_macro_create_tasks" Command="import_task" RepoUrlPath="Task_templates/create_workDirs_macros.xml"/>
 
+    <!-- get download url at index 0 of the dev url property array, for the update task update_package_version_from_wgmods -->
+    <Task ID="get_download_page_url" Command="retrieve_package_property" PropertyName="DevURLList" TargetPackageUID="this" MacroSaveName="package_url" PropertyIndex="0"/>
+
     <!-- get download url at index 1 of the dev url property array -->
     <Task ID="get_download_page_url" Command="retrieve_package_property" PropertyName="DevURLList" TargetPackageUID="this" MacroSaveName="wot_forms_url" PropertyIndex="1"/>
 
