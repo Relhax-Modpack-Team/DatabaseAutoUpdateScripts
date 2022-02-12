@@ -4,9 +4,11 @@
     <Macro Name="custom_url" Value="https://m.vk.com/talliepo"/>
     <Macro Name="yandex_dl_filepath" Value="{working_folder_source}\{packageName}.zip"/>
     <Macro Name="upload_zip_filename" Value="{packageName}_{clientVersion}_{date}"/>
+    <Macro Name="miku_temp_dir" Value="C:\temp\miku"/>
+    <Macro Name="miku_temp_dir_src" Value="{miku_temp_dir}\src"/>
+    <Macro Name="miku_temp_dir_mod" Value="{miku_temp_dir}\mod"/>
   </Macros>
   <TaskDefinitions>
-    <!-- NOTE: this script creates long directory paths and may produce errors about files not existing. You may need to run this from a folder directly from your drive's root -->
     <!-- import tasks -->
     <Task ID="import_macro_create_tasks" Command="import_task" RepoUrlPath="Task_templates/create_workDirs_macros.xml"/>
 
@@ -19,30 +21,41 @@
 
     <!-- extract source. it will have a weird folder inside it -->
     <Task ID="extract_source_wotmod" Command="shell_exec" Filename="7z.exe" Wd="{working_folder_source}"
-      Cmd="x {packageName}.zip *&quot;(Main modification files)&quot;\* -o&quot;{working_folder_package}\res_mods\versiondir&quot;"/>
+      Cmd="x {packageName}.zip *&quot;(Main modification files)&quot;\* -o{miku_temp_dir_src}\res_mods\versiondir"/>
 
-    <!-- get the werid part of the name of the (Main modification files) folder -->
-    <Task ID="get_werid_folder_name_1" Command="directory_search" DirectoryPath="{working_folder_package}\res_mods\versiondir" SearchPattern="*" Recursive="True" MacroPrefix="filename_results_source"/>
-    <Task ID="get_werid_folder_name_2" Command="macro_string_split_macro" MacroName="folder_name_0" Index="0" SplitCharacters="{working_folder_package}\res_mods\versiondir\" InputText="{filename_results_source_0}"/>
-    <Task ID="get_werid_folder_name_3" Command="macro_string_split_macro" MacroName="folder_name" Index="0" SplitCharacters="\" InputText="{folder_name_0}"/>
+    <!-- get the weird part of the name of the (Main modification files) folder -->
+    <Task ID="get_weird_folder_name_1" Command="directory_search" DirectoryPath="{miku_temp_dir_src}\res_mods\versiondir" SearchPattern="*" Recursive="True" MacroPrefix="filename_results_source"/>
+    <Task ID="get_weird_folder_name_2" Command="macro_string_split_macro" MacroName="folder_name_0" Index="0" SplitCharacters="{miku_temp_dir_src}\res_mods\versiondir\" InputText="{filename_results_source_0}"/>
+    <Task ID="get_weird_folder_name_3" Command="macro_string_split_macro" MacroName="folder_name" Index="0" SplitCharacters="\" InputText="{folder_name_0}"/>
 
     <!-- move all the files out to the package directory -->
-    <Task ID="move_files_versiondir" Command="directory_move" DirectoryPath="{working_folder_package}\res_mods\versiondir\{folder_name}" SearchPattern="*" Recursive="True" DestinationPath="{working_folder_package}\res_mods\versiondir"/>
-    <Task ID="delete_old_version_dir" Command="directory_delete" DirectoryPath="{working_folder_package}\res_mods\versiondir\{folder_name}" SearchPattern="*" Recursive="True" IncludeRootInSearch="True"/>
+    <Task ID="move_files_versiondir" Command="directory_move" DirectoryPath="{miku_temp_dir_src}\res_mods\versiondir\{folder_name}" SearchPattern="*" Recursive="True" DestinationPath="{miku_temp_dir_src}\res_mods\versiondir"/>
+    <Task ID="delete_old_version_dir" Command="directory_delete" DirectoryPath="{miku_temp_dir_src}\res_mods\versiondir\{folder_name}" SearchPattern="*" Recursive="True" IncludeRootInSearch="True"/>
 
     <!-- download the modpack file -->
     <Task ID="download_modpack" Command="package_download" FilePath="{working_folder_modpack}\{packageName}.zip"/>
 
     <!-- extract the modpack file keeping paths-->
-    <Task ID="extract_modpack" Command="shell_exec" Filename="7z.exe" Wd="{working_folder_modpack}" Cmd="x {packageName}.zip"/>
+    <Task ID="extract_modpack" Command="shell_exec" Filename="7z.exe" Wd="{working_folder_modpack}" Cmd="x {packageName}.zip -o{miku_temp_dir_mod}"/>
 
     <Task ID="compare_start" Command="compare_start"/>
     <Task ID="compare_language_files" Command="directory_compare_count" SearchPattern="*" Recursive="True"
-      DirectoryComparePathA="{working_folder_package}\res_mods\versiondir"
-      DirectoryComparePathB="{working_folder_modpack}\res_mods\versiondir"/>
+      DirectoryComparePathA="{miku_temp_dir_src}\res_mods\versiondir"
+      DirectoryComparePathB="{miku_temp_dir_mod}\res_mods\versiondir"/>
     <Task ID="compare_end" Command="compare_end"/>
 
-    <!-- create new package zip and upload to the server -->
-    <Task ID="import_create_upload_zip" Command="import_task" RepoUrlPath="Task_templates/create_upload_zip.xml"/>
+    <!-- create the new zip
+      "a" is to add to an archive. In this case because it's the first file, the archive is created for the first time.
+      -tzip is to create a zip format archive
+      -mx=9 is setting the level of compression to 9 (scale goes from 0 [store] to 9[ultra])
+      -r recurse subdirectories
+    -->
+    <Task ID="create_zip" Command="shell_exec" Filename="7z.exe" Wd="{miku_temp_dir_src}" Cmd="{7z_createFinalZip}"/>
+
+    <!-- upload to the server -->
+    <Task ID="upload_zip" Command="package_upload" FilePath="{miku_temp_dir_src}\final.zip" ZipFileName="{upload_zip_filename}.zip"/>
+    
+    <!-- delete temp directory -->
+    <Task ID="delete_temp_dir" Command="directory_delete" DirectoryPath="{miku_temp_dir}" SearchPattern="*" Recursive="True" IncludeRootInSearch="True"/>
   </TaskDefinitions>
 </AutomationSequence>
