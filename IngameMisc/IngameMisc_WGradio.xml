@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <AutomationSequence documentVersion="1.0">
   <Macros>
+    <Macro Name="upload_zip_filename" Value="{packageName}_{version_source}_{clientVersion}_{date}"/>
+    <Macro Name="target_package_uid" Value="this"/>
   </Macros>
   <TaskDefinitions>
     <!-- import tasks -->
@@ -62,7 +64,6 @@
     <Task ID="import_update_package_version_from_wgmods" Command="import_task" RepoUrlPath="Task_templates/update_package_version_from_wgmods.xml"/>
 
     <!-- create zip and upload -->
-    <Task ID="create_upload_zip_filename_macro" Command="macro_create" MacroName="upload_zip_filename" MacroValue="{packageName}_{version_source}_{clientVersion}_{date}"/>
     <Task ID="import_create_upload_zip" Command="import_task" RepoUrlPath="Task_templates/create_upload_zip.xml"/>
   </TaskDefinitions>
 </AutomationSequence>
