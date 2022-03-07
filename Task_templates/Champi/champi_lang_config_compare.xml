@@ -9,7 +9,7 @@
     Required macros:
     {working_folder_modpack}       - The working folder of the modpack zip file and extraction processes
     {working_folder_source}        - The working folder of the source zip file and extracation processes
-    {mod_name}                     - The name of the mod, used in the wotmod name and config file/folder name
+    {mod_name_source}                     - The name of the mod, used in the wotmod name and config file/folder name
   -->
   <TaskDefinitions>
     <!-- Compare language files -->
@@ -19,7 +19,7 @@
     <!-- Compare config / inverse -->
     <!-- sequence should stop when there are changes to the cfg file -->
     <Task ID="compare_cfg" Command="file_compare_inverse"
-      FileA="{working_folder_source}\{mod_name}.json"
-      FileB="{working_folder_modpack}\{mod_name}.json"/>
+      FileA="{working_folder_source}\{config_file_name_source}"
+      FileB="{working_folder_modpack}\{config_file_name_modpack}"/>
   </TaskDefinitions>
 </AutomationSequence>

@@ -8,12 +8,12 @@
 
     Required macros:
     {working_folder_package}       - The working fodler of the final zip file package created to be uploaded
-    {mod_name}                     - The name of the mod, used in the wotmod name and config file/folder name
+    {mod_name_source}                     - The name of the mod, used in the wotmod name and config file/folder name
   -->
   <TaskDefinitions>
-    <Task ID="check_cfg_exists" Command="macro_string_split_filename" MacroName="check_cfg_exists" Index="0" SplitCharacters="_" FilePath="{working_folder_package}\mods\configs\CHAMPi\{mod_name}\{mod_name}.json"/>
+    <Task ID="check_cfg_exists" Command="macro_string_split_filename" MacroName="check_cfg_exists" Index="0" SplitCharacters="_" FilePath="{working_folder_package}\mods\configs\CHAMPi\{config_folder_name_source}\{config_file_name_source}"/>
 
-    <Task ID="get_lang_files" Command="directory_search" DirectoryPath="{working_folder_package}\mods\configs\CHAMPi\{mod_name}\i18n" SearchPattern="*.json" Recursive="False" MacroPrefix="get_lang_files"/>
+    <Task ID="get_lang_files" Command="directory_search" DirectoryPath="{working_folder_package}\mods\configs\CHAMPi\{config_folder_name_source}\i18n" SearchPattern="*.json" Recursive="False" MacroPrefix="get_lang_files"/>
     <Task ID="check_lang_exists" Command="macro_string_split_filename" MacroName="check_lang_exists" Index="0" SplitCharacters="_" FilePath="{get_lang_files_0}"/>
   </TaskDefinitions>
 </AutomationSequence>

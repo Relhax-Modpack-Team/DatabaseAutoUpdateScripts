@@ -2,9 +2,16 @@
 <AutomationSequence documentVersion="1.0">
   <!-- Specify macros here -->
   <Macros>
-    <Macro Name="mod_name" Value="playerPanelPro"/>
-    <Macro Name="wotmod_prefix" Value="de.champi.wot."/>
-    <Macro Name="additional_files" Value="mods\configs\CHAMPi\{mod_name}\customConfig_default.json"/>
+    <Macro Name="mod_name_source" Value="playerpanelpro"/>
+    <Macro Name="config_folder_name_source" Value="playerPanelPro"/>
+    <Macro Name="config_file_name_source" Value="playerpanelpro.json"/>
+    <Macro Name="wotmod_prefix_source" Value="champi."/>
+    <Macro Name="additional_files_source" Value="mods\configs\CHAMPi\{config_folder_name_source}\customConfig_default.json"/>
+    <Macro Name="mod_name_modpack" Value="playerPanelPro"/>
+    <Macro Name="config_folder_name_modpack" Value="{mod_name_modpack}"/>
+    <Macro Name="config_file_name_modpack" Value="{mod_name_modpack}.json"/>
+    <Macro Name="wotmod_prefix_modpack" Value="de.champi.wot."/>
+    <Macro Name="additional_files_modpack" Value="mods\configs\CHAMPi\{config_folder_name_modpack}\customConfig_default.json"/>
   </Macros>
 
   <!-- Specify the tasks to run -->
@@ -25,13 +32,13 @@
 
     <!-- extract and compare the 'customCfg' folder -->
     <Task ID="extract_customcfg_folder_source" Command="shell_exec" Filename="7z.exe" Wd="{working_folder_source}"
-      Cmd="x {last_download_filename} -ocustom_cfg mods\configs\CHAMPi\playerPanelPro\\customcfg"/>
+      Cmd="x {last_download_filename} -ocustom_cfg mods\configs\CHAMPi\{config_folder_name_source}\\customcfg"/>
     <Task ID="extract_customcfg_folder_modpack" Command="shell_exec" Filename="7z.exe" Wd="{working_folder_modpack}"
-      Cmd="x {packageName}.zip -ocustom_cfg mods\configs\CHAMPi\playerPanelPro\customcfg"/>
+      Cmd="x {packageName}.zip -ocustom_cfg mods\configs\CHAMPi\{config_folder_name_modpack}\customcfg"/>
 
     <Task ID="compare_customcfg_files" Command="directory_compare_count" SearchPattern="*" Recursive="True"
-      DirectoryComparePathA="{working_folder_source}\custom_cfg\mods\configs\CHAMPi\playerPanelPro\customcfg"
-      DirectoryComparePathB="{working_folder_modpack}\custom_cfg\mods\configs\CHAMPi\playerPanelPro\customcfg"/>
+      DirectoryComparePathA="{working_folder_source}\custom_cfg\mods\configs\CHAMPi\{config_folder_name_source}\customcfg"
+      DirectoryComparePathB="{working_folder_modpack}\custom_cfg\mods\configs\CHAMPi\{config_folder_name_modpack}\customcfg"/>
 
     <!-- Run champi tasks part 2 -->
     <Task ID="import_champi_2" Command="import_task" RepoUrlPath="Task_templates/Champi/champi_2.xml"/>
@@ -41,10 +48,10 @@
 
     <!-- Extract the customcfg into the package location -->
     <Task ID="extract_customcfg_folder_source" Command="shell_exec" Filename="7z.exe" Wd="{working_folder_source}"
-      Cmd="x {last_download_filename} -o&quot;{working_folder_package}&quot; mods\configs\CHAMPi\playerPanelPro\\customcfg"/>
+      Cmd="x {last_download_filename} -o&quot;{working_folder_package}&quot; mods\configs\CHAMPi\{config_folder_name_source}\\customcfg"/>
 
     <!-- Ensure customconfig exists -->
-    <Task ID="get_customcfg_files" Command="directory_search" DirectoryPath="{working_folder_package}\mods\configs\CHAMPi\playerPanelPro\customcfg" SearchPattern="*" Recursive="True" MacroPrefix="get_customcfg_files"/>
+    <Task ID="get_customcfg_files" Command="directory_search" DirectoryPath="{working_folder_package}\mods\configs\CHAMPi\{config_folder_name_source}\customcfg" SearchPattern="*" Recursive="True" MacroPrefix="get_customcfg_files"/>
 
     <!-- as of the time of this document's creation (see header), there's 29 files in the 'customcfg' folder. The macro creation is 0 index based. -->
     <Task ID="check_customcfg_exists" Command="macro_string_split_filename" MacroName="check_customcfg_exists" Index="0" SplitCharacters="_" FilePath="{get_customcfg_files_28}"/>

@@ -3,18 +3,18 @@
 <!-- champi_1.xml
     Author:  Willster419
     Created: 2021-12-03
-    This sequence template is part 1for comparing and updating champi based mods. As of last month, he confirmed he doesn't
+    This sequence template is part 1 for comparing and updating champi based mods. As of last month, he confirmed he doesn't
     individually package his mods anymore. Therefore, we must get them by extracting from his installer -.-
     This part takes us down to starting a compare, and comparing the wotmod, cfg file, and language files.
 
     Required macros:
     {working_folder_modpack}       - The working folder of the modpack zip file and extraction processes
     {working_folder_source}        - The working folder of the source zip file and extracation processes
-    {mod_name}                     - The name of the mod, used in the wotmod name and config file/folder name
-    {wotmod_prefix}                - The prefix of the wotmod filename
+    {mod_name_source}                     - The name of the mod, used in the wotmod name and config file/folder name
+    {wotmod_prefix_source}                - The prefix of the wotmod filename
 
     Optional macros:
-    {additional_files}             - Any additional files to extract from source
+    {additional_files_source}             - Any additional files to extract from source
   -->
   <TaskDefinitions>
     <!-- create the working directories -->
@@ -38,20 +38,20 @@
 
     <!-- Extract the required source and modpack files to a flat directory location for comparison only -->
     <Task ID="extract_source_flat" Command="shell_exec" Filename="7z.exe" Wd="{working_folder_source}"
-      Cmd="e {last_download_filename} mods\{champi_client_version}\{wotmod_prefix}{mod_name}*.wotmod mods\configs\CHAMPi\{mod_name}\{mod_name}.json {additional_files}"/>
+      Cmd="e {last_download_filename} mods\{champi_client_version}\{wotmod_prefix_source}{mod_name_source}*.wotmod mods\configs\CHAMPi\{config_folder_name_source}\{config_file_name_source} {additional_files_source}"/>
 
     <Task ID="extract_modpack_flat" Command="shell_exec" Filename="7z.exe" Wd="{working_folder_modpack}"
-      Cmd="e {packageName}.zip mods\versiondir\{wotmod_prefix}{mod_name}*.wotmod mods\configs\CHAMPi\{mod_name}\{mod_name}.json {additional_files}"/>
+      Cmd="e {packageName}.zip mods\versiondir\{wotmod_prefix_modpack}{mod_name_modpack}*.wotmod mods\configs\CHAMPi\{config_folder_name_modpack}\{config_file_name_modpack} {additional_files_modpack}"/>
 
     <Task ID="extract_source_lang_flat" Command="shell_exec" Filename="7z.exe" Wd="{working_folder_source}"
-      Cmd="e {last_download_filename} -olang mods\configs\CHAMPi\{mod_name}\\i18n\*.json"/>
+      Cmd="e {last_download_filename} -olang mods\configs\CHAMPi\{config_folder_name_source}\\i18n\*.json"/>
 
     <Task ID="extract_modpack_lang_flat" Command="shell_exec" Filename="7z.exe" Wd="{working_folder_modpack}"
-      Cmd="e {packageName}.zip -olang mods\configs\CHAMPi\{mod_name}\i18n\*.json"/>
+      Cmd="e {packageName}.zip -olang mods\configs\CHAMPi\{config_folder_name_modpack}\i18n\*.json"/>
 
     <!-- Get the names of the wotmods for both package and source -->
-    <Task ID="get_wotmod_source" Command="directory_search" DirectoryPath="{working_folder_source}" SearchPattern="{wotmod_prefix}{mod_name}*.wotmod" Recursive="False" MacroPrefix="get_wotmod_source"/>
-    <Task ID="get_wotmod_modpack" Command="directory_search" DirectoryPath="{working_folder_modpack}" SearchPattern="{wotmod_prefix}{mod_name}*.wotmod" Recursive="False" MacroPrefix="get_wotmod_modpack"/>
+    <Task ID="get_wotmod_source" Command="directory_search" DirectoryPath="{working_folder_source}" SearchPattern="{wotmod_prefix_source}{mod_name_source}*.wotmod" Recursive="False" MacroPrefix="get_wotmod_source"/>
+    <Task ID="get_wotmod_modpack" Command="directory_search" DirectoryPath="{working_folder_modpack}" SearchPattern="{wotmod_prefix_modpack}{mod_name_modpack}*.wotmod" Recursive="False" MacroPrefix="get_wotmod_modpack"/>
 
     <!-- Start a compare session. We are essentially comparing:
       - wotmod

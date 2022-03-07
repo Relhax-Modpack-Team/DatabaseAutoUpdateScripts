@@ -2,9 +2,16 @@
 <AutomationSequence documentVersion="1.0">
   <!-- Specify macros here -->
   <Macros>
-    <Macro Name="mod_name" Value="littleHelperCollection"/>
-    <Macro Name="wotmod_prefix" Value="de.champi.wot."/>
-    <Macro Name="additional_files" Value=" "/>
+    <Macro Name="mod_name_source" Value="littlehelpercollection"/>
+    <Macro Name="config_folder_name_source" Value="littleHelperCollection"/>
+    <Macro Name="config_file_name_source" Value="littleHelperCollection.json"/>
+    <Macro Name="wotmod_prefix_source" Value="champi."/>
+    <Macro Name="additional_files_source" Value=" "/>
+    <Macro Name="mod_name_modpack" Value="littleHelperCollection"/>
+    <Macro Name="config_folder_name_modpack" Value="{mod_name_modpack}"/>
+    <Macro Name="config_file_name_modpack" Value="{mod_name_modpack}.json"/>
+    <Macro Name="wotmod_prefix_modpack" Value="de.champi.wot."/>
+    <Macro Name="additional_files_modpack" Value=" "/>
   </Macros>
 
   <!-- Specify the tasks to run -->

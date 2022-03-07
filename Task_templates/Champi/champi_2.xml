@@ -11,12 +11,12 @@
     {working_folder_modpack}       - The working folder of the modpack zip file and extraction processes
     {working_folder_source}        - The working folder of the source zip file and extracation processes
     {working_folder_package}       - The working fodler of the final zip file package created to be uploaded
-    {mod_name}                     - The name of the mod, used in the wotmod name and config file/folder name
-    {wotmod_prefix}                - The prefix of the wotmod filename
+    {mod_name_source}                     - The name of the mod, used in the wotmod name and config file/folder name
+    {wotmod_prefix_source}                - The prefix of the wotmod filename
     {champi_client_version}        - The version name of the folder used in his installer, it's created in <champi_1.xml>
 
     Optional macros:
-    {additional_files}             - Any additional files to extract from source
+    {additional_files_source}             - Any additional files to extract from source
   -->
   <TaskDefinitions>
     <Task ID="compare_end" Command="compare_end"/>
@@ -26,20 +26,17 @@
       2. Extract the wotmod to a specific folder so we can use the 'versiondir' macro used by our installer.
       3. Extract any remaining listed files to their designated locations by using the 'x' arg of 7zip. -->
     <Task ID="extract_source_to_package_lang" Command="shell_exec" Filename="7z.exe" Wd="{working_folder_source}"
-      Cmd="e {last_download_filename} -o&quot;{working_folder_package}\mods\configs\CHAMPi\{mod_name}\i18n&quot; mods\configs\CHAMPi\{mod_name}\\i18n\*.json"/>
+      Cmd="e {last_download_filename} -o&quot;{working_folder_package}\mods\configs\CHAMPi\{config_folder_name_source}\i18n&quot; mods\configs\CHAMPi\{config_folder_name_source}\\i18n\*.json"/>
     <Task ID="extract_source_to_package_wotmod" Command="shell_exec" Filename="7z.exe" Wd="{working_folder_source}"
-      Cmd="e {last_download_filename} -o&quot;{working_folder_package}\mods\versiondir&quot; mods\{champi_client_version}\{wotmod_prefix}{mod_name}*.wotmod"/>
+      Cmd="e {last_download_filename} -o&quot;{working_folder_package}\mods\versiondir&quot; mods\{champi_client_version}\{wotmod_prefix_source}{mod_name_source}*.wotmod"/>
     <Task ID="extract_source_to_package_config_other" Command="shell_exec" Filename="7z.exe" Wd="{working_folder_source}"
-      Cmd="x {last_download_filename} -o&quot;{working_folder_package}&quot; mods\configs\CHAMPi\{mod_name}\{mod_name}.json {additional_files}"/>
-
-    <!-- And dont' forgot to check for any patch files! If there are none to extract then 7z won't make a folder -->
-    <Task ID="extract_patches_if_exist" Command="shell_exec" Filename="7z.exe" Wd="{working_folder_modpack}" Cmd="e {packageName}.zip -o&quot;{working_folder_package}\_patch&quot; _patch/*.xml"/>
+      Cmd="x {last_download_filename} -o&quot;{working_folder_package}&quot; mods\configs\CHAMPi\{config_folder_name_source}\{config_file_name_source} {additional_files_source}"/>
 
     <!-- Run some tasks for getting macros from filenames, just so that it will verify that files exist as intended. We at least need to verify:
     - wotmod
     - config file
     - language files -->
-    <Task ID="get_wotmod" Command="directory_search" DirectoryPath="{working_folder_package}\mods\versiondir" SearchPattern="{wotmod_prefix}{mod_name}*.wotmod" Recursive="False" MacroPrefix="get_wotmod"/>
+    <Task ID="get_wotmod" Command="directory_search" DirectoryPath="{working_folder_package}\mods\versiondir" SearchPattern="{wotmod_prefix_source}{mod_name_source}*.wotmod" Recursive="False" MacroPrefix="get_wotmod"/>
     <Task ID="check_wotmod_exists" Command="macro_string_split_filename" MacroName="check_wotmod_exists" Index="0" SplitCharacters="_" FilePath="{get_wotmod_0}"/>
 
     <!-- get the current version of the mod by string split and file search -->
