@@ -3,14 +3,14 @@
   <!-- Specify macros here -->
   <Macros>
     <Macro Name="mod_name_source" Value="expectedvehiclevalues"/>
-    <Macro Name="config_folder_name_source" Value="expectedVehicleValues"/>
+    <Macro Name="config_folder_name_source" Value="expectedvehiclevalues"/>
     <Macro Name="config_file_name_source" Value="expectedvehiclevalues.json"/>
     <Macro Name="wotmod_prefix_source" Value="champi."/>
     <Macro Name="additional_files_source" Value="mods\configs\CHAMPi\{config_folder_name_source}\wn8exp.csv"/>
-    <Macro Name="mod_name_modpack" Value="expectedVehicleValues"/>
-    <Macro Name="config_folder_name_modpack" Value="{mod_name_modpack}"/>
-    <Macro Name="config_file_name_modpack" Value="{mod_name_modpack}.json"/>
-    <Macro Name="wotmod_prefix_modpack" Value="de.champi.wot."/>
+    <Macro Name="mod_name_modpack" Value="{mod_name_source}"/>
+    <Macro Name="config_folder_name_modpack" Value="{config_folder_name_source}"/>
+    <Macro Name="config_file_name_modpack" Value="{config_file_name_source}.json"/>
+    <Macro Name="wotmod_prefix_modpack" Value="{wotmod_prefix_source}"/>
     <Macro Name="additional_files_modpack" Value="mods\configs\CHAMPi\{config_folder_name_modpack}\wn8exp.csv"/>
   </Macros>
 

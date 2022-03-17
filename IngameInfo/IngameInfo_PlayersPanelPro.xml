@@ -3,14 +3,14 @@
   <!-- Specify macros here -->
   <Macros>
     <Macro Name="mod_name_source" Value="playerpanelpro"/>
-    <Macro Name="config_folder_name_source" Value="playerPanelPro"/>
+    <Macro Name="config_folder_name_source" Value="playerpanelpro"/>
     <Macro Name="config_file_name_source" Value="playerpanelpro.json"/>
     <Macro Name="wotmod_prefix_source" Value="champi."/>
     <Macro Name="additional_files_source" Value="mods\configs\CHAMPi\{config_folder_name_source}\customConfig_default.json"/>
     <Macro Name="mod_name_modpack" Value="playerPanelPro"/>
-    <Macro Name="config_folder_name_modpack" Value="{mod_name_modpack}"/>
-    <Macro Name="config_file_name_modpack" Value="{mod_name_modpack}.json"/>
-    <Macro Name="wotmod_prefix_modpack" Value="de.champi.wot."/>
+    <Macro Name="config_folder_name_modpack" Value="playerPanelPro"/>
+    <Macro Name="config_file_name_modpack" Value="playerpanelpro.json"/>
+    <Macro Name="wotmod_prefix_modpack" Value="{wotmod_prefix_source}"/>
     <Macro Name="additional_files_modpack" Value="mods\configs\CHAMPi\{config_folder_name_modpack}\customConfig_default.json"/>
   </Macros>
 
