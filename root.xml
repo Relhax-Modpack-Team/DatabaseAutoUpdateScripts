@@ -8,9 +8,9 @@
   <!-- nightly -->
   <AutomationSequence UID="vxb6fqgbg3p0hfv9" packageName="LogicalDependency_XVM_Main_Nightly" path="Dependencies/XVM/LogicalDependency_XVM_Main_Nightly.xml" />
   <!-- stable [ACTIVATE WHEN STABLE VERSION IS AVAILABLE]-->
-  <AutomationSequence UID="i84r7raah7wjh3oa" packageName="LogicalDependency_XVM_Main_Stable" path="Dependencies/XVM/LogicalDependency_XVM_Main_Stable.xml" />
+  <!-- <AutomationSequence UID="i84r7raah7wjh3oa" packageName="LogicalDependency_XVM_Main_Stable" path="Dependencies/XVM/LogicalDependency_XVM_Main_Stable.xml" /> -->
   <!-- stable - using nightly builds [ACTIVATE THIS WHEN THERE IS NO STABLE AVAILABLE] -->
-  <!-- <AutomationSequence UID="i84r7raah7wjh3oa" packageName="LogicalDependency_XVM_Main_Stable" path="Dependencies/XVM/LogicalDependency_XVM_Main_Stable_useNightly.xml" /> -->
+  <AutomationSequence UID="i84r7raah7wjh3oa" packageName="LogicalDependency_XVM_Main_Stable" path="Dependencies/XVM/LogicalDependency_XVM_Main_Stable_useNightly.xml" />
   <!-- xvm dependencies -->
   <AutomationSequence UID="rfcmvsox9b47s7zm" packageName="Dependency_XVM_PY_aiming" path="Dependencies/XVM/PY/Dependency_XVM_PY_aiming.xml"/>
   <AutomationSequence UID="mtutnweg3u5x30hz" packageName="Dependency_XVM_PY_aimingSystem" path="Dependencies/XVM/PY/Dependency_XVM_PY_aimingSystem.xml"/>
